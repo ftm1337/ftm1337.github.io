@@ -8,36 +8,94 @@
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
   <style>
     * {
-      color:white;
+      color:#eee;
     }
     a{text-decoration-line:none}
     html{
-      background-image:url("img/overlay.gif");
+      background:#000;
       font-family:helvetica nueve, robotica, ubuntu, sans-serif
     }
-    #header {
-      font-size:3em;
-    }
-    h1,pre{background-color:rgba(0,255,255,0.1)}
-    button{border-radius:25px;background:black;font-size:1em}
+    input,button{border-radius:25px;background:black;text-align:center}
     button:hover{  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);transition: 0.2s}
+    pre{overflow-x:auto;max-width:80%}
+    .mainpanels{display:grid}
+    .mainpanel{grid-template-columns:auto}
+    #votingmvg{border-radius:20px;border: #aaa solid 1px}
+    .topbar{display:grid;grid-template-columns: auto;}
+
+    @media(min-width:641px){
+        .mainpanels{grid-template-columns:50% 50%}
+    }
   </style>
 </head>
-  <div align="center">
-    <a href="https://t.me/FTM1337">
-    <h1 id="header">Fantom Opera # 1337</h1>
-      <img width="256px" src="img/ftm1337.jpg">
-    </a>
-    <br>
-    <br>
-    <br>
-    <pre>$ELITE
-    0xf43cc235e686d7bc513f53fbffb61f760c3a1882</pre>
-    <a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
-    <a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
-    <a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882"" target="_blank"><button>Spooky</button></a><br><br>
-    <h2>[FTM Tools & Analytics]</h2>
-      *Coming Soon<br>
-    <h1><a href="https://ftm.monster">FTM.monster</a> | <a href="https://ftm.guru">FTM.guru</a></h1>
-  </div>
+<div class="topbar">
+	<div align="center">
+		<b style="font-size:2em">FTM.guru</b>
+	</div>
+</div>
+<br>
+<hr>
+
+<br>
+<br>
+<div class="mainpanels">
+    <div class="mainpanel" align="center">
+        <span style="font-size:1.3em">[FTM Tools & Analytics]</span>
+        <br>*Coming Soon<br><br>
+        <a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
+        <br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br>
+    <br><br>
+    </div>
+    <div class="mainpanel" align="center">
+         <span style="font-size:1.3em">Top 5 Most Voted Gems</span>
+         <div id="mvg">
+         </div>
+         <br><b>Vote for your fave toke now!</b><br>
+         <input id="mvgcandidate" placeholder=" FTM Contract address">
+         <button id="votemvg"> ▶</button>
+    </div>
+</div>
+<br><br><br>
+<div id="votingmvg" style="padding: 10px" align="center">
+<i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
+</div>
+
+
+<br><br><br>
+
+
+
+<hr>
+<div align="center">
+<br>
+<br>
+<br>
+<pre>$ELITE
+0xf43cc235e686d7bc513f53fbffb61f760c3a1882</pre>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a><br><br>
+<h3><a href="https://ftm.monster">FTM.monster</a>
+<br><a href="https://ftm.guru">FTM.guru</a></h3>
+</div>
+<script>
+function $(_){return document.getElementById(_)}
+function fillmvg()
+{
+	d=document.createElement('div');
+	a=document.createElement('pre');
+	e=document.createElement('a');
+	t=document.createElement('a');
+	a.textContent=ads[i];
+	e.innerHTML=`<a target="_blank" href="https://ftmscsan.com/token/${ads[i]}"><button>Scan</button></a> `;
+	t.innerHTML=`<a target="_blank" href="https://spiritswap.finance/#/swap?outputToken=${ads[i]}"><button>Trade</buttton></a>`;
+	d.append(a);
+	d.append(e);
+	d.append(t);
+	p=$("mvg");
+	p.appendChild(d);
+}
+ads=["0x1337","0xbabe","0x70ad","0xf00d","0xac1d"];
+for (i=0;i< ads.length;i++){fillmvg();}
+</script>
 </html>
