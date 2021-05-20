@@ -2,7 +2,7 @@
 <head>
 <title>FTM1337 (ftm.monster | ftm.guru)</title>
 <meta name="description" content="$ELITE Token is reserved for the Elite Fantom Opera users.">
-<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi">
+<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
@@ -59,7 +59,7 @@
     -->
     <br><b>Vote for your fave toke now!</b><br>
     <input id="mvgcandidate" placeholder=" FTM Contract address">
-    <button id="votemvg" onclick="mvgCV()"> ▶</button><br>
+    <button id="votemvg" onclick="mvgCV()"> ▶</button><br><br>
     <span id="mvgmsg"></span><br><br>
     Brief explainer:
     <ol>
@@ -110,7 +110,7 @@ async function mvgCV()
 	await EL.methods.allowance(window.ethereum.selectedAddress,scMVG).call((e,r)=>{allowance = r})
 	if (allowance < 1337e13)
 	{
-		await EL.methods.approve(scMVG).call((e,r)=>{console.log("scMVG Approval Tx:",r)})
+		await EL.methods.approve(scMVG).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Approval Tx:",r);})
 	}
 	candi=$("mvgcandidate").value;
 	if(!(candi.length==42)){$("mvgmsg").innerHTML="Improper address length";return(0);}
@@ -341,7 +341,7 @@ function fillmvg(i)
 	p=$("mvg");
 	p.appendChild(d);
 }
-ads=["0x1337","0xbabe","0xfeed","0xf00d","0xdead","0x70ad","0xb00b","0xfee1","0xac1d","0xcade"];
+ads=["0x1337","0xbabe","0xfeed","0xf00d","0xdead","0x70ad","0xb00b","0xfee1","0xac1d","0xdeca"];
 for (i=0;i< ads.length;i++){fillmvg(i);}
 </script>
 </html>
