@@ -92,7 +92,7 @@ window.addEventListener('load',function()
 	else
 	{
 		web3 = new Web3(web3.currentProvider);
-		if(!(Number(window.ethereum.chainId)==97)){$("mvgmsg").innerHTML="Wrong network detected."}
+		if(!(Number(window.ethereum.chainId)==250)){$("mvgmsg").innerHTML="Wrong network detected."}
 		else {cw();}
 	}
 }, false);
@@ -314,7 +314,7 @@ ab=[
 	}
 ];
 scEL="0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882";
-scMVG="0xaAa96D05FC4878025217257957DB12660fa47f73";
+scMVG="0x17B0dC3bc9DE37B5137e1B0087B2EA2cfB16f0Dc";
 function $(_){return document.getElementById(_)}
 
 function paintMVGs()
@@ -346,8 +346,7 @@ function fillmvg(i)
 	p=$("mvg");
 	p.appendChild(d);
 }
-ads=["0x1337","0xbabe","0x70ad","0xf00d","0xac1d","0xac1d","0xac1d","0xac1d","0xac1d","0xac1d"];
+ads=["0x1337","0xbabe","0xfeed","0xf00d","0xdead","0x70ad","0xb00b","0xfee1","0xac1d","0xcade"];
 for (i=0;i< ads.length;i++){fillmvg(i);}
-
 </script>
 </html>
