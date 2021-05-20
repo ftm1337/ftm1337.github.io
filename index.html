@@ -100,7 +100,7 @@ async function cw()
 	$("mvgmsg").innerHTML= (window.ethereum.selectedAddress).substr(6) + " connected.";
 	MVG = new web3.eth.Contract(ab, scMVG);
 	EL = new web3.eth.Contract(ab, scEL);
-	MVG.methods.eliteView().call((e, r) =>{console.log(r);ads=r;paintMVGs()});
+	await MVG.methods.eliteView().call((e, r) =>{console.log(r);ads=r;paintMVGs()});
 }
 async function mvgCV()
 {
