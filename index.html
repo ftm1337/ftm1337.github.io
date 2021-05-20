@@ -60,7 +60,7 @@
     <br><b>Vote for your fave toke now!</b><br>
     <input id="mvgcandidate" placeholder=" FTM Contract address">
     <button id="votemvg" onclick="mvgCV()"> ▶</button><br>
-    <span id="mvgmsg"></span><br>
+    <span id="mvgmsg"></span><br><br>
     Brief explainer:
     <ol>
     <li>Input the contract address of your preferred token.</li>
@@ -116,7 +116,7 @@ async function mvgCV()
 	if(!(candi.length==42)){$("mvgmsg").innerHTML="Improper address length";return(0);}
 	if(!(Number(candi))){$("mvgmsg").innerHTML="Improper address digits";return(0);}
 	candi=web3.utils.toChecksumAddress(candi);
-	await MVG.methods.castVote(candi).call((e,r)=>{console.log("scMVG Voting Tx:\nCandidate:",candi,"\nReturned:",r)})
+	await MVG.methods.castVote(candi).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Voting Tx:\nCandidate:",candi,"\nReturned:",r);$("mvgmsg").innerHTML="Voted for" +candi+" . Please refresh the page after voting transaction is confirmed."})
 }
 ab=[
 	{
@@ -262,6 +262,54 @@ ab=[
 			}
 		],
 		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "src",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "guy",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "guy",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "sam",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
 		"type": "function"
 	}
 ];
