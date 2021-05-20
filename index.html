@@ -22,7 +22,7 @@
     .mainpanel{grid-template-columns:auto}
     #votingmvg{border-radius:20px;border: #aaa solid 1px}
     .topbar{display:grid;grid-template-columns: auto;}
-
+    #mvg pre{margin: 10px 0 0 0}
     @media(min-width:641px){
         .mainpanels{grid-template-columns:50% 50%}
     }
@@ -40,19 +40,32 @@
 <br>
 <div class="mainpanels">
     <div class="mainpanel" align="center">
+         <span style="font-size:1.3em">Top 10 Most Voted Gems</span>
+         <div id="mvg">
+         </div>
+    </div>
+    <div class="mainpanel" align="center">
         <span style="font-size:1.3em">[FTM Tools & Analytics]</span>
         <br>*Coming Soon<br><br>
         <a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
-        <br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br>
-    <br><br>
-    </div>
-    <div class="mainpanel" align="center">
-         <span style="font-size:1.3em">Top 5 Most Voted Gems</span>
-         <div id="mvg">
-         </div>
-         <br><b>Vote for your fave toke now!</b><br>
-         <input id="mvgcandidate" placeholder=" FTM Contract address">
-         <button id="votemvg"> ▶</button>
+        <br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br><br><hr><br>
+    <button id="cw">Connect Wallet</button><br>
+    <!--
+    You hold <span id="eb">?</span> ELITE.<br>
+    Total Ownership : <span id="ebop">?</span>%<br>
+    Net Worth: <span id="ebnw">?</span> FTM.<br><br>
+    -->
+    <br><b>Vote for your fave toke now!</b><br>
+    <input id="mvgcandidate" placeholder=" FTM Contract address">
+    <button id="votemvg"> ▶</button><br>
+    <span id="mvgmsg"></span><br>
+    Brief explainer:
+    <ol>
+    <li>Input the contract address of your preferred token.</li>
+    <li>Approve <b>EliteVoting</b> contract to spend your ELITE.</li>
+    <li>Sign the Voting transaction in your Metamask wallet.</li>
+    </ol>
+    <i>Voting pushes Tokens to the top of the Elite list.</i>
     </div>
 </div>
 <br><br><br>
@@ -60,42 +73,224 @@
 <i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
 </div>
 
-
-<br><br><br>
-
-
-
-<hr>
 <div align="center">
-<br>
-<br>
-<br>
 <pre>$ELITE
-0xf43cc235e686d7bc513f53fbffb61f760c3a1882</pre>
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
 <a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
 <a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
 <a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a><br><br>
 <h3><a href="https://ftm.monster">FTM.monster</a>
 <br><a href="https://ftm.guru">FTM.guru</a></h3>
 </div>
+<script src="web3.min.js></script>
+<script>
+window.addEventListener('load',function()
+{
+	if(!window.ethereum){$("mvgmsg").innerHTML=("Please use Metamask.");}
+	else
+	{
+		web3 = new Web3(web3.currentProvider);
+		if(!(Number(window.ethereum.chainId)==97)){$("mvgmsg").innerHTML="Wrong network detected."}
+		else {cw();}
+	}
+}, false);
+async function cw()
+{
+	await window.ethereum.enable();
+	$("mvgmsg").innerHTML= (window.ethereum.selectedAddress).substr(6) + " connected.";
+	MVG = new web3.eth.Contract(ab, scMVG);
+	EL = new web3.eth.Contract(ab, scEL);
+	C.methods.eliteView().call((e, r) =>{console.log(r);ads=r;fillmvg()});
+}
+async function mvgCV()
+{
+	var allowance = 0;
+	await EL.methods.allowance(window.ethereum.selectedAddress,scMVG).call((e,r)=>{allowance = r})
+	if (allowance < 1337e13)
+	{
+		await EL.methods.approve(scMVG).call((e,r)=>{console.log("scMVG Approval Tx:",r)})
+	}
+	candi=$("mvgcandidate").value;
+	if(!(candi.length==42)){$("mvgmsg").innerHTML="Improper address length";return(0);}
+	if(!(Number(candi))){$("mvgmsg").innerHTML="Improper address digits";return(0);}
+	candi=web3.utils.toChecksumAddress(candi);
+	await MVG.methods.castVote(candi).call((e,r)=>{console.log("scMVG Voting Tx:\nCandidate:",candi,"\nReturned:",r)})
+}
+ab=[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_E",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "_B",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [],
+		"name": "Elite",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "Guru",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "tokenAddress",
+				"type": "address"
+			}
+		],
+		"name": "castVote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_a",
+				"type": "address"
+			}
+		],
+		"name": "checkPosition",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "_i",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "eliteBurn",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "eliteView",
+		"outputs": [
+			{
+				"internalType": "address[10]",
+				"name": "",
+				"type": "address[10]"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_e",
+				"type": "address"
+			}
+		],
+		"name": "setElite",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "_a",
+				"type": "uint256"
+			}
+		],
+		"name": "setEliteBurn",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "topElite",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+scMVG=0x0;
+scEL="0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882";
+</script>
 <script>
 function $(_){return document.getElementById(_)}
 function fillmvg()
 {
 	d=document.createElement('div');
 	a=document.createElement('pre');
+	n=document.createElement('span');
+	s=document.createElement('b');
 	e=document.createElement('a');
 	t=document.createElement('a');
 	a.textContent=ads[i];
+	n.textContent=ads[i];
+	s.innerHTML="("+ads[i]+")<br>";
 	e.innerHTML=`<a target="_blank" href="https://ftmscsan.com/token/${ads[i]}"><button>Scan</button></a> `;
 	t.innerHTML=`<a target="_blank" href="https://spiritswap.finance/#/swap?outputToken=${ads[i]}"><button>Trade</buttton></a>`;
 	d.append(a);
+	d.append(n);
+	d.append(s);
 	d.append(e);
 	d.append(t);
 	p=$("mvg");
 	p.appendChild(d);
 }
-ads=["0x1337","0xbabe","0x70ad","0xf00d","0xac1d"];
+ads=["0x1337","0xbabe","0x70ad","0xf00d","0xac1d","0xac1d","0xac1d","0xac1d","0xac1d","0xac1d"];
 for (i=0;i< ads.length;i++){fillmvg();}
+
 </script>
 </html>
