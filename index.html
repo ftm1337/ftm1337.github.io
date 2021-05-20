@@ -49,7 +49,7 @@
         <br>*Coming Soon<br><br>
         <a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
         <br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br><br><hr><br>
-    <button id="cw">Connect Wallet</button><br>
+    <button id="cw" onclick="cw()">Connect Wallet</button><br>
     <!--
     You hold <span id="eb">?</span> ELITE.<br>
     Total Ownership : <span id="ebop">?</span>%<br>
@@ -57,7 +57,7 @@
     -->
     <br><b>Vote for your fave toke now!</b><br>
     <input id="mvgcandidate" placeholder=" FTM Contract address">
-    <button id="votemvg"> ▶</button><br>
+    <button id="votemvg" onclick="mvgCV()"> ▶</button><br>
     <span id="mvgmsg"></span><br>
     Brief explainer:
     <ol>
@@ -82,7 +82,7 @@
 <h3><a href="https://ftm.monster">FTM.monster</a>
 <br><a href="https://ftm.guru">FTM.guru</a></h3>
 </div>
-<script src="web3.min.js"></script>
+<script src="web3.min.js></script>
 <script>
 window.addEventListener('load',function()
 {
@@ -100,7 +100,7 @@ async function cw()
 	$("mvgmsg").innerHTML= (window.ethereum.selectedAddress).substr(6) + " connected.";
 	MVG = new web3.eth.Contract(ab, scMVG);
 	EL = new web3.eth.Contract(ab, scEL);
-	C.methods.eliteView().call((e, r) =>{console.log(r);ads=r;fillmvg()});
+	MVG.methods.eliteView().call((e, r) =>{console.log(r);ads=r;paintMVGs()});
 }
 async function mvgCV()
 {
@@ -263,12 +263,19 @@ ab=[
 		"type": "function"
 	}
 ];
-scMVG=0x0;
 scEL="0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882";
-</script>
-<script>
+scMVG="0xaAa96D05FC4878025217257957DB12660fa47f73";
 function $(_){return document.getElementById(_)}
-function fillmvg()
+
+function paintMVGs()
+{
+	$("mvg").innerHTML="";
+	for (i=0;i< ads.length;i++){fillmvg(i);}
+}
+
+//default onload stuff
+
+function fillmvg(i)
 {
 	d=document.createElement('div');
 	a=document.createElement('pre');
@@ -290,7 +297,7 @@ function fillmvg()
 	p.appendChild(d);
 }
 ads=["0x1337","0xbabe","0x70ad","0xf00d","0xac1d","0xac1d","0xac1d","0xac1d","0xac1d","0xac1d"];
-for (i=0;i< ads.length;i++){fillmvg();}
+for (i=0;i< ads.length;i++){fillmvg(i);}
 
 </script>
 </html>
