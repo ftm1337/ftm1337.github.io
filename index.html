@@ -74,7 +74,83 @@
 <div id="votingmvg" style="padding: 10px" align="center">
 <i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
 </div>
-
+<br><br><br><br>
+<div class="mainpanels">
+<div id="mainstage" align="center">
+	<h3>Fantom Opera DEX <u>Pair Explorer</u> for SpookySwap, SpiritSwap, SushiSwap, HyperJump, Waka.Finance, SeedSwap and PaintSwap</h3>
+	<br><br>
+	<div>
+		<br><input id="st" placeholder="Enter Token Address"><button onclick="find(st.value)"> ▶</button>
+	</div>
+	<br><br>
+	<span id="lo"></span>
+	<table id="maintable">
+	</table>
+	<br><br>
+	<button onclick="find()">Latest</button>
+	<button onclick="pn++;find()">Previous</button>
+	<br><br>
+	<ol>
+	<li>Enter "Pair Contract" address.</li>
+	<li>Tap on ▶ to find latest trades.</li>
+	<li>Tap "Previous" for old orders.</li>
+	<li>Tap "Latest" for recent trades.</li>
+	</ol>
+</div>
+<div align="center">
+<h2>Coming Soon…</h2>
+<h3>
+<ul style="text-align:left;padding-left:25%">
+<li>ELITE Farms</li>
+<li>Pool Explorer</li>
+<li>$GURU</li>
+<li>FTM.monster</li>
+</ul>
+</h3>
+...and much more!
+</div>
+</div>
+<br><br><hr><br><br>
+<script>
+pn=1;
+function find()
+{
+	document.getElementById("lo").innerHTML="Loading…";
+	R=new XMLHttpRequest();
+	R.open("GET","https://api.ftmscan.com/api?module=account&action=tokentx&address="+document.getElementById("st").value+"&endblock=latest&page="+pn+"&offset=30&sort=desc",true);
+	R.onload = function() {paint(JSON.parse(this.response).result)}
+	R.send()
+}
+function paint(da)
+{
+	document.getElementById("lo").innerHTML="";
+	t=document.getElementById("maintable");
+	for(i=0;i< 30;)
+	{
+		r=document.createElement("tr");
+		bo=document.createElement("td");
+		bi=document.createElement("td");
+		ti=document.createElement("td");
+		to=document.createElement("td");
+		di=document.createElement("td");
+		if(da[i].nonce==da[i+1].nonce)
+		{
+			bi.innerHTML=(Number(da[i].value)/10**Number(da[i].tokenDecimal)).toFixed(4);
+			ti.innerHTML = da[i].tokenSymbol;
+			di.innerHTML= "▶";
+			bo.innerHTML= (Number(da[i+1].value)/10**Number(da[i+1].tokenDecimal)).toFixed(4);
+			to.innerHTML=da[i+1].tokenSymbol;
+			i+=2
+		}
+		r.append(bi);
+		r.append(ti);
+		r.append(di);
+		r.append(bo);
+		r.append(to);
+		t.append(r);
+	}
+}
+</script>
 <div align="center">
 <pre>$ELITE
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
@@ -332,6 +408,7 @@ function fillmvg(i)
 	n.textContent=(ads[i]).substr(0,18);
 	s.innerHTML="("+(ads[i]).substr(2,3)+")<br>";
 	e.innerHTML=`<a target="_blank" href="https://ftmscsan.com/token/${ads[i]}"><button>Scan</button></a> `;
+	t.innerHTML=`<a target="_blank" href="https://charts-spirit.zoocoin.cashswap.finance/#/swap?outputToken=${ads[i]}"><button>Chart</buttton></a>`;
 	t.innerHTML=`<a target="_blank" href="https://spiritswap.finance/#/swap?outputToken=${ads[i]}"><button>Trade</buttton></a>`;
 	d.append(a);
 	d.append(n);
