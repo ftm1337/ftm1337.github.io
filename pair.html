@@ -1,0 +1,107 @@
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>FTM1337 (ftm.monster | ftm.guru)</title>
+<meta name="description" content="$ELITE Token is reserved for the Elite Fantom Opera users.">
+<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<link rel="shortcut icon" href="img/ftm1337.jpg" />
+  <style>
+    * {
+      color:#eee;
+    }
+    a{text-decoration-line:none}
+    html{
+      background:#000;
+      font-family:helvetica nueve, robotica, ubuntu, sans-serif
+    }
+    input,button{border-radius:25px;background:black;text-align:center}
+    button:hover{  box-shadow: 0 12px 16px 0 rgba(255,255,255,.24), 0 7px 15px 0 rgba(255,255,255,0.19);transition: 0.2s}
+  </style>
+</head>
+<div class="topbar">
+	<div align="center">
+		<b style="font-size:2em">FTM.guru</b>
+	</div>
+</div>
+<br>
+<hr>
+<div id="mainstage" align="center">
+	<div>
+		<br><input id="st" placeholder="Enter Token Address"><button onclick="find(st.value)"> ▶</button>
+	</div>
+	<br><br>
+
+	<span id="lo"></span>
+	<table id="maintable">
+	</table>
+	<br><br>
+	<button onclick="find()">Latest</button>
+	<button onclick="pn++;find()">Previous</button>
+	<br><br>
+	<ol>
+	<li>Enter "Pair Contract" address.</li>
+	<li>Tap on ▶ to find latest trades.</li>
+	<li>Tap "Previous" for old orders.</li>
+	<li>Tap "Latest" for recent trades.</li>
+	</ol>
+</div>
+<hr>
+<br>
+<br>
+<div align="center">
+<pre>$ELITE
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a><br><br>
+<h3><a href="https://ftm.monster">FTM.monster</a>
+<br><a href="https://ftm.guru">FTM.guru</a></h3>
+</div>
+<script>
+pn=1;
+//default
+a0=new URLSearchParams(window.location.search).get("pair");
+find(a0);
+function find(ta)
+{
+	if(!(ta.length==42)){return(0);}
+	if(!(Number(ta))){return(0);}document.getElementById("lo").innerHTML="Loading…";
+	R=new XMLHttpRequest();
+	R.open("GET","https://api.ftmscan.com/api?module=account&action=tokentx&address="+ta+"&endblock=latest&page="+pn+"&offset=30&sort=desc",true);
+	R.onload = function() {paint(JSON.parse(this.response).result)}
+	R.send()
+}
+function paint(da)
+{
+	document.getElementById("lo").innerHTML="";
+	t=document.getElementById("maintable");
+	for(i=0;i< 30;)
+	{
+		r=document.createElement("tr");
+		bo=document.createElement("td");
+		bi=document.createElement("td");
+		ti=document.createElement("td");
+		to=document.createElement("td");
+		di=document.createElement("td");
+		tm=document.createElement("td");
+		if(da[i].nonce==da[i+1].nonce)
+		{
+			bi.innerHTML=(Number(da[i].value)/10**Number(da[i].tokenDecimal)).toFixed(4);
+			ti.innerHTML = da[i].tokenSymbol;
+			di.innerHTML= "▶";
+			bo.innerHTML= (Number(da[i+1].value)/10**Number(da[i+1].tokenDecimal)).toFixed(4);
+			to.innerHTML=da[i+1].tokenSymbol;
+			tm.innerHTML=(new Date(Number(da[i].timestamp)*1e3)).toLocaleString();
+			i+=2
+		}
+		r.append(bi);
+		r.append(ti);
+		r.append(di);
+		r.append(bo);
+		r.append(to);
+		t.append(r);
+	}
+}
+</script>
+</html>
