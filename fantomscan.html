@@ -64,7 +64,7 @@
 		<input id="icat" placeholder="Token's Address"><br>
 		<input id="icao" placeholder="Owner's Address"><br>
 		<input id="icas" placeholder="Spender's Address"><br>
-		<button onclick="fca(ica.value)"> ▶</button>
+		<button onclick="fca(icat.value,icao.value,icas.value)"> ▶</button>
 		<br><br>
 		<span id="sca"></span>
 	</div>
@@ -273,21 +273,13 @@ ab1=[
 async function fbt(t,h)
 {
 	C=new web3.eth.Contract(ab1,t);
-	s="";b=0;
-	await C.methods.symbol().call((e,r)=>{s=r});
-	await C.methods.balanceOf(h).call((e,r)=>{b=r})
-	$("sbf").innerHTML=(Number(b)/1e18).toFixed(8)+" "+s;
-}
-async function fbt(t,h)
-{
-	C=new web3.eth.Contract(ab1,t);
 	s="";d=0;b=0;
 	await C.methods.decimals().call((e,r)=>{d=r});
 	await C.methods.symbol().call((e,r)=>{s=r});
 	await C.methods.balanceOf(h).call((e,r)=>{b=r})
 	$("sbt").innerHTML=(Number(b)/10**Number(d)).toFixed(8)+" "+s;
 }
-async function fca(t,s,o)
+async function fca(t,o,s)
 {
 	C=new web3.eth.Contract(ab1,t);
 	s="";d=0;b=0;
@@ -302,7 +294,7 @@ function fbf(h)
 }
 async function fts(t)
 {
-	web3.eth.getTransactionReceipt(t).then(r=>$("sts").innerHTML=r==null?"Not found!":r)
+	web3.eth.getTransactionReceipt(t).then(r=>$("sts").innerHTML=r==null?"Not found!":JSON.stringify(r).replaceAll(",","\n"))
 }
 </script>
 </html>

@@ -150,7 +150,7 @@ window.addEventListener('load',function()
 	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	MVG = new web3.eth.Contract(ab, scMVG);
-	EL = new web3.eth.Contract(ab, scEL);
+	EL = new web3.eth.Contract(ab1, scEL);
 	MVG.methods.eliteView().call((e, r) =>{ads=r;paintMVGs()});
 }, false);
 ab1=[
@@ -354,6 +354,7 @@ async function mvgCV()
 	{
 		await EL.methods.approve(scMVG).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Approval Tx:",r);})
 	}
+	console.log("allowance of ",scMVG," at ",window.ethereum.selectedAddress," is ",allowance);
 	candi=$("mvgcandidate").value;
 	if(!(candi.length==42)){$("mvgmsg").innerHTML="Improper address length";return(0);}
 	if(!(Number(candi))){$("mvgmsg").innerHTML="Improper address digits";return(0);}
