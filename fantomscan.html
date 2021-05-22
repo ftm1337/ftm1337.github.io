@@ -1,0 +1,310 @@
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>FTM1337 (ftm.monster | ftm.guru)</title>
+<meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
+<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<link rel="shortcut icon" href="img/ftm1337.jpg" />
+  <style>
+    * {
+      color:#eee;
+    }
+    a{text-decoration-line:none}
+    html{
+      background:#000;
+      font-family:helvetica nueve, robotica, ubuntu, sans-serif
+    }
+    input,button{border-radius:25px;background:black;text-align:center}
+    button:hover{  box-shadow: 0 12px 16px 0 rgba(255,255,255,.24), 0 7px 15px 0 rgba(255,255,255,0.19);transition: 0.2s}
+    .mainpanels{display:grid}
+    .mainpanel{grid-template-columns:auto}
+    @media(min-width:641px){
+        .mainpanels{grid-template-columns:50% 50%}
+    }
+  </style>
+</head>
+<div class="topbar">
+	<div align="center">
+		<a href=".."><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="pair.html">Top FTM Gems</a> |
+		<a href="pair.html">DEX Explorer</a> |
+		<a href="fantomscan.html">Fantom Scan</a>
+	</div>
+</div>
+<br>
+<hr>
+<div class="mainpanels" align="center">
+	<div class="mainpanel">
+		<h4>Check FTM Balance</h4>
+		<input id="ibf" placeholder="Enter Address">
+		<button onclick="fbf(ibf.value)"> ▶</button>
+		<br><br>
+		<span id="sbf"></span>
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Check Transaction Status</h4>
+		<input id="its" placeholder="Transaction Hash">
+		<button onclick="fts(its.value)"> ▶</button>
+		<br><br>
+		<span id="sts"></span>
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Check Token Balance</h4>
+		<input id="ibtt" placeholder="Token's Address">
+		<br><input id="ibth" placeholder="Holder's Address">
+		<button onclick="fbt(ibtt.value,ibth.value)"> ▶</button>
+		<br><br>
+		<span id="sbt"></span>
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Check Allowances</h4>
+		<input id="icat" placeholder="Token's Address"><br>
+		<input id="icao" placeholder="Owner's Address"><br>
+		<input id="icas" placeholder="Spender's Address">
+		<button onclick="fca(ica.value)"> ▶</button>
+		<br><br>
+		<span id="sca"></span>
+		<br><br>
+	</div>
+</div>
+<hr>
+<br>
+<br>
+<div align="center">
+<pre>$ELITE
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a><br><br>
+<h3><a href="https://ftm.monster">FTM.monster</a>
+<br><a href="https://ftm.guru">FTM.guru</a></h3>
+</div>
+<script src="web3.min.js"></script>
+<script>
+window.addEventListener('load',function()
+{
+	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
+}, false);
+function $(_) {return document.getElementById(_);}
+
+ab1=[
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "allowance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "approve",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "decimals",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "factory",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getReserves",
+    "outputs": [
+      {
+        "internalType": "uint112",
+        "name": "_reserve0",
+        "type": "uint112"
+      },
+      {
+        "internalType": "uint112",
+        "name": "_reserve1",
+        "type": "uint112"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_blockTimestampLast",
+        "type": "uint32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_token0",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_token1",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "name",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
+async function fbt(t,h)
+{
+	C=new web3.eth.Contract(ab1,t);
+	s="";b=0;
+	await C.methods.symbol().call((e,r)=>{s=r});
+	await C.methods.balanceOf(h).call((e,r)=>{b=r})
+	$("sbf").innerHTML=(Number(b)/1e18).toFixed(8)+" "+s;
+}
+async function fbt(t,h)
+{
+	C=new web3.eth.Contract(ab1,t);
+	s="";d=0;b=0;
+	await C.methods.decimals().call((e,r)=>{d=r});
+	await C.methods.symbol().call((e,r)=>{s=r});
+	await C.methods.balanceOf(h).call((e,r)=>{b=r})
+	$("sbt").innerHTML=(Number(b)/10**Number(d)).toFixed(8)+" "+s;
+}
+async function fca(t,s,o)
+{
+	C=new web3.eth.Contract(ab1,t);
+	s="";d=0;b=0;
+	await C.methods.decimals().call((e,r)=>{d=r});
+	await C.methods.symbol().call((e,r)=>{s=r});
+	await C.methods.allowance(o,s).call((e,r)=>{b=r})
+	$("sca").innerHTML=(Number(b)/10**Number(d)).toFixed(8)+" "+s;
+}
+function fbf(h)
+{
+	web3.eth.getBalance(h).then(r=>$("sbf").innerHTML=(Number(r)/1e18).toFixed(8)+" FTM")
+}
+async function fts(t)
+{
+	web3.eth.getTransactionReceipt(t).then(r=>$("sts").innerHTML=r==null?"Not found!":r)
+}
+</script>
+</html>
