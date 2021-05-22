@@ -6,27 +6,32 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
-  <style>
-    * {
-      color:#eee;
-    }
-    a{text-decoration-line:none}
-    html{
-      background:#000;
-      font-family:helvetica nueve, robotica, ubuntu, sans-serif
-    }
-    input,button{border-radius:25px;background:black;text-align:center}
-    button:hover{  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);transition: 0.2s}
-    pre{overflow-x:auto;max-width:80%}
-    #votingmvg{border-radius:20px;border: #aaa solid 1px}
-    .topbar{display:grid;grid-template-columns: auto;}
-    #mvg pre{margin: 10px 0 0 0}
-    .mainpanels{display:grid}
-    .mainpanel{grid-template-columns:auto}
-    @media(min-width:641px){
-        .mainpanels{grid-template-columns:50% 50%}
-    }
-  </style>
+<style>
+	* {
+	  color:#eee;
+	}
+	a{text-decoration-line:none}
+	html{
+	  background:#000;
+	  font-family:helvetica nueve, robotica, ubuntu, sans-serif
+	}
+	input,button{border-radius:25px;background:black;text-align:center}
+	button:hover{  box-shadow: 0 12px 16px 0 rgba(255,255,255,.24), 0 7px 15px 0 rgba(255,255,255,0.19);transition: 0.2s}
+	pre{overflow-x:auto;max-width:80%}
+	#votingmvg{border-radius:20px;border: #aaa solid 1px}
+	.topbar{display:grid;grid-template-columns: auto;}
+	#mvg pre{margin: 10px 0 0 0}
+  #mvg hr{border: 0px dashed;width: 50%}
+  #mvg div{background: #111;width:70%;border-radius: 15px}
+	.mainpanels{display:grid;grid-template-columns:auto}
+	.olsa{display:grid;grid-template-columns:auto auto auto;width:max-content}
+	.mainstages{text-align:center;display:grid;grid-template-columns:	 auto}
+	.mainstage{background: #111;margin:5%;border-radius: 15px}
+	@media(min-width:641px){
+		.mainpanels{grid-template-columns:50% 50%}
+		.mainstages{grid-template-columns:50% 50%}
+	}
+</style>
 </head>
 <div class="topbar">
 	<div align="center">
@@ -38,71 +43,78 @@
 </div>
 <br>
 <hr>
-
 <br>
 <br>
 <div class="mainpanels">
-    <div class="mainpanel" align="center">
-         <span style="font-size:1.3em">Top 10 Most Voted Gems</span>
-         <div id="mvg">
-         </div>
-         <br><br>
-    <button id="cw" onclick="cw()">Connect Wallet</button><br>
-    <!--
-    You hold <span id="eb">?</span> ELITE.<br>
-    Total Ownership : <span id="ebop">?</span>%<br>
-    Net Worth: <span id="ebnw">?</span> FTM.<br><br>
-    -->
-    <hr
-    <br><b>Vote for your fave toke now!</b><br>
-    <input id="mvgcandidate" placeholder=" FTM Contract address">
-    <button id="votemvg" onclick="mvgCV()"> ▶</button><br><br>
-    <span id="mvgmsg"></span><br><br>
-    Brief explainer:
-    <ol>
-    <li>Input the contract address of your preferred token.</li>
-    <li>Approve <b>EliteVoting</b> contract to spend your ELITE.</li>
-    <li>Sign the Voting transaction in your Metamask wallet.</li>
-    </ol>
-    <i>Voting pushes Tokens to the top of the Elite list.</i>
-    </div>
-    <div class="mainpanel" align="center">
-        <br>
-        <span style="font-size:1.3em">[FTM Tools & Analytics]</span>
-        <br>*Coming Soon<br><br>
-        <a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
-        <br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br><br>
-<div align="center">
-<h2>Fantom Utilities by FTM.guru</h2>
-<ul style="text-align:left;padding-left:25%">
-<h3>
-<li>Hot FTM Tokens (On-chain voting)</li>
-<li>Fantom DEX Pair Explorer</li>
-<li>Fantom Scan</li>
-<li>Token Spending & Allowance Checker</li>
-<li>Pending Transaction Monitor</li>
-</h3>
-</ul>
-<h2>Coming Soon…</h2>
-<h3>
-<ul style="text-align:left;padding-left:25%">
-<li>ELITE Farms</li>
-<li>Pool Explorer</li>
-<li>$GURU</li>
-<li>FTM.monster</li>
-</ul>
-</h3>
-...and much more!
-</div>
-    </div>
+	<div class="mainpanel" align="center">
+		<br>
+		<span style="font-size:1.3em">[FTM Tools & Analytics]</span>
+		<br>*Coming Soon<br><br>
+		<a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
+		<br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br><br>
+		<div align="center">
+			<h2>Fantom Utilities by FT	M.guru</h2>
+			<ul style="text-align:left;padding-left:25%">
+			<h3>
+			<li>Hot FTM Tokens (On-chain voting)</li>
+			<li>Fantom DEX Pair Explorer</li>
+			<li>Fantom Scan</li>
+			<li>Token Spending & Allowance Checker</li>
+			<li>Pending Transaction Monitor</li>
+			</h3>
+			</ul>
+			<h2>Coming Soon…</h2>
+			<h3>
+			<ul style="text-align:left;padding-left:25%">
+			<li>ELITE Farms</li>
+			<li>Pool Explorer</li>
+			<li>$GURU</li>
+			<li>FTM.monster</li>
+			</ul>
+			</h3>
+			...and much more!
+		</div>
+	</div>
+	<div class="mainpanel" align="center">
+		 <span style="font-size:1.3em">Top 10 Fantom Gems</span><br>
+		 (Voted on FTM )
+		 <div id="mvg">
+		 </div>
+		 <br><br>
+	<!--
+	You hold <span id="eb">?</span> ELITE.<br>
+	Total Ownership : <span id="ebop">?</span>%<br>
+	Net Worth: <span id="ebnw">?</span> FTM.<br><br>
+	-->
+	</div>
 </div>
 <br><br><br>
 <div id="votingmvg" style="padding: 10px" align="center">
 <i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
+<br><br>
+	Brief explainer:
+	<div class="olsa">
+	<div class="ols"></div>
+	<div class="ols">
+	<ol style="text-align:left;">
+	<li>Input the contract address of your preferred token.</li>
+	<li>Approve <b>EliteVoting</b> contract to spend your ELITE.</li>
+	<li>Sign the Voting transaction in your Metamask wallet.</li>
+	</ol>
+	</div>
+	<div class="ols"></div>
+	</div>
+	<i>Voting pushes the Voted Token to the top of the Elite list.</i>
+	<hr><br>
+	<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
+	<br><b>Vote for your fave toke now!</b><br>
+	<input id="mvgcandidate" placeholder=" FTM Contract address">
+	<button id="votemvg" onclick="mvgCV()"> ▶</button><br><br>
+	<span id="mvgmsg"></span><br>
 </div>
 <br><br><br><br>
-<div class="mainpanels">
-<div id="mainstage" align="center">
+<div class="mainstages" align="center">
+<div class="mainstage">
 	<a href="pair.html"><h3>Fantom Opera DEX <u>Pair Explorer</u></h3>
 	FTM.guru Pair Explorer can be used with Spooky Swap, Spirit Swap, Sushi Swap, HyperJump, Waka.Finance, Seed Swap and Paint Swap.</a>
 	<br><br>
@@ -112,7 +124,7 @@
 	</div>
 	<br><br>
 </div>
-<div id="mainstage" align="center">
+<div class="mainstage">
 	<a href="fantomscan"><h3>Fantom Scan</h3>
 	<i>We know that FTMScan is not in the best shape right now and fellow Fanties need an alternative tool to track their Fantom Opera interactions in real-time.</i><br>
 	<u><b>Introducing —FantomScan</b></u><br>
@@ -131,20 +143,201 @@
 </div>
 <script src="web3.min.js"></script>
 <script>
-function prefind(ta)
-{
-	if(!(ta.length==42)){lo.innerHTML="Recheck address";return(0);}
-	if(!(Number(ta))){lo.innerHTML="Recheck address";return(0);}
-	window.open((window.location.toString()+"pair?p="+ta),"_self");
-}
+
 window.addEventListener('load',function()
 {
 	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	MVG = new web3.eth.Contract(ab, scMVG);
 	EL = new web3.eth.Contract(ab, scEL);
-	MVG.methods.eliteView().call((e, r) =>{console.log(r);ads=r;paintMVGs()});
+	MVG.methods.eliteView().call((e, r) =>{ads=r;paintMVGs()});
 }, false);
+ab1=[
+  {
+	"constant": true,
+	"inputs": [
+	  {
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+	  },
+	  {
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+	  }
+	],
+	"name": "allowance",
+	"outputs": [
+	  {
+		"internalType": "uint256",
+		"name": "",
+		"type": "uint256"
+	  }
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+  },
+  {
+	"constant": false,
+	"inputs": [
+	  {
+		"internalType": "address",
+		"name": "spender",
+		"type": "address"
+	  },
+	  {
+		"internalType": "uint256",
+		"name": "value",
+		"type": "uint256"
+	  }
+	],
+	"name": "approve",
+	"outputs": [
+	  {
+		"internalType": "bool",
+		"name": "",
+		"type": "bool"
+	  }
+	],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+  },
+  {
+	"constant": true,
+	"inputs": [
+	  {
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+	  }
+	],
+	"name": "balanceOf",
+	"outputs": [
+	  {
+		"internalType": "uint256",
+		"name": "",
+		"type": "uint256"
+	  }
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+  },
+  {
+	"constant": true,
+	"inputs": [],
+	"name": "decimals",
+	"outputs": [
+	  {
+		"internalType": "uint8",
+		"name": "",
+		"type": "uint8"
+	  }
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+  },
+  {
+	"constant": true,
+	"inputs": [],
+	"name": "factory",
+	"outputs": [
+	  {
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+	  }
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+  },
+  {
+	"constant": true,
+	"inputs": [],
+	"name": "getReserves",
+	"outputs": [
+	  {
+		"internalType": "uint112",
+		"name": "_reserve0",
+		"type": "uint112"
+	  },
+	  {
+		"internalType": "uint112",
+		"name": "_reserve1",
+		"type": "uint112"
+	  },
+	  {
+		"internalType": "uint32",
+		"name": "_blockTimestampLast",
+		"type": "uint32"
+	  }
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+  },
+  {
+	"constant": false,
+	"inputs": [
+	  {
+		"internalType": "address",
+		"name": "_token0",
+		"type": "address"
+	  },
+	  {
+		"internalType": "address",
+		"name": "_token1",
+		"type": "address"
+	  }
+	],
+	"name": "initialize",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+  },
+  {
+	"constant": true,
+	"inputs": [],
+	"name": "symbol",
+	"outputs": [
+	  {
+		"internalType": "string",
+		"name": "",
+		"type": "string"
+	  }
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+  },
+  {
+	"constant": true,
+	"inputs": [],
+	"name": "name",
+	"outputs": [
+	  {
+		"internalType": "string",
+		"name": "",
+		"type": "string"
+	  }
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+  }
+];
+function prefind(ta)
+{
+	if(!(ta.length==42)){lo.innerHTML="Recheck address";return(0);}
+	if(!(Number(ta))){lo.innerHTML="Recheck address";return(0);}
+	window.open((window.location.toString()+"pair?p="+ta),"_self");
+}
 async function cw()
 {
 	if(!(Number(window.ethereum.chainId)==250)){$("mvgmsg").innerHTML="Wrong network detected.";return(0)}
@@ -368,29 +561,42 @@ function paintMVGs()
 
 //default onload stuff
 
-function fillmvg(i)
+async function fillmvg(i)
 {
-	d=document.createElement('div');
-	a=document.createElement('pre');
-	n=document.createElement('span');
-	s=document.createElement('b');
-	e=document.createElement('a');
-	t=document.createElement('a');
+	var d=document.createElement('div');
+	var a=document.createElement('pre');
+	var n=document.createElement('span');
+	var s=document.createElement('b');
+	var e=document.createElement('a');
+	var t=document.createElement('a');
+	var b=document.createElement('hr');
 	a.textContent=ads[i];
-	n.textContent=(ads[i]).substr(0,18);
-	s.innerHTML="("+(ads[i]).substr(2,3)+")<br>";
+	if(k)
+	{
+		C=await new web3.eth.Contract(ab1,ads[i]);
+		await C.methods.name().call((e,r)=>{n.textContent=r})
+		await C.methods.symbol().call((e,r)=>{s.innerHTML=" $"+r+"<br>"})
+	}
+	else
+	{
+		n.textContent=(ads[i]).substr(0,18);
+		s.innerHTML="("+(ads[i]).substr(2,3)+")<br>";
+	}
 	e.innerHTML=`<a target="_blank" href="https://ftmscsan.com/token/${ads[i]}"><button>Scan</button></a> `;
 	t.innerHTML=`<a target="_blank" href="https://charts-spirit.zoocoin.cashswap.finance/#/swap?outputToken=${ads[i]}"><button>Chart</buttton></a>`;
 	t.innerHTML=`<a target="_blank" href="https://spiritswap.finance/#/swap?outputToken=${ads[i]}"><button>Trade</buttton></a>`;
+	d.append(b);
+	d.append(n);
+	d.append(s);
 	d.append(a);
-	//d.append(n);
-	//d.append(s);
 	d.append(e);
 	d.append(t);
 	p=$("mvg");
-	p.appendChild(d);
+	p.append(d);
 }
+k=0;
 ads=["0x1337","0xbabe","0xfeed","0xf00d","0xdead","0x70ad","0xb00b","0xfee1","0xac1d","0xdeca"];
 for (i=0;i< ads.length;i++){fillmvg(i);}
+k=1;
 </script>
 </html>
