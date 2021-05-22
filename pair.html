@@ -16,14 +16,17 @@
       font-family:helvetica nueve, robotica, ubuntu, sans-serif
     }
     input,button{border-radius:25px;background:black;text-align:center}
-    button:hover{  box-shadow: 0 12px 16px 0 rgba(255,255,255,.24), 0 7px 15px 0 rgba(255,255,255,0.19);transition: 0.2s}
+	button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
     pre{overflow-x:auto;max-width:80%}
+    td{background: #222;padding:0 5px;}
+    table{ border-spacing: 0px;border: 5px solid #444;border-radius: 15px;width:max-content}
+
   </style>
 </head>
 <div class="topbar">
 	<div align="center">
-		<a href=".."><b style="font-size:2em">FTM.guru</b></a><br><br>
-		<a href="pair.html">Top FTM Gems</a> |
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="index.html">Top FTM Gems</a> |
 		<a href="pair.html">DEX Explorer</a> |
 		<a href="fantomscan.html">Fantom Scan</a>
 	</div>
@@ -32,15 +35,18 @@
 <hr>
 <div id="mainstage" align="center">
 	<div>
-		<br><input id="st" placeholder="Enter Token Address">
+		<br><input id="st" placeholder="Enter Pair Address">
 		<button onclick="find(st.value)"> ▶</button>
 	</div>
 	<br><br>
 
 	<span id="lo"></span>
+	<div style="overflow-x:auto">
 	<table id="maintable">
 	</table>
-	<br><br>
+	</div>
+	<!--https://analytics-ftm.sushi.com/pairs/0x3ac28d350c59ef9054b305dfe9078fadc3cecabe-->
+	<br>
 	<button onclick="find()">Latest</button>
 	<button onclick="pn++;find()">Previous</button>
 	<br><br>
@@ -60,8 +66,8 @@
 <a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
 <a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
 <a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a><br><br>
-<h3><a href="https://ftm.monster">FTM.monster</a>
-<br><a href="https://ftm.guru">FTM.guru</a></h3>
+<h2><a href="https://ftm.guru">FTM.guru</a></h2>
+<h3><a href="https://t.me/FTM1337">t.me/FTM1337</a></h3>
 </div>
 <script>
 pn=[];
