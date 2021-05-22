@@ -1,7 +1,7 @@
 <!doctype html><html><meta charset="UTF-8">
 <head>
 <title>FTM1337 (ftm.monster | ftm.guru)</title>
-<meta name="description" content="$ELITE Token is reserved for the Elite Fantom Opera users.">
+<meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
 <meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
@@ -21,7 +21,10 @@
 </head>
 <div class="topbar">
 	<div align="center">
-		<b style="font-size:2em">FTM.guru</b>
+		<a href=".."><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="pair.html">Top FTM Gems</a> |
+		<a href="pair.html">DEX Explorer</a> |
+		<a href="fantomscan.html">Fantom Scan</a>
 	</div>
 </div>
 <br>
@@ -59,16 +62,17 @@
 <br><a href="https://ftm.guru">FTM.guru</a></h3>
 </div>
 <script>
-pn=1;
+pn=[];
 //default
-a0=new URLSearchParams(window.location.search).get("p");
+a0=new URLSearchParams(window.location.search).get("pair");
 find(a0);
 function find(ta)
 {
 	if(!(ta.length==42)){return(0);}
 	if(!(Number(ta))){return(0);}document.getElementById("lo").innerHTML="Loading…";
 	R=new XMLHttpRequest();
-	R.open("GET","https://api.ftmscan.com/api?module=account&action=tokentx&address="+ta+"&endblock=latest&page="+pn+"&offset=30&sort=desc",true);
+	if(!(pn[ta])){pn[ta=1]}
+	R.open("GET","https://api.ftmscan.com/api?module=account&action=tokentx&address="+ta+"&endblock=latest&page="+pn[ta]+"&offset=30&sort=desc",true);
 	R.onload = function() {paint(JSON.parse(this.response).result)}
 	R.send()
 }
@@ -85,6 +89,7 @@ function paint(da)
 		to=document.createElement("td");
 		di=document.createElement("td");
 		tm=document.createElement("td");
+		tx=document.createElement("td");
 		if(da[i].nonce==da[i+1].nonce)
 		{
 			bi.innerHTML=(Number(da[i].value)/10**Number(da[i].tokenDecimal)).toFixed(4);
@@ -92,7 +97,8 @@ function paint(da)
 			di.innerHTML= "▶";
 			bo.innerHTML= (Number(da[i+1].value)/10**Number(da[i+1].tokenDecimal)).toFixed(4);
 			to.innerHTML=da[i+1].tokenSymbol;
-			tm.innerHTML=(new Date(Number(da[i].timestamp)*1e3)).toLocaleString();
+			tm.innerHTML=(new Date(Number(da[i].timeStamp)*1e3)).toLocaleString();
+			tx.innerHTML=`<a href="https://ftmscan.com/tx/${da[i].hash}" target="_blank"><u>tx</u></a>`
 			i+=2
 		}
 		r.append(bi);
@@ -100,6 +106,8 @@ function paint(da)
 		r.append(di);
 		r.append(bo);
 		r.append(to);
+		r.append(tm);
+		r.append(tx);
 		t.append(r);
 	}
 }
