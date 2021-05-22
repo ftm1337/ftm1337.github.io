@@ -279,13 +279,13 @@ async function fbt(t,h)
 	await C.methods.balanceOf(h).call((e,r)=>{b=r})
 	$("sbt").innerHTML=(Number(b)/10**Number(d)).toFixed(8)+" "+s;
 }
-async function fca(t,o,s)
+async function fca(t,o,sp)
 {
 	C=new web3.eth.Contract(ab1,t);
 	s="";d=0;b=0;
 	await C.methods.decimals().call((e,r)=>{d=r});
 	await C.methods.symbol().call((e,r)=>{s=r});
-	await C.methods.allowance(o,s).call((e,r)=>{b=r})
+	await C.methods.allowance(o,sp).call((e,r)=>{b=r})
 	$("sca").innerHTML=(Number(b)/10**Number(d)).toFixed(8)+" "+s;
 }
 function fbf(h)

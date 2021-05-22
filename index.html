@@ -157,181 +157,200 @@ ab1=[
   {
 	"constant": true,
 	"inputs": [
-	  {
+		{
 		"internalType": "address",
 		"name": "",
 		"type": "address"
-	  },
-	  {
+		},
+		{
 		"internalType": "address",
 		"name": "",
 		"type": "address"
-	  }
+		}
 	],
 	"name": "allowance",
 	"outputs": [
-	  {
+		{
 		"internalType": "uint256",
 		"name": "",
 		"type": "uint256"
-	  }
+		}
 	],
 	"payable": false,
 	"stateMutability": "view",
 	"type": "function"
-  },
-  {
+	},
+	{
 	"constant": false,
 	"inputs": [
-	  {
+		{
 		"internalType": "address",
 		"name": "spender",
 		"type": "address"
-	  },
-	  {
+		},
+		{
 		"internalType": "uint256",
 		"name": "value",
 		"type": "uint256"
-	  }
+		}
 	],
 	"name": "approve",
 	"outputs": [
-	  {
+		{
 		"internalType": "bool",
 		"name": "",
 		"type": "bool"
-	  }
+		}
 	],
 	"payable": false,
 	"stateMutability": "nonpayable",
 	"type": "function"
-  },
-  {
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "guy",
+				"type": "address"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 	"constant": true,
 	"inputs": [
-	  {
+		{
 		"internalType": "address",
 		"name": "",
 		"type": "address"
-	  }
+		}
 	],
 	"name": "balanceOf",
 	"outputs": [
-	  {
+		{
 		"internalType": "uint256",
 		"name": "",
 		"type": "uint256"
-	  }
+		}
 	],
 	"payable": false,
 	"stateMutability": "view",
 	"type": "function"
-  },
-  {
+	},
+	{
 	"constant": true,
 	"inputs": [],
 	"name": "decimals",
 	"outputs": [
-	  {
+		{
 		"internalType": "uint8",
 		"name": "",
 		"type": "uint8"
-	  }
+		}
 	],
 	"payable": false,
 	"stateMutability": "view",
 	"type": "function"
-  },
-  {
+	},
+	{
 	"constant": true,
 	"inputs": [],
 	"name": "factory",
 	"outputs": [
-	  {
+		{
 		"internalType": "address",
 		"name": "",
 		"type": "address"
-	  }
+		}
 	],
 	"payable": false,
 	"stateMutability": "view",
 	"type": "function"
-  },
-  {
+	},
+	{
 	"constant": true,
 	"inputs": [],
 	"name": "getReserves",
 	"outputs": [
-	  {
+		{
 		"internalType": "uint112",
 		"name": "_reserve0",
 		"type": "uint112"
-	  },
-	  {
+		},
+		{
 		"internalType": "uint112",
 		"name": "_reserve1",
 		"type": "uint112"
-	  },
-	  {
+		},
+		{
 		"internalType": "uint32",
 		"name": "_blockTimestampLast",
 		"type": "uint32"
-	  }
+		}
 	],
 	"payable": false,
 	"stateMutability": "view",
 	"type": "function"
-  },
-  {
+	},
+	{
 	"constant": false,
 	"inputs": [
-	  {
+		{
 		"internalType": "address",
 		"name": "_token0",
 		"type": "address"
-	  },
-	  {
+		},
+		{
 		"internalType": "address",
 		"name": "_token1",
 		"type": "address"
-	  }
+		}
 	],
 	"name": "initialize",
 	"outputs": [],
 	"payable": false,
 	"stateMutability": "nonpayable",
 	"type": "function"
-  },
-  {
+	},
+	{
 	"constant": true,
 	"inputs": [],
 	"name": "symbol",
 	"outputs": [
-	  {
+		{
 		"internalType": "string",
 		"name": "",
 		"type": "string"
-	  }
+		}
 	],
 	"payable": false,
 	"stateMutability": "view",
 	"type": "function"
-  },
-  {
+	},
+	{
 	"constant": true,
 	"inputs": [],
 	"name": "name",
 	"outputs": [
-	  {
+		{
 		"internalType": "string",
 		"name": "",
 		"type": "string"
-	  }
+		}
 	],
 	"payable": false,
 	"stateMutability": "view",
 	"type": "function"
-  }
+	}
 ];
 function prefind(ta)
 {
@@ -576,8 +595,8 @@ async function fillmvg(i)
 	if(k)
 	{
 		C=await new web3.eth.Contract(ab1,ads[i]);
-		await C.methods.name().call((e,r)=>{n.textContent=r})
-		await C.methods.symbol().call((e,r)=>{s.innerHTML=" $"+r+"<br>"})
+		await C.methods.name().call().then(r=>{n.textContent=r}).then(
+		await C.methods.symbol().call().then(r=>{s.innerHTML=" $"+r+"<br>"}));
 	}
 	else
 	{
