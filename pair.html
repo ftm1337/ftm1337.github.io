@@ -72,7 +72,7 @@ function find(ta)
 	if(!(ta.length==42)){return(0);}
 	if(!(Number(ta))){return(0);}document.getElementById("lo").innerHTML="Loading…";
 	R=new XMLHttpRequest();
-	if(!(pn[ta])){pn[ta=1]}
+	if(!(pn[ta])){pn[ta]=1}
 	R.open("GET","https://api.ftmscan.com/api?module=account&action=tokentx&address="+ta+"&endblock=latest&page="+pn[ta]+"&offset=30&sort=desc",true);
 	R.onload = function() {paint(JSON.parse(this.response).result)}
 	R.send()
