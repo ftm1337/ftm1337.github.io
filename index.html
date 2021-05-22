@@ -1,7 +1,7 @@
 <!doctype html><html><meta charset="UTF-8">
 <head>
 <title>FTM1337 (ftm.monster | ftm.guru)</title>
-<meta name="description" content="$ELITE Token is reserved for the Elite Fantom Opera users.">
+<meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
 <meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
@@ -18,11 +18,11 @@
     input,button{border-radius:25px;background:black;text-align:center}
     button:hover{  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);transition: 0.2s}
     pre{overflow-x:auto;max-width:80%}
-    .mainpanels{display:grid}
-    .mainpanel{grid-template-columns:auto}
     #votingmvg{border-radius:20px;border: #aaa solid 1px}
     .topbar{display:grid;grid-template-columns: auto;}
     #mvg pre{margin: 10px 0 0 0}
+    .mainpanels{display:grid}
+    .mainpanel{grid-template-columns:auto}
     @media(min-width:641px){
         .mainpanels{grid-template-columns:50% 50%}
     }
@@ -30,7 +30,10 @@
 </head>
 <div class="topbar">
 	<div align="center">
-		<b style="font-size:2em">FTM.guru</b>
+		<a href=".."><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="pair.html">Top FTM Gems</a> |
+		<a href="pair.html">DEX Explorer</a> |
+		<a href="fantomscan.html">Fantom Scan</a>
 	</div>
 </div>
 <br>
@@ -43,20 +46,14 @@
          <span style="font-size:1.3em">Top 10 Most Voted Gems</span>
          <div id="mvg">
          </div>
-         <br>
-    </div>
-    <div class="mainpanel" align="center">
-        <br>
-        <span style="font-size:1.3em">[FTM Tools & Analytics]</span>
-        <br>*Coming Soon<br><br>
-        <a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
-        <br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br><br><hr><br>
+         <br><br>
     <button id="cw" onclick="cw()">Connect Wallet</button><br>
     <!--
     You hold <span id="eb">?</span> ELITE.<br>
     Total Ownership : <span id="ebop">?</span>%<br>
     Net Worth: <span id="ebnw">?</span> FTM.<br><br>
     -->
+    <hr
     <br><b>Vote for your fave toke now!</b><br>
     <input id="mvgcandidate" placeholder=" FTM Contract address">
     <button id="votemvg" onclick="mvgCV()"> ▶</button><br><br>
@@ -69,24 +66,23 @@
     </ol>
     <i>Voting pushes Tokens to the top of the Elite list.</i>
     </div>
-</div>
-<br><br><br>
-<div id="votingmvg" style="padding: 10px" align="center">
-<i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
-</div>
-<br><br><br><br>
-<div class="mainpanels">
-<div id="mainstage" align="center">
-	<h3>Fantom Opera DEX <u>Pair Explorer</u></h3>
-	FTM.guru Pair Explorer can be used with Spooky Swap, Spirit Swap, Sushi Swap, HyperJump, Waka.Finance, Seed Swap and Paint Swap.
-	<br><br>
-	<div>
-		<br><input id="st" placeholder="Enter Pair Contract"><button onclick="prefind(st.value)"> ▶</button>
-		<br><span id="lo"></span>
-	</div>
-	<br><br>
-</div>
+    <div class="mainpanel" align="center">
+        <br>
+        <span style="font-size:1.3em">[FTM Tools & Analytics]</span>
+        <br>*Coming Soon<br><br>
+        <a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
+        <br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br><br>
 <div align="center">
+<h2>Fantom Utilities by FTM.guru</h2>
+<ul style="text-align:left;padding-left:25%">
+<h3>
+<li>Hot FTM Tokens (On-chain voting)</li>
+<li>Fantom DEX Pair Explorer</li>
+<li>Fantom Scan</li>
+<li>Token Spending & Allowance Checker</li>
+<li>Pending Transaction Monitor</li>
+</h3>
+</ul>
 <h2>Coming Soon…</h2>
 <h3>
 <ul style="text-align:left;padding-left:25%">
@@ -97,6 +93,30 @@
 </ul>
 </h3>
 ...and much more!
+</div>
+    </div>
+</div>
+<br><br><br>
+<div id="votingmvg" style="padding: 10px" align="center">
+<i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
+</div>
+<br><br><br><br>
+<div class="mainpanels">
+<div id="mainstage" align="center">
+	<a href="pair.html"><h3>Fantom Opera DEX <u>Pair Explorer</u></h3>
+	FTM.guru Pair Explorer can be used with Spooky Swap, Spirit Swap, Sushi Swap, HyperJump, Waka.Finance, Seed Swap and Paint Swap.</a>
+	<br><br>
+	<div>
+		<br><input id="st" placeholder="Enter Pair Contract"><button onclick="prefind(st.value)"> ▶</button>
+		<br><span id="lo"></span>
+	</div>
+	<br><br>
+</div>
+<div id="mainstage" align="center">
+	<a href="fantomscan"><h3>Fantom Scan</h3>
+	<i>We know that FTMScan is not in the best shape right now and fellow Fanties need an alternative tool to track their Fantom Opera interactions in real-time.</i><br>
+	<u><b>Introducing —FantomScan</b></u><br>
+	Find out anyone's FTM balance, Token Balances, Edit and Revoke your Token Allowances, find out the status of a Transaction.</a>
 </div>
 </div>
 <br><br><hr><br><br>
@@ -119,24 +139,21 @@ function prefind(ta)
 }
 window.addEventListener('load',function()
 {
-	if(!window.ethereum){$("mvgmsg").innerHTML=("Please use Metamask.");}
-	else
-	{
-		web3 = new Web3(web3.currentProvider);
-		if(!(Number(window.ethereum.chainId)==250)){$("mvgmsg").innerHTML="Wrong network detected."}
-		else {cw();}
-	}
+	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
+	MVG = new web3.eth.Contract(ab, scMVG);
+	EL = new web3.eth.Contract(ab, scEL);
+	MVG.methods.eliteView().call((e, r) =>{console.log(r);ads=r;paintMVGs()});
 }, false);
 async function cw()
 {
+	if(!(Number(window.ethereum.chainId)==250)){$("mvgmsg").innerHTML="Wrong network detected.";return(0)}
 	await window.ethereum.enable();
 	$("mvgmsg").innerHTML= (window.ethereum.selectedAddress).substr(6) + " connected.";
-	MVG = new web3.eth.Contract(ab, scMVG);
-	EL = new web3.eth.Contract(ab, scEL);
-	await MVG.methods.eliteView().call((e, r) =>{console.log(r);ads=r;paintMVGs()});
 }
 async function mvgCV()
 {
+	await window.ethereum.enable();
 	var allowance = 0;
 	await EL.methods.allowance(window.ethereum.selectedAddress,scMVG).call((e,r)=>{allowance = r})
 	if (allowance < 1337e13)
@@ -366,8 +383,8 @@ function fillmvg(i)
 	t.innerHTML=`<a target="_blank" href="https://charts-spirit.zoocoin.cashswap.finance/#/swap?outputToken=${ads[i]}"><button>Chart</buttton></a>`;
 	t.innerHTML=`<a target="_blank" href="https://spiritswap.finance/#/swap?outputToken=${ads[i]}"><button>Trade</buttton></a>`;
 	d.append(a);
-	d.append(n);
-	d.append(s);
+	//d.append(n);
+	//d.append(s);
 	d.append(e);
 	d.append(t);
 	p=$("mvg");
