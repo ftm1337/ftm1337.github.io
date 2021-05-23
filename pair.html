@@ -107,7 +107,7 @@ function find(ta)
 	R.onload = function() {paint(JSON.parse(this.response).result)}
 	R.send();
 	getPool(ta);
-    $("poolinfo").display="block";
+    $("poolinfo").style.display="block";
 }
 function paint(da)
 {
@@ -148,27 +148,27 @@ async function getPool(pa)
 {
 	i=0;
 	PC=new web3.eth.Contract(PA,pa);
-	R =await PC.methods.getReserves().call((e,r)=>{console.log(i++,r);return(r)});
-	t0 =await PC.methods.token0().call((e,r)=>{console.log(i++,r);return(r)});
-	t1 = await PC.methods.token1().call((e,r)=>{console.log(i++,r);return(r)});
-	N =await PC.methods.name().call((e,r)=>{console.log(i++,r);return(r)});
+	R =await PC.methods.getReserves().call((e,r)=>{;return(r)});
+	t0 =await PC.methods.token0().call((e,r)=>{;return(r)});
+	t1 = await PC.methods.token1().call((e,r)=>{;return(r)});
+	N =await PC.methods.name().call((e,r)=>{;return(r)});
 	$("pi_N").innerHTML=N;
 	T0=new web3.eth.Contract(PA,t0);
 	T1=new web3.eth.Contract(PA,t1);
-	N0 =await T0.methods.name().call((e,r)=>{console.log(i++,r);return(r)});
+	N0 =await T0.methods.name().call((e,r)=>{;return(r)});
 	$("pi_N0").innerHTML=N0;
-	N1 =await T1.methods.name().call((e,r)=>{console.log(i++,r);return(r)});
+	N1 =await T1.methods.name().call((e,r)=>{;return(r)});
 	$("pi_N1").innerHTML=N1;
-	S0 =await T0.methods.symbol().call((e,r)=>{console.log(i++,r);return(r)});
+	S0 =await T0.methods.symbol().call((e,r)=>{;return(r)});
 	$("pi_S0").innerHTML=S0;
 	$("pi_N0_P01").innerHTML=S0;
 	$("pi_N0_P10").innerHTML=S0;
-	S1 =await T1.methods.symbol().call((e,r)=>{console.log(i++,r);return(r)});
+	S1 =await T1.methods.symbol().call((e,r)=>{;return(r)});
 	$("pi_S1").innerHTML=S1;
 	$("pi_N1_P01").innerHTML=S1;
 	$("pi_N1_P10").innerHTML=S1;
-	D0 =await T0.methods.decimals().call((e,r)=>{console.log(i++,r);return(Number(r))});
-	D1 =await T1.methods.decimals().call((e,r)=>{console.log(i++,r);return(Number(r))});
+	D0 =await T0.methods.decimals().call((e,r)=>{;return(Number(r))});
+	D1 =await T1.methods.decimals().call((e,r)=>{;return(Number(r))});
 	R0=Number(R[0]);
 	R1=Number(R[1]);
 	rR0=R0/10**D0;
@@ -333,6 +333,6 @@ PA=[
 ]
 //default
 a0=new URLSearchParams(window.location.search).get("p");
-if(isFinite(a0)){find(a0);}
+if(isFinite(a0)&&!(a0==null)){find(a0);}
 </script>
 </html>
