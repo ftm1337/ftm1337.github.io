@@ -100,14 +100,16 @@ function find(ta)
 	if(ta==undefined){return(0)}
 	if(!(ta.length==42)){return(0);}
 	if(!(Number(ta))){return(0);}
+	if(!(pn[ta])){pn[ta]=1}
+	else{pn[ta]++;}
 	document.getElementById("lo").innerHTML="Loading…";
 	R=new XMLHttpRequest();
 	if(!(pn[ta])){pn[ta]=1}
-	R.open("GET","https://api.ftmscan.com/api?module=account&action=tokentx&address="+ta+"&endblock=latest&page="+pn[ta]+"&offset=50&sort=asc",true);
+	R.open("GET","https://api.ftmscan.com/api?module=account&action=tokentx&address="+ta+"&endblock=latest&page="+pn[ta]+"&offset=50&sort=desc",true);
 	R.onload = function() {paint(JSON.parse(this.response).result)}
 	R.send();
 	getPool(ta);
-    $("poolinfo").style.display="block";
+	$("poolinfo").style.display="block";
 }
 function paint(da)
 {
