@@ -91,7 +91,7 @@ window.addEventListener('load',function()
 	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 }, false);
-function $(_) {return document.getElementById(_);
+function $(_) {return document.getElementById(_);}
 pn=[];
 //default
 a0=new URLSearchParams(window.location.search).get("p");
