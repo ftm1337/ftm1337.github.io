@@ -9,6 +9,7 @@
   <style>
     * {
       color:#eee;
+      overflow-wrap:break-word;
     }
     a{text-decoration-line:none}
     html{
@@ -28,14 +29,19 @@
 <div class="topbar">
 	<div align="center">
 		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
-		<a href="index.html">Top FTM Gems</a> |
+		<a href="index.html">FTM Gems</a> |
 		<a href="pair.html">DEX Explorer</a> |
-		<a href="fantomscan.html">Fantom Scan</a>
+		<a href="fantomscan.html">FantomScan</a>
 	</div>
 </div>
 <br>
 <hr>
 <h2 align="center">FantomScan</h2>
+<div class="mainpanel" align="center">
+	<br><h4>Fantom Opera Global Stats</h4>
+	<table id="gt"></table>
+	<br>
+</div>
 <div class="mainpanels" align="center">
 	<div class="mainpanel">
 		<h4>Check FTM Balance</h4>
@@ -87,9 +93,65 @@ window.addEventListener('load',function()
 {
 	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
+	basics();
 }, false);
 function $(_) {return document.getElementById(_);}
+function basics()
+{
+	gt=$('gt');
+	r1=document.createElement('tr');
+	d1a=document.createElement('td');
+	d1b=document.createElement('td');
+	r2=document.createElement('tr');
+	d2a=document.createElement('td');
+	d2b=document.createElement('td');
+	r3=document.createElement('tr');
+	d3a=document.createElement('td');
+	d3b=document.createElement('td');
+	r4=document.createElement('tr');
+	d4a=document.createElement('td');
+	d4b=document.createElement('td');
+	r5=document.createElement('tr');
+	d5a=document.createElement('td');
+	d5b=document.createElement('td');
+	r6=document.createElement('tr');
+	d6a=document.createElement('td');
+	d6b=document.createElement('td');
 
+	d1a.innerHTML = "Block Height";
+	web3.eth.getBlockNumber().then(r=>d1b.innerHTML = r.toLocaleString());
+	d2a.innerHTML = "Safe Low Gas";
+	await web3.eth.getGasPrice((e,r)=>{gp=r})
+	d2b.innerHTML =(gp/1e9 +" GWei");
+	d3a.innerHTML = "FTM trasnfer";
+	d3b.innerHTML = (gp/1e9*21000/1e9 +" FTM");
+	d4a.innerHTML = "Swapping Trades";
+	d4b.innerHTML = (gp/1e9*200000/1e9 +" FTM");
+	d5a.innerHTML = "Add/Remove Liquidity";
+	d5b.innerHTML = (gp/1e9*175000/1e9 +" FTM");
+	d6a.innerHTML = "Token Transfers";
+	d6b.innerHTML = (gp/1e9*65000/1e9 +" FTM");
+
+	r1.appendChild(d1a);
+	r1.appendChild(d1b);
+	gt.appendChild(r1);
+	r2.appendChild(d2a);
+	r2.appendChild(d2b);
+	gt.appendChild(r2);
+	r3.appendChild(d3a);
+	r3.appendChild(d3b);
+	gt.appendChild(r3);
+	r4.appendChild(d4a);
+	r4.appendChild(d4b);
+	gt.appendChild(r4);
+	r5.appendChild(d4a);
+	r5.appendChild(d4b);
+	gt.appendChild(r5);
+	r6.appendChild(d6a);
+	r6.appendChild(d6b);
+	gt.appendChild(r6);
+
+}
 ab1=[
   {
     "constant": true,

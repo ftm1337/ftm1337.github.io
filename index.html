@@ -7,9 +7,10 @@
 <head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
 <style>
-	* {
-	  color:#eee;
-	}
+    * {
+      color:#eee;
+      overflow-wrap:break-word;
+    }
 	a{text-decoration-line:none}
 	html{
 	  background:#000;
@@ -20,9 +21,10 @@
 	pre{overflow-x:auto;max-width:80%}
 	#votingmvg{border-radius:20px;border: #aaa solid 1px}
 	.topbar{display:grid;grid-template-columns: auto;}
-	#mvg pre{margin: 10px 0 0 0}
+	#mvg pre{margin: 0 0 0 0;}
   #mvg hr{border: 0px dashed;width: 50%}
-  #mvg div{background: #222;width:70%;border-radius: 15px}
+  #mvg div{background: #222;margin: auto;border-radius: 15px}
+		#mvg{width: 70vw}
 	.mainpanels{display:grid;grid-template-columns:auto}
 	.olsa{display:grid;grid-template-columns:auto auto 1%;}
 	.mainstages{text-align:center;display:grid;grid-template-columns:	 auto}
@@ -30,6 +32,7 @@
 	@media(min-width:641px){
 		.mainpanels{grid-template-columns:50% 50%}
 		.mainstages{grid-template-columns:50% 50%}
+		#mvg{width: 70%;}
 	}
 </style>
 </head>

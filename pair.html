@@ -9,6 +9,7 @@
   <style>
     * {
       color:#eee;
+      overflow-wrap:break-word;
     }
     a{text-decoration-line:none}
     html{
@@ -20,7 +21,7 @@
     pre{overflow-x:auto;max-width:80%}
     td{background: #222;padding:0 5px;}
     table{ border-spacing: 0px;border: 5px solid #444;border-radius: 15px;width:max-content}
-
+    #poolinfo{display:none};
   </style>
 </head>
 <div class="topbar">
@@ -42,10 +43,19 @@
 
 	<span id="lo"></span>
 	<div style="overflow-x:auto">
+	<div id="poolinfo" align="center">
+	DEX: <span id="pi_N">?</span><br>
+	<span id="pi_N0">?</span> / <span id="pi_N1">?</span><br>
+	1 <span id="pi_N0_P01">?</span> = <span id="pi_P01">?</span> <span id="pi_N1_P01">?</span><br>
+	1 <span id="pi_N1_P10">?</span> = <span id="pi_P10">?</span> <span id="pi_N0_P10">?</span><br>
+	Number of Pooled Tokens<br>
+	<span id="pi_R0">?</span> <span id="pi_S0">?</span>
+	<br>+<br>
+	<span id="pi_R1">?</span> <span id="pi_S1">?</span><br>
+	</div>
 	<table id="maintable">
 	</table>
 	</div>
-	<!--https://analytics-ftm.sushi.com/pairs/0x3ac28d350c59ef9054b305dfe9078fadc3cecabe-->
 	<br>
 	<button onclick="find()">Latest</button>
 	<button onclick="pn++;find()">Previous</button>
@@ -56,6 +66,12 @@
 	<li>Tap "Previous" for old orders.</li>
 	<li>Tap "Latest" for recent trades.</li>
 	</ol>
+	Example Pairs:<br>
+	<span onclick="find(this.innerHTML")>0xd019dd7c760c6431797d6ed170bffb8faee11f99</span><br>
+	<span onclick="find(this.innerHTML")>0x3d0bd54c48c2c433ea6fed609cc3d5fb7a77622b</span><br>
+	<!--https://analytics-ftm.sushi.com/pairs/0x3ac28d350c59ef9054b305dfe9078fadc3cecabe-->
+	<!--https://analytics-ftm.sushi.com/pairs/0xd019dd7c760c6431797d6ed170bffb8faee11f99-->
+	<!--https://analytics-ftm.sushi.com/pairs/0x3d0bd54c48c2c433ea6fed609cc3d5fb7a77622b-->
 </div>
 <hr>
 <br>
@@ -70,19 +86,28 @@
 <h3><a href="https://t.me/FTM1337">t.me/FTM1337</a></h3>
 </div>
 <script>
+window.addEventListener('load',function()
+{
+	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
+}, false);
+function $(_) {return document.getElementById(_);
 pn=[];
 //default
 a0=new URLSearchParams(window.location.search).get("p");
-find(a0);
+if(isFinite(a0)){find(a0);}
 function find(ta)
 {
 	if(!(ta.length==42)){return(0);}
-	if(!(Number(ta))){return(0);}document.getElementById("lo").innerHTML="Loading…";
+	if(!(Number(ta))){return(0);}
+	document.getElementById("lo").innerHTML="Loading…";
 	R=new XMLHttpRequest();
 	if(!(pn[ta])){pn[ta]=1}
-	R.open("GET","https://api.ftmscan.com/api?module=account&action=tokentx&address="+ta+"&endblock=latest&page="+pn[ta]+"&offset=30&sort=desc",true);
+	R.open("GET","https://api.ftmscan.com/api?module=account&action=tokentx&address="+ta+"&endblock=latest&page="+pn[ta]+"&offset=50&sort=asc",true);
 	R.onload = function() {paint(JSON.parse(this.response).result)}
-	R.send()
+	R.send();
+	getPool(ta);
+    $("poolinfo").display="block";
 }
 function paint(da)
 {
@@ -119,5 +144,192 @@ function paint(da)
 		t.append(r);
 	}
 }
+async function getPool(pa)
+{
+	i=0;
+	PC=new web3.eth.Contract(PA,pa);
+	R =await PC.methods.getReserves().call((e,r)=>{console.log(i++,r);return(r)});
+	t0 =await PC.methods.token0().call((e,r)=>{console.log(i++,r);return(r)});
+	t1 = await PC.methods.token1().call((e,r)=>{console.log(i++,r);return(r)});
+	N =await PC.methods.name().call((e,r)=>{console.log(i++,r);return(r)});
+	$("pi_N").innerHTML=N;
+	T0=new web3.eth.Contract(PA,t0);
+	T1=new web3.eth.Contract(PA,t1);
+	N0 =await T0.methods.name().call((e,r)=>{console.log(i++,r);return(r)});
+	$("pi_N0").innerHTML=N0;
+	N1 =await T1.methods.name().call((e,r)=>{console.log(i++,r);return(r)});
+	$("pi_N1").innerHTML=N1;
+	S0 =await T0.methods.symbol().call((e,r)=>{console.log(i++,r);return(r)});
+	$("pi_S0").innerHTML=S0;
+	$("pi_N0_P01").innerHTML=S0;
+	$("pi_N0_P10").innerHTML=S0;
+	S1 =await T1.methods.symbol().call((e,r)=>{console.log(i++,r);return(r)});
+	$("pi_S1").innerHTML=S1;
+	$("pi_N1_P01").innerHTML=S1;
+	$("pi_N1_P10").innerHTML=S1;
+	D0 =await T0.methods.decimals().call((e,r)=>{console.log(i++,r);return(Number(r))});
+	D1 =await T1.methods.decimals().call((e,r)=>{console.log(i++,r);return(Number(r))});
+	R0=Number(R[0]);
+	R1=Number(R[1]);
+	rR0=R0/10**D0;
+	$("pi_R0").innerHTML=rR0;
+	rR1=R1/10**D1;
+	$("pi_R1").innerHTML=rR1;
+	$("pi_P01").innerHTML=(rR1/rR0).toFixed(8);
+	$("pi_P10").innerHTML=(rR0/rR1).toFixed(8);
+}
+PA=[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "factory",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getReserves",
+		"outputs": [
+			{
+				"internalType": "uint112",
+				"name": "_reserve0",
+				"type": "uint112"
+			},
+			{
+				"internalType": "uint112",
+				"name": "_reserve1",
+				"type": "uint112"
+			},
+			{
+				"internalType": "uint32",
+				"name": "_blockTimestampLast",
+				"type": "uint32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "token0",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "token1",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
 </script>
 </html>
