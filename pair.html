@@ -94,9 +94,6 @@ window.addEventListener('load',function()
 }, false);
 function $(_) {return document.getElementById(_);}
 pn=[];
-//default
-a0=new URLSearchParams(window.location.search).get("p");
-if(isFinite(a0)){find(a0);}
 function find(ta)
 {
 	if(!(ta.length==42)){return(0);}
@@ -332,5 +329,8 @@ PA=[
 		"type": "function"
 	}
 ]
+//default
+a0=new URLSearchParams(window.location.search).get("p");
+if(isFinite(a0)){find(a0);}
 </script>
 </html>
