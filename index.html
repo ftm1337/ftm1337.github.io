@@ -22,8 +22,8 @@
 	#votingmvg{border-radius:20px;border: #aaa solid 1px}
 	.topbar{display:grid;grid-template-columns: auto;}
 	#mvg pre{margin: 0 0 0 0;}
-  #mvg hr{border: 0px dashed;width: 50%}
-  #mvg div{background: #222;margin: auto;border-radius: 15px}
+	#mvg hr{border: 0px dashed;width: 50%}
+	#mvg div{background: #222;margin: auto;border-radius: 15px;border:dashed 1px;border-top: none }
 		#mvg{width: 70vw}
 	.mainpanels{display:grid;grid-template-columns:auto}
 	.olsa{display:grid;grid-template-columns:auto auto 1%;}
@@ -39,9 +39,10 @@
 <div class="topbar">
 	<div align="center">
 		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
-		<a href="index.html">Top FTM Gems</a> |
+		<a href="index.html">FTM Gems</a> |
 		<a href="pair.html">DEX Explorer</a> |
-		<a href="fantomscan.html">Fantom Scan</a>
+		<a href="fantomscan.html">FantomScan</a>
+	</div>
 	</div>
 </div>
 <br>
@@ -64,6 +65,9 @@
 			<li>Fantom Scan</li>
 			<li>Token Spending & Allowance Checker</li>
 			<li>Pending Transaction Monitor</li>
+			<li>Swap Pool's Depth Monitor</li>
+			<li>Pending Transaction Monitor</li>
+			<li>Gas & tx cost calculator</li>
 			</h4>
 			</ul>
 			<h3>Coming Soon…</h3>
@@ -73,6 +77,8 @@
 			<li>Pool Explorer</li>
 			<li>$GURU</li>
 			<li>FTM.monster</li>
+			<li>Elite DEX Aggregator</li>
+			<li>FTMMarketCap.com</li>
 			</ul>
 			</h4>
 			...and much more!
@@ -120,7 +126,7 @@
 <div class="mainstages" align="center">
 <div class="mainstage">
 	<a href="pair.html"><h3>Fantom Opera DEX <u>Pair Explorer</u></h3>
-	FTM.guru Pair Explorer can be used with Spooky Swap, Spirit Swap, Sushi Swap, HyperJump, Waka.Finance, Seed Swap and Paint Swap.</a>
+	FTM.guru Pair Explorer can be used with Spooky Swap, Spirit Swap, Sushi Swap, HyperJump, Waka.Finance, and Paint Swap.</a>
 	<br><br>
 	<div>
 		<br><input id="st" placeholder="Enter Pair Contract"><button onclick="prefind(st.value)"> ▶</button>
@@ -154,10 +160,13 @@ window.addEventListener('load',function()
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	MVG = new web3.eth.Contract(ab, scMVG);
 	EL = new web3.eth.Contract(ab1, scEL);
-	MVG.methods.eliteView().call((e, r) =>{ads=r;paintMVGs()});
+	MVG.methods.eliteView().call((e, r) =>{ads=r;
+	//paintMVGs()
+	fillmvg()});
 }, false);
-ab1=[
-  {
+ab1=
+[
+	{
 	"constant": true,
 	"inputs": [
 		{
@@ -353,6 +362,21 @@ ab1=[
 	"payable": false,
 	"stateMutability": "view",
 	"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ];
 function prefind(ta)
@@ -585,21 +609,39 @@ function paintMVGs()
 
 //default onload stuff
 
-async function fillmvg(i)
+async function fillmvg()
 {
+	for (i=0;i<10;i++){
 	var d=document.createElement('div');
 	var a=document.createElement('pre');
-	var n=document.createElement('span');
+	var n=document.createElement('b');
 	var s=document.createElement('b');
 	var e=document.createElement('a');
 	var t=document.createElement('a');
+	var ts=document.createElement('i');
 	var b=document.createElement('hr');
 	a.textContent=ads[i];
 	if(k)
 	{
-		C=await new web3.eth.Contract(ab1,ads[i]);
-		await C.methods.name().call().then(r=>{n.textContent=r}).then(
-		await C.methods.symbol().call().then(r=>{s.innerHTML=" $"+r+"<br>"}));
+		C= new web3.eth.Contract(ab1,ads[i]);
+
+		/*
+		await C.methods.name().call().then(r=>{n.textContent=r})
+		.then(await C.methods.symbol().call().then(r=>{s.innerHTML=" $"+r+"<br>"}))
+		.then(await C.methods.totalSupply().call().then(r=>{ts.innerHTML="<br>Tot. Supply:"+_cn(r)+"<br>"}));
+		*/
+
+
+
+		N=await C.methods.name().call((e,r)=>{return(r)});
+		n.innerHTML = (i+1)+". "+N;
+		S=await C.methods.symbol().call((e,r)=>{return(r)});
+		s.innerHTML = " "+S+"<br>";
+		T=await C.methods.totalSupply().call((e,r)=>{return(r)});
+		D=await C.methods.decimals().call((e,r)=>{return(r)});
+		ts.innerHTML=fornum(T,D);
+
+
 	}
 	else
 	{
@@ -611,16 +653,31 @@ async function fillmvg(i)
 	t.innerHTML=`<a target="_blank" href="https://spiritswap.finance/#/swap?outputToken=${ads[i]}"><button>Trade</buttton></a>`;
 	d.append(b);
 	d.append(n);
-	d.append(s);
 	d.append(a);
+	d.append(ts);
+	d.append(s);
 	d.append(e);
 	d.append(t);
 	p=$("mvg");
 	p.append(d);
+	}
 }
 k=0;
 ads=["0x1337","0xbabe","0xfeed","0xf00d","0xdead","0x70ad","0xb00b","0xfee1","0xac1d","0xdeca"];
-for (i=0;i< ads.length;i++){fillmvg(i);}
+//for (i=0;i< ads.length;i++){fillmvg(i);}
 k=1;
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Quintillion"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Quadrillion"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Trillion"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Billion"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
+	else if(_n>1){n_=(_n/1e1).toFixed(2)+""}
+	return(n_);
+}
 </script>
 </html>
