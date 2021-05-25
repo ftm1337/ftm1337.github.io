@@ -1,6 +1,6 @@
 <!doctype html><html><meta charset="UTF-8">
 <head>
-<title>FTM1337 (ftm.monster | ftm.guru)</title>
+<title>FantomScan : FTM.guru | FTM1337</title>
 <meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
 <meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -117,20 +117,25 @@ async function basics()
 	r6=document.createElement('tr');
 	d6a=document.createElement('td');
 	d6b=document.createElement('td');
+	r7=document.createElement('tr');
+	d7a=document.createElement('td');
+	d7b=document.createElement('td');
 
 	d1a.innerHTML = "Block Height";
 	web3.eth.getBlockNumber().then(r=>d1b.innerHTML = r.toLocaleString());
 	d2a.innerHTML = "Safe Low Gas";
 	await web3.eth.getGasPrice((e,r)=>{gp=r})
 	d2b.innerHTML =(gp/1e9 +" GWei");
-	d3a.innerHTML = "FTM trasnfer";
+	d3a.innerHTML = "FTM transfer";
 	d3b.innerHTML = (gp/1e9*21000/1e9 +" FTM");
 	d4a.innerHTML = "Swapping Trades";
 	d4b.innerHTML = (gp/1e9*200000/1e9 +" FTM");
-	d5a.innerHTML = "Add/Remove Liquidity";
+	d5a.innerHTML = "Add/Remove Liq.";
 	d5b.innerHTML = (gp/1e9*175000/1e9 +" FTM");
 	d6a.innerHTML = "Token Transfers";
 	d6b.innerHTML = (gp/1e9*65000/1e9 +" FTM");
+	d7a.innerHTML = "Token Approvals";
+	d7b.innerHTML = (gp/1e9*48000/1e9 +" FTM");
 
 	r1.appendChild(d1a);
 	r1.appendChild(d1b);
@@ -144,12 +149,15 @@ async function basics()
 	r4.appendChild(d4a);
 	r4.appendChild(d4b);
 	gt.appendChild(r4);
-	r5.appendChild(d4a);
-	r5.appendChild(d4b);
+	r5.appendChild(d5a);
+	r5.appendChild(d5b);
 	gt.appendChild(r5);
 	r6.appendChild(d6a);
 	r6.appendChild(d6b);
 	gt.appendChild(r6);
+	r7.appendChild(d7a);
+	r7.appendChild(d7b);
+	gt.appendChild(r7);
 
 }
 ab1=[
