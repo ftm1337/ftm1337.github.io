@@ -1,0 +1,292 @@
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>FantomScan : FTM.guru | FTM1337</title>
+<meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
+<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<link rel="shortcut icon" href="img/ftm1337.jpg" />
+	<style>
+		* {
+			color:#eee;
+			overflow-wrap:break-word;
+		}
+		a{text-decoration-line:none;font-weight:bolder}
+		html{
+			background:#000;
+			font-family:helvetica nueve, robotica, ubuntu, sans-serif
+		}
+		input,button{border-radius:25px;background:black;text-align:center}
+	button:hover{	box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
+		pre{overflow-x:auto;max-width:80%}
+		.mainpanels{display:grid}
+		.mainpanel{grid-template-columns:auto;background: #222;margin:5%;border-radius: 15px;border:dashed 1px;}
+		@media(min-width:641px){
+				.mainpanels{grid-template-columns:50% 50%}
+		}
+	</style>
+</head>
+<div class="topbar">
+	<div align="center">
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="index.html">FTM Gems</a> |
+		<a href="pair.html">DEX-Explorer</a> |
+		<a href="fantomscan.html">FantomScan</a>
+	</div>
+</div>
+<br>
+<hr>
+<h2 align="center">ELITE Tokenomics</h2>
+<div class="mainpanel" align="center">
+	<br><h4>$ELITE</h4>
+	Elite Token offers holder's special privileges, access to exclusive content and voting rights on the TopElites smart contract showcased on the Front page of FTM.guru and its other mediums.<br><br>The Maximum Supply of Elite is Fixed at 1337.<br><br>
+	Supply is consistently decreasing due to a 1.337% transfer tax, which is burned to Death, facilitating an elite & authentic deflation.
+	<br><br>
+</div>
+<div class="mainpanels" align="center">
+	<div class="mainpanel">
+		<h4>Total Liquidity</h4>
+		<span id="tl">?</span> FTM
+		<!--$<span id="tl">?</span>-->
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Market Cap</h4>
+		<span id="mc">?</span> FTM
+		<!--$<span id="mc">?</span>-->
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Circulating Supply</h4>
+		<span id="cs">?</span> ELITE
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Burnt Supply</h4>
+		<span id="bs">?</span> ELITE
+		<br><br>
+	</div>
+</div>
+<h4 align="center">Liquidity Distribution</h4>
+<div class="mainpanels" align="center">
+	<div class="mainpanel">
+		<h4>Spooky:ELITE/WFTM</h4>
+		<span id="p0a">?</span> ELITE<br>+<br>
+		<span id="p0b">?</span> FTM<br><br>
+		1 ELITE = <span id="p0p">?</span> FTM
+		<br><br>
+		<a href="https://spookyswap.finance/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Sushi:ELITE/WFTM</h4>
+		<span id="p1a">?</span> ELITE<br>+<br>
+		<span id="p1b">?</span> FTM<br><br>
+		1 ELITE = <span id="p1p">?</span> FTM
+		<br><br>
+		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<br><br>
+	</div>
+</div>
+</div>
+<h4 align="center">Special Numbers</h4>
+<div class="mainpanels" align="center">
+	<div class="mainpanel">
+		<h4>Anti-Whale Limits</h4>
+		<span class="numpal" id="aw">?</span> ELITE
+		<br><br>
+		<ul style="text-align:left;">
+		<li>Each address can hold no more than this number of ELITE.</li>
+		<li>The limit applies on transfers as well.</li>
+		<li>It increases gradually to 1.337% of Total Supply, which is about 17.29 ELITE.</li>
+		</ul>
+	</div>
+	<div class="mainpanel">
+		<h4>Permanent Liquidity</h4>
+		<span id="PBa">?</span> ELITE<br>+<br>
+		<span id="PBb">?</span> FTM<br><br>
+		These are the current amounts locked into Liquidity permanently that cannot be removed. It was burned to <a href="https://ftmscan.com/address/0x00000000000000000000000000000000dead1337#balances" target="_blank">0x1337DEAD</a> on Genesis Day.<br><br>
+	</div>
+</div>
+<div class="mainpanel" align="center">
+	<br><br>The Elite Devs burnt 267.4 ELITE worth <span id="lwt">?</span> FTM today to bootstrap the Fantom Opera # 1337.<br><br>
+	<a href="https://ftmscan.com/tx/0xa4130f0738277cca77ff7a0a790c8d73cebb2e581784b30ae89dfc65d5a2899b" target="_blank">Proof of Burn (Spooky LP)<br>
+	Curret Worth: <span id="lw0">?</span> FTM<br><br></a>
+	<a href="https://ftmscan.com/tx/0x9912832af64e1ff0db71934770a3c924ac550c3448979428cfe6c789f831c781" target="_blank">Proof of Burn (Sushi LP)<br>
+	Curret Worth: <span id="lw1">?</span> FTM<br><br><br></a>
+	These serve as a Source of Guarantee to the Elites that instill trust in this Fraternity and it's endeavours.<br>
+</div>
+<hr>
+<br>
+<br>
+<div align="center">
+<h2><a href="https://ftm.guru">FTM.guru</a></h2>
+<a href="index.html">EliteGems</a> |
+<a href="pair.html">DEX-Explorer</a> |
+<a href="fantomscan.html">FantomScan</a> |
+<a href="fantomscan.html">ELITE Tokenomics</a>
+<pre>$ELITE
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a><br><br>
+<h3><a href="https://t.me/FTM1337">t.me/FTM1337</a></h3>
+<i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
+</div>
+<script src="web3.min.js"></script>
+<script>
+window.addEventListener('load',function()
+{
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
+	basics();
+}, false);
+function $(_) {return document.getElementById(_);}
+ab1=[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getReserves",
+		"outputs": [
+			{
+				"internalType": "uint112",
+				"name": "_reserve0",
+				"type": "uint112"
+			},
+			{
+				"internalType": "uint112",
+				"name": "_reserve1",
+				"type": "uint112"
+			},
+			{
+				"internalType": "uint32",
+				"name": "_blockTimestampLast",
+				"type": "uint32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "circulatingSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "limit",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+async function basics()
+{
+	EC=new web3.eth.Contract(ab1,"0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882");
+	S_0 = await EC.methods.balanceOf("0x0000000000000000000000000000000000000000").call((e,r)=>{return(Number(r))});
+	$("bs").innerHTML=(S_0/1e18).toFixed(5);
+	S_C = await EC.methods.balanceOf("0x5C146cd18fa53914580573C9b9604588529406Ca").call((e,r)=>{return(Number(r))});
+	S_D = await EC.methods.balanceOf("0xbab9645d1B78425A7e4e9e78E8DD32aAbd800a16").call((e,r)=>{return(Number(r))});
+	cs=(1337e18-S_0-S_C-S_D)/1e18;
+	$("cs").innerHTML = cs.toFixed(5);
+	AWL = EC.methods.limit().call((e,r)=>{AWL=(Number(r));$("aw").innerHTML=(AWL/1e18).toFixed(5)});
+	P0=new web3.eth.Contract(ab1,"0xea035a13b64cb49d85e2f0a2736c9604cb21599c");
+	RP0=await P0.methods.getReserves().call((e,r)=>{return(r)});
+	RP0=[Number(RP0[1]),Number(RP0[0])];
+	$("p0a").innerHTML=(RP0[0]/1e18).toFixed(5);
+	$("p0b").innerHTML=(RP0[1]/1e18).toFixed(5);
+	$("p0p").innerHTML=(RP0[1]/RP0[0]).toFixed(5);
+	P0T=await P0.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P0B=await P0.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P1=new web3.eth.Contract(ab1,"0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0");
+	RP1=await P1.methods.getReserves().call((e,r)=>{return(r)});
+	RP1=[Number(RP1[1]),Number(RP1[0])];
+	$("p1a").innerHTML=(RP1[0]/1e18).toFixed(5);
+	$("p1b").innerHTML=(RP1[1]/1e18).toFixed(5);
+	$("p1p").innerHTML=(RP1[1]/RP1[0]).toFixed(5);
+	P1T=await P1.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P1B=await P1.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	$("PBa").innerHTML=(P0B/P0T*RP0[0]/1e18+P1B/P1T*RP1[0]/1e18).toFixed(5);
+	$("PBb").innerHTML=(P0B/P0T*RP0[1]/1e18+P1B/P1T*RP1[1]/1e18).toFixed(5);
+	AP=(RP0[1]+RP1[1])/(RP0[0]+RP1[0]);
+	$("tl").innerHTML=(2*(RP0[1]+RP1[1])/1e18).toFixed(5);
+	$("mc").innerHTML=(AP*cs).toLocaleString();
+	$("lwt").innerHTML=(267.4*AP).toLocaleString();
+	$("lw0").innerHTML=(133.7*2*RP0[1]/RP0[0]);
+	$("lw1").innerHTML=(133.7*2*RP1[1]/RP1[0]).toLocaleString();
+	console.log("ap",AP,"cs",cs,RP0,RP1);
+}
+</script>
+</html>
