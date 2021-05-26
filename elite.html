@@ -75,8 +75,8 @@
 		<span id="p0b">?</span> FTM<br><br>
 		1 ELITE = <span id="p0p">?</span> FTM
 		<br><br>
-		<a href="https://spookyswap.finance/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
-		<a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://spookyswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://spookyswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
 		<br><br>
 	</div>
 	<div class="mainpanel">
@@ -86,7 +86,17 @@
 		1 ELITE = <span id="p1p">?</span> FTM
 		<br><br>
 		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
-		<a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Spooky:ELITE/WFTM</h4>
+		<span id="p2a">?</span> ELITE<br>+<br>
+		<span id="p2b">?</span> FTM<br><br>
+		1 ELITE = <span id="p2p">?</span> FTM
+		<br><br>
+		<a href="https://spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://spiritswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
 		<br><br>
 	</div>
 </div>
@@ -278,10 +288,18 @@ async function basics()
 	$("p1p").innerHTML=(RP1[1]/RP1[0]).toFixed(5);
 	P1T=await P1.methods.totalSupply().call((e,r)=>{return(Number(r))});
 	P1B=await P1.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P2=new web3.eth.Contract(ab1,"0x7c8f47d2d151cedfdb847ab3c5b67d05daf3539b");
+	RP2=await P2.methods.getReserves().call((e,r)=>{return(r)});
+	RP2=[Number(RP2[1]),Number(RP2[0])];
+	$("p2a").innerHTML=(RP2[0]/1e18).toFixed(5);
+	$("p2b").innerHTML=(RP2[1]/1e18).toFixed(5);
+	$("p2p").innerHTML=(RP2[1]/RP2[0]).toFixed(5);
+	P2T=await P1.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P2B=await P1.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
 	$("PBa").innerHTML=(P0B/P0T*RP0[0]/1e18+P1B/P1T*RP1[0]/1e18).toFixed(5);
 	$("PBb").innerHTML=(P0B/P0T*RP0[1]/1e18+P1B/P1T*RP1[1]/1e18).toFixed(5);
-	AP=(RP0[1]+RP1[1])/(RP0[0]+RP1[0]);
-	$("tl").innerHTML=(2*(RP0[1]+RP1[1])/1e18).toFixed(5);
+	AP=(RP0[1]+RP1[1]+RP2[1])/(RP0[0]+RP1[0]+RP2[0]);
+	$("tl").innerHTML=(2*(RP0[1]+RP1[1]+RP2[1])/1e18).toFixed(5);
 	$("mc").innerHTML=(AP*cs).toLocaleString();
 	$("lwt").innerHTML=(267.4*AP).toLocaleString();
 	$("lw0").innerHTML=(133.7*2*RP0[1]/RP0[0]).toLocaleString();;
