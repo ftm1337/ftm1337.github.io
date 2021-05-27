@@ -179,13 +179,13 @@ ads=["0x1337","0xbabe","0xfeed","0xf00d","0xdead","0x70ad","0xb00b","0xfee1","0x
 console.log(ads);
 //for (i=0;i< ads.length;i++){fillmvg(i);}
 k=1;
-window.addEventListener('load',function()
+window.addEventListener('load',async function()
 {
 	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	MVG = new web3.eth.Contract(ab, scMVG);
 	EL = new web3.eth.Contract(ab1, scEL);
-	MVG.methods.eliteView().call((e, r) =>{//ads=r;
+	await MVG.methods.eliteView().call((e, r) =>{//ads=r;
 	//paintMVGs()
 	//fillmvg()
 	console.log(r)
