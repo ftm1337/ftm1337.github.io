@@ -184,7 +184,9 @@ window.addEventListener('load',function()
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	MVG = new web3.eth.Contract(ab, scMVG);
 	EL = new web3.eth.Contract(ab1, scEL);
-	MVG.methods.eliteView().call((e, r) =>{	fillmvg(r)});
+	MVG.methods.eliteView().call((e, r) =>{ads=r;
+	//paintMVGs()
+	fillmvg()});
 }, false);
 ab1=
 [
@@ -631,9 +633,8 @@ function paintMVGs()
 */
 //default onload stuff
 
-async function fillmvg(r)
+async function fillmvg()
 {
-	ads=r;
 	for (i=0;i<10;i++){
 	var d=document.createElement('div');
 	var a=document.createElement('pre');
@@ -672,7 +673,7 @@ async function fillmvg(r)
 		s.innerHTML="("+(ads[i]).substr(2,3)+")<br>";
 	}
 	e.innerHTML=`<a target="_blank" href="https://ftmscan.com/token/${ads[i]}"><button>Scan</button></a> `;
-	c.innerHTML=`<a target="_blank" href="https://charts-spirit.zoocoin.cashswap.finance/#/swap?outputCurrency=${ads[i]}"><button>Chart</buttton></a>`;
+	//c.innerHTML=`<a target="_blank" href="https://charts-spirit.zoocoin.cashswap.finance/#/swap?outputCurrency=${ads[i]}"><button>Chart</buttton></a>`;
 	t.innerHTML=`<a target="_blank" href="https://swap.spiritswap.finance/#/swap?outputCurrency=${ads[i]}"><button>Trade</buttton></a>`;
 	d.append(b);
 	d.append(n);
