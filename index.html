@@ -176,6 +176,7 @@ pre{overflow-x:auto;max-width:80%}
 <script>
 k=0;
 ads=["0x1337","0xbabe","0xfeed","0xf00d","0xdead","0x70ad","0xb00b","0xfee1","0xac1d","0xdeca"];
+console.log(ads);
 //for (i=0;i< ads.length;i++){fillmvg(i);}
 k=1;
 window.addEventListener('load',function()
@@ -184,9 +185,12 @@ window.addEventListener('load',function()
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	MVG = new web3.eth.Contract(ab, scMVG);
 	EL = new web3.eth.Contract(ab1, scEL);
-	MVG.methods.eliteView().call((e, r) =>{ads=r;
+	MVG.methods.eliteView().call((e, r) =>{//ads=r;
 	//paintMVGs()
-	fillmvg()});
+	//fillmvg()
+	console.log(r)
+	fillmvg(r);
+	});
 }, false);
 ab1=
 [
@@ -624,17 +628,12 @@ ab=[
 scEL="0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882";
 scMVG="0x17B0dC3bc9DE37B5137e1B0087B2EA2cfB16f0Dc";
 function $(_){return document.getElementById(_)}
-/*
-function paintMVGs()
-{
-	$("mvg").innerHTML="";
-	for (i=0;i< ads.length;i++){fillmvg(i);}
-}
-*/
+
 //default onload stuff
 
-async function fillmvg()
+async function fillmvg(aaa)
 {
+	ads=aaa;
 	for (i=0;i<10;i++){
 	var d=document.createElement('div');
 	var a=document.createElement('pre');
@@ -648,15 +647,6 @@ async function fillmvg()
 	if(k)
 	{
 		C= new web3.eth.Contract(ab1,ads[i]);
-
-		/*
-		await C.methods.name().call().then(r=>{n.textContent=r})
-		.then(await C.methods.symbol().call().then(r=>{s.innerHTML=" $"+r+"<br>"}))
-		.then(await C.methods.totalSupply().call().then(r=>{ts.innerHTML="<br>Tot. Supply:"+_cn(r)+"<br>"}));
-		*/
-
-
-
 		N=await C.methods.name().call((e,r)=>{return(r)});
 		n.innerHTML = (i+1)+". "+N;
 		S=await C.methods.symbol().call((e,r)=>{return(r)});
@@ -664,8 +654,6 @@ async function fillmvg()
 		T=await C.methods.totalSupply().call((e,r)=>{return(r)});
 		D=await C.methods.decimals().call((e,r)=>{return(r)});
 		ts.innerHTML=fornum(T,D);
-
-
 	}
 	else
 	{
