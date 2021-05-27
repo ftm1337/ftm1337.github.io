@@ -673,8 +673,8 @@ async function fillmvg()
 		s.innerHTML="("+(ads[i]).substr(2,3)+")<br>";
 	}
 	e.innerHTML=`<a target="_blank" href="https://ftmscan.com/token/${ads[i]}"><button>Scan</button></a> `;
-	t.innerHTML=`<a target="_blank" href="https://charts-spirit.zoocoin.cashswap.finance/#/swap?outputToken=${ads[i]}"><button>Chart</buttton></a>`;
-	t.innerHTML=`<a target="_blank" href="https://spiritswap.finance/#/swap?outputToken=${ads[i]}"><button>Trade</buttton></a>`;
+	c.innerHTML=`<a target="_blank" href="https://charts-spirit.zoocoin.cashswap.finance/#/swap?outputCurrency=${ads[i]}"><button>Chart</buttton></a>`;
+	t.innerHTML=`<a target="_blank" href="https://swap.spiritswap.finance/#/swap?outputCurrency=${ads[i]}"><button>Trade</buttton></a>`;
 	d.append(b);
 	d.append(n);
 	d.append(a);
