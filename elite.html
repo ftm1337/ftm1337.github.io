@@ -8,19 +8,16 @@
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
 	<style>
 		* {
-			color:#eee;
+			color:#e3e9f2;
 			overflow-wrap:break-word;
 		}
-		a{text-decoration-line:none;font-weight:bolder}
-		html{
-			background:#000;
-			font-family:helvetica nueve, robotica, ubuntu, sans-serif
-		}
+a{text-decoration-line:none;padding:0 2px}
+html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 		input,button{border-radius:25px;background:black;text-align:center}
 	button:hover{	box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
 		pre{overflow-x:auto;max-width:80%}
 		.mainpanels{display:grid}
-		.mainpanel{grid-template-columns:auto;background: #222;margin:5%;border-radius: 15px;border:dashed 1px;}
+    .mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
 		@media(min-width:641px){
 				.mainpanels{grid-template-columns:50% 50%}
 		}
@@ -29,9 +26,11 @@
 <div class="topbar">
 	<div align="center">
 		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
-		<a href="index.html">FTM Gems</a> |
-		<a href="pair.html">DEX-Explorer</a> |
+		<a href="index.html">FTM-Gems</a>
+		<a href="pair.html">DEX-Explorer</a>
 		<a href="fantomscan.html">FantomScan</a>
+		<a href="elite.html">ELITE</a>
+		<a href="fmc.html">FantomMarketCap</a>
 	</div>
 </div>
 <br>
@@ -43,6 +42,7 @@
 	Supply is consistently decreasing due to a 1.337% transfer tax, which is burned to Death, facilitating an elite & authentic deflation.
 	<br><br>
 </div>
+<h4 align="center">LIVE MARKET DATA</h4>
 <div class="mainpanels" align="center">
 	<div class="mainpanel">
 		<h4>Total Liquidity</h4>
@@ -67,7 +67,7 @@
 		<br><br>
 	</div>
 </div>
-<h4 align="center">Liquidity Distribution</h4>
+<h4 align="center">LIQUIDITY DISTRIBUTION</h4>
 <div class="mainpanels" align="center">
 	<div class="mainpanel">
 		<h4>Spooky:ELITE/WFTM</h4>
@@ -77,6 +77,7 @@
 		<br><br>
 		<a href="https://spookyswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://spookyswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://info.spiritswap.finance/#/pair/0xea035a13b64cb49d85e2f0a2736c9604cb21599c" target="_blank"><button>Detail</button></a>
 		<br><br>
 	</div>
 	<div class="mainpanel">
@@ -87,6 +88,7 @@
 		<br><br>
 		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://analytics-ftm.sushi.com/pair/0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0" target="_blank"><button>Detail</button></a>
 		<br><br>
 	</div>
 	<div class="mainpanel">
@@ -95,13 +97,14 @@
 		<span id="p2b">?</span> FTM<br><br>
 		1 ELITE = <span id="p2p">?</span> FTM
 		<br><br>
-		<a href="https://spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
-		<a href="https://spiritswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://swap.spiritswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://unfo.spiritswap.finance/#/pair/0x7c8f47d2d151cedfdb847ab3c5b67d05daf3539b" target="_blank"><button>Detail</button></a>
 		<br><br>
 	</div>
 </div>
 </div>
-<h4 align="center">Special Numbers</h4>
+<h4 align="center">SPECIAL NUMBERS</h4>
 <div class="mainpanels" align="center">
 	<div class="mainpanel">
 		<h4>Anti-Whale Limits</h4>
@@ -133,10 +136,12 @@
 <br>
 <div align="center">
 <h2><a href="https://ftm.guru">FTM.guru</a></h2>
-<a href="index.html">EliteGems</a> |
-<a href="pair.html">DEX-Explorer</a> |
-<a href="fantomscan.html">FantomScan</a> |
-<a href="elite.html">ELITE Tokenomics</a>
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="index.html">FTM-Gems</a>
+		<a href="pair.html">DEX-Explorer</a>
+		<a href="fantomscan.html">FantomScan</a>
+		<a href="elite.html">ELITE</a>
+		<a href="fmc.html">FantomMarketCap</a>
 <pre>$ELITE
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
 <a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
