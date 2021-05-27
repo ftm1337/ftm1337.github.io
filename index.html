@@ -184,9 +184,7 @@ window.addEventListener('load',function()
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	MVG = new web3.eth.Contract(ab, scMVG);
 	EL = new web3.eth.Contract(ab1, scEL);
-	MVG.methods.eliteView().call((e, r) =>{ads=r;
-	//paintMVGs()
-	fillmvg()});
+	MVG.methods.eliteView().call((e, r) =>{	fillmvg(r)});
 }, false);
 ab1=
 [
@@ -624,17 +622,18 @@ ab=[
 scEL="0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882";
 scMVG="0x17B0dC3bc9DE37B5137e1B0087B2EA2cfB16f0Dc";
 function $(_){return document.getElementById(_)}
-
+/*
 function paintMVGs()
 {
 	$("mvg").innerHTML="";
 	for (i=0;i< ads.length;i++){fillmvg(i);}
 }
-
+*/
 //default onload stuff
 
-async function fillmvg()
+async function fillmvg(r)
 {
+	ads=r;
 	for (i=0;i<10;i++){
 	var d=document.createElement('div');
 	var a=document.createElement('pre');
