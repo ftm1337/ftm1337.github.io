@@ -1,0 +1,1012 @@
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>Farmlands - FTM1337 (ftm.monster | ftm.guru)</title>
+<meta name="description" content="Farmlands - FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
+<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<link rel="shortcut icon" href="img/ftm1337.jpg" />
+<style>
+*{color:#e3e9f2;overflow-wrap:break-word;}
+a{text-decoration-line:none;padding:0 2px}
+html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+img{border-radius: 50%}
+input,button{border-radius:25px;background:black;text-align:center;}
+button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
+pre{overflow-x:auto;max-width:80%}
+#votingmvg{background:#040b22;border-radius:20px;border: #aaa solid 1px}
+.topbar{display:grid;grid-template-columns: auto;}
+#mvg pre{margin: 0 0 0 0;}
+#mvg hr{border: 0px dashed;width: 50%}
+#mvg div{background: #000013;margin: auto;border-radius: 15px;border:dashed 1px;border-top: none }
+	#mvg{width: 70vw}
+.mainpanels{display:grid;grid-template-columns:auto}
+.olsa{display:grid;grid-template-columns:auto auto 1%;}
+.mainstages{text-align:center;display:grid;grid-template-columns:	 auto}
+.mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid}
+@media(min-width:641px){
+	.mainpanels{grid-template-columns:50% 50%}
+	.mainstages{grid-template-columns:50% 50%}
+	#mvg{width: 70%;}
+}
+#createnewfarm{font-size:1.5em}
+#searchforafarm{font-size:1.1em;border-radius:10px;width:75%}
+.farmcontrols{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;width:140px;margin:5px}button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+.notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #003e3e;border-radius: 20px;padding:2%;border:5px dashed}
+</style>
+</head>
+<div class="topbar">
+	<div align="center">
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM Gems</a>
+		<a href="pair.html">DEX Explorer</a>
+		<a href="fantomscan.html">FantomScan</a>
+		<a href="elite.html">ELITE</a>
+		<a href="fmc.html">FantomMarketCap</a>
+	</div>
+	</div>
+</div>
+<br>
+<hr>
+<br>
+<div align="center">
+<h2 align="center">👽 ELITE FARMLANDS</h2>
+Revolutionizing Farming with D.I.Y. Farm Creation<br><br><input id="searchforafarm"placeholder="Search Farmlands">
+<br><br>
+<i>Create a new farm, all by yourself, in a full permissionless manner, hosted directly on the Fantom blockchain on your own conditions.</i>
+
+
+<br><br>Choose your own Token<br>
+Select your own rewards<br>
+Setup your own Timeframe<br>
+<br><button id="createnewfarm">Create New Farm</button><br><br>
+</div>
+<br><br>
+<div class="mainstages" align="center">
+	<div class="mainstage">
+		<h3>Spiritswap ELITE/WFTM LP</h3>
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br>
+		<br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">APR:</div>
+			<div></div>
+			<div style="text-align:right">133.7%</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Earns:</div>
+			<div></div>
+			<div style="text-align:right">ELITE</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Farmland:</div>
+			<div></div>
+			<div style="text-align:right">#1</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Approve Farm</button><br><br>
+		<hr><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Your Stake:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Deposit</button>
+		<button class="farmcontrols" id="approve-1">Unstake</button><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Earnings:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Harvest</button>
+		<button class="farmcontrols" id="approve-1">Withdraw</button><br><br>
+	</div>
+	<div class="mainstage">
+		<h3>Spookyswap ELITE/WFTM LP</h3>
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br>
+		<br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">APR:</div>
+			<div></div>
+			<div style="text-align:right">133.7%</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Earns:</div>
+			<div></div>
+			<div style="text-align:right">ELITE</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Farmland:</div>
+			<div></div>
+			<div style="text-align:right">#1</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Approve Farm</button><br><br>
+		<hr><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Your Stake:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Deposit</button>
+		<button class="farmcontrols" id="approve-1">Unstake</button><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Earnings:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Harvest</button>
+		<button class="farmcontrols" id="approve-1">Withdraw</button><br><br>
+	</div>
+	<div class="mainstage">
+		<h3>Sushiswap ELITE/WFTM LP</h3>
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br>
+		<br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">APR:</div>
+			<div></div>
+			<div style="text-align:right">133.7%</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Earns:</div>
+			<div></div>
+			<div style="text-align:right">ELITE</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Farmland:</div>
+			<div></div>
+			<div style="text-align:right">#1</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Approve Farm</button><br><br>
+		<hr><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Your Stake:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Deposit</button>
+		<button class="farmcontrols" id="approve-1">Unstake</button><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Earnings:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Harvest</button>
+		<button class="farmcontrols" id="approve-1">Withdraw</button><br><br>
+	</div>
+</div>
+<br><br>
+<div class="notice">
+<h1>⚠</h1>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank">Core ELITE/WFTM farms will open when ELITE has 250+ holders.<br>Current Holders: 108 (Check on ftmScan</a>)
+<br>
+</div>
+<br><br><hr><br><br>
+<div align="center">
+<h2><a href="https://ftm.guru">FTM.guru</a></h2>
+<a href="farmlands.html">Farmlands👽</a>
+<a href="index.html">FTM Gems</a>
+<a href="pair.html">DEX Explorer</a>
+<a href="fantomscan.html">FantomScan</a>
+<a href="elite.html">ELITE</a>
+<a href="fmc.html">FantomMarketCap</a>
+<pre>$ELITE
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a><br><br>
+<h3><a href="https://t.me/FTM1337">t.me/FTM1337</a></h3>
+<i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
+</div>
+<script>a=document.getElementsByTagName("button");for(i=0;i< a.length-3;i++){a[i].disabled=true}</script>
+<!--
+<script src="web3.min.js"></script>
+<script>
+window.addEventListener('load',async function()
+{
+	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
+	});
+}, false);
+ab1=
+[
+	{
+	"constant": true,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		},
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		}
+	],
+	"name": "allowance",
+	"outputs": [
+		{
+		"internalType": "uint256",
+		"name": "",
+		"type": "uint256"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": false,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "spender",
+		"type": "address"
+		},
+		{
+		"internalType": "uint256",
+		"name": "value",
+		"type": "uint256"
+		}
+	],
+	"name": "approve",
+	"outputs": [
+		{
+		"internalType": "bool",
+		"name": "",
+		"type": "bool"
+		}
+	],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "guy",
+				"type": "address"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		}
+	],
+	"name": "balanceOf",
+	"outputs": [
+		{
+		"internalType": "uint256",
+		"name": "",
+		"type": "uint256"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "decimals",
+	"outputs": [
+		{
+		"internalType": "uint8",
+		"name": "",
+		"type": "uint8"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "factory",
+	"outputs": [
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "getReserves",
+	"outputs": [
+		{
+		"internalType": "uint112",
+		"name": "_reserve0",
+		"type": "uint112"
+		},
+		{
+		"internalType": "uint112",
+		"name": "_reserve1",
+		"type": "uint112"
+		},
+		{
+		"internalType": "uint32",
+		"name": "_blockTimestampLast",
+		"type": "uint32"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": false,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "_token0",
+		"type": "address"
+		},
+		{
+		"internalType": "address",
+		"name": "_token1",
+		"type": "address"
+		}
+	],
+	"name": "initialize",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "symbol",
+	"outputs": [
+		{
+		"internalType": "string",
+		"name": "",
+		"type": "string"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "name",
+	"outputs": [
+		{
+		"internalType": "string",
+		"name": "",
+		"type": "string"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+async function cw()
+{
+	if(!(Number(window.ethereum.chainId)==250)){$("mvgmsg").innerHTML="Wrong network detected.";return(0)}
+	await window.ethereum.enable();
+	$("mvgmsg").innerHTML= (window.ethereum.selectedAddress).substr(6) + " connected.";
+}
+async function mvgCV()
+{
+	await window.ethereum.enable();
+	var allowance = 0;
+	await EL.methods.allowance(window.ethereum.selectedAddress,scMVG).call((e,r)=>{allowance = r})
+	if (allowance < 1337e13)
+	{
+		await EL.methods.approve(scMVG).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Approval Tx:",r);})
+	}
+	console.log("allowance of ",scMVG," at ",window.ethereum.selectedAddress," is ",allowance);
+	candi=$("mvgcandidate").value;
+	if(!(candi.length==42)){$("mvgmsg").innerHTML="Improper address length";return(0);}
+	if(!(Number(candi))){$("mvgmsg").innerHTML="Improper address digits";return(0);}
+	candi=web3.utils.toChecksumAddress(candi);
+	await MVG.methods.castVote(candi).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Voting Tx:\nCandidate:",candi,"\nReturned:",r);$("mvgmsg").innerHTML="Voted for" +candi+" . Please refresh the page after voting transaction is confirmed."})
+}
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Quintillion"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Quadrillion"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Trillion"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Billion"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
+	else if(_n>1){n_=(_n/1e1).toFixed(2)+""}
+	return(n_);
+}
+
+
+abbrove=[{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}];
+
+f_1_add = "0x1337FA431A9D";
+
+
+farabi=[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "earned",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "uniswapTokenExchange",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "rewards",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "DURATION",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "notifyRewardAmount",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "getReward",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rewardRate",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "lastTimeRewardApplicable",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "userRewardPerTokenPaid",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "stake",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "lastUpdateTime",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rewardPerToken",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "tradedToken",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rewardPerTokenStored",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "exit",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "periodFinish",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_uniswapTokenExchange",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "reward",
+				"type": "uint256"
+			}
+		],
+		"name": "RewardAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "Staked",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "Withdrawn",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "reward",
+				"type": "uint256"
+			}
+		],
+		"name": "RewardPaid",
+		"type": "event"
+	}
+];
+
+function farm_1_f_approve()
+{
+	try
+	{
+		var conAdd = pairadd;
+		theCon = new web3.eth.Contract(abbrove, conAdd);
+		theCon.methods.approve(f_1_add,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){$("er").innerHTML=e;}
+}
+
+function farm_1_f_chappro()
+{
+	try
+	{
+		var conAdd = pairadd;
+		theCon = new web3.eth.Contract(abbrove, conAdd);
+		theCon.methods.allowance(window.ethereum.selectedAddress,f_1_add).call
+		(
+			{from:window.ethereum.selectedAddress},(e, r) =>
+			{
+				console.log(r);
+				if(Number(r)>0)
+				{
+					$("farm_1_approved").value="Approved";
+					$("farm_1_approval").disabled=true;
+					$("farm_1_after").style.display="block";
+				}
+				else
+				{
+					$("farm_1_approved").value="Not Approved";
+					$("farm_1_approval").disabled=false;
+					$("farm_1_after").style.display="none";
+				}
+			}
+		);
+	}
+	catch(e){$("er").innerHTML=e;}
+}
+
+function farm_1_f_deposit()
+{
+	try
+	{
+		var conAdd = f_1_add;
+		theCon = new web3.eth.Contract(farabi, conAdd);
+		theCon.methods.stake(String(Number($("farm_1_input_deposit").value)*1e18)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){$("er").innerHTML=e;}
+}
+
+function farm_1_f_claim()
+{
+	try
+	{
+		var conAdd = f_1_add;
+		theCon = new web3.eth.Contract(farabi, conAdd);
+		theCon.methods.getReward().send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){$("er").innerHTML=e;}
+}
+
+function farm_1_f_withdraw()
+{
+	try
+	{
+		var conAdd = f_1_add;
+		theCon = new web3.eth.Contract(farabi, conAdd);
+		theCon.methods.withdraw(String(Number($("farm_1_input_withdraw").value)*1e18)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){$("er").innerHTML=e;}
+}
+
+function farm_1_f_exit()
+{
+	try
+	{
+		var conAdd = f_1_add;
+		theCon = new web3.eth.Contract(farabi, conAdd);
+		theCon.methods.exit().send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){$("er").innerHTML=e;}
+}
+
+function refreshFarm()
+{
+	try
+	{
+		farm_1_f_chappro();
+
+		theCon = new web3.eth.Contract(farabi, f_1_add);
+		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_claim").value=Number(r)/1e18;$("farm_1_s_claim_e").value=Number(r)/1e18});
+		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;$("farm_1_s_claim_s").value=Number(r)/1e18});
+
+		the2 = new web3.eth.Contract(abi, pairadd);
+		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
+
+	}
+	catch(e){$("er").innerHTML=e;}
+}
+
+
+
+</script>
+
+-->
+</html>
