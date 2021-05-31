@@ -100,7 +100,18 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		<br><br>
 		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://swap.spiritswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
-		<a href="https://unfo.spiritswap.finance/#/pair/0x7c8f47d2d151cedfdb847ab3c5b67d05daf3539b" target="_blank"><button>Detail</button></a>
+		<a href="https://info.spiritswap.finance/#/pair/0x7c8f47d2d151cedfdb847ab3c5b67d05daf3539b" target="_blank"><button>Detail</button></a>
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>ZDEX:ELITE/WFTM</h4>
+		<span id="p3a">?</span> ELITE<br>+<br>
+		<span id="p3b">?</span> FTM<br><br>
+		1 ELITE = <span id="p3p">?</span> FTM
+		<br><br>
+		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>Swap</button></a>
+		<a href="https://info.zoocoin.cash/#/pair/0xad28B6C529714954AE2B6d390c8eaD874ddc4970" target="_blank"><button>Detail</button></a>
 		<br><br>
 	</div>
 </div>
@@ -136,19 +147,20 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 <br>
 <br>
 <div align="center">
-<h2><a href="https://ftm.guru">FTM.guru</a></h2>
-		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
-		<a href="farmlands.html">Farmlands👽</a>
-		<a href="index.html">FTM-Gems</a>
-		<a href="pair.html">DEX-Explorer</a>
-		<a href="fantomscan.html">FantomScan</a>
-		<a href="elite.html">ELITE</a>
-		<a href="fmc.html">FantomMarketCap</a>
+	<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+	<a href="farmlands.html">Farmlands👽</a>
+	<a href="index.html">FTM-Gems</a>
+	<a href="pair.html">DEX-Explorer</a>
+	<a href="fantomscan.html">FantomScan</a>
+	<a href="elite.html">ELITE</a>
+	<a href="fmc.html">FantomMarketCap</a>
 <pre>$ELITE
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
 <a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
 <a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
-<a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a><br><br>
+<a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a>
+<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spirit</button></a>
+<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
 <h3><a href="https://t.me/FTM1337">t.me/FTM1337</a></h3>
 <i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
 </div>
@@ -301,17 +313,25 @@ async function basics()
 	$("p2a").innerHTML=(RP2[0]/1e18).toFixed(5);
 	$("p2b").innerHTML=(RP2[1]/1e18).toFixed(5);
 	$("p2p").innerHTML=(RP2[1]/RP2[0]).toFixed(5);
-	P2T=await P1.methods.totalSupply().call((e,r)=>{return(Number(r))});
-	P2B=await P1.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P2T=await P2.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P2B=await P2.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P3=new web3.eth.Contract(ab1,"0xad28B6C529714954AE2B6d390c8eaD874ddc4970");
+	RP3=await P3.methods.getReserves().call((e,r)=>{return(r)});
+	RP3=[Number(RP3[1]),Number(RP3[0])];
+	$("p3a").innerHTML=(RP3[0]/1e18).toFixed(5);
+	$("p3b").innerHTML=(RP3[1]/1e18).toFixed(5);
+	$("p3p").innerHTML=(RP3[1]/RP3[0]).toFixed(5);
+	P3T=await P3.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P3B=await P3.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
 	$("PBa").innerHTML=(P0B/P0T*RP0[0]/1e18+P1B/P1T*RP1[0]/1e18).toFixed(5);
 	$("PBb").innerHTML=(P0B/P0T*RP0[1]/1e18+P1B/P1T*RP1[1]/1e18).toFixed(5);
-	AP=(RP0[1]+RP1[1]+RP2[1])/(RP0[0]+RP1[0]+RP2[0]);
-	$("tl").innerHTML=(2*(RP0[1]+RP1[1]+RP2[1])/1e18).toFixed(5);
+	AP=(RP0[1]+RP1[1]+RP2[1]+RP[3])/(RP0[0]+RP1[0]+RP2[0]+RP3[0]);
+	$("tl").innerHTML=(2*(RP0[1]+RP1[1]+RP2[1]+RP3[1])/1e18).toFixed(5);
 	$("mc").innerHTML=(AP*cs).toLocaleString();
 	$("lwt").innerHTML=(267.4*AP).toLocaleString();
 	$("lw0").innerHTML=(133.7*2*RP0[1]/RP0[0]).toLocaleString();;
 	$("lw1").innerHTML=(133.7*2*RP1[1]/RP1[0]).toLocaleString();
-	console.log("ap",AP,"cs",cs,RP0,RP1);
+	//console.log("ap",AP,"cs",cs,RP0,RP1);
 }
 </script>
 </html>
