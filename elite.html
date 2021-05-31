@@ -325,7 +325,7 @@ async function basics()
 	P3B=await P3.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
 	$("PBa").innerHTML=(P0B/P0T*RP0[0]/1e18+P1B/P1T*RP1[0]/1e18).toFixed(5);
 	$("PBb").innerHTML=(P0B/P0T*RP0[1]/1e18+P1B/P1T*RP1[1]/1e18).toFixed(5);
-	AP=(RP0[1]+RP1[1]+RP2[1]+RP[3])/(RP0[0]+RP1[0]+RP2[0]+RP3[0]);
+	AP=(RP0[1]+RP1[1]+RP2[1]+RP3[3])/(RP0[0]+RP1[0]+RP2[0]+RP3[0]);
 	$("tl").innerHTML=(2*(RP0[1]+RP1[1]+RP2[1]+RP3[1])/1e18).toFixed(5);
 	$("mc").innerHTML=(AP*cs).toLocaleString();
 	$("lwt").innerHTML=(267.4*AP).toLocaleString();
