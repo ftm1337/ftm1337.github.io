@@ -14,10 +14,13 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 	button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
     pre{overflow-x:auto;max-width:80%}
     td{background: #040b22;padding:0 5px;}
-    td:hover{background: #222;padding:0 5px;}
+    td:hover{background: rgba(0,255,255,0.4);border-radius: 50px ;padding:0 5px;}
     table{ box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;border-spacing: 0px;width:max-content}
-    #poolinfo{display:none};
-  </style>
+    hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+    #poolinfo{display:none}
+#mainstage input,button{font-size: 1.1em}
+@media(min-width:641px){hr{width:555px}}
+</style>
 </head>
 <div class="topbar">
 	<div align="center">
@@ -43,7 +46,7 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 	<div style="overflow-x:auto">
 	<div id="poolinfo" align="center">
 	DEX: <span id="pi_N">?</span><br>
-	<span id="pi_N0">?</span> / <span id="pi_N1">?</span><br><BR>
+	<span style="font-weight:bolder;font-size:1.2em"><span id="pi_N0">?</span> / <span id="pi_N1">?</span></span><br><BR>
 	1 <span id="pi_N0_P01">?</span> = <span id="pi_P01">?</span> <span id="pi_N1_P01">?</span><br>
 	1 <span id="pi_N1_P10">?</span> = <span id="pi_P10">?</span> <span id="pi_N0_P10">?</span><br><BR>
 	Number of Pooled Tokens<br>
@@ -73,6 +76,8 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 	<!--https://analytics-ftm.sushi.com/pairs/0xd019dd7c760c6431797d6ed170bffb8faee11f99-->
 	<!--https://analytics-ftm.sushi.com/pairs/0x3d0bd54c48c2c433ea6fed609cc3d5fb7a77622b-->
 </div>
+<br>
+<br>
 <hr>
 <br>
 <br>

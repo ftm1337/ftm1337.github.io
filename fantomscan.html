@@ -15,8 +15,11 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
     pre{overflow-x:auto;max-width:80%}
     .mainpanels{display:grid}
     .mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
+    hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+
     @media(min-width:641px){
         .mainpanels{grid-template-columns:50% 50%}
+        hr{width: 555px}
     }
 </style>
 </head>
@@ -29,6 +32,7 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		<a href="fantomscan.html">FantomScan</a>
 		<a href="elite.html">ELITE</a>
 		<a href="fmc.html">FantomMarketCap</a>
+	</div>
 </div>
 <br>
 <hr>
@@ -71,6 +75,8 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		<span id="sca"></span>
 	</div>
 </div>
+<br>
+<br>
 <hr>
 <br>
 <br>
@@ -128,7 +134,7 @@ async function basics()
 
 	d1a.innerHTML = "Block Height";
 	web3.eth.getBlockNumber().then(r=>d1b.innerHTML = r.toLocaleString());
-	d2a.innerHTML = "Safe Low Gas<br><br>";
+	d2a.innerHTML = "Avg. Gas Price<br><br>";
 	await web3.eth.getGasPrice((e,r)=>{gp=r})
 	d2b.innerHTML =(gp/1e9 +" GWei<br><br>");
 	d3a.innerHTML = "FTM transfer<br><br>";

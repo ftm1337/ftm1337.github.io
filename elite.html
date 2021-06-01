@@ -1,12 +1,13 @@
 <!doctype html><html><meta charset="UTF-8">
 <head>
-<title>FantomScan : FTM.guru | FTM1337</title>
-<meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
+<title>ELITE : FTM.guru | FTM1337</title>
+<meta name="description" content="ELITE | FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
 <meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
 	<style>
+
 		* {
 			color:#e3e9f2;
 			overflow-wrap:break-word;
@@ -16,10 +17,16 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		input,button{border-radius:25px;background:black;text-align:center}
 	button:hover{	box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
 		pre{overflow-x:auto;max-width:80%}
-		.mainpanels{display:grid}
-    .mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
+		.mainpanels,.mainpanels2,.mainpanels3{display:grid}
+		.mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
+		.mainpanel button{font-size: 1em}
+		hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+
 		@media(min-width:641px){
-				.mainpanels{grid-template-columns:50% 50%}
+				.mainpanels{grid-template-columns:auto auto auto}
+				.mainpanels2{grid-template-columns: auto auto auto auto}
+				.mainpanels3{grid-template-columns: 0 50% 50% 0}
+				hr{width:555px}
 		}
 	</style>
 </head>
@@ -46,17 +53,23 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 <h4 align="center">LIVE MARKET DATA</h4>
 <div class="mainpanels" align="center">
 	<div class="mainpanel">
-		<h4>Total Liquidity</h4>
-		<span id="tl">?</span> FTM
-		<!--$<span id="tl">?</span>-->
+		<h4>Average Price</h4>
+		<span id="ap">?</span> FTM
 		<br><br>
 	</div>
 	<div class="mainpanel">
 		<h4>Market Cap</h4>
 		<span id="mc">?</span> FTM
-		<!--$<span id="mc">?</span>-->
 		<br><br>
 	</div>
+	<div class="mainpanel">
+		<h4>Total Liquidity</h4>
+		<span id="tl">?</span> FTM
+		<br><br>
+	</div>
+</div>
+<div class="mainpanels2" align="center">
+	<div></div>
 	<div class="mainpanel">
 		<h4>Circulating Supply</h4>
 		<span id="cs">?</span> ELITE
@@ -67,6 +80,12 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		<span id="bs">?</span> ELITE
 		<br><br>
 	</div>
+	<div></div><!--
+	<div class="mainpanel">
+		<h4>TVL/MC ratio</h4>
+		<span id="rtm">?</span> %
+		<br><br>
+	</div>-->
 </div>
 <h4 align="center">LIQUIDITY DISTRIBUTION</h4>
 <div class="mainpanels" align="center">
@@ -86,6 +105,17 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		<span id="p1a">?</span> ELITE<br>+<br>
 		<span id="p1b">?</span> FTM<br><br>
 		1 ELITE = <span id="p1p">?</span> FTM
+		<br><br>
+		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://analytics-ftm.sushi.com/pair/0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0" target="_blank"><button>Detail</button></a>
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Sushi:ELITE/USDC</h4>
+		<span id="p5a">?</span> ELITE<br>+<br>
+		<span id="p5b">?</span> FTM<br><br>
+		1 ELITE = <span id="p5p">?</span> USDC
 		<br><br>
 		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
@@ -114,10 +144,22 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		<a href="https://info.zoocoin.cash/#/pair/0xad28B6C529714954AE2B6d390c8eaD874ddc4970" target="_blank"><button>Detail</button></a>
 		<br><br>
 	</div>
+	<div class="mainpanel">
+		<h4>ZDEX:ZOO/ELITE</h4>
+		<span id="p4a">?</span> ELITE<br>+<br>
+		<span id="p4b">?</span> ZOO<br><br>
+		1 ELITE = <span id="p4p">?</span> ZOO
+		<br><br>
+		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>Swap</button></a>
+		<a href="https://info.zoocoin.cash/#/pair/0xad28B6C529714954AE2B6d390c8eaD874ddc4970" target="_blank"><button>Detail</button></a>
+		<br><br>
+	</div>
 </div>
 </div>
 <h4 align="center">SPECIAL NUMBERS</h4>
-<div class="mainpanels" align="center">
+<div class="mainpanels3" align="center">
+	<div></div>
 	<div class="mainpanel">
 		<h4>Anti-Whale Limits</h4>
 		<span class="numpal" id="aw">?</span> ELITE
@@ -134,6 +176,7 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		<span id="PBb">?</span> FTM<br><br>
 		These are the current amounts locked into Liquidity permanently that cannot be removed. It was burned to <a href="https://ftmscan.com/address/0x00000000000000000000000000000000dead1337#balances" target="_blank">0x1337DEAD</a> on Genesis Day.<br><br>
 	</div>
+	<div></div>
 </div>
 <div class="mainpanel" align="center">
 	<br><br>The Elite Devs burnt 267.4 ELITE worth <span id="lwt">?</span> FTM today to bootstrap the Fantom Opera # 1337.<br><br>
@@ -143,7 +186,6 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 	Curret Worth: <span id="lw1">?</span> FTM<br><br><br></a>
 	These serve as a Source of Guarantee to the Elites that instill trust in this Fraternity and it's endeavours.<br>
 </div>
-<hr>
 <br>
 <br>
 <div align="center">
@@ -323,15 +365,35 @@ async function basics()
 	$("p3p").innerHTML=(RP3[1]/RP3[0]).toFixed(5);
 	P3T=await P3.methods.totalSupply().call((e,r)=>{return(Number(r))});
 	P3B=await P3.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P4=new web3.eth.Contract(ab1,"0x7618793c51e0dc954ba1dd2eeeb3dfa08f777d0a");
+	RP4=await P4.methods.getReserves().call((e,r)=>{return(r)});
+	RP4=[Number(RP4[1]),Number(RP4[0])*1e18];
+	$("p4a").innerHTML=(RP4[0]/1e18).toFixed(5);
+	$("p4b").innerHTML=(RP4[1]/1e18).toFixed(5);
+	$("p4p").innerHTML=(RP4[1]/RP4[0]).toFixed(5);
+	P4T=await P4.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P4B=await P4.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P5=new web3.eth.Contract(ab1,"0x1dfcddf675038ead27f1d75b435b5b05ba825e9a");
+	RP5=await P5.methods.getReserves().call((e,r)=>{return(r)});
+	RP5=[Number(RP5[1]),Number(RP5[0])*1e12];
+	$("p5a").innerHTML=(RP5[0]/1e18).toFixed(5);
+	$("p5b").innerHTML=(RP5[1]/1e18).toFixed(5);
+	$("p5p").innerHTML=(RP5[1]/RP5[0]).toFixed(5);
+	P5T=await P5.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P5B=await P5.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
 	$("PBa").innerHTML=(P0B/P0T*RP0[0]/1e18+P1B/P1T*RP1[0]/1e18).toFixed(5);
 	$("PBb").innerHTML=(P0B/P0T*RP0[1]/1e18+P1B/P1T*RP1[1]/1e18).toFixed(5);
 	AP=(RP0[1]+RP1[1]+RP2[1]+RP3[1])/(RP0[0]+RP1[0]+RP2[0]+RP3[0]);
-	$("tl").innerHTML=(2*(RP0[1]+RP1[1]+RP2[1]+RP3[1])/1e18).toFixed(5);
+	TL=(2*AP*(RP0[0]+RP1[0]+RP2[0]+RP3[0]+RP4[0]+RP5[0])/1e18)
+	$("tl").innerHTML=TL.toFixed(5);
 	$("mc").innerHTML=(AP*cs).toLocaleString();
+	$("ap").innerHTML=((AP)).toLocaleString();
+	$("rtm").innerHTML=(100*TL/(AP*cs)).toLocaleString();
 	$("lwt").innerHTML=(267.4*AP).toLocaleString();
 	$("lw0").innerHTML=(133.7*2*RP0[1]/RP0[0]).toLocaleString();;
 	$("lw1").innerHTML=(133.7*2*RP1[1]/RP1[0]).toLocaleString();
-	console.log("ap",AP,"cs",cs,RP0,RP1,RP2,RP3);
+	//console.log("ap",AP,"cs",cs,RP0,RP1,RP2,RP3);
+	console.log(RP4)
 }
 </script>
 </html>
