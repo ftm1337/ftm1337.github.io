@@ -1,6 +1,6 @@
 <!doctype html><html><meta charset="UTF-8">
 <head>
-<title>FTM1337 (ftm.monster | ftm.guru)</title>
+<title>FTM1337 : ftm.guru</title>
 <meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
 <meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -25,6 +25,7 @@ pre{overflow-x:auto;max-width:80%}
 .mainstages{text-align:center;display:grid;grid-template-columns:	 auto}
 .mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+.c2a{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;margin:5px}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:50% 50%}
 	.mainstages{grid-template-columns:50% 50%}
@@ -37,11 +38,12 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 	<div align="center">
 		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
 		<a href="farmlands.html">Farmlands👽</a>
-		<a href="index.html">FTM Gems</a>
-		<a href="pair.html">DEX Explorer</a>
+		<a href="index.html">FTM-Gems</a>
+		<a href="pair.html">DEX-Explorer</a>
 		<a href="fantomscan.html">FantomScan</a>
 		<a href="elite.html">ELITE</a>
 		<a href="fmc.html">FantomMarketCap</a>
+		<a href="yieldstate.html">YieldState</a>
 	</div>
 	</div>
 </div>
@@ -59,7 +61,6 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<div align="center">
 			<h3>Fantom Utilities by FTM.guru</h3>
 			<ul style="text-align:left;padding-left:25%">
-			<h4>
 			<li>Hot FTM Tokens (On-chain voting)</li>
 			<li>Multi-DEX Pair Explorer</li>
 			<li>FantomScan</li>
@@ -70,10 +71,8 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 			<li>Live Gas Prices</li>
 			<li>Transaction Cost Estimator</li>
 			<li>FTMMarketCap</li>
-			</h4>
 			</ul>
 			<h3>Coming Soon…</h3>
-			<h4>
 			<ul style="text-align:left;padding-left:25%">
 			<li>ELITE Farms</li>
 			<li>Pool Explorer</li>
@@ -83,8 +82,8 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 			<li>E.L.I.T.E. D.A.O.</li>
 			<li>Pending Txn. Cancellations</li>
 			<li>Airdrop Tool</li>
+			<li>Farmlands👽</li>
 			</ul>
-			</h4>
 			...and much more!
 		</div>
 		<br><br>
@@ -130,43 +129,62 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 <br><br><br><br>
 <div class="mainstages" align="center">
 	<div class="mainstage">
-		<a href="pair.html"><div><h3>Fantom Opera DEX <u>Pair Explorer</u></h3>
-		Find out the latest movements in pools and liquidity depths and contituents of any AMM pair!
+		<a href="pair.html"><div><h3>Multi-DEX Pair Explorer</h3>
+		Find out the latest movements in pools and liquidity depths and constituents of any AMM pair!
 		<div>
 			<br><input id="st" placeholder="Enter Pair Contract"><br><button onclick="prefind(st.value)"> ▶</button>
 			<br><span id="lo"></span>
 		</div>
-		<br>FTM.guru's Pair Explorer can be used with Spooky Swap, Spirit Swap, Sushi Swap, HyperJump, Waka.Finance, and Paint Swap.
-		<br><br>
+		<br>FTM.guru's Pair Explorer can be used with Zoo DEX, Spooky Swap, Spirit Swap, Sushi Swap, HyperJump, Waka.Finance, and Paint Swap.
 	</div></div></a>
 	<div class="mainstage">
-		<a href="fantomscan.html"><div><h3>Fantom Scan</h3>
+		<a href="fantomscan.html"><div><h3>FantomScan</h3>
 		<i>We know that FTMScan is not in the best shape right now and fellow Fanties need an alternative tool to track their Fantom Opera interactions in real-time.</i><br><br>
 		<u><b>Introducing —FantomScan</b></u><br>
 		Find out anyone's FTM balance, Token Balances, View Token Allowances, find out the status of a Transaction, Check gas prices, estimate transaction costs and more useful data!</div></a>
 	</div>
 	<div class="mainstage">
-		<a href="index.html"><div><h3>Farmlands</h3>
+		<a href="farmlands.html"><div><h3>👽Farmlands</h3>
 		Farmlands are a big secret in the ELITE circles.<br><br>
 		<b>But is it a farm?</b><br>
-		Maybe. Maybe not.<br><br>
-		<b>When can we farm ELITE?</b><br>
-		More details will be available here when officially published.<br><br></div></a>
+		Maybe. Maybe not. Maybe both?<br><br>
+		<b>When can we visit?</b><br>
+		This is under active development.<br><br>
+		<b>Tokenomics? ..Model?</b><br>
+		More details will be available here when officially published.</div></a>
 	</div>
 	<div class="mainstage">
-		<a href="fmc.html"><div><h3>FantomMarketCap</h3>
-		FMC.guru is a data aggregator for Fantom Opera Blockchain. It provides a bird-eye view of the top and vetted projects running atop FTM. It is open to all users and includes vital information such as official links, contract addresses, social channels and categorical tags.<br><br>
-		FantomMarketCap brings us essential market data like Token Prices, Market Cap, Supply figures and other essential metrics.<br><br></div></a>
+		<a href="https://fmc.guru"><div><h3>FantomMarketCap</h3>
+		<b>FMC.guru</b> is a data aggregator for Fantom Opera Blockchain. It provides a bird-eye view of the top and vetted projects running atop FTM. It is open to all users and includes vital information such as official links, contract addresses, social channels and categorical tags. FantomMarketCap brings us essential market data like Token Prices, Market Cap, Supply figures and other essential metrics.<br><br>
+		<button class="c2a">Explore FMC.guru</button></div></a>
 	</div>
+	<div class="mainstage">
+		<a href="yieldstate"><div><h3>YieldState</h3>
+		<b>YieldState</b> presents the "Core" liquidity providers of ELITE to generate a passive yield on top of the AMM volumeteric returns. Staking LP tokens in the YieldState can boost your APYs.<br><br>
+		<b>Which tokens can be earned?</b><br>
+		ELITE & Friends.
+		<br><br>
+		<b>When will YieldState be activated?</b><br>
+		As soon as ELITE gets 250 holders</div></a>
+	</div>
+	<!--<div class="mainstage">
+		<a href="delite.html"><div><h3>dELITE : Dark ELITE</h3>
+		Introducing: The Dark Elites - A special token backed 1:1 by FTM.
+		<br><br>
+		<b>What can dELITE do?</b><br>
+		Dark Elite are psuedonomous tokens, that break free from today's greater chain-analysis tools. dELITE are harder to trace than other regular cryprocurrency tokens using simple block-explorers, masking your Fantom transactions away from prying normies. <b>Learn more.</b></div></a>
+	</div>-->
 </div>
+<br>
 <div align="center">
-	<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
-	<a href="farmlands.html">Farmlands👽</a>
-	<a href="index.html">FTM-Gems</a>
-	<a href="pair.html">DEX-Explorer</a>
-	<a href="fantomscan.html">FantomScan</a>
-	<a href="elite.html">ELITE</a>
-	<a href="fmc.html">FantomMarketCap</a>
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>
+		<a href="pair.html">DEX-Explorer</a>
+		<a href="fantomscan.html">FantomScan</a>
+		<a href="elite.html">ELITE</a>
+		<a href="fmc.html">FantomMarketCap</a>
+		<a href="yieldstate.html">YieldState</a>
 <pre>$ELITE
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
 <a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
