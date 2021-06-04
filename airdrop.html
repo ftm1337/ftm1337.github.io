@@ -1,0 +1,204 @@
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>FantomScan : FTM.guru | FTM1337</title>
+<meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
+<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<link rel="shortcut icon" href="img/ftm1337.jpg" />
+<style>
+*{color:#e3e9f2;overflow-wrap:break-word;}
+a{text-decoration-line:none;padding:0 2px}
+html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+    input,button{border-radius:25px;background:black;text-align:center}
+	button:hover,select:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
+    pre{overflow-x:auto;max-width:80%}
+    .mainpanels{display:grid}
+    .mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
+    hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+    .fr{border-radius:25px;background:black;text-align:center;width: 234px;padding:5px;margin:5px;font-size:1em}
+    .notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #003e3e;border-radius: 20px;padding:2%;border:5px dashed}
+    @media(min-width:641px){
+        .mainpanels{grid-template-columns:50% 50%}
+        hr{width: 555px}
+    }
+</style>
+</head>
+<div class="topbar">
+	<div align="center">
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>
+		<a href="pair.html">DEX-Explorer</a>
+		<a href="fantomscan.html">FantomScan</a>
+		<a href="elite.html">ELITE</a>
+		<a href="fmc.html">FantomMarketCap</a>
+		<a href="yieldstate.html">YieldState</a>
+		<a href="airdrop.html">Airdrop-Tool</a>
+	</div>
+</div>
+<br>
+<hr>
+<br>
+
+
+<div class="notice">
+<h1>⚠ Under final testing.</h1> DO NOT USE, PLEASE WAIT FOR ANNOUNCEMENT!
+<br>
+</div>
+<div align="center">
+<h2>ELITE Airdrop Tool</h2>
+Want to send an airdrop to your loyal supporters or simply distribute your tokens to a wider audience? Bulk send FTM tokens to multiple addresses in a single transaction with the ELITE Distributor. Say Goodbye to the hassle of manually sending tokens one by one. Upload upto 150 Fantom Opera addresses at a time and spread equal or random amounts to your patrons!
+<br>
+<br>
+<h3>Airdrop in 7 simple steps!</h3>
+<button class="fr" id="cowa" onclick="cw()">1. Connect Wallet</button><br>
+<input class="fr" id="tona" placeholder="2. Enter Token Address"><br>
+<button onclick="f_a($('tona').value)">Find ▶</button><br>
+Enter the token's address you wish to airdrop.
+<span id="n_f_1_a"></span><br><br>
+<input class="fr" id="tonu" placeholder="3. How much in total?"><br>
+Enter the total amount of tokens you want to spend.<br><br>
+<span id="n_f_1_ab"></span>
+<button class="fr" id="toap" disabled>4. Approve <span id="tosy"></span></button><br>
+Approve the EliteDistributor smart contract to expend.<br><br>
+<input class="fr" id="bead" placeholder="5. List of beneficiaries"><br>
+Submit a list of addresses you wish to include in the airdrop.<br>
+<i>(The list needs to be comma-separated, without spaces or quotes.)</i><br><br>
+<select class="fr">
+<option>6. How much per address?</option>
+<option>Equal</option>
+<option>Random</option>
+<option>Custom</option>
+</select><br>
+Choose "random", "equal" or "custom" amount of distribution.<br><br>
+<input class="fr" id="toam" placeholder="6. List of amounts" disabled><br>
+If you choose custom, enter the amounts individually for each address.<br>
+<i>(This list of amounts needs to be comma-separated, without spaces or quotes.)</i><br><br>
+<button class="fr" id="rain" disabled>7. Make it Rain!<span id="tosy"></span></button><br>
+Rain the Drops!<br>
+<br>
+<br>
+This service is FREE of cost to users who hold more than 0.01337 <b><a href="elite.html">ELITE tokens</a></b>. For everyone else, there's a small fee of 0.01337 FTM per beneficiary. Any proceeds generated are paid to ELITE holders as dividends. We recommend acquiring some ELITE to be able to make use of this Tool without incurring extra fees.
+</div>
+
+<br>
+<hr>
+<br>
+<br>
+<div align="center">
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>
+		<a href="pair.html">DEX-Explorer</a>
+		<a href="fantomscan.html">FantomScan</a>
+		<a href="elite.html">ELITE</a>
+		<a href="fmc.html">FantomMarketCap</a>
+		<a href="yieldstate.html">YieldState</a>
+		<a href="airdrop.html">Airdrop-Tool</a>
+<pre>$ELITE
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a>
+<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spirit</button></a>
+<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
+<h3><a href="https://t.me/FTM1337">t.me/FTM1337</a></h3>
+<i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
+</div>
+<script src="web3.min.js"></script>
+<script>
+window.addEventListener('load',function()
+{
+	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
+}, false);
+function $(_) {return document.getElementById(_);}
+td=0;
+async function f_a(t)
+{
+	$("n_f_1_a").innerHTML="<br>Searching..."
+	if(Number(t)&&(t.length==42))
+	{
+		T=new web3.eth.Contract(ab1,t);
+		await T.methods.name().call((e,r)=>{$("n_f_1_a").innerHTML=`<br>Found ${r}`});
+		await T.methods.symbol().call((e,r)=>{$("n_f_1_a").innerHTML+=` (${r})`});
+		await T.methods.decimals().call((e,r)=>{td=Number(r)});
+		await T.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("n_f_1_ab").innerHTML=`<br>Available Balance: ${Number(r)/10**td}`});
+	}
+	else{$("n_f_1_a").innerHTML="<br>Nothing found!"}
+}
+ab1=[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "name",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "symbol",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}]
+function cw()
+{
+	window.ethereum.enable();
+	$("cw").innerHTML=window.ethereum.selectedAddress.substr(0,6)+"..."+window.ethereum.selectedAddress.substr(38)
+}
+</script>
+</html>
