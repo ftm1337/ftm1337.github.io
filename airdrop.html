@@ -121,7 +121,7 @@ async function f_a(t)
 	if(Number(t)&&(t.length==42))
 	{
 		T=new web3.eth.Contract(ab1,t);
-		await T.methods.name().call((e,r)=>{$("n_f_1_a").innerHTML=`<br>Found ${r}`});
+		await T.methods.name().call((e,r)=>{if(r){$("n_f_1_a").innerHTML=`<br>Found ${r}`}else{$("n_f_1_a").innerHTML="<br>Nothing found!";return}});
 		await T.methods.symbol().call((e,r)=>{$("n_f_1_a").innerHTML+=` (${r})`});
 		await T.methods.decimals().call((e,r)=>{td=Number(r)});
 		await T.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("n_f_1_ab").innerHTML=`<br>Available Balance: ${Number(r)/10**td}`});

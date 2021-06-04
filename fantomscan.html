@@ -19,7 +19,7 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 
     @media(min-width:641px){
         .mainpanels{grid-template-columns:50% 50%}
-        hr{width: 555px}
+        .hhr{width: 555px}
     }
 </style>
 </head>
@@ -33,10 +33,52 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		<a href="elite.html">ELITE</a>
 		<a href="fmc.html">FantomMarketCap</a>
 		<a href="yieldstate.html">YieldState</a>
+		<a href="airdrop.html">Airdrop-Tool</a>
 	</div>
 </div>
 <br>
-<hr>
+<hr class="hhr">
+<br>
+<br>
+<h2 align="center">FantomScan</h2>
+<div class="mainpanel" align="center">
+	<br><h4>Opera Gas Prices</h4>
+	<table id="gt"></table>
+	<br>
+</div>
+<div class="mainpanels" align="center">
+	<div class="mainpanel">
+		<h4>Check FTM Balance</h4>
+		<input id="ibf" placeholder="Enter Address"><br>
+		<button onclick="fbf(ibf.value)"> ▶</button>
+		<br><br>
+		<span id="sbf"></span>
+	</div>
+	<div class="mainpanel">
+		<h4>Check Transaction Status</h4>
+		<input id="its" placeholder="Transaction Hash"><br>
+		<button onclick="fts(its.value)"> ▶</button>
+		<br><br>
+		<span id="sts"></span>
+	</div>
+	<div class="mainpanel">
+		<h4>Check Token Balance</h4>
+		<input id="ibtt" placeholder="Token's Address">
+		<br><input id="ibth" placeholder="Holder's Address"><br>
+		<button onclick="fbt(ibtt.value,ibth.value)"> ▶</button>
+		<br><br>
+		<span id="sbt"></span>
+	</div>
+	<div class="mainpanel">
+		<h4>Check Allowances</h4>
+		<input id="icat" placeholder="Token's Address"><br>
+		<input id="icao" placeholder="Owner's Address"><br>
+		<input id="icas" placeholder="Spender's Address"><br>
+		<button onclick="fca(icat.value,icao.value,icas.value)"> ▶</button>
+		<br><br>
+		<span id="sca"></span>
+	</div>
+</div>
 <br>
 <br>
 <hr>
@@ -51,6 +93,7 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		<a href="elite.html">ELITE</a>
 		<a href="fmc.html">FantomMarketCap</a>
 		<a href="yieldstate.html">YieldState</a>
+		<a href="airdrop.html">Airdrop-Tool</a>
 <pre>$ELITE
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
 <a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
@@ -70,5 +113,275 @@ window.addEventListener('load',function()
 	basics();
 }, false);
 function $(_) {return document.getElementById(_);}
+async function basics()
+{
+	gt=$('gt');
+	r1=document.createElement('tr');
+	d1a=document.createElement('td');
+	d1b=document.createElement('td');
+	r2=document.createElement('tr');
+	d2a=document.createElement('td');
+	d2b=document.createElement('td');
+	r3=document.createElement('tr');
+	d3a=document.createElement('td');
+	d3b=document.createElement('td');
+	r4=document.createElement('tr');
+	d4a=document.createElement('td');
+	d4b=document.createElement('td');
+	r5=document.createElement('tr');
+	d5a=document.createElement('td');
+	d5b=document.createElement('td');
+	r6=document.createElement('tr');
+	d6a=document.createElement('td');
+	d6b=document.createElement('td');
+	r7=document.createElement('tr');
+	d7a=document.createElement('td');
+	d7b=document.createElement('td');
+
+	d1a.innerHTML = "Block Height";
+	web3.eth.getBlockNumber().then(r=>d1b.innerHTML = r.toLocaleString());
+	d2a.innerHTML = "Avg. Gas Price<br><br>";
+	await web3.eth.getGasPrice((e,r)=>{gp=r})
+	d2b.innerHTML =(gp/1e9 +" GWei<br><br>");
+	d3a.innerHTML = "FTM transfer<br><br>";
+	d3b.innerHTML = (gp/1e9*21000/1e9 +" FTM<br><br>");
+	d4a.innerHTML = "Swap Trades";
+	d4b.innerHTML = (gp/1e9*200000/1e9 +" FTM");
+	d5a.innerHTML = "Add/Remove Liq.<br><br>";
+	d5b.innerHTML = (gp/1e9*175000/1e9 +" FTM<br><br>");
+	d6a.innerHTML = "Token Transfers";
+	d6b.innerHTML = (gp/1e9*65000/1e9 +" FTM");
+	d7a.innerHTML = "Token Approvals";
+	d7b.innerHTML = (gp/1e9*48000/1e9 +" FTM");
+
+	r1.appendChild(d1a);
+	r1.appendChild(d1b);
+	gt.appendChild(r1);
+	r2.appendChild(d2a);
+	r2.appendChild(d2b);
+	gt.appendChild(r2);
+	r3.appendChild(d3a);
+	r3.appendChild(d3b);
+	gt.appendChild(r3);
+	r4.appendChild(d4a);
+	r4.appendChild(d4b);
+	gt.appendChild(r4);
+	r5.appendChild(d5a);
+	r5.appendChild(d5b);
+	gt.appendChild(r5);
+	r6.appendChild(d6a);
+	r6.appendChild(d6b);
+	gt.appendChild(r6);
+	r7.appendChild(d7a);
+	r7.appendChild(d7b);
+	gt.appendChild(r7);
+
+}
+ab1=[
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "allowance",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "spender",
+        "type": "address"
+      },
+      {
+        "internalType": "uint256",
+        "name": "value",
+        "type": "uint256"
+      }
+    ],
+    "name": "approve",
+    "outputs": [
+      {
+        "internalType": "bool",
+        "name": "",
+        "type": "bool"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "name": "balanceOf",
+    "outputs": [
+      {
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "decimals",
+    "outputs": [
+      {
+        "internalType": "uint8",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "factory",
+    "outputs": [
+      {
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "getReserves",
+    "outputs": [
+      {
+        "internalType": "uint112",
+        "name": "_reserve0",
+        "type": "uint112"
+      },
+      {
+        "internalType": "uint112",
+        "name": "_reserve1",
+        "type": "uint112"
+      },
+      {
+        "internalType": "uint32",
+        "name": "_blockTimestampLast",
+        "type": "uint32"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": false,
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "_token0",
+        "type": "address"
+      },
+      {
+        "internalType": "address",
+        "name": "_token1",
+        "type": "address"
+      }
+    ],
+    "name": "initialize",
+    "outputs": [],
+    "payable": false,
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "symbol",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "constant": true,
+    "inputs": [],
+    "name": "name",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
+    ],
+    "payable": false,
+    "stateMutability": "view",
+    "type": "function"
+  }
+];
+async function fbt(t,h)
+{
+	C=new web3.eth.Contract(ab1,t);
+	s="";d=0;b=0;
+	await C.methods.decimals().call((e,r)=>{d=r});
+	await C.methods.symbol().call((e,r)=>{s=r});
+	await C.methods.balanceOf(h).call((e,r)=>{b=r})
+	$("sbt").innerHTML=(Number(b)/10**Number(d)).toFixed(8)+" "+s;
+}
+async function fca(t,o,sp)
+{
+	C=new web3.eth.Contract(ab1,t);
+	s="";d=0;b=0;
+	await C.methods.decimals().call((e,r)=>{d=r});
+	await C.methods.symbol().call((e,r)=>{s=r});
+	await C.methods.allowance(o,sp).call((e,r)=>{b=r})
+	$("sca").innerHTML=(Number(b)/10**Number(d)).toFixed(8)+" "+s;
+}
+function fbf(h)
+{
+	web3.eth.getBalance(h).then(r=>$("sbf").innerHTML=(Number(r)/1e18).toFixed(8)+" FTM")
+}
+async function fts(t)
+{
+	web3.eth.getTransactionReceipt(t).then(r=>$("sts").innerHTML=r==null?"Not found!":JSON.stringify(r).replaceAll(",","\n"))
+}
 </script>
 </html>
