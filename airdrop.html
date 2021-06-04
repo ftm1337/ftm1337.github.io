@@ -124,7 +124,7 @@ async function f_a(t)
 		await T.methods.name().call((e,r)=>{if(r){$("n_f_1_a").innerHTML=`<br>Found ${r}`}else{$("n_f_1_a").innerHTML="<br>Nothing found!";return}});
 		await T.methods.symbol().call((e,r)=>{$("n_f_1_a").innerHTML+=` (${r})`});
 		await T.methods.decimals().call((e,r)=>{td=Number(r)});
-		await T.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("n_f_1_ab").innerHTML=`<br>Available Balance: ${Number(r)/10**td}`});
+		await T.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("n_f_1_ab").innerHTML=`<br>Available Balance: ${Number(r0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882)/10**td}`});
 	}
 	else{$("n_f_1_a").innerHTML="<br>Nothing found!"}
 }
@@ -198,7 +198,7 @@ ab1=[
 function cw()
 {
 	window.ethereum.enable();
-	$("cw").innerHTML=window.ethereum.selectedAddress.substr(0,6)+"..."+window.ethereum.selectedAddress.substr(38)
+	$("cowa").innerHTML=window.ethereum.selectedAddress.substr(0,6)+"..."+window.ethereum.selectedAddress.substr(38)
 }
 </script>
 </html>
