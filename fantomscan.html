@@ -16,7 +16,8 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
     .mainpanels{display:grid}
     .mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
     hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
-
+	td{padding: 0 8px;min-width: max-content;text-align: center}
+	#dt{overflow-x: auto}
     @media(min-width:641px){
         .mainpanels{grid-template-columns:50% 50%}
         .hhr{width: 555px}
@@ -42,9 +43,67 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 <br>
 <h2 align="center">FantomScan</h2>
 <div class="mainpanel" align="center">
-	<br><h4>Opera Gas Prices</h4>
-	<table id="gt"></table>
+	<br><h4>Fantom Opera Gas Prices</h4>
+	<div id="dt">
+	<table id="gt">
+		<thead>
+			<tr>
+				<th>Operation</th>
+				<th>Slow...</th>
+				<th>Average</th>
+				<th>Faassst</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Current Gas Fees</td>
+				<td id="gt0a">?</td>
+				<td id="gt0b">?</td>
+				<td id="gt0c">?</td>
+			</tr>
+			<tr>
+				<td>Sending FTM</td>
+				<td id="gt1a">?</td>
+				<td id="gt1b">?</td>
+				<td id="gt1c">?</td>
+			</tr>
+			<tr>
+				<td>Token Approval</td>
+				<td id="gt2a">?</td>
+				<td id="gt2b">?</td>
+				<td id="gt2c">?</td>
+			</tr>
+			<tr>
+				<td>Transfer Tokens</td>
+				<td id="gt3a">?</td>
+				<td id="gt3b">?</td>
+				<td id="gt3c">?</td>
+			</tr>
+			<tr>
+				<td>Swapping Trade</td>
+				<td id="gt4a">?</td>
+				<td id="gt4b">?</td>
+				<td id="gt4c">?</td>
+			</tr>
+			<tr>
+				<td>Edit Liquidity</td>
+				<td id="gt5a">?</td>
+				<td id="gt5b">?</td>
+				<td id="gt5c">?</td>
+			</tr><!--
+			<tr>
+				<td>Create Pair</td>
+				<td id="gt6a">?</td>
+				<td id="gt6a">?</td>
+				<td id="gt6a">?</td>
+			</tr>-->
+		</tbody>
+	</table>
+	</div>
 	<br>
+	(Prices denoted in FTM)
+	<br>
+	<span id="bh"></span><br>
 </div>
 <div class="mainpanels" align="center">
 	<div class="mainpanel">
@@ -97,7 +156,7 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 <pre>$ELITE
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
 <a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
-<a href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://app.sushi.com/#/swap?o21000utputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
 <a href="https://spookyswap.finance/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a>
 <a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spirit</button></a>
 <a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
@@ -115,66 +174,36 @@ window.addEventListener('load',function()
 function $(_) {return document.getElementById(_);}
 async function basics()
 {
-	gt=$('gt');
-	r1=document.createElement('tr');
-	d1a=document.createElement('td');
-	d1b=document.createElement('td');
-	r2=document.createElement('tr');
-	d2a=document.createElement('td');
-	d2b=document.createElement('td');
-	r3=document.createElement('tr');
-	d3a=document.createElement('td');
-	d3b=document.createElement('td');
-	r4=document.createElement('tr');
-	d4a=document.createElement('td');
-	d4b=document.createElement('td');
-	r5=document.createElement('tr');
-	d5a=document.createElement('td');
-	d5b=document.createElement('td');
-	r6=document.createElement('tr');
-	d6a=document.createElement('td');
-	d6b=document.createElement('td');
-	r7=document.createElement('tr');
-	d7a=document.createElement('td');
-	d7b=document.createElement('td');
+	web3.eth.getBlockNumber().then(r=>$("bh").innerHTML = "Block Height "+r.toLocaleString());
+	await web3.eth.getGasPrice((e,r)=>{gpb=Number(r)/1e9;gpa=50;gpc=gpb*1.11})
+	$("gt0a").innerHTML=(gpa)+" GWei";
+	$("gt0b").innerHTML=(gpb).toFixed(2)+" Gwei";
+	$("gt0c").innerHTML=(gpc).toFixed(2)+" Gwei";
 
-	d1a.innerHTML = "Block Height";
-	web3.eth.getBlockNumber().then(r=>d1b.innerHTML = r.toLocaleString());
-	d2a.innerHTML = "Avg. Gas Price<br><br>";
-	await web3.eth.getGasPrice((e,r)=>{gp=r})
-	d2b.innerHTML =(gp/1e9 +" GWei<br><br>");
-	d3a.innerHTML = "FTM transfer<br><br>";
-	d3b.innerHTML = (gp/1e9*21000/1e9 +" FTM<br><br>");
-	d4a.innerHTML = "Swap Trades";
-	d4b.innerHTML = (gp/1e9*200000/1e9 +" FTM");
-	d5a.innerHTML = "Add/Remove Liq.<br><br>";
-	d5b.innerHTML = (gp/1e9*175000/1e9 +" FTM<br><br>");
-	d6a.innerHTML = "Token Transfers";
-	d6b.innerHTML = (gp/1e9*65000/1e9 +" FTM");
-	d7a.innerHTML = "Token Approvals";
-	d7b.innerHTML = (gp/1e9*48000/1e9 +" FTM");
+	$("gt1a").innerHTML = (gpa*21000/1e9).toFixed(4);
+	$("gt1b").innerHTML = (gpb*21000/1e9).toFixed(4);
+	$("gt1c").innerHTML = (gpc*21000/1e9).toFixed(4);
 
-	r1.appendChild(d1a);
-	r1.appendChild(d1b);
-	gt.appendChild(r1);
-	r2.appendChild(d2a);
-	r2.appendChild(d2b);
-	gt.appendChild(r2);
-	r3.appendChild(d3a);
-	r3.appendChild(d3b);
-	gt.appendChild(r3);
-	r4.appendChild(d4a);
-	r4.appendChild(d4b);
-	gt.appendChild(r4);
-	r5.appendChild(d5a);
-	r5.appendChild(d5b);
-	gt.appendChild(r5);
-	r6.appendChild(d6a);
-	r6.appendChild(d6b);
-	gt.appendChild(r6);
-	r7.appendChild(d7a);
-	r7.appendChild(d7b);
-	gt.appendChild(r7);
+	$("gt2a").innerHTML = (gpa*48000/1e9).toFixed(4);
+	$("gt2b").innerHTML = (gpb*48000/1e9).toFixed(4);
+	$("gt2c").innerHTML = (gpc*48000/1e9).toFixed(4);
+
+	$("gt3a").innerHTML = (gpa*65000/1e9).toFixed(4);
+	$("gt3b").innerHTML = (gpb*65000/1e9).toFixed(4);
+	$("gt3c").innerHTML = (gpc*65000/1e9).toFixed(4);
+
+	$("gt4a").innerHTML = (gpa*200000/1e9).toFixed(4);
+	$("gt4b").innerHTML = (gpb*200000/1e9).toFixed(4);
+	$("gt4c").innerHTML = (gpc*200000/1e9).toFixed(4);
+
+	$("gt5a").innerHTML = (gpa*175000/1e9).toFixed(4);
+	$("gt5b").innerHTML = (gpb*175000/1e9).toFixed(4);
+	$("gt5c").innerHTML = (gpc*175000/1e9).toFixed(4);
+/*
+	$("gt6a").innerHTML = (gpa*175000/1e9).toFixed(4);
+	$("gt6b").innerHTML = (gpb*175000/1e9).toFixed(4);
+	$("gt6c").innerHTML = (gpc*175000/1e9).toFixed(4);
+*/
 
 }
 ab1=[

@@ -18,6 +18,8 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
     hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
     .fr{border-radius:25px;background:black;text-align:center;width: 234px;padding:5px;margin:5px;font-size:1em}
     .notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #003e3e;border-radius: 20px;padding:2%;border:5px dashed}
+    input.fr{width: 100%;padding: 0;margin: 0;font-size: 1.25em }
+    .fmsg{color:rgba(0,255,255,0.85)}
     @media(min-width:641px){
         .mainpanels{grid-template-columns:50% 50%}
         hr{width: 555px}
@@ -42,46 +44,57 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 <br>
 
 
+<br>
+<br>
+<div class="mainpanels" align="center">
+	<div class="mainpanel">
+	<button class="fr" id="cw" onclick="cw()">▶ Connect Wallet</button><br>
+	<span id="cw_m"></span><br><br>
+	<input class="fr" id="tokad" placeholder="Input Token Address" disabled><br>
+	<button class="fr" id="setok" onclick="setok()" disabled>▶ Select</button><br>
+	<span id="tokad_m"></span><br><br>
+	<input class="fr" id="people" placeholder="address,list,of,all,recepients" disabled><br>
+	<button class="fr" id="corec" onclick="corec()" disabled>▶ Check</button><br>
+	<span id="corec_m"></span><br><br>
+	<input class="fr" id="amounts" placeholder="list,of,amounts,for,each" disabled><br>
+	<button class="fr" id="conum" onclick="conum()" disabled>▶ Finalize</button><br>
+	<span id="conum_m"></span><br>
+	<span id="final_m"></span><br><br>
+
+	Please double check the above info.<br>
+	<button class="fr" id="confirm" onclick="rain()" disabled>Confirm</button> <button class="fr" id="edit" onclick="window.location.reload(true)">EDIT</button><br><br>
+	<table id="ftb">
+	<tr>
+	<th>#</th>
+	<th>Address of recepient</th>
+	<th>Amount</th>
+	</tr>
+	</table>
+	<br><br>
+	<span id="rain_m"></span><br><br>
+	</div>
+	<div>
 <div class="notice">
 <h1>⚠ Under final testing.</h1> DO NOT USE, PLEASE WAIT FOR ANNOUNCEMENT!
-<br>
 </div>
 <div align="center">
 <h2>ELITE Airdrop Tool</h2>
-Want to send an airdrop to your loyal supporters or simply distribute your tokens to a wider audience? Bulk send FTM tokens to multiple addresses in a single transaction with the ELITE Distributor. Say Goodbye to the hassle of manually sending tokens one by one. Upload upto 150 Fantom Opera addresses at a time and spread equal or random amounts to your patrons!
+Want to send an airdrop to your loyal supporters or simply distribute your tokens to a wider audience? Bulk send FTM tokens to multiple addresses in a single transaction with the ELITE Distributor. Say Goodbye to the hassle of manually sending tokens one by one. Upload <u>upto 150 Fantom Opera addresses</u> at a time and spread equal, custom or random amounts to your patrons!
+<div>
 <br>
-<br>
-<h3>Airdrop in 7 simple steps!</h3>
-<button class="fr" id="cowa" onclick="cw()">1. Connect Wallet</button><br>
-<input class="fr" id="tona" placeholder="2. Enter Token Address"><br>
-<button onclick="f_a($('tona').value)">Find ▶</button><br>
-Enter the token's address you wish to airdrop.
-<span id="n_f_1_a"></span><br><br>
-<input class="fr" id="tonu" placeholder="3. How much in total?"><br>
-Enter the total amount of tokens you want to spend.<br><br>
-<span id="n_f_1_ab"></span>
-<button class="fr" id="toap" disabled>4. Approve <span id="tosy"></span></button><br>
-Approve the EliteDistributor smart contract to expend.<br><br>
-<input class="fr" id="bead" placeholder="5. List of beneficiaries"><br>
-Submit a list of addresses you wish to include in the airdrop.<br>
-<i>(The list needs to be comma-separated, without spaces or quotes.)</i><br><br>
-<select class="fr">
-<option>6. How much per address?</option>
-<option>Equal</option>
-<option>Random</option>
-<option>Custom</option>
-</select><br>
-Choose "random", "equal" or "custom" amount of distribution.<br><br>
-<input class="fr" id="toam" placeholder="6. List of amounts" disabled><br>
-If you choose custom, enter the amounts individually for each address.<br>
-<i>(This list of amounts needs to be comma-separated, without spaces or quotes.)</i><br><br>
-<button class="fr" id="rain" disabled>7. Make it Rain!<span id="tosy"></span></button><br>
-Rain the Drops!<br>
-<br>
+<b>PLEASE NOTE!<br>
+<u>List of addresses and amounts should be comma-separated.</u></b><br>
+Example Addresses:<br>
+<code>0x21436765abcdf54,0x65875757daaa,0x1234567890</code><br>or<br>
+<code>0x21436765abcdf54</code><br>or<br>
+<code>0x21436765abcdf54,0x65875757daaa,0x1234567890,0x65875757daaa,0x1234567890</code><br><br>
+Example Amounts:<br>
+<code>5454.43434343,765453,877,0.0009,1</code><br>or<br>
+<code>8,55,99,1</code><br>or<br>
+<code>0.00007777,0.123456,0.0000000000887868</code><br>or<br>
+<code>1337</code>
 <br>
 This service is FREE of cost to users who hold more than 0.01337 <b><a href="elite.html">ELITE tokens</a></b>. For everyone else, there's a small fee of 0.01337 FTM per beneficiary. Any proceeds generated are paid to ELITE holders as dividends. We recommend acquiring some ELITE to be able to make use of this Tool without incurring extra fees.
-</div>
-
 <br>
 <hr>
 <br>
@@ -106,6 +119,8 @@ This service is FREE of cost to users who hold more than 0.01337 <b><a href="eli
 <h3><a href="https://t.me/FTM1337">t.me/FTM1337</a></h3>
 <i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
 </div>
+</div>
+</div>
 <script src="web3.min.js"></script>
 <script>
 window.addEventListener('load',function()
@@ -114,20 +129,6 @@ window.addEventListener('load',function()
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 }, false);
 function $(_) {return document.getElementById(_);}
-td=0;
-async function f_a(t)
-{
-	$("n_f_1_a").innerHTML="<br>Searching..."
-	if(Number(t)&&(t.length==42))
-	{
-		T=new web3.eth.Contract(ab1,t);
-		await T.methods.name().call((e,r)=>{if(r){$("n_f_1_a").innerHTML=`<br>Found ${r}`}else{$("n_f_1_a").innerHTML="<br>Nothing found!";return}});
-		await T.methods.symbol().call((e,r)=>{$("n_f_1_a").innerHTML+=` (${r})`});
-		await T.methods.decimals().call((e,r)=>{td=Number(r)});
-		await T.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("n_f_1_ab").innerHTML=`<br>Available Balance: ${Number(r0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882)/10**td}`});
-	}
-	else{$("n_f_1_a").innerHTML="<br>Nothing found!"}
-}
 ab1=[
 	{
 		"constant": true,
@@ -194,11 +195,114 @@ ab1=[
 		"payable": false,
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "guy",
+				"type": "address"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	}]
-function cw()
+
+async function cw()
 {
-	window.ethereum.enable();
-	$("cowa").innerHTML=window.ethereum.selectedAddress.substr(0,6)+"..."+window.ethereum.selectedAddress.substr(38)
+	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
+	if(!(Number(window.ethereum.chainId)==250)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
+	await window.ethereum.enable();
+	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38) + " connected.";
+	$("tokad").disabled=false;
+	$("setok").disabled=false;
+}
+ta=0;tb=0;td=0;
+tn="";ts="";
+ppl=[];
+amt=[];
+tt=0;
+async function setok()
+{
+	$("tokad_m").innerHTML="Searching...";
+	t=$("tokad").value;
+	if(Number(t)&&(t.length==42))
+	{
+		T=new web3.eth.Contract(ab1,t);
+		TA=t;
+		await T.methods.name().call((e,r)=>{if(r){$("tokad_m").innerHTML=`Found ${r}`;tn=r;}else{$("tokad_m").innerHTML="Nothing found!";return(0)}});
+		await T.methods.symbol().call((e,r)=>{$("tokad_m").innerHTML+=` (${r})`;ts=r});
+		await T.methods.decimals().call((e,r)=>{td=Number(r)});
+		await T.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("tokad_m").innerHTML=`Available Balance: ${Number(r)/10**td}`;tb=Number(r)});
+		await T.methods.allowance().call((e,r)=>{ta=Number(r)});
+		$("poeple").diasbled=false;
+		$("corec").diasbled=false;
+	}
+	else{$("tokad_m").innerHTML="<br>Nothing found! Recheck, please."}
+}
+async function corec()
+{
+	inp=$("people").value;
+	if(inp.indexOf(" ")||inp.indexOf("\n")||inp.indexOf('"')){$("corec_m").innerHTML="Malformed list of addresses, please check again. Use only commas to separate the addresses. Example: 0xabcd,0x12ff,0xba13";return(0)}
+	ai=inp.split(",");
+	if(ai.length>150){$("corec_m").innerHTML="More addresses input than allowed! Please reduce some. 150 is the max. limit.";return(0)}
+	for(i=0;i< ai.length;i++)
+	{
+		if(!(isFinite(ai[i]))||!(ai[i].length==42)){$("corec_m").innerHTML="Found an incorrect address at position"+i+1+". Please check it.";return(0)}
+		if(){$("corec_m").innerHTML="Found an incorrect address at position"+i+1+". Please check it.";return(0)}
+		ai[i]=String(ai[i]);
+	}
+	ppl=ai;
+	$("amounts").disabled=false;
+	$("conum").disabled=false;
+}
+async function conum()
+{
+	inp=$("amounts").value;
+	if(inp.indexOf(" ")||inp.indexOf("\n")||inp.indexOf('"')){$("conum_m").innerHTML="Malformed list of amounts, please check again. Use only commas to separate the addresses. Example: 1337,1,0.001,323.2323";return(0)}
+	ai=inp.split(",");
+	if(!(ai.length==ppl.length)){$("corec_m").innerHTML="More/Less amounts entered than the addresses input! Please recheck. 150 is the max. limit.";return(0)}
+	tt=0;
+	for(i=0;i< ai.length;i++)
+	{
+		if(!isFinite(ai[i])){$("conum_m").innerHTML="Found an incorrect amount at position"+i+1+". Please check it.";return(0)}
+		ai[i]=Number(ai[i]);
+		ai[i]=ai[i].toFixed(td);
+		ai[i]=Number(ai[i])*10**td;
+		tt+=ai[i];
+		if(tt>tb){$("conum_m").innerHTML="Found an amount eceeding your balance of"+tb/10**td+" "+ts+" at position"+i+1+" worth"+ai[i]/10**td+" "+ts+". Please reduce it.";return(0)}}
+	}
+	$("conum_m").innerHTML+="Total airdrop amount: "+tt/10**td+" "+ts;
+	$("conum_m").innerHTML+="<br>Your balance: "+tb/10**td+" "+ts;
+	amt=ai;
+	finalist();
+}
+async function conum()
+{
+	if(!(amt.length==ppl.length)){$("final_m").innerHTML+="Number of addresses mismatch number of addresses. Please edit.";return(0)}
+	ftb=$("ftb");
+	for(i=0;i< amt.length;i++)
+	{
+	TR=document.createElement("tr");
+	D0=document.createElement("td");
+	D1=document.createElement("td");
+	D2=document.createElement("td");
+	D0.innerHTML=i;
+	D1.innerHTML=ppl[i];
+	D2.innerHTML=amt[i];
+	ftb.append(TR);
+	TR.appendChild(D0);
+	TR.appendChild(D1);
+	TR.appendChild(D2);
+	}
 }
 </script>
 </html>

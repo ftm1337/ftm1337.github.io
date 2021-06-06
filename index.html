@@ -442,7 +442,7 @@ async function cw()
 {
 	if(!(Number(window.ethereum.chainId)==250)){$("mvgmsg").innerHTML="Wrong network detected.";return(0)}
 	await window.ethereum.enable();
-	$("mvgmsg").innerHTML= (window.ethereum.selectedAddress).substr(6) + " connected.";
+	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38) + " connected.";
 }
 async function mvgCV()
 {
@@ -451,14 +451,14 @@ async function mvgCV()
 	await EL.methods.allowance(window.ethereum.selectedAddress,scMVG).call((e,r)=>{allowance = r})
 	if (allowance < 1337e13)
 	{
-		await EL.methods.approve(scMVG).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Approval Tx:",r);})
+		await EL.methods.approve(scMVG).send({from:window.ethereum.selectedAddress},(e,r)=>{$("mvgmsg").innerHTML=("EliteGems: Approval Tx =",r);})
 	}
-	console.log("allowance of ",scMVG," at ",window.ethereum.selectedAddress," is ",allowance);
+	console.log("allowance of ",scMVG," at ",window.ethereum.selectedAddress," is ",allowance/1e18);
 	candi=$("mvgcandidate").value;
 	if(!(candi.length==42)){$("mvgmsg").innerHTML="Improper address length";return(0);}
 	if(!(Number(candi))){$("mvgmsg").innerHTML="Improper address digits";return(0);}
 	candi=web3.utils.toChecksumAddress(candi);
-	await MVG.methods.castVote(candi).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Voting Tx:\nCandidate:",candi,"\nReturned:",r);$("mvgmsg").innerHTML="Voted for" +candi+" . Please refresh the page after voting transaction is confirmed."})
+	await MVG.methods.castVote(candi).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Voting Tx:\nCandidate:",candi,"\nReturned:",r);$("mvgmsg").innerHTML="Voted for" +candi+" . Please refresh the page after voting transaction is confirmed. If this was the first time you voted, make sure you made two transactions: 1. Approval & 2. Vote. Once approved, you can vote as many times. Thank you for keeping EliteGems Hotlist hot🔥"})
 }
 ab=[
 	{
