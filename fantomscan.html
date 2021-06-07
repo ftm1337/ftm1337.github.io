@@ -175,34 +175,34 @@ function $(_) {return document.getElementById(_);}
 async function basics()
 {
 	web3.eth.getBlockNumber().then(r=>$("bh").innerHTML = "Block Height "+r.toLocaleString());
-	await web3.eth.getGasPrice((e,r)=>{gpb=Number(r)/1e9;gpa=50;gpc=gpb*1.11})
+	await web3.eth.getGasPrice((e,r)=>{gpb=Number(r)/1e9;gpa=Math.min(50,gpb);gpc=gpb*1.11})
 	$("gt0a").innerHTML=(gpa)+" GWei";
 	$("gt0b").innerHTML=(gpb).toFixed(2)+" Gwei";
 	$("gt0c").innerHTML=(gpc).toFixed(2)+" Gwei";
 
-	$("gt1a").innerHTML = (gpa*21000/1e9).toFixed(4);
-	$("gt1b").innerHTML = (gpb*21000/1e9).toFixed(4);
-	$("gt1c").innerHTML = (gpc*21000/1e9).toFixed(4);
+	$("gt1a").innerHTML = (gpa*21000/1e9).toFixed(6);
+	$("gt1b").innerHTML = (gpb*21000/1e9).toFixed(6);
+	$("gt1c").innerHTML = (gpc*21000/1e9).toFixed(6);
 
-	$("gt2a").innerHTML = (gpa*48000/1e9).toFixed(4);
-	$("gt2b").innerHTML = (gpb*48000/1e9).toFixed(4);
-	$("gt2c").innerHTML = (gpc*48000/1e9).toFixed(4);
+	$("gt2a").innerHTML = (gpa*48000/1e9).toFixed(6);
+	$("gt2b").innerHTML = (gpb*48000/1e9).toFixed(6);
+	$("gt2c").innerHTML = (gpc*48000/1e9).toFixed(6);
 
-	$("gt3a").innerHTML = (gpa*65000/1e9).toFixed(4);
-	$("gt3b").innerHTML = (gpb*65000/1e9).toFixed(4);
-	$("gt3c").innerHTML = (gpc*65000/1e9).toFixed(4);
+	$("gt3a").innerHTML = (gpa*65000/1e9).toFixed(6);
+	$("gt3b").innerHTML = (gpb*65000/1e9).toFixed(6);
+	$("gt3c").innerHTML = (gpc*65000/1e9).toFixed(6);
 
-	$("gt4a").innerHTML = (gpa*200000/1e9).toFixed(4);
-	$("gt4b").innerHTML = (gpb*200000/1e9).toFixed(4);
-	$("gt4c").innerHTML = (gpc*200000/1e9).toFixed(4);
+	$("gt4a").innerHTML = (gpa*200000/1e9).toFixed(6);
+	$("gt4b").innerHTML = (gpb*200000/1e9).toFixed(6);
+	$("gt4c").innerHTML = (gpc*200000/1e9).toFixed(6);
 
-	$("gt5a").innerHTML = (gpa*175000/1e9).toFixed(4);
-	$("gt5b").innerHTML = (gpb*175000/1e9).toFixed(4);
-	$("gt5c").innerHTML = (gpc*175000/1e9).toFixed(4);
+	$("gt5a").innerHTML = (gpa*175000/1e9).toFixed(6);
+	$("gt5b").innerHTML = (gpb*175000/1e9).toFixed(6);
+	$("gt5c").innerHTML = (gpc*175000/1e9).toFixed(6);
 /*
-	$("gt6a").innerHTML = (gpa*175000/1e9).toFixed(4);
-	$("gt6b").innerHTML = (gpb*175000/1e9).toFixed(4);
-	$("gt6c").innerHTML = (gpc*175000/1e9).toFixed(4);
+	$("gt6a").innerHTML = (gpa*175000/1e9).toFixed(6);
+	$("gt6b").innerHTML = (gpb*175000/1e9).toFixed(6);
+	$("gt6c").innerHTML = (gpc*175000/1e9).toFixed(6);
 */
 
 }
