@@ -206,7 +206,7 @@ console.log(ads);
 k=1;
 window.addEventListener('load',async function()
 {
-	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	MVG = new web3.eth.Contract(ab, scMVG);
 	EL = new web3.eth.Contract(ab1, scEL);

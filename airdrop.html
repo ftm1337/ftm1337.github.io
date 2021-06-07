@@ -64,11 +64,6 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 	Please double check the above info.<br>
 	<button class="fr" id="confirm" onclick="rain()" disabled>Confirm</button> <button class="fr" id="edit" onclick="window.location.reload(true)">EDIT</button><br><br>
 	<table id="ftb">
-	<tr>
-	<th>#</th>
-	<th>Address of recepient</th>
-	<th>Amount</th>
-	</tr>
 	</table>
 	<br><br>
 	<span id="rain_m"></span><br><br>
@@ -125,7 +120,7 @@ This service is FREE of cost to users who hold more than 0.01337 <b><a href="eli
 <script>
 window.addEventListener('load',function()
 {
-	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 }, false);
 function $(_) {return document.getElementById(_);}
@@ -257,7 +252,6 @@ async function corec()
 	for(i=0;i< ai.length;i++)
 	{
 		if(!(isFinite(ai[i]))||!(ai[i].length==42)){$("corec_m").innerHTML="Found an incorrect address at position"+i+1+". Please check it.";return(0)}
-		if(){$("corec_m").innerHTML="Found an incorrect address at position"+i+1+". Please check it.";return(0)}
 		ai[i]=String(ai[i]);
 	}
 	ppl=ai;
@@ -278,7 +272,7 @@ async function conum()
 		ai[i]=ai[i].toFixed(td);
 		ai[i]=Number(ai[i])*10**td;
 		tt+=ai[i];
-		if(tt>tb){$("conum_m").innerHTML="Found an amount eceeding your balance of"+tb/10**td+" "+ts+" at position"+i+1+" worth"+ai[i]/10**td+" "+ts+". Please reduce it.";return(0)}}
+		if(tt>tb){$("conum_m").innerHTML="Found an amount eceeding your balance of"+tb/10**td+" "+ts+" at position"+i+1+" worth"+ai[i]/10**td+" "+ts+". Please reduce it.";return(0)}
 	}
 	$("conum_m").innerHTML+="Total airdrop amount: "+tt/10**td+" "+ts;
 	$("conum_m").innerHTML+="<br>Your balance: "+tb/10**td+" "+ts;
@@ -289,6 +283,12 @@ async function conum()
 {
 	if(!(amt.length==ppl.length)){$("final_m").innerHTML+="Number of addresses mismatch number of addresses. Please edit.";return(0)}
 	ftb=$("ftb");
+	ftb.innerHTML=`
+	<tr>
+	<th>#</th>
+	<th>Address of recepient</th>
+	<th>Amount</th>
+	</tr>`;
 	for(i=0;i< amt.length;i++)
 	{
 	TR=document.createElement("tr");

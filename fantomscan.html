@@ -167,7 +167,7 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 <script>
 window.addEventListener('load',function()
 {
-	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	basics();
 }, false);
