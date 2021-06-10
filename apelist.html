@@ -19,6 +19,8 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
     hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
     #poolinfo{display:none}
 #mainstage input,button{font-size: 1.1em}
+.apes{overflow-x: auto;font-size: 0.8em;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
+.apes a{color:aqua}
 @media(min-width:641px){hr{width:555px}}
 </style>
 </head>
@@ -847,11 +849,12 @@ async function _ra(P,I)
 	var d1 = await _T1.
 	methods.decimals().
 	call((e,r)=>{return(r)})
-	md.innerHTML+=`Found new pair #${I}
+	md.innerHTML+=`<div class="apes">
+	 Found new pair #${I+1}
 	 at ${n_[I]}!<br>
 	 ${Number(rs[0])/10**Number(d0)}
-	 ${s0} paired with
-	 ${Number(rs[1])/10**Number(d1)} ${s1}.
+	 <b>${s0}</b> paired with
+	 ${Number(rs[1])/10**Number(d1)} <b>${s1}</b>.
 	 <br>1 ${s0} = ${(Number(rs[1])/10**Number(d1))
 	 /(Number(rs[0])/10**Number(d0))} ${s1}
 	 <br>1 ${s1} = ${(Number(rs[0])/10**Number(d0))
@@ -861,7 +864,7 @@ async function _ra(P,I)
 	 target="_blank">${t0}</a>
 	 <br>Explore all ${Number(c1)/10**Number(d1)}
 	 ${n1} at<br><a href="https://ftmscan.com/token/${t1}"
-	 target="_blank">${t1}</a><br><br>
+	 target="_blank">${t1}</a></div><br><br>
 	 `;
 }
 f_=[
@@ -1100,11 +1103,11 @@ async function _pa(n,t)
 
 async function f1(_i_)
 {
-  _f=new web3.eth.Contract(fa_,f_[_i_]);
-	const _c = await _f.methods.allPairsLength().	call((e,r)=>{return Number(r)})
-  for (ii=0;ii< 6;ii++)
+	_f=new web3.eth.Contract(fa_,f_[_i_]);
+	const _c = await _f.methods.allPairsLength().call((e,r)=>{return Number(r)})
+	for (ii=0;ii< 6;ii++)
     {
-      var _p = await _f.methods.allPairs(_c-1-ii).call((e,r)=>{console.log(_c-1-ii,r);_ra(r,ii); return (r)})
+		var _p = await _f.methods.allPairs(_c-1-ii).call((e,r)=>{_ra(r,ii); return (r)})
     }
 }
 </script>
