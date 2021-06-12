@@ -30,7 +30,7 @@ pre{overflow-x:auto;max-width:80%}
   cursor: not-allowed;
   pointer-events: all !important;
 }
-.notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #003e3e;border-radius: 20px;padding:2%;border:5px dashed}
+.notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #000;border-radius: 20px;padding:2%;border:5px dashed}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}.mainstage:nth-child(1),
 .mainstage:nth-child(2),
 .mainstage:nth-child(4),
@@ -41,6 +41,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 .mainstage:nth-child(4) button,
 .mainstage:nth-child(5) button
 {color:grey;background: black}
+#ff{  font-family: 'Courier New', "Lucida Console", Monaco,"FreeMono","Andale Mono", monospace;color:cyan}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:50% 50%}
 	.mainstages{grid-template-columns:50% 50%}
@@ -74,7 +75,12 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 Stake ELITE-paired Liquidity Tokens to earn passive rewards<br><br><input id="searchforafarm"placeholder="Search YieldStates">
 <br><br>
 </div>
+<div class="notice">
+<h1>⚠<span id="ff"</h1>
+Farming is not live yet. Please wait for the official announcement on our <b><a href="t.me/ftmguru" target="_blank">telegram channel: @FTMguru</a></b>
+<br>
 <br><br>
+</div>
 <div class="mainstages" align="center">
 	<div class="mainstage">
 		<h3>Spiritswap ELITE/WFTM LP</h3>
@@ -313,11 +319,6 @@ Stake ELITE-paired Liquidity Tokens to earn passive rewards<br><br><input id="se
 	</div>
 </div>
 <br><br>
-<div class="notice">
-<h1>⚠</h1>
-Farming is not live yet. Please wait for the official announcement on our <b><a href="t.me/ftmguru" target="_blank">telegram channel: @FTMguru</a></b>
-<br>
-</div>
 <div align="center">
 		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
 		<a href="farmlands.html">Farmlands👽</a>
@@ -1121,4 +1122,18 @@ function refreshFarm()
 </script>
 
 -->
+<script>
+var fcdt=new Date(2021,05,13,13,37)
+var x = setInterval(function()
+{
+	var fcdg = fcdt - (new Date().getTime());
+	fcdcd = Math.floor((fcdg%(86400000))/3600000)+"h "+Math.floor((fcdg%(3600000))/60000)+"m "+Math.floor((fcdg%(60000))/1000)+"s";
+	$("ff").textContent=fcdcd;
+	if (fcdg < 0)
+	{
+		clearInterval(x);
+		window.location.reload(true);
+	}
+}, 1000);
+</script>
 </html>
