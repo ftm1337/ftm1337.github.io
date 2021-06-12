@@ -106,8 +106,14 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 </div>
 <br><br><br>
 <div id="votingmvg" style="padding: 10px" align="center">
-<i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
-<br><br>
+	<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
+	<br><b>Vote for your fave tokens now!</b><br><br>
+	<input id="mvgcandidate" placeholder=" FTM Contract address"><br>
+	<button id="votemvg" onclick="mvgCV()"> ▶</button><br><br>
+	<span id="mvgmsg"></span><br>
+	<hr><br>
+	<i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
+	<br><br>
 	Brief explainer:
 	<div class="olsa">
 	<div class="ols"></div>
@@ -121,12 +127,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 	<div class="ols"></div>
 	</div>
 	<i>Voting pushes the Voted Token to the top of the Elite list.</i>
-	<hr><br>
-	<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
-	<br><b>Vote for your fave token now!</b><br><br>
-	<input id="mvgcandidate" placeholder=" FTM Contract address"><br>
-	<button id="votemvg" onclick="mvgCV()"> ▶</button><br><br>
-	<span id="mvgmsg"></span><br>
+
 </div>
 <br><br><br><br>
 <div class="mainstages" align="center">
@@ -142,7 +143,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 	<div class="mainstage">
 		<a href="fantomscan.html"><div><h3>FantomScan</h3>
 		<i>We know that FTMScan is not in the best shape right now and fellow Fanties need an alternative tool to track their Fantom Opera interactions in real-time.</i><br><br>
-		<u><b>Introducing —FantomScan</b></u><br>
+		<u><b>Introducing —FantomScan.</b></u><br>
 		Find out anyone's FTM balance, Token Balances, View Token Allowances, find out the status of a Transaction, Check gas prices, estimate transaction costs and more useful data!</div></a>
 	</div>
 	<div class="mainstage">
@@ -162,7 +163,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 	</div>
 	<div class="mainstage">
 		<a href="yieldstate"><div><h3>YieldState</h3>
-		<b>YieldState</b> presents the "Core" liquidity providers of ELITE to generate a passive yield on top of the AMM volumeteric returns. Staking LP tokens in the YieldState can boost your APYs.<br><br>
+		<b>YieldState</b> presents the "Core" liquidity providers of ELITE the oppurunity to generate a passive yield on top of the AMM volumeteric returns. Staking LP tokens in the YieldState can boost your APYs.<br><br>
 		<b>Which tokens can be earned?</b><br>
 		ELITE & Friends.
 		<br><br>
@@ -203,7 +204,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 <script>
 k=0;
 ads=["0x1337","0xbabe","0xfeed","0xf00d","0xdead","0x70ad","0xb00b","0xfee1","0xac1d","0xdeca"];
-console.log(ads);
+//console.log(ads);
 //for (i=0;i< ads.length;i++){fillmvg(i);}
 k=1;
 window.addEventListener('load',async function()
@@ -460,7 +461,7 @@ async function mvgCV()
 	if(!(candi.length==42)){$("mvgmsg").innerHTML="Improper address length";return(0);}
 	if(!(Number(candi))){$("mvgmsg").innerHTML="Improper address digits";return(0);}
 	candi=web3.utils.toChecksumAddress(candi);
-	await MVG.methods.castVote(candi).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Voting Tx:\nCandidate:",candi,"\nReturned:",r);$("mvgmsg").innerHTML="Voted for" +candi+" . Please refresh the page after voting transaction is confirmed. If this was the first time you voted, make sure you made two transactions: 1. Approval & 2. Vote. Once approved, you can vote as many times. Thank you for keeping EliteGems Hotlist hot🔥"})
+	await MVG.methods.castVote(candi).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Voting Tx:\nCandidate:",candi,"\nReturned:",r);$("mvgmsg").innerHTML="<br>Voted for" +candi+".<br>Please refresh the page after voting transaction is confirmed.<br>If this was the first time you voted, make sure you made two transactions:<br> 1. Approval & 2. Vote.<br>Once approved, you can vote as many times.<hr>Thank you for keeping the EliteGems Hotlist hot🔥"})
 }
 ab=[
 	{
@@ -689,7 +690,7 @@ async function fillmvg(aaa)
 	}
 	e.innerHTML=`<a target="_blank" href="https://ftmscan.com/token/${ads[i]}"><button>Scan</button></a> `;
 	//c.innerHTML=`<a target="_blank" href="https://charts-spirit.zoocoin.cashswap.finance/#/swap?outputCurrency=${ads[i]}"><button>Chart</buttton></a>`;
-	t.innerHTML=`<a target="_blank" href="https://swap.spiritswap.finance/#/swap?outputCurrency=${ads[i]}"><button>Trade</buttton></a>`;
+	ads[i]=="0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882?t.innerHTML=`<a target="_blank" href="https://swap.spiritswap.finance/#/swap?outputCurrency=${ads[i]}"><button>Trade</buttton></a>`:`<a target="_blank" href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882"><button>Trade</buttton></a>`;
 	d.append(b);
 	d.append(n);
 	d.append(a);
