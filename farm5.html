@@ -1185,7 +1185,7 @@ async function refreshFarm()
 
 		pt=res[0]/res[1]
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
-		apr=(rera*pt/1e18)/(plp*tv)*365*86400*100;
+		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM"
 	}
