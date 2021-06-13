@@ -31,7 +31,8 @@ pre{overflow-x:auto;max-width:80%}
   pointer-events: all !important;
 }
 .notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #000;border-radius: 20px;padding:2%;border:5px dashed}
-hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}.mainstage:nth-child(1),
+hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+/*.mainstage:nth-child(1),
 .mainstage:nth-child(2),
 .mainstage:nth-child(4),
 .mainstage:nth-child(5)
@@ -41,7 +42,10 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 .mainstage:nth-child(4) button,
 .mainstage:nth-child(5) button
 {color:grey;background: black}
+*/
 #ff{  font-family: 'Courier New', "Lucida Console", Monaco,"FreeMono","Andale Mono", monospace;color:cyan}
+.fardet span:nth-of-type(5n+2){text-align: left}
+.fardet span:nth-of-type(5n+4){text-align: right}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:50% 50%}
 	.mainstages{grid-template-columns:50% 50%}
@@ -69,6 +73,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 <hr class="hhr">
 <br>
 <div align="center">
+<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span>
 <h2 align="center">YieldState</h2>
 Stake ELITE-paired Liquidity Tokens to earn passive rewards<br><br><input id="searchforafarm"placeholder="Search YieldStates">
 <br><br>
@@ -79,7 +84,7 @@ Farming is not live yet. Please wait for the official announcement on our <b><a 
 <br>
 <br><br>
 </div>
-<div class="mainstages" align="center">
+<div class="mainstages" align="center"><!--
 	<div class="mainstage">
 		<h3>Spiritswap ELITE/WFTM LP</h3>
 		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
@@ -314,6 +319,52 @@ Farming is not live yet. Please wait for the official announcement on our <b><a 
 		<br>
 		<button class="farmcontrols" id="approve-1">Harvest</button>
 		<button class="farmcontrols" id="approve-1">Withdraw</button><br><br>
+	</div>-->
+	<div class="mainstage" style="" align="center">
+		<div class="">
+		<h3>Sushi ELITE/WFTM LP</h3>
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br><br>
+				<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+				<span></span><span id="farm_3_i_sg">?</span>
+				<span></span><span>Staked Globally</span><span></span>
+				<span></span><span id="farm_3_i_ys">?</span>
+				<span></span><span>Your Stake</span><span></span>
+				<span></span><span id="farm_3_i_re">?</span>
+				<span></span><span>Earned</span><span></span>
+				<span></span><span id="farm_3_i_ap">?</span>
+				<span></span><span>% A.P.Y.</span><span></span>
+				<span></span><span id="farm_3_i_tvl">?</span>
+				<span></span><span>T.V.L.</span><span></span>
+				<span></span><span id="farm_3_i_roi"></span>
+				<span></span><span></span><span></span>
+			</div>
+			<button style="font-size: 1em" id="reffar" onclick="refreshFarm()">↺ Reload</button>
+			<br><hr>
+		</div>
+		<br>
+			<input class="farm_i farm_input_approve" value="Not Approved" disabled="true" id="farm_1_approved"><br>
+			<button class="farmcontrols farm_b farm_approve" onclick="farm_1_f_approve()" id="farm_1_approval">Approve</button><br><br>
+
+			<div id="farm_1_after" style="display:none">
+
+				<span class="farm_s farm_s_deposit" id="farm_1_s_deposit" onclick="$('farm_1_input_deposit').value=this.innerHTML">0</span><br>
+				<input class="farm_i farm_input_deposit" value="" placeholder="Deposit Amount" id="farm_1_input_deposit"><br>
+				<button class="farmcontrols farm_b farm_deposit" onclick="farm_1_f_deposit()">Deposit</button><br><br>
+
+				<input class="farm_i farm_input_claim" value="Earnings Unknown" disabled="true" id="farm_1_s_claim"><br>
+				<button class="farmcontrols farm_b farm_claim" onclick="farm_1_f_claim()">Claim</button><br><br>
+
+				<span class="farm_s farm_s_deposit" id="farm_1_s_withdraw" onclick="$('farm_1_input_withdraw').value=this.innerHTML">0</span><br>
+				<input class="farm_i farm_input_withdraw" value="" placeholder="Un-Stake Amount" id="farm_1_input_withdraw"><br>
+				<button class="farmcontrols farm_b farm_withdraw" onclick="farm_1_f_withdraw()">Withdraw</button><br><br>
+
+				<input class="farm_i farm_input_claim_e" value="Earnings Unknown" disabled="true" id="farm_1_s_claim_e"><br>
+				<input class="farm_i farm_input_claim_s" value="Stake Unknown" disabled="true" id="farm_1_s_claim_s"><br>
+				<button class="farmcontrols farm_b farm_exit" onclick="farm_1_f_exit()">Claim & Exit</button><br>
+
+			</div>
 	</div>
 </div>
 <br><br>
@@ -340,21 +391,33 @@ Farming is not live yet. Please wait for the official announcement on our <b><a 
 <h3><a href="https://t.me/FTM1337">t.me/FTM1337</a></h3>
 <i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
 </div>
-<script>m=document.getElementsByClassName("mainstage");
+<script>/*m=document.getElementsByClassName("mainstage");
 mp=[m[0],m[1],m[3],m[4]];
 mpb=[];
 for(i=0;i< 4;i++){mpb=(mp[i].getElementsByTagName("button"))
-for(j=0;j< mpb.length;j++){mpb[j].disabled=true}}
+for(j=0;j< mpb.length;j++){mpb[j].disabled=true}}*/
 function $(_) {return document.getElementById(_);}
-</script><!--
+</script>
 <script src="web3.min.js"></script>
 <script>
 window.addEventListener('load',async function()
 {
-	if(window.ethereum){web3 = new Web3(web3.currentProvider);}
-	else{web3 = new Web3("https://rpc.ftm.tools")}
-	});
+	if(window.ethereum&&Number(window.ethereum.chainId)==97){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545")}
 }, false);
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+"Qt"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+"Qd"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+"Tn"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+"Bn"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+"Mn"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+"Th"}
+	else if(_n>1){n_=(_n/1e1).toFixed(2)+""}
+	return(n_);
+}
 ab1=
 [
 	{
@@ -572,25 +635,12 @@ ab1=
 ];
 async function cw()
 {
-	if(!(Number(window.ethereum.chainId)==250)){$("mvgmsg").innerHTML="Wrong network detected.";return(0)}
+	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
+	if(!(Number(window.ethereum.chainId)==250)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	await window.ethereum.enable();
-	$("mvgmsg").innerHTML= (window.ethereum.selectedAddress).substr(6) + " connected.";
-}
-async function mvgCV()
-{
-	await window.ethereum.enable();
-	var allowance = 0;
-	await EL.methods.allowance(window.ethereum.selectedAddress,scMVG).call((e,r)=>{allowance = r})
-	if (allowance < 1337e13)
-	{
-		await EL.methods.approve(scMVG).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Approval Tx:",r);})
-	}
-	console.log("allowance of ",scMVG," at ",window.ethereum.selectedAddress," is ",allowance);
-	candi=$("mvgcandidate").value;
-	if(!(candi.length==42)){$("mvgmsg").innerHTML="Improper address length";return(0);}
-	if(!(Number(candi))){$("mvgmsg").innerHTML="Improper address digits";return(0);}
-	candi=web3.utils.toChecksumAddress(candi);
-	await MVG.methods.castVote(candi).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Voting Tx:\nCandidate:",candi,"\nReturned:",r);$("mvgmsg").innerHTML="Voted for" +candi+" . Please refresh the page after voting transaction is confirmed."})
+	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38);
+	$("tokad").disabled=false;
+	$("setok").disabled=false;
 }
 function fornum(n,d)
 {
@@ -607,18 +657,13 @@ function fornum(n,d)
 }
 
 
-abbrove=[{
-		"constant": false,
+abbrove=[
+	{
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "spender",
+				"name": "guy",
 				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
 			}
 		],
 		"name": "approve",
@@ -629,7 +674,6 @@ abbrove=[{
 				"type": "bool"
 			}
 		],
-		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -1022,7 +1066,7 @@ function farm_1_f_approve()
 	{
 		var conAdd = pairadd;
 		theCon = new web3.eth.Contract(abbrove, conAdd);
-		theCon.methods.approve(f_1_add,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.approve(f_1_add).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){$("er").innerHTML=e;}
 }
@@ -1121,7 +1165,6 @@ function refreshFarm()
 
 </script>
 
--->
 <script>
 var fcdt=(new Date(1623591420000));
 var x = setInterval(function()
