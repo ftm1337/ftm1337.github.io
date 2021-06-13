@@ -662,11 +662,17 @@ function arf(){	var xfr = setInterval(function()
 
 abbrove=[
 	{
+		"constant": false,
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "guy",
+				"name": "spender",
 				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
 			}
 		],
 		"name": "approve",
@@ -677,6 +683,7 @@ abbrove=[
 				"type": "bool"
 			}
 		],
+		"payable": false,
 		"stateMutability": "nonpayable",
 		"type": "function"
 	},
@@ -1069,8 +1076,8 @@ function farm_1_f_approve()
 	try
 	{
 		var conAdd = pairadd;
-		theCon = new web3.eth.Contract(abbrove, conAdd);
-		theCon.methods.approve(f_1_add).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon = new web3.eth.Contract(abbrove, pairadd);
+		theCon.methods.approve(f_1_add,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){$("er").innerHTML=e;}
 }
