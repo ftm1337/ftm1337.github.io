@@ -81,7 +81,7 @@ Stake ELITE-paired Liquidity Tokens to earn passive rewards<br><br><input id="se
 </div>
 <div class="notice">
 <h1>⚠ <span id="ff"></span></h1>
-Farming is not live yet. Please wait for the official announcement on our <b><a href="t.me/ftmguru" target="_blank">telegram channel: @FTMguru</a></b>
+Farming is not live yet. Deposits will be opened soon.<br>Please wait for the official announcement on our <b><a href="t.me/ftmguru" target="_blank">telegram channel: @FTMguru</a></b>
 <br>
 <br><br>
 </div>
@@ -642,10 +642,6 @@ async function cw()
 	if(!(Number(window.ethereum.chainId)==97)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	await window.ethereum.enable();
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38);
-	var xfr = setInterval(function()
-	{
-		console.log("refreshing farm stats", Date.now());refreshFarm()
-	}, 30000);
 }
 function fornum(n,d)
 {
@@ -660,7 +656,10 @@ function fornum(n,d)
 	else if(_n>1){n_=(_n/1e1).toFixed(2)+""}
 	return(n_);
 }
-
+function arf(){	var xfr = setInterval(function()
+	{
+		console.log("refreshing farm stats", Date.now());refreshFarm()
+	}, 10000);}
 
 abbrove=[
 	{
@@ -1094,6 +1093,7 @@ function farm_1_f_chappro()
 					$("farm_1_approval").disabled=true;
 					$("farm_1_after").style.display="block";
 					$("f1app").style.display="none";
+					arf();
 				}
 				else
 				{
@@ -1159,11 +1159,18 @@ function refreshFarm()
 		farm_1_f_chappro();
 
 		theCon = new web3.eth.Contract(farabi, f_1_add);
-		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_claim").value=Number(r)/1e18;$("farm_1_s_claim_e").value=fornum(Number(r),18);$("farm_3_i_re").value="Earned: "+fornum(Number(r),18);});
-		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;$("farm_3_i_ys").value=fornum(Number(r),18);$("farm_1_s_claim_s").value="Staked: "+fornum(Number(r),18)});
+		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+		{$("farm_1_s_claim").value=Number(r)/1e18;
+		$("farm_1_s_claim_e").value="Earned: "+fornum(Number(r),18);
+		$("farm_3_i_re").innerHTML=fornum(Number(r),18);});
+		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
+		$("farm_3_i_ys").innerHTML=fornum(Number(r),18);
+		$("farm_1_s_claim_s").value="Staked: "+fornum(Number(r),18)});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
+		the2.methods.balanceOf(f_1_add).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_3_i_tvl").innerHTML=fornum(Number(r),18)+" LP"});
 
 	}
 	catch(e){$("cw_m").innerHTML=e;}
@@ -1174,7 +1181,7 @@ function refreshFarm()
 </script>
 
 <script>
-var fcdt=(new Date(1623591420000));
+var fcdt=(new Date(1623591420000+3600000));
 var x = setInterval(function()
 {
 	var fcdg = fcdt - (new Date().getTime());
