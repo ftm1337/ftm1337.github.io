@@ -346,19 +346,20 @@ Farming is not live yet. Please wait for the official announcement on our <b><a 
 			<br><hr>
 		</div>
 		<br>
+		<div id="f1app">
 			<input class="farm_i farm_input_approve" value="Not Approved" disabled="true" id="farm_1_approved"><br>
 			<button class="farmcontrols farm_b farm_approve" onclick="farm_1_f_approve()" id="farm_1_approval">Approve</button><br><br>
-
+		</div>
 			<div id="farm_1_after" style="display:none">
 
-				<span class="farm_s farm_s_deposit" id="farm_1_s_deposit" onclick="$('farm_1_input_deposit').value=this.innerHTML">0</span><br>
+				Balance: <span class="farm_s farm_s_deposit" id="farm_1_s_deposit" onclick="$('farm_1_input_deposit').value=this.innerHTML">0</span><br>
 				<input class="farm_i farm_input_deposit" value="" placeholder="Deposit Amount" id="farm_1_input_deposit"><br>
 				<button class="farmcontrols farm_b farm_deposit" onclick="farm_1_f_deposit()">Deposit</button><br><br>
 
 				<input class="farm_i farm_input_claim" value="Earnings Unknown" disabled="true" id="farm_1_s_claim"><br>
 				<button class="farmcontrols farm_b farm_claim" onclick="farm_1_f_claim()">Claim</button><br><br>
 
-				<span class="farm_s farm_s_deposit" id="farm_1_s_withdraw" onclick="$('farm_1_input_withdraw').value=this.innerHTML">0</span><br>
+				Staked:<span class="farm_s farm_s_deposit" id="farm_1_s_withdraw" onclick="$('farm_1_input_withdraw').value=this.innerHTML">0</span><br>
 				<input class="farm_i farm_input_withdraw" value="" placeholder="Un-Stake Amount" id="farm_1_input_withdraw"><br>
 				<button class="farmcontrols farm_b farm_withdraw" onclick="farm_1_f_withdraw()">Withdraw</button><br><br>
 
@@ -405,6 +406,7 @@ window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==97){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545")}
+	refreshFarm();
 }, false);
 function fornum(n,d)
 {
@@ -1087,12 +1089,14 @@ function farm_1_f_chappro()
 					$("farm_1_approved").value="Approved";
 					$("farm_1_approval").disabled=true;
 					$("farm_1_after").style.display="block";
+					$("f1app").style.display="none";
 				}
 				else
 				{
 					$("farm_1_approved").value="Not Approved";
 					$("farm_1_approval").disabled=false;
 					$("farm_1_after").style.display="none";
+					$("f1app").style.display="block";
 				}
 			}
 		);
@@ -1151,8 +1155,8 @@ function refreshFarm()
 		farm_1_f_chappro();
 
 		theCon = new web3.eth.Contract(farabi, f_1_add);
-		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_claim").value=Number(r)/1e18;$("farm_1_s_claim_e").value=Number(r)/1e18});
-		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;$("farm_1_s_claim_s").value=Number(r)/1e18});
+		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_claim").value=Number(r)/1e18;$("farm_1_s_claim_e").value="Staked: "+fornum(Number(r),18)});
+		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;$("farm_1_s_claim_s").value="Earned: "+fornum(Number(r),18)});
 
 		the2 = new web3.eth.Contract(abi, pairadd);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
