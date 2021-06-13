@@ -81,7 +81,7 @@ Stake ELITE-paired Liquidity Tokens to earn passive rewards<br><br><input id="se
 </div>
 <div class="notice">
 <h1>⚠ <span id="ff"></span></h1>
-Deposits will open soon.</b>
+Deposits are now open. Rewards will begin shortly.</b>
 <br>
 <br><br>
 </div>
@@ -404,7 +404,7 @@ function $(_) {return document.getElementById(_);}
 <script>
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==97){web3 = new Web3(web3.currentProvider);}
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545")}
 	if(!(window.etherumselectedAddress==null)){cw()}
 }, false);
@@ -639,7 +639,7 @@ ab1=
 async function cw()
 {
 	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
-	if(!(Number(window.ethereum.chainId)==97)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
+	if(!(Number(window.ethereum.chainId)==250)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	await window.ethereum.enable();
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38);
 	arf();
@@ -709,8 +709,8 @@ abbrove=[
 		"type": "function"
 	}];
 
-f_1_add = "0x21ee31ea0e5b4628ac3c1b2ec6602aeb60d8d124";
-pairadd = "0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"
+f_1_add = "0xeF66A11788a3B3180be4Aa31A5743c6a6e87a555";
+pairadd = "0x50576Ed9D94cF934Bc32abf76e08EC6DdCd54BF0"
 
 
 farabi=[
@@ -1169,7 +1169,7 @@ async function refreshFarm()
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
-		the2.methods.balanceOf(f_1_add).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_3_i_tvl").innerHTML=fornum(Number(r),18)+" LP"});
+		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 
 		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
 		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
@@ -1178,7 +1178,8 @@ async function refreshFarm()
 		pt=res[0]/res[1]
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		apr=rera*pt/1e18/plp*365*86400*100;
-		$("farm_3_i_apr").innerHTML=apr+"%"
+		$("farm_3_i_apr").innerHTML=apr+"%";
+		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM"
 	}
 	catch(e){console.log(e);}
 }
@@ -1188,7 +1189,7 @@ async function refreshFarm()
 </script>
 
 <script>
-var fcdt=(new Date(1623591420000+2*3600000));
+var fcdt=(new Date(1623591420000+3*3600000));
 var x = setInterval(function()
 {
 	var fcdg = fcdt - (new Date().getTime());
