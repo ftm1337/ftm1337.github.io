@@ -641,8 +641,6 @@ async function cw()
 	if(!(Number(window.ethereum.chainId)==97)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	await window.ethereum.enable();
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38);
-	$("tokad").disabled=false;
-	$("setok").disabled=false;
 }
 function fornum(n,d)
 {
@@ -706,7 +704,8 @@ abbrove=[
 		"type": "function"
 	}];
 
-f_1_add = "0x1337FA431A9D";
+f_1_add = "0x21ee31ea0e5b4628ac3c1b2ec6602aeb60d8d124";
+pairadd = "0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"
 
 
 farabi=[
