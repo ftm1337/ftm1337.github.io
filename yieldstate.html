@@ -642,6 +642,10 @@ async function cw()
 	if(!(Number(window.ethereum.chainId)==97)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	await window.ethereum.enable();
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38);
+	var xfr = setInterval(function()
+	{
+		console.log("refreshing farm stats", Date.now());refreshFarm()
+	}, 30000);
 }
 function fornum(n,d)
 {
@@ -1155,8 +1159,8 @@ function refreshFarm()
 		farm_1_f_chappro();
 
 		theCon = new web3.eth.Contract(farabi, f_1_add);
-		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_claim").value=Number(r)/1e18;$("farm_1_s_claim_e").value="Earned: "+fornum(Number(r),18)});
-		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;$("farm_1_s_claim_s").value="Staked: "+fornum(Number(r),18)});
+		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_claim").value=Number(r)/1e18;$("farm_1_s_claim_e").value=fornum(Number(r),18);$("farm_3_i_re").value="Earned: "+fornum(Number(r),18);});
+		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;$("farm_3_i_ys").value=fornum(Number(r),18);$("farm_1_s_claim_s").value="Staked: "+fornum(Number(r),18)});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
@@ -1182,9 +1186,5 @@ var x = setInterval(function()
 		window.location.reload(true);
 	}
 }, 1000);
-var xfr = setInterval(function()
-{
-	console.log("refreshing farm stats", Date.now());refreshFarm()
-}, 30000);
 </script>
 </html>
