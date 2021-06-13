@@ -335,7 +335,7 @@ Deposits will open soon.</b>
 				<span></span><span>Your Stake</span><span></span>
 				<span></span><span id="farm_3_i_re">?</span>
 				<span></span><span>Earned</span><span></span>
-				<span></span><span id="farm_3_i_ap">?</span>
+				<span></span><span id="farm_3_i_apr">?</span>
 				<span></span><span>% A.P.R.</span><span></span>
 				<span></span><span id="farm_3_i_tvl">?</span>
 				<span></span><span>T.V.L.</span><span></span>
@@ -1178,7 +1178,7 @@ async function refreshFarm()
 		pt=res[0]/res[1]
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		apr=rera*pt/1e18/plp*365*86400*100;
-		$("farm_3_i_tvl").innerHTML=apr+"%"
+		$("farm_3_i_apr").innerHTML=apr+"%"
 	}
 	catch(e){console.log(e);}
 }
