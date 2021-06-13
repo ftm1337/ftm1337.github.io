@@ -403,9 +403,8 @@ function $(_) {return document.getElementById(_);}
 <script>
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
-	if(!(window.etherum.selectedAddress==null)){cw()}
 }, false);
 function fornum(n,d)
 {
@@ -1191,5 +1190,8 @@ async function refreshFarm()
 	}
 	catch(e){console.log(e);}
 }
+
+
+
 </script>
 </html>
