@@ -47,6 +47,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 #ff{  font-family: 'Courier New', "Lucida Console", Monaco,"FreeMono","Andale Mono", monospace;color:cyan}
 .fardet span:nth-of-type(5n+2){text-align: left}
 .fardet span:nth-of-type(5n+4){text-align: right}
+input{background: #000 !important;}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:50% 50%}
 	.mainstages{grid-template-columns:auto auto auto}
@@ -354,7 +355,7 @@ Deposits are now open.<br>Rewards will begin shortly. We will wait till most Eli
 				<input class="farmcontrols farm_i farm_input_deposit" value="" placeholder="Deposit Amount" id="farm_1_input_deposit"><br>
 				<button class="farmcontrols farm_b farm_deposit" onclick="farm_1_f_deposit()">Deposit</button><br><br>
 
-				<input class="farmcontrols farm_i farm_input_claim" value="Earnings Unknown" disabled="true" id="farm_1_s_claim"><br>
+				<input class="farm_i farm_input_claim" value="Earnings Unknown" disabled="true" id="farm_1_s_claim"><br>
 				<button class="farmcontrols farm_b farm_claim" onclick="farm_1_f_claim()">Claim</button><br><br>
 
 				Staked:<span class="farm_s farm_s_deposit" id="farm_1_s_withdraw" onclick="$('farm_1_input_withdraw').value=this.innerHTML">0</span><br>
