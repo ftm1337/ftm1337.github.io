@@ -1080,7 +1080,7 @@ function farm_1_f_approve()
 		theCon = new web3.eth.Contract(abbrove, pairadd);
 		theCon.methods.approve(f_1_add,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){$("er").innerHTML=e;}
+	catch(e){console.log(e)}
 }
 function farm_1_f_chappro()
 {
@@ -1121,9 +1121,9 @@ function farm_1_f_deposit()
 		theCon = new web3.eth.Contract(farabi, conAdd);
 		theCon.methods.stake(String(Number($("farm_1_input_deposit").value)*1e18)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){$("er").innerHTML=e;}
+	catch(e){console.log(e)}
 }
-function gs(){console.log("gs lol")}
+function gs(){console.log("gs lol");refreshFarm()}
 function farm_1_f_claim()
 {
 	try
@@ -1132,7 +1132,7 @@ function farm_1_f_claim()
 		theCon = new web3.eth.Contract(farabi, conAdd);
 		theCon.methods.getReward().send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){$("er").innerHTML=e;}
+	catch(e){console.log(e)}
 }
 
 function farm_1_f_withdraw()
@@ -1143,7 +1143,7 @@ function farm_1_f_withdraw()
 		theCon = new web3.eth.Contract(farabi, conAdd);
 		theCon.methods.withdraw(String(Number($("farm_1_input_withdraw").value)*1e18)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){$("er").innerHTML=e;}
+	catch(e){console.log(e)}
 }
 
 function farm_1_f_exit()
@@ -1154,7 +1154,7 @@ function farm_1_f_exit()
 		theCon = new web3.eth.Contract(farabi, conAdd);
 		theCon.methods.exit().send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){$("er").innerHTML=e;}
+	catch(e){console.log(e)}
 }
 
 async function refreshFarm()
@@ -1183,14 +1183,11 @@ async function refreshFarm()
 
 		pt=res[0]/res[1]
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
-		apr=rera*pt/1e18/plp*365*86400*100;
+		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM"
 	}
 	catch(e){console.log(e);}
 }
-
-
-
 </script>
 </html>
