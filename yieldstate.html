@@ -1182,5 +1182,9 @@ var x = setInterval(function()
 		window.location.reload(true);
 	}
 }, 1000);
+var xfr = setInterval(function()
+{
+	console.log("refreshing farm stats", Date.now());refreshFarm()
+}, 30000);
 </script>
 </html>
