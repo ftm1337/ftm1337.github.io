@@ -336,13 +336,13 @@ Deposits will open soon.</b>
 				<span></span><span id="farm_3_i_re">?</span>
 				<span></span><span>Earned</span><span></span>
 				<span></span><span id="farm_3_i_ap">?</span>
-				<span></span><span>% A.P.Y.</span><span></span>
+				<span></span><span>% A.P.R.</span><span></span>
 				<span></span><span id="farm_3_i_tvl">?</span>
 				<span></span><span>T.V.L.</span><span></span>
 				<span></span><span id="farm_3_i_roi"></span>
 				<span></span><span></span><span></span>
 			</div>
-			<button style="font-size: 1em" id="reffar" onclick="refreshFarm()">↺ Reload</button><br>
+			<br><button style="font-size: 1em" id="reffar" onclick="refreshFarm()">↺ Reload</button><br>
 			<br><hr>
 		</div>
 		<br>
@@ -406,7 +406,7 @@ window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==97){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545")}
-	arf();
+	if(!(window.etherumselectedAddress==null)){cw()}
 }, false);
 function fornum(n,d)
 {
@@ -642,6 +642,7 @@ async function cw()
 	if(!(Number(window.ethereum.chainId)==97)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	await window.ethereum.enable();
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38);
+	arf();
 }
 function fornum(n,d)
 {
@@ -1150,7 +1151,7 @@ function farm_1_f_exit()
 	catch(e){$("er").innerHTML=e;}
 }
 
-function refreshFarm()
+function async refreshFarm()
 {
 	try
 	{
@@ -1170,6 +1171,14 @@ function refreshFarm()
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
 		the2.methods.balanceOf(f_1_add).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_3_i_tvl").innerHTML=fornum(Number(r),18)+" LP"});
 
+		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
+		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
+		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+
+		pt=res[0]/res[1]
+		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
+		apr=rera*pt/1e18/plp*365*86400*100;
+		$("farm_3_i_tvl").innerHTML=apr+"%"
 	}
 	catch(e){console.log(e);}
 }
