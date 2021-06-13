@@ -81,7 +81,7 @@ Stake ELITE-paired Liquidity Tokens to earn passive rewards<br><br><input id="se
 </div>
 <div class="notice">
 <h1>⚠ <span id="ff"></span></h1>
-Deposits will be opened soon.<br>Please wait for the official announcement on our <b><a href="t.me/ftmguru" target="_blank">telegram channel: @FTMguru</a></b>
+Deposits will open soon.</b>
 <br>
 <br><br>
 </div>
@@ -406,7 +406,7 @@ window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==97){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545")}
-	refreshFarm();
+	arf();
 }, false);
 function fornum(n,d)
 {
@@ -659,7 +659,7 @@ function fornum(n,d)
 function arf(){	var xfr = setInterval(function()
 	{
 		console.log("refreshing farm stats", Date.now());refreshFarm()
-	}, 10000);}
+	}, 15000);}
 
 abbrove=[
 	{
@@ -1075,7 +1075,6 @@ function farm_1_f_approve()
 	}
 	catch(e){$("er").innerHTML=e;}
 }
-sarf=false;
 function farm_1_f_chappro()
 {
 	try
@@ -1093,8 +1092,6 @@ function farm_1_f_chappro()
 					$("farm_1_approval").disabled=true;
 					$("farm_1_after").style.display="block";
 					$("f1app").style.display="none";
-					sarf?arf:false;
-					sarf=true;
 				}
 				else
 				{
@@ -1106,7 +1103,7 @@ function farm_1_f_chappro()
 			}
 		);
 	}
-	catch(e){$("er").innerHTML=e;}
+	catch(e){console.log(e)}
 }
 
 function farm_1_f_deposit()
@@ -1174,7 +1171,7 @@ function refreshFarm()
 		the2.methods.balanceOf(f_1_add).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_3_i_tvl").innerHTML=fornum(Number(r),18)+" LP"});
 
 	}
-	catch(e){$("cw_m").innerHTML=e;}
+	catch(e){console.log(e);}
 }
 
 
@@ -1182,7 +1179,7 @@ function refreshFarm()
 </script>
 
 <script>
-var fcdt=(new Date(1623591420000+3600000));
+var fcdt=(new Date(1623591420000+2*3600000));
 var x = setInterval(function()
 {
 	var fcdg = fcdt - (new Date().getTime());
