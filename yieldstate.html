@@ -1165,12 +1165,12 @@ async function refreshFarm()
 		theCon = new web3.eth.Contract(farabi, f_1_add);
 		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_claim").value=Number(r)/1e18;
-		$("farm_1_s_claim_e").value="Earned: "+fornum(Number(r),18);
-		$("farm_3_i_re").innerHTML=fornum(Number(r),18);});
+		$("farm_1_s_claim_e").value="Earned: "+(Number(r));
+		$("farm_3_i_re").innerHTML=(Number(r));});
 		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
-		$("farm_3_i_ys").innerHTML=fornum(Number(r),18);
-		$("farm_1_s_claim_s").value="Staked: "+fornum(Number(r),18)});
+		$("farm_3_i_ys").innerHTML=(Number(r));
+		$("farm_1_s_claim_s").value="Staked: "+(Number(r))});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
@@ -1184,7 +1184,7 @@ async function refreshFarm()
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		apr=rera*pt/1e18/plp*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr+"%";
-		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM"
+		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp)+" FTM"
 	}
 	catch(e){console.log(e);}
 }
@@ -1203,7 +1203,6 @@ var x = setInterval(function()
 	if (fcdg < 0)
 	{
 		clearInterval(x);
-		window.location.reload(true);
 	}
 }, 1000);
 </script>
