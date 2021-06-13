@@ -351,14 +351,14 @@ Deposits are now open.<br>Rewards will begin shortly. We will wait till most Eli
 			<div id="farm_1_after" style="display:none">
 
 				Balance: <span class="farm_s farm_s_deposit" id="farm_1_s_deposit" onclick="$('farm_1_input_deposit').value=this.innerHTML">0</span><br>
-				<input class="farm_i farm_input_deposit" value="" placeholder="Deposit Amount" id="farm_1_input_deposit"><br>
+				<input class="farmcontrols farm_i farm_input_deposit" value="" placeholder="Deposit Amount" id="farm_1_input_deposit"><br>
 				<button class="farmcontrols farm_b farm_deposit" onclick="farm_1_f_deposit()">Deposit</button><br><br>
 
-				<input class="farm_i farm_input_claim" value="Earnings Unknown" disabled="true" id="farm_1_s_claim"><br>
+				<input class="farmcontrols farm_i farm_input_claim" value="Earnings Unknown" disabled="true" id="farm_1_s_claim"><br>
 				<button class="farmcontrols farm_b farm_claim" onclick="farm_1_f_claim()">Claim</button><br><br>
 
 				Staked:<span class="farm_s farm_s_deposit" id="farm_1_s_withdraw" onclick="$('farm_1_input_withdraw').value=this.innerHTML">0</span><br>
-				<input class="farm_i farm_input_withdraw" value="" placeholder="Un-Stake Amount" id="farm_1_input_withdraw"><br>
+				<input class="farmcontrols farm_i farm_input_withdraw" value="" placeholder="Un-Stake Amount" id="farm_1_input_withdraw"><br>
 				<button class="farmcontrols farm_b farm_withdraw" onclick="farm_1_f_withdraw()">Withdraw</button><br><br>
 
 				<input class="farm_i farm_input_claim_e" value="Earnings Unknown" disabled="true" id="farm_1_s_claim_e"><br>
@@ -1165,12 +1165,12 @@ async function refreshFarm()
 		theCon = new web3.eth.Contract(farabi, f_1_add);
 		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_claim").value=Number(r)/1e18;
-		$("farm_1_s_claim_e").value="Earned: "+(Number(r));
-		$("farm_3_i_re").innerHTML=(Number(r));});
+		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e18);
+		$("farm_3_i_re").innerHTML=(Number(r)/1e18);});
 		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
-		$("farm_3_i_ys").innerHTML=(Number(r));
-		$("farm_1_s_claim_s").value="Staked: "+(Number(r))});
+		$("farm_3_i_ys").innerHTML=(Number(r)/1e18);
+		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
@@ -1184,7 +1184,7 @@ async function refreshFarm()
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		apr=rera*pt/1e18/plp*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr+"%";
-		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp)+" FTM"
+		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM"
 	}
 	catch(e){console.log(e);}
 }
