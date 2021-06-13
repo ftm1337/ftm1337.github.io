@@ -403,9 +403,8 @@ function $(_) {return document.getElementById(_);}
 <script>
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
-	if(!(window.etherumselectedAddress==null)){cw()}
 }, false);
 function fornum(n,d)
 {
@@ -1080,7 +1079,7 @@ function farm_1_f_approve()
 		theCon = new web3.eth.Contract(abbrove, pairadd);
 		theCon.methods.approve(f_1_add,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){console.log(e)}
+	catch(e){$("er").innerHTML=e;}
 }
 function farm_1_f_chappro()
 {
@@ -1183,11 +1182,14 @@ async function refreshFarm()
 
 		pt=res[0]/res[1]
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
-		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
+		apr=rera*pt/1e18/plp*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM"
 	}
 	catch(e){console.log(e);}
 }
+
+
+
 </script>
 </html>
