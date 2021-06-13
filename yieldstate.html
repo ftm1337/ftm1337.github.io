@@ -329,8 +329,6 @@ Deposits are now open. Rewards will begin shortly.</b>
 		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
 		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br><br>
 				<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
-				<span></span><span id="farm_3_i_sg">?</span>
-				<span></span><span>Staked Globally</span><span></span>
 				<span></span><span id="farm_3_i_ys">?</span>
 				<span></span><span>Your Stake</span><span></span>
 				<span></span><span id="farm_3_i_re">?</span>
@@ -405,7 +403,7 @@ function $(_) {return document.getElementById(_);}
 window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
-	else{web3 = new Web3("https://data-seed-prebsc-1-s1.binance.org:8545")}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
 	if(!(window.etherumselectedAddress==null)){cw()}
 }, false);
 function fornum(n,d)
