@@ -6,9 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
-	<style>
-
-* {
+<style>* {
 	color:#e3e9f2;
 	overflow-wrap:break-word;
 }
@@ -22,13 +20,22 @@ pre{overflow-x:auto;max-width:80%}
 .mainpanel button{font-size: 1em}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
 .lpapr{text-shadow: rgba(0,255,255,1) 0px 0px 10px;color:aqua;font-size:2em}
+.farmable{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25))}
+.gotofarm{display: grid;grid-template-columns: auto auto;
+	padding:0 0 0 5px;margin:2px -15px 2px -5px;
+	border-radius:15px;background:linear-gradient(to left, rgba(0,0,0,1) 10%, transparent 90%);
+	max-width:300px;}
+.gotofarm div:nth-child(2){font-weight:bolder;font-family: 'Courier New', "Lucida Console", Monaco,"FreeMono","Andale Mono", monospace;}
 @media(min-width:641px){
 		.mainpanels{grid-template-columns:auto auto auto}
+		.liqdis{grid-template-columns:auto auto}
 		.mainpanels2{grid-template-columns: auto auto auto auto}
 		.mainpanels3{grid-template-columns: 0 50% 50% 0}
 		.hhr{width:555px}
 }
-	</style>
+@media(min-width:800px){
+		.liqdis{grid-template-columns:auto auto auto !important;}
+}</style>
 </head>
 <div class="topbar">
 	<div align="center">
@@ -91,28 +98,30 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 	</div>-->
 </div>
 <h4 align="center">LIQUIDITY DISTRIBUTION</h4>
-<div class="mainpanels" align="center">
+<div class="mainpanels liqdis" align="center">
 	<div class="mainpanel">
 		<h4>Spooky:ELITE/WFTM</h4>
 		<span id="p0a">?</span> ELITE<br>+<br>
 		<span id="p0b">?</span> FTM<br><br>
-		1 ELITE = <b><span id="p0p">?</span></b> FTM<br><!--
+		1 ELITE = <b><span id="p0p">?</span></b> FTM<br>
 		<span class="lpapr" id="p0apr">? %</span>
-		<br>24h Realized APY-->
+		<br>24h Realized APY
 		<br><br>
 		<a href="https://spookyswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://spookyswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
 		<a href="https://info.spiritswap.finance/#/pair/0xea035a13b64cb49d85e2f0a2736c9604cb21599c" target="_blank"><button>Detail</button></a>
 		<br><br>
 	</div>
-	<div class="mainpanel">
+	<div class="mainpanel farmable">
 		<h4>Sushi:ELITE/WFTM</h4>
 		<span id="p1a">?</span> ELITE<br>+<br>
 		<span id="p1b">?</span> FTM<br><br>
 		1 ELITE = <b><span id="p1p">?</span></b> FTM<br>
-		<span class="lpapr" id="p1apr">? %</span>
-		<br>24h Realized APY
-		<br><br>
+		<a href="yieldstate.html"><div class="gotofarm">
+		<div><span class="lpapr" id="p1apr">? %</span></div>
+		<div><i>Boost with<br>YieldState</i></div>
+		</div></a>
+		24h Realized APY<br><br>
 		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
 		<a href="https://analytics-ftm.sushi.com/pairs/0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0" target="_blank"><button>Detail</button></a>
@@ -135,9 +144,9 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<h4>Spirit:ELITE/WFTM</h4>
 		<span id="p2a">?</span> ELITE<br>+<br>
 		<span id="p2b">?</span> FTM<br><br>
-		1 ELITE = <b><span id="p2p">?</span></b> FTM<br><!--
+		1 ELITE = <b><span id="p2p">?</span></b> FTM<br>
 		<span class="lpapr" id="p2apr">? %</span>
-		<br>24h Realized APY-->
+		<br>24h Realized APY
 		<br><br>
 		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://swap.spiritswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
@@ -148,9 +157,9 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<h4>ZDEX:ELITE/WFTM</h4>
 		<span id="p3a">?</span> ELITE<br>+<br>
 		<span id="p3b">?</span> FTM<br><br>
-		1 ELITE = <b><span id="p3p">?</span></b> FTM<br><!--
+		1 ELITE = <b><span id="p3p">?</span></b> FTM<br>
 		<span class="lpapr" id="p3apr">? %</span>
-		<br>24h Realized APY-->
+		<br>24h Realized APY
 		<br><br>
 		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>Swap</button></a>
@@ -161,9 +170,9 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<h4>ZDEX:ZOO/ELITE</h4>
 		<span id="p4a">?</span> ELITE<br>+<br>
 		<span id="p4b">?</span> ZOO<br><br>
-		1 ELITE = <b><span id="p4p">?</span></b> ZOO<br><!--
+		1 ELITE = <b><span id="p4p">?</span></b> ZOO<br>
 		<span class="lpapr" id="p4apr">? %</span>
-		<br>24h Realized APY-->
+		<br>24h Realized APY
 		<br><br>
 		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>Swap</button></a>
@@ -478,11 +487,78 @@ fragment c on PairHourData {
 	}
 	gr1.send(JSON.stringify({query:Q_pn_c}))
 }
+function lpapr_spo(pi,n)
+{
+	hi=Date.now();hi=(hi-hi%36e5)/36e5;
+	Q_pn_c=`{
+`
+	for(ih=0;ih< 24;ih++)
+	{Q_pn_c+=`h${ih}: pairHourData(id:"${pi}-${hi-ih}"){
+    ...c
+  }
+`;}
+	Q_pn_c+=`}
+fragment c on PairHourData {
+  hourlyVolumeUSD
+  reserveUSD
+}`
+	gr1=new XMLHttpRequest();
+	gr1.open("POST","https://api.thegraph.com/subgraphs/name/eerieeight/spooky-swap-exchange",true);
+	gr1.onload=function()
+	{
+		aap=0;
+		d=JSON.parse(this.response).data;console.log(d)
+		Object.keys(d).forEach(D=>
+		{
+			if(!(d[D]==null))
+			{
+				aap+=Number(d[D].hourlyVolumeUSD)*0.25/100/Number(d[D].reserveUSD)
+			}
+		});
+		$("p"+n+"apr").innerHTML=(aap*365e2).toLocaleString()+"%"
+	}
+	gr1.send(JSON.stringify({query:Q_pn_c}))
+}
+function lpapr_zoo(pi,n)
+{
+	hi=Date.now();hi=(hi-hi%36e5)/36e5;
+	Q_pn_c=`{
+`
+	for(ih=0;ih< 24;ih++)
+	{Q_pn_c+=`h${ih}: pairHourData(id:"${pi}-${hi-ih}"){
+    ...c
+  }
+`;}
+	Q_pn_c+=`}
+fragment c on PairHourData {
+  hourlyVolumeUSD
+  reserveUSD
+}`
+	gr1=new XMLHttpRequest();
+	gr1.open("POST","https://api.thegraph.com/subgraphs/name/ruvlol/graph-n",true);
+	gr1.onload=function()
+	{
+		aap=0;
+		d=JSON.parse(this.response).data;console.log(d)
+		Object.keys(d).forEach(D=>
+		{
+			if(!(d[D]==null))
+			{
+				aap+=Number(d[D].hourlyVolumeUSD)*0.25/100/Number(d[D].reserveUSD)
+			}
+		});
+		$("p"+n+"apr").innerHTML=(aap*365e2).toLocaleString()+"%"
+	}
+	gr1.send(JSON.stringify({query:Q_pn_c}))
+}
 function lpapr()
 {
 	lpapr_sus("0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0",1)
 	lpapr_sus("0x1dfcddf675038ead27f1d75b435b5b05ba825e9a",5)
 	lpapr_spi("0x7c8f47d2d151cedfdb847ab3c5b67d05daf3539b",2)
+	lpapr_spo("0xea035a13b64cb49d85e2f0a2736c9604cb21599c",0)
+	lpapr_zoo("0x7618793c51e0dc954ba1dd2eeeb3dfa08f777d0a",3)
+	lpapr_zoo("0x1dfcddf675038ead27f1d75b435b5b05ba825e9a",4)
 }
 </script>
 </html>
