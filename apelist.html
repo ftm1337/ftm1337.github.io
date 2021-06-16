@@ -33,7 +33,7 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
     background: #090919;border:aqua 2px solid;}
 ._paint{box-shadow: rgba(255,170,190,0.5) 0px 0px 10px 10px;
     background: #090919;border:pink 2px solid;}
-
+.nb{position:-webkit-sticky;position:sticky;top:0}
 
 @media(min-width:641px){hr{width:555px}
     #md{display: grid;grid-template-columns: auto auto;
@@ -65,13 +65,14 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 <div align="center" style="margin:0 10%">Ape List from FTM.guru helps you discover the latest tokens listed on Fantom Opera DEXes. 99% of these will steal your money. Please do not invest in these tokens. People might also list fake tokens bearing a popular name (impersonate some other project). This list is for information purposes only. Like always, the data is real-time, 0-lag. We will soon optimize this list.</div>
 
 <div align="center">
-As of now, we list the most recent listings from 6 exchanges.<br><br>
-<button class="_spooky">Spooky</button>
-<button class="_spirit">Spirit</button>
-<button class="_sushi">Sushi</button>
-<button class="_zoo">Zoo</button>
-<button class="_hyper">Hyper</button>
-<button class="_paint">Paint</button><br>
+As of now, we list the most recent listings from 6 exchanges.<br><br><br>
+<div class="nb">
+<button class="_spooky"	onclick="togfil(this.className)">Spooky</button>
+<button class="_spirit"	onclick="togfil(this.className)">Spirit</button>
+<button class="_sushi"	onclick="togfil(this.className)">Sushi</button>
+<button class="_zoo"	onclick="togfil(this.className)">Zoo</button>
+<button class="_hyper"	onclick="togfil(this.className)">Hyper</button>
+<button class="_paint"	onclick="togfil(this.className)">Paint</button></div><br><br><br>
 <h1>NEVER INVEST MORE THAN .1%<BR>
 99.7% ARE RUGS OR SCAMS!</h1>
 <br><br>
@@ -106,7 +107,7 @@ As of now, we list the most recent listings from 6 exchanges.<br><br>
 <i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
 </div>
 <script src="web3.min.js"></script>
-<script>
+<script async="true">
 window.addEventListener('load',function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
@@ -1130,6 +1131,15 @@ async function f1(_i_)
     {
 		var _p = await _f.methods.allPairs(_c-1-ii).call((e,r)=>{_ra(r,_i_); return (r)})
     }
+}
+</script>
+<script async="true">
+function togfil(e)
+{
+	a=document.getElementsByClassName("apes")
+	for(i=0;i< a.length;i++){a[i].style.display="none"}
+	b=document.getElementsByClassName(e)
+	for(j=1;j< b.length;j++){b[j].style.display="block"}
 }
 </script>
 </html>
