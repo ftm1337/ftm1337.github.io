@@ -21,21 +21,41 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 #mainstage input,button{font-size: 1.1em}
 .apes{overflow-x: auto;font-size: 0.8em;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
 .apes a{color:aqua}
-@media(min-width:641px){hr{width:555px}}
+._sushi{box-shadow: rgba(255,0,255,0.5) 0px 0px 10px 10px;
+    background: #090919;border:#f0f 2px solid;}
+._zoo{box-shadow: rgba(0,255,0,0.5) 0px 0px 10px 10px;
+    background: #090919;border:#0f0 2px solid;}
+._spooky{box-shadow: rgba(255,255,255,0.5) 0px 0px 10px 10px;
+    background: #090919;border:#fff 2px solid;}
+._hyper{box-shadow: rgba(0,0,255,0.5) 0px 0px 10px 10px;
+    background: #090919;border:blue 2px solid;}
+._spirit{box-shadow: rgba(0,255,255,0.5) 0px 0px 10px 10px;
+    background: #090919;border:aqua 2px solid;}
+._paint{box-shadow: rgba(255,170,190,0.5) 0px 0px 10px 10px;
+    background: #090919;border:pink 2px solid;}
+
+
+@media(min-width:641px){hr{width:555px}
+    #md{display: grid;grid-template-columns: auto auto;
+        grid-gap:20px}
+}
+@media(min-width:800px){hr{width:555px}
+    #md{display: grid;grid-template-columns: auto auto auto;
+        grid-gap:20px}
 </style>
 </head>
 <div class="topbar">
 	<div align="center">
 		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
-		<a href="farmlands.html">Farmlands👽</a>
-		<a href="index.html">FTM-Gems</a>
+		<!--<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>-->
 		<a href="pair.html">DEX-Explorer</a>
 		<a href="fantomscan.html">FantomScan</a>
 		<a href="elite.html">ELITE</a>
 		<a href="fmc.html">FantomMarketCap</a>
 		<a href="yieldstate.html">YieldState</a>
-		<a href="airdrop.html">Airdrop-Tool</a>
-		<a href="airdrop.html">Ape-List</a>
+		<!--<a href="airdrop.html">Airdrop-Tool</a>-->
+		<a href="apelist.html">Ape-List</a>
 	</div>
 </div>
 <br>
@@ -45,16 +65,15 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 <div align="center" style="margin:0 10%">Ape List from FTM.guru helps you discover the latest tokens listed on Fantom Opera DEXes. 99% of these will steal your money. Please do not invest in these tokens. People might also list fake tokens bearing a popular name (impersonate some other project). This list is for information purposes only. Like always, the data is real-time, 0-lag. We will soon optimize this list.</div>
 
 <div align="center">
-As of now, we list the 5 most recent listings.<br>
-<button>Spooky</button>
-<button>Spirit</button>
-<button>Sushi</button>
-<button>Zoo</button>
-<button>Hyper</button>
-<button>Paint</button><br>
-Not including waka because they haven't yet accepted our free-listing at <u><a href="https://fmc.guru" target="_blank">FMC.guru</a></u>. Do bug them :v</div>
-<br>
-<br>This is not a good place. Go away ser.<br> What a degene! Still here...smh
+As of now, we list the most recent listings from 6 exchanges.<br><br>
+<button class="_spooky">Spooky</button>
+<button class="_spirit">Spirit</button>
+<button class="_sushi">Sushi</button>
+<button class="_zoo">Zoo</button>
+<button class="_hyper">Hyper</button>
+<button class="_paint">Paint</button><br>
+<h1>NEVER INVEST MORE THAN .1%<BR>
+99.7% ARE RUGS OR SCAMS!</h1>
 <br><br>
 <div id="md" align="center">
 
@@ -74,8 +93,8 @@ Not including waka because they haven't yet accepted our free-listing at <u><a h
 		<a href="fmc.html">FantomMarketCap</a>
 		<a href="yieldstate.html">YieldState</a>
 		<a href="airdrop.html">Airdrop-Tool</a>
-		<a href="airdrop.html">Ape-List</a>
-		<a href="airdrop.html">Ape-List</a>
+		<a href="apelist.html">Ape-List</a>
+
 <pre>$ELITE
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
 <a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
@@ -95,7 +114,7 @@ window.addEventListener('load',function()
 	f2();
 }, false);
 function $(_) {return document.getElementById(_);}
-async function f2(){for(kk=0;kk< 5;kk++){await f1(kk)}}
+async function f2(){for(kk=0;kk< f_.length;kk++){await f1(kk)}}
 pa_=[
   {
     "inputs": [],
@@ -849,22 +868,23 @@ async function _ra(P,I)
 	var d1 = await _T1.
 	methods.decimals().
 	call((e,r)=>{return(r)})
-	md.innerHTML+=`<div class="apes">
-	 Found new pair #${I+1}
-	 at ${n_[I]}!<br>
+	md.innerHTML+=`<div class="apes
+	 ${'_'+n_[I].toLowerCase()}">
+	 Found new pair #${I+1} at ${n_[I]}!<br>
 	 ${Number(rs[0])/10**Number(d0)}
 	 <b>${s0}</b> paired with
 	 ${Number(rs[1])/10**Number(d1)} <b>${s1}</b>.
-	 <br>1 ${s0} = ${(Number(rs[1])/10**Number(d1))
-	 /(Number(rs[0])/10**Number(d0))} ${s1}
+	 <br>1 <b>${s0}</b> = ${(Number(rs[1])/10**Number(d1))
+	 /(Number(rs[0])/10**Number(d0))} <b>${s1}</b>
 	 <br>1 ${s1} = ${(Number(rs[0])/10**Number(d0))
 	 /(Number(rs[1])/10**Number(d1))} ${s0}
-	 <br>Explore all ${Number(c0)/10**Number(d0)}
-	 ${n0} at<br><a href="https://ftmscan.com/token/${t0}"
-	 target="_blank">${t0}</a>
-	 <br>Explore all ${Number(c1)/10**Number(d1)}
-	 ${n1} at<br><a href="https://ftmscan.com/token/${t1}"
-	 target="_blank">${t1}</a></div><br><br>
+	 <br>Total Supplies:<br>
+	 ${Number(c0)/10**Number(d0)} ${n0}
+	 <br><a href="https://ftmscan.com/token/${t0}"
+	 target="_blank">(${t0})</a><br>
+	 ${Number(c1)/10**Number(d1)} ${n1}
+	 <br><a href="https://ftmscan.com/token/${t1}"
+	 target="_blank">(${t1})</a></div>
 	 `;
 }
 f_=[
@@ -874,7 +894,8 @@ f_=[
 	"0x6178C3B21F7cA1adD84c16AD35452c85a85F5df4",
 	"0x991152411A7B5A14A8CF0cDDE8439435328070dF",
 	"0x733A9D1585f2d14c77b49d39BC7d7dd14CdA4aa5"]
-n_=["Spooky","Spirit","Sushi","Zoo","Hyper","Paint"]
+n_=["Spooky","Spirit","Sushi","Zoo","Hyper","Paint"//,"Waka"
+]
 fa_=[
   {
     "inputs": [
@@ -1105,9 +1126,9 @@ async function f1(_i_)
 {
 	_f=new web3.eth.Contract(fa_,f_[_i_]);
 	const _c = await _f.methods.allPairsLength().call((e,r)=>{return Number(r)})
-	for (ii=0;ii< 6;ii++)
+	for (ii=0;ii< 30;ii++)
     {
-		var _p = await _f.methods.allPairs(_c-1-ii).call((e,r)=>{_ra(r,ii); return (r)})
+		var _p = await _f.methods.allPairs(_c-1-ii).call((e,r)=>{_ra(r,_i_); return (r)})
     }
 }
 </script>
