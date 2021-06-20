@@ -127,6 +127,7 @@ async function cw()
 	uac = UAC[0];
 	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
 	web3.eth.Contract.defaultAccount=uac;
+	$("errors").innerHTML+="<br>DA="+web3.eth.Contract.defaultAccount+"<br>UAC="+uac+"<br>"
 	//await window.ethereum.enable();
 	//$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38) + " connected.";
 }
@@ -199,6 +200,5 @@ async function soft()
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
 }
-$("errors").innerHTML+="<br>DA="+web3.eth.Contract.defaultAccount+"<br>UAC="+uac+"<br>"
 </script>
 </html>
