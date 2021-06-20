@@ -183,7 +183,7 @@ async function hard()
 	{
 		await cw();
 		C=new web3.eth.Contract(_hard,$("tona").value);
-		await C.methods.approve($("whom").value).send({from:uac},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+		await C.methods.approve($("whom").value).send({from:window.ethereum.selectedAddress,value:0},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
 }
@@ -193,7 +193,7 @@ async function soft()
 	{
 		await cw();
 		C=new web3.eth.Contract(_soft,$("tona").value);
-		await C.methods.approve($("whom").value,$("much").value).send({from:uac},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+		await C.methods.approve($("whom").value,$("much").value).send({from:window.ethereum.selectedAddress,value:0},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
 
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
