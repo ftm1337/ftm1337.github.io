@@ -1,0 +1,197 @@
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>FTM1337 : ftm.guru</title>
+<meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
+<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<head>
+<link rel="shortcut icon" href="img/ftm1337.jpg" />
+<style>
+*{color:#e3e9f2;overflow-wrap:break-word;}
+a{text-decoration-line:none;padding:0 2px}
+html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+img{border-radius: 50%}
+input,button{border-radius:25px;background:black;text-align:center}
+button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
+pre{overflow-x:auto;max-width:80%}
+#votingmvg{background:#040b22;border-radius:20px;border: #aaa solid 1px}
+.topbar{display:grid;grid-template-columns: auto;}
+#mvg pre{margin: 0 0 0 0;}
+#mvg hr{border: 0px dashed;width: 50%}
+#mvg div{background: #000013;margin: auto;border-radius: 15px;border:dashed 1px;border-top: none }
+	#mvg{width: 70vw}
+.mainpanels{display:grid;grid-template-columns:auto}
+.olsa{display:grid;grid-template-columns:auto auto 1%;}
+.mainstages{text-align:center;display:grid;grid-template-columns:	 auto}
+.mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid}
+hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+.c2a{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;margin:5px}
+@media(min-width:641px){
+	.mainpanels{grid-template-columns:50% 50%}
+	.mainstages{grid-template-columns:50% 50%}
+	#mvg{width: 70%;}
+	.hhr{width: 555px}
+}
+#errors{font-size:0.67em}
+</style>
+</head>
+<div class="topbar">
+	<div align="center">
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<!--<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>-->
+		<a href="pair.html">DEX-Explorer</a>
+		<a href="fantomscan.html">FantomScan</a>
+		<a href="elite.html">ELITE</a>
+		<a href="fmc.html">FantomMarketCap</a>
+		<a href="yieldstate.html">YieldState</a>
+		<!--<a href="airdrop.html">Airdrop-Tool</a>-->
+		<a href="apelist.html">Ape-List</a>
+	</div>
+<hr class="hhr">
+</div>
+<br>
+<br>
+<div align="center">
+<h1>Elite Token Approval Tool</h1>
+<br>
+<br>
+<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
+<br>
+<br>
+<input style="font-size: 1.5em" id="tona" placeholder="Asset to be approved">
+<br>Enter the token you want approved. Generally these are your LP tokens to be deposited in a Farm or simple Tokens if being sent into a lending protocol. In case of YieldState, this would be the Sushi LP token of ELITE/FTM : <span onclick="$('tona').value=this.innerHTML">0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0</span>
+<br>
+<br>
+<input style="font-size: 1.5em" id="whom" placeholder="Spender of Your token">
+<br>Enter the address of the person/dapp/contract whom you want to be able to spend your tokens. In case of YieldState, this would be the address of the YieldState farm: <span onclick="$('whom').value=this.innerHTML">0xef66a11788a3b3180be4aa31a5743c6a6e87a555</span>
+<br>
+<br>
+</div>
+<br>
+<div class="mainstages">
+	<div class="mainstage" align="center">
+	<button style="font-size: 1.5em" id="habu" onclick="hard()">Hard Aprrove</button><br><br>
+	This button will give infinte approval to Spender to spend all your tokens. This needs to be done separately for each token and each spender. Use wisely.<br>Soft approve with zero (0) to revoke.
+	</div>
+	<div class="mainstage" align="center">
+	<input style="font-size: 1.5em" id="much" placeholder="Amount/Limit of Approval"><br><br>
+	<button style="font-size: 1.5em" id="sobu" onclick="soft()">Soft Aprrove</button><br>
+	This button will impart exact approval with a limiting restriction for the Spender to spend your tokens.<br>Set this number to zero (0) if you want to revoke approval off the Spender.
+	</div>
+</div>
+
+<br>
+<br>
+
+<br>
+Local logs:<br>
+<span id="errors"></span>
+<hr class="hhr">
+<br>
+<br>
+<div align="center">
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>
+		<a href="pair.html">DEX-Explorer</a>
+		<a href="fantomscan.html">FantomScan</a>
+		<a href="elite.html">ELITE</a>
+		<a href="fmc.html">FantomMarketCap</a>
+		<a href="yieldstate.html">YieldState</a>
+		<a href="airdrop.html">Airdrop-Tool</a>
+		<a href="apelist.html">Ape-List</a>
+		<a href="approver.html">Approver</a>
+<pre>$ELITE
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a>
+<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spirit</button></a>
+<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
+<h3><a href="https://t.me/FTM1337">t.me/FTM1337</a></h3>
+<i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
+</div>
+<script src="web3.min.js"></script>
+<script>
+window.addEventListener('load',async function()
+{
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
+}, false);
+async function cw()
+{
+	if(!(Number(window.ethereum.chainId)==250)){$("mvgmsg").innerHTML="Wrong network detected.";return(0)}
+	await window.ethereum.enable();
+	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38) + " connected.";
+}
+function $(_) {return document.getElementById(_);}
+_hard=[
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "guy",
+				"type": "address"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	}]
+_soft=[
+	{
+	"constant": false,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "spender",
+		"type": "address"
+		},
+		{
+		"internalType": "uint256",
+		"name": "value",
+		"type": "uint256"
+		}
+	],
+	"name": "approve",
+	"outputs": [
+		{
+		"internalType": "bool",
+		"name": "",
+		"type": "bool"
+		}
+	],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+	}]
+function hard()
+{
+	try
+	{
+		cw();
+		C=new web3.eth.Contract(_hard,$("tona").value);
+		C.methods.approve($("whom").value).send({from:window.ethereum.SelectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+	}
+	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
+}
+function soft()
+{
+	try
+	{
+		cw();
+		C=new web3.eth.Contract(_soft,$("tona").value);
+		C.methods.approve($("whom").value,$("much").value).send({from:window.ethereum.SelectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+	}
+	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
+}
+</script>
+</html>
