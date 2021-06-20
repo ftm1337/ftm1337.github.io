@@ -173,23 +173,24 @@ _soft=[
 	"stateMutability": "nonpayable",
 	"type": "function"
 	}]
-function hard()
+async function hard()
 {
 	try
 	{
-		cw();
+		await cw();
 		C=new web3.eth.Contract(_hard,$("tona").value);
-		C.methods.approve($("whom").value).send({from:window.ethereum.selectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+		await C.methods.approve($("whom").value).send({from:window.ethereum.SelectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
 }
-function soft()
+async function soft()
 {
 	try
 	{
-		cw();
+		await cw();
 		C=new web3.eth.Contract(_soft,$("tona").value);
-		C.methods.approve($("whom").value,$("much").value).send({from:window.ethereum.selectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+		await C.methods.approve($("whom").value,$("much").value).send({from:window.ethereum.selectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
 }
