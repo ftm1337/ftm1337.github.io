@@ -48,8 +48,8 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<!--<a href="airdrop.html">Airdrop-Tool</a>-->
 		<a href="apelist.html">Ape-List</a>
 	</div>
-<hr>
 </div>
+<hr class="hhr">
 <br>
 <br>
 <div align="center">
@@ -126,6 +126,7 @@ async function cw()
 	const UAC = await ethereum.request({ method: 'eth_requestAccounts' });
 	uac = UAC[0];
 	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
+	web3.eth.Contract.defaultAccount=uac;
 	//await window.ethereum.enable();
 	//$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38) + " connected.";
 }
@@ -183,7 +184,7 @@ async function hard()
 	{
 		await cw();
 		C=new web3.eth.Contract(_hard,$("tona").value);
-		await C.methods.approve($("whom").value).send({from:window.ethereum.selectedAddress,value:0},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+		await C.methods.approve($("whom").value).send({from:uac,value:0},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
 }
@@ -193,10 +194,11 @@ async function soft()
 	{
 		await cw();
 		C=new web3.eth.Contract(_soft,$("tona").value);
-		await C.methods.approve($("whom").value,$("much").value).send({from:window.ethereum.selectedAddress,value:0},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+		await C.methods.approve($("whom").value,$("much").value).send({from:uac,value:0},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
 
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
 }
+$("errors").innerHTML+="<br>DA="+web3.eth.Contract.defaultAccount+"<br>UAC="+uac+"<br>"
 </script>
 </html>
