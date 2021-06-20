@@ -179,7 +179,7 @@ function hard()
 	{
 		cw();
 		C=new web3.eth.Contract(_hard,$("tona").value);
-		C.methods.approve($("whom").value).send({from:window.ethereum.SelectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+		C.methods.approve($("whom").value).send({from:window.ethereum.selectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
 }
@@ -189,7 +189,7 @@ function soft()
 	{
 		cw();
 		C=new web3.eth.Contract(_soft,$("tona").value);
-		C.methods.approve($("whom").value,$("much").value).send({from:window.ethereum.SelectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+		C.methods.approve($("whom").value,$("much").value).send({from:window.ethereum.selectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
 }
