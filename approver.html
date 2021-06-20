@@ -48,7 +48,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<!--<a href="airdrop.html">Airdrop-Tool</a>-->
 		<a href="apelist.html">Ape-List</a>
 	</div>
-<hr class="hhr">
+<hr>
 </div>
 <br>
 <br>
@@ -75,7 +75,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 	This button will give infinte approval to Spender to spend all your tokens. This needs to be done separately for each token and each spender. Use wisely.<br>Soft approve with zero (0) to revoke.
 	</div>
 	<div class="mainstage" align="center">
-	<input style="font-size: 1.5em" id="much" placeholder="Amount/Limit of Approval"><br><br>
+	<input style="font-size: 1.5em" id="much" placeholder="Amount/Limit"><br><br>
 	<button style="font-size: 1.5em" id="sobu" onclick="soft()">Soft Aprrove</button><br>
 	This button will impart exact approval with a limiting restriction for the Spender to spend your tokens.<br>Set this number to zero (0) if you want to revoke approval off the Spender.
 	</div>
@@ -119,11 +119,15 @@ window.addEventListener('load',async function()
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 }, false);
+uac="";
 async function cw()
 {
 	if(!(Number(window.ethereum.chainId)==250)){$("mvgmsg").innerHTML="Wrong network detected.";return(0)}
-	await window.ethereum.enable();
-	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38) + " connected.";
+	const UAC = await ethereum.request({ method: 'eth_requestAccounts' });
+	uac = UAC[0];
+	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
+	//await window.ethereum.enable();
+	//$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38) + " connected.";
 }
 function $(_) {return document.getElementById(_);}
 _hard=[
@@ -179,7 +183,7 @@ async function hard()
 	{
 		await cw();
 		C=new web3.eth.Contract(_hard,$("tona").value);
-		await C.methods.approve($("whom").value).send({from:window.ethereum.SelectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+		await C.methods.approve($("whom").value).send({from:uac},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
 }
@@ -189,7 +193,7 @@ async function soft()
 	{
 		await cw();
 		C=new web3.eth.Contract(_soft,$("tona").value);
-		await C.methods.approve($("whom").value,$("much").value).send({from:window.ethereum.selectedAddress},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
+		await C.methods.approve($("whom").value,$("much").value).send({from:uac},(e,r)=>{$("errors").innerHTML+="<br>"+r+"<br>"});
 
 	}
 	catch(e){$("errors").innerHTML+="<br>"+e+"<br>"}
