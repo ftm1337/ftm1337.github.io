@@ -55,8 +55,6 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 
 <div align="center">
 <h1>El Casino</h1>
-<br>
-<br>
 <button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
 <br>
 <br>
@@ -66,11 +64,15 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 
 <br>
 <div class="mainstage" align="center">
-<button style="font-size: 1.5em" id="habu" onclick="hard()">Bet .1337 FTM</button><br><br>
+<button style="font-size: 1.5em" id="habu" onclick="hard()">Bet 1.337 FTM</button><br><br>
 Cast your FTM to the deGam Contract for a chance to be blessed with a whopping 300% return!
 </div>
 <div class="mainstage" align="center">
-<h3>Rules</h3><br><br>
+<h4>Manual Betting</h4>
+Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas Limit"</b> of 100000.
+</div>
+<div class="mainstage" align="center">
+<h3>Rules</h3>
 <li>This is not an audited Contract.</li>
 <li>Spend only what you're willing to lose.</li>
 <li>A winner is drawn after 3 entries.</li>
@@ -84,21 +86,21 @@ Cast your FTM to the deGam Contract for a chance to be blessed with a whopping 3
 <li>Each 4th entry will begin a new round.</li>
 <li>Yes, we'll make this page look better.</li>
 <li>Playing costs .0025 FTM at 50 GWei.</li>
-
 <h4>Best of Luck!</h4>
 </div>
-
-<br>
-<br>
-<div class="mainstage" align="center">
-<h4>Manual Betting</h4>
-Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas Limit"</b> of 100000.
-</div>
-<br>
-<br>
 <div class="mainstage" align="center">
 <h4>LEADERBOARD</h4>
-<span id="winners">Winners will appear here<br>from round 3 onwards,<br>in real time, 0-lag (:</span>
+<div  style="overflow-x:auto">
+<table>
+	<thead>
+		<th>Round</th>
+		<th>Winner</th>
+		<th>Txn.</th>
+	</thead>
+	<tbody id="winners">
+	</tbody>
+</table>
+</div>
 </div>
 <br>
 <br>
@@ -137,6 +139,7 @@ window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
+	lb();arf();
 }, false);
 uac="";
 async function cw()
@@ -171,28 +174,34 @@ const CA="0x9A6eb015aebC6466d407d40D278894bc773bd009";
 function $(_) {return document.getElementById(_);}
 function lb()
 {
-  var data = JSON.stringify({
-  "jsonrpc": "2.0",
-  "method": "eth_getLogs",
-  "params": [
-    {
-      "topics": [
-        "0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"
-      ]
-    }
-  ],
-  "id": 74
-});
-
-var r = new XMLHttpRequest();
-r.addEventListener("readystatechange", function() {
-  if(this.readyState === 4) {
-    console.log(this.responseText);
-  }
-});
-r.open("POST", "https://rpc.ftm.tools/");
-r.setRequestHeader("Content-Type", "application/json");
-r.send(data);
+	r = new XMLHttpRequest()
+	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x9A6eb015aebC6466d407d40D278894bc773bd009&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0",true);
+	r.onload=function(){paintlb(JSON.parse(this.response).result)}
+	r.send();
 }
+function paintlb(d)
+{
+	B=$("winners");
+	B.innerHTML="";
+	for(i=d.length-1;i>=0;i--)
+	{
+		R=document.createElement("tr");
+		N=document.createElement("td");
+		W=document.createElement("td");
+		T=document.createElement("td");
+		N.innerHTML=d.length-i;
+		W.innerHTML=(d[i].data).substr(26);
+		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
+		R.append(N);
+		R.append(W);
+		R.append(T);
+		B.append(R);
+	}
+}
+function arf(){	var xfr = setInterval(function()
+	{
+		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
+		lb();
+	}, 30000);}
 </script>
 </html>
