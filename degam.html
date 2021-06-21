@@ -74,7 +74,7 @@ Cast your FTM to the deGam Contract for a chance to be blessed with a whopping 3
 <li>This is not an audited Contract.</li>
 <li>Spend only what you're willing to lose.</li>
 <li>A winner is drawn after 3 entries.</li>
-<li>Each entry costs a fixed 0.1337 FTM.</li>
+<li>Each entry costs a fixed 1.337 FTM.</li>
 <li>There is NO house edge but a 1% tax.</li>
 <li>Above rules will be changed soon.</li>
 <li>Sam is not responsible if you get rekt.</li>
@@ -92,7 +92,13 @@ Cast your FTM to the deGam Contract for a chance to be blessed with a whopping 3
 <br>
 <div class="mainstage" align="center">
 <h4>Manual Betting</h4>
-Simply send 0.1337 FTM to 0x2AeeEEb152bE5D72948D9803C53F728dc3203326 with <b>"Gas Limit"</b> of 100000.
+Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas Limit"</b> of 100000.
+</div>
+<br>
+<br>
+<div class="mainstage" align="center">
+<h4>LEADERBOARD</h4>
+<span id="winners">Winners will appear here<br>from round 3 onwards,<br>in real time, 0-lag (:</span>
 </div>
 <br>
 <br>
@@ -150,7 +156,7 @@ async function hard()
 		({
 			from: window.ethereum.selectedAddress,
 			to: CA,
-			value: '133700000000000000',
+			value: '1337000000000000000',
 			gas: '200000'
 		})
 		.then((o)=>
@@ -160,8 +166,33 @@ async function hard()
 	}
 	catch(e){console.log(e)}
 }
-const CA="0x2AeeEEb152bE5D72948D9803C53F728dc3203326";
+const CA="0x9A6eb015aebC6466d407d40D278894bc773bd009";
 //$("ca").innerHTML=CA;
 function $(_) {return document.getElementById(_);}
+function lb()
+{
+  var data = JSON.stringify({
+  "jsonrpc": "2.0",
+  "method": "eth_getLogs",
+  "params": [
+    {
+      "topics": [
+        "0x000000000000000000000000a94f5374fce5edbc8e2a8697c15331677e6ebf0b"
+      ]
+    }
+  ],
+  "id": 74
+});
+
+var r = new XMLHttpRequest();
+r.addEventListener("readystatechange", function() {
+  if(this.readyState === 4) {
+    console.log(this.responseText);
+  }
+});
+r.open("POST", "https://rpc.ftm.tools/");
+r.setRequestHeader("Content-Type", "application/json");
+r.send(data);
+}
 </script>
 </html>
