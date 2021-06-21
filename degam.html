@@ -26,6 +26,7 @@ pre{overflow-x:auto;max-width:80%}
 .mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
 .c2a{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;margin:5px}
+.mainstage button{margin-bottom: 5px}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:50% 50%}
 	.mainstages{grid-template-columns:50% 50%}
@@ -178,7 +179,7 @@ async function hard()
 		({
 			from: window.ethereum.selectedAddress,
 			to: CA,
-			value: '1337000000000000000',
+			value: '133700000000000000',
 			gas: '200000'
 		})
 		.then((o)=>
@@ -197,7 +198,7 @@ async function hard02()
 		({
 			from: window.ethereum.selectedAddress,
 			to: CA02,
-			value: '133700000000000000',
+			value: '1337000000000000000',
 			gas: '200000'
 		})
 		.then((o)=>
