@@ -64,11 +64,15 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 
 <br>
 <div class="mainstage" align="center">
-<button style="font-size: 1.5em" id="habu" onclick="hard()">Bet 1.337 FTM</button><br><br>
+<button style="font-size: 1.5em" id="habu" onclick="hard()">Bet 0.1337 FTM</button>
+<button style="font-size: 1.5em" id="habu" onclick="hard02()">Bet 1.337 FTM</button><br><br>
 Cast your FTM to the deGam Contract for a chance to be blessed with a whopping 300% return!
 </div>
 <div class="mainstage" align="center">
 <h4>Manual Betting</h4>
+Micro-jackpot<br>
+Simply send 0.1337 FTM to 0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124 with <b>"Gas Limit"</b> of 100000.<br><br>
+Mini-jackpot<br>
 Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas Limit"</b> of 100000.
 </div>
 <div class="mainstage" align="center">
@@ -76,7 +80,8 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <li>This is not an audited Contract.</li>
 <li>Spend only what you're willing to lose.</li>
 <li>A winner is drawn after 3 entries.</li>
-<li>Each entry costs a fixed 1.337 FTM.</li>
+<li>Each micro-jackpot entry is 0.1337 FTM.</li>
+<li>Each mini-jackpot entry costs 1.337 FTM.</li>
 <li>There is NO house edge but a 1% tax.</li>
 <li>Above rules will be changed soon.</li>
 <li>Sam is not responsible if you get rekt.</li>
@@ -85,12 +90,13 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <li>There can be only 3 entries each round.</li>
 <li>Each 4th entry will begin a new round.</li>
 <li>Yes, we'll make this page look better.</li>
-<li>Playing costs .0025 FTM at 50 GWei.</li>
+<li>Transaction costs .0025 FTM at 50 GWei.</li>
 <h4>Best of Luck!</h4>
 </div>
 <div class="mainstage" align="center">
-<h4>LEADERBOARD</h4>
+<h3>LEADERBOARD</h3>
 <div  style="overflow-x:auto">
+<h4>Mini-Jackpot</h4>
 <table>
 	<thead>
 		<th>Round</th>
@@ -98,6 +104,16 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 		<th>Txn.</th>
 	</thead>
 	<tbody id="winners">
+	</tbody>
+</table>
+<h4>Mini-Jackpot</h4>
+<table>
+	<thead>
+		<th>Round</th>
+		<th>Winner</th>
+		<th>Txn.</th>
+	</thead>
+	<tbody id="winners02">
 	</tbody>
 </table>
 </div>
@@ -169,7 +185,27 @@ async function hard()
 	}
 	catch(e){console.log(e)}
 }
+async function hard02()
+{
+	try
+	{
+		await cw();
+		web3.eth.sendTransaction
+		({
+			from: window.ethereum.selectedAddress,
+			to: CA02,
+			value: '133700000000000000',
+			gas: '200000'
+		})
+		.then((o)=>
+		{
+			console.log(o);
+		})
+	}
+	catch(e){console.log(e)}
+}
 const CA="0x9A6eb015aebC6466d407d40D278894bc773bd009";
+const CA02="0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124";
 //$("ca").innerHTML=CA;
 function $(_) {return document.getElementById(_);}
 function lb()
@@ -198,10 +234,37 @@ function paintlb(d)
 		B.append(R);
 	}
 }
+function lb02()
+{
+	r = new XMLHttpRequest()
+	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0",true);
+	r.onload=function(){paintlb02(JSON.parse(this.response).result)}
+	r.send();
+}
+function paintlb02(d)
+{
+	B=$("winners02");
+	B.innerHTML="";
+	for(i=d.length-1;i>=0;i--)
+	{
+		R=document.createElement("tr");
+		N=document.createElement("td");
+		W=document.createElement("td");
+		T=document.createElement("td");
+		N.innerHTML=d.length-i;
+		W.innerHTML=(d[i].data).substr(26);
+		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
+		R.append(N);
+		R.append(W);
+		R.append(T);
+		B.append(R);
+	}
+}
 function arf(){	var xfr = setInterval(function()
 	{
 		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
-		lb();
+		$("winners02").innerHTML="<tr><td>RELOADING...</td></tr>";
+		lb();lb02();
 	}, 30000);}
 </script>
 </html>
