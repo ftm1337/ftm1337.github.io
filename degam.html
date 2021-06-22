@@ -68,8 +68,9 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 
 <br>
 <div class="mainstage" align="center">
-<button style="font-size: 1.5em" id="habu" onclick="hard()">Bet 0.1337 FTM</button>
-<button style="font-size: 1.5em" id="habu" onclick="hard02()">Bet 1.337 FTM</button><br><br>
+<button style="font-size: 1.5em" id="habu02" onclick="hard02()">Bet .1337 FTM</button>
+<button style="font-size: 1.5em" id="habu" onclick="hard()">Bet 1.337 FTM</button>
+<br><br>
 Cast your FTM to the deGam Contract for a chance to be blessed with a whopping 300% return!
 </div>
 <div class="mainstage" align="center">
@@ -186,7 +187,7 @@ async function hard()
 		({
 			from: window.ethereum.selectedAddress,
 			to: CA,
-			value: '133700000000000000',
+			value: '1337000000000000000',
 			gas: '200000'
 		})
 		.then((o)=>
@@ -205,7 +206,7 @@ async function hard02()
 		({
 			from: window.ethereum.selectedAddress,
 			to: CA02,
-			value: '1337000000000000000',
+			value: '133700000000000000',
 			gas: '200000'
 		})
 		.then((o)=>
