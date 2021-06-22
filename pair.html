@@ -19,6 +19,7 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
     hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
     #poolinfo{display:none}
 #mainstage input,button{font-size: 1.1em}
+.advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
 @media(min-width:641px){hr{width:555px}}
 </style>
 </head>
@@ -41,9 +42,10 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 <br>
 <hr>
 <div id="mainstage" align="center">
+	<h2>FantomMarketCap Dexplorer</h2>
 	<div>
-		<br><input id="st" placeholder="Enter Pair Address">
-		<button onclick="find(st.value)"> ▶</button>
+		<br><input id="st" placeholder="Enter Pair Address"><br>
+		<button onclick="ffind(st.value)"> ▶</button>
 	</div>
 	<br><br>
 
@@ -63,14 +65,14 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 	</table>
 	</div>
 	<br>
-	<button onclick="find($('st').value)">Latest</button>
-	<button onclick="pn[$('st').value]--;find($('st').value)">Previous</button>
+	<button onclick="find($('st').value)">more</button>
+	<button onclick="window.location.reload()">fresh</button>
 	<br><br>
 	<ol>
 	<li>Enter "Pair Contract" address.</li>
 	<li>Tap on ▶ to find latest trades.</li>
 	<li>Tap "more" for old orders.</li>
-	<li>Tap "Latest" for recent trades.</li>
+	<li>"fresh" to see new movements.</li>
 	</ol>
 	Example Pairs (Touch to Load)<br>
 	<!--<span onclick="find(this.innerHTML)">0xea035a13b64cb49d85e2f0a2736c9604cb21599c</span><br>-->
@@ -80,6 +82,18 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 	<!--https://analytics-ftm.sushi.com/pairs/0x3ac28d350c59ef9054b305dfe9078fadc3cecabe-->
 	<!--https://analytics-ftm.sushi.com/pairs/0xd019dd7c760c6431797d6ed170bffb8faee11f99-->
 	<!--https://analytics-ftm.sushi.com/pairs/0x3d0bd54c48c2c433ea6fed609cc3d5fb7a77622b-->
+</div>
+<br>
+<br>
+<div align="center" class="advert">
+<pre>Get $ELITE Tokens
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a>
+<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spirit</button></a>
+<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
+<a href="https://t.me/Sam4x" target="_blank">To Advertise Here, Contact @Sam4x✈</a>
 </div>
 <br>
 <br>
@@ -93,20 +107,15 @@ html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, ro
 		<a href="pair.html">DEX-Explorer</a>
 		<a href="fantomscan.html">FantomScan</a>
 		<a href="elite.html">ELITE</a>
-		<a href="fmc.html">FantomMarketCap</a>
+		<a href="fmc" target="_blank">FantomMarketCap</a>
 		<a href="yieldstate.html">YieldState</a>
+		<a href="vfat.tools/fantom/guru">vfat</a>
 		<a href="airdrop.html">Airdrop-Tool</a>
 		<a href="apelist.html">Ape-List</a>
 		<a href="approver.html">Approver</a>
 		<a href="degam.html">CASINO✨</a>
-<pre>$ELITE
-0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
-<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
-<a href="https://app.sushi.com/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
-<a href="https://spookyswap.finance/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a>
-<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spirit</button></a>
-<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
-<h3><a href="https://t.me/FTM1337">t.me/FTM1337</a></h3>
+	<br><br>
+<h3><a href="https://t.me/FTM1337">✈t.me/FTM1337<br>Come, Join us!</a></h3>
 <i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
 </div>
 <script src="web3.min.js"></script>
@@ -115,6 +124,9 @@ window.addEventListener('load',function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
+	//default
+	a0=new URLSearchParams(window.location.search).get("p");
+	if(isFinite(a0)&&!(a0==null)){ffind(a0);("st").value=a0}
 }, false);
 function $(_) {return document.getElementById(_);}
 pn=[];
@@ -133,7 +145,6 @@ function find(ta)
 	R.open("GET","https://api.ftmscan.com/api?module=account&action=tokentx&address="+ta+"&endblock=latest&page="+pn[ta]+"&offset=100&sort=desc",true);
 	R.onload = function() {paint(JSON.parse(this.response).result)}
 	R.send();
-	getPool(ta);
 	$("poolinfo").style.display="block";
 }
 function paint(da)
@@ -180,7 +191,7 @@ async function getPool(pa)
 	t0 =await PC.methods.token0().call((e,r)=>{;return(r)});
 	t1 = await PC.methods.token1().call((e,r)=>{;return(r)});
 	N =await PC.methods.name().call((e,r)=>{;return(r)});
-	$("pi_N").innerHTML=N;
+	$("pi_N").innerHTML=N.replaceAll("LPs","").replaceAll("lp","").replaceAll("LP","");
 	T0=new web3.eth.Contract(PA,t0);
 	T1=new web3.eth.Contract(PA,t1);
 	N0 =await T0.methods.name().call((e,r)=>{;return(r)});
@@ -359,8 +370,6 @@ PA=[
 		"type": "function"
 	}
 ]
-//default
-a0=new URLSearchParams(window.location.search).get("p");
-if(isFinite(a0)&&!(a0==null)){find(a0);}
+function ffind(s){find(s);getPool(s);}
 </script>
 </html>
