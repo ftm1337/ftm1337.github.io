@@ -84,9 +84,9 @@ Available Balance: <span id="usba">?</span> FTM
 			<span></span><span>Withdraw Fee</span>
 			<span></span><span>1%</span><span></span>
 			<span></span><span>Odds</span>
-			<span></span><span>1/3</span><span></span>
+			<span></span><span>1/3</span><span></span><!--
 			<span></span><span>Seats Vacant</span>
-			<span></span><span>?</span><span></span>
+			<span></span><span>?</span><span></span>-->
 		</div>
 		<br><button class="farmcontrols" id="habu02" onclick="hard02()">Deposit</button>
 	</div>
@@ -101,9 +101,9 @@ Available Balance: <span id="usba">?</span> FTM
 			<span></span><span>Withdraw Fee</span>
 			<span></span><span>1%</span><span></span>
 			<span></span><span>Odds</span>
-			<span></span><span>1/3</span><span></span>
+			<span></span><span>1/3</span><span></span><!--
 			<span></span><span>Seats Vacant</span>
-			<span></span><span>?</span><span></span>
+			<span></span><span>?</span><span></span>-->
 		</div>
 		<br><button class="farmcontrols" id="habu" onclick="hard()">Deposit</button>
 	</div>
@@ -203,10 +203,7 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250)
-	{
-		web3 = new Web3(web3.currentProvider);
-		if(window.ethereum.isConnected()){cw()}
-	}
+		{web3 = new Web3(web3.currentProvider)}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	lb();lb02();arf();
 }, false);
@@ -229,7 +226,7 @@ async function hard()
 			from: window.ethereum.selectedAddress,
 			to: CA,
 			value: '1337000000000000000',
-			gas: '200000'
+			gas: '73000'
 		})
 		.then((o)=>
 		{
@@ -248,7 +245,7 @@ async function hard02()
 			from: window.ethereum.selectedAddress,
 			to: CA02,
 			value: '133700000000000000',
-			gas: '200000'
+			gas: '73000'
 		})
 		.then((o)=>
 		{
@@ -323,8 +320,8 @@ function arf(){	var xfr = setInterval(function()
 	{
 		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
 		$("winners02").innerHTML="<tr><td>RELOADING...</td></tr>";
-		lb();lb02();seats();seats02();
-		if(window.ethereum.isConnected())
+		lb();lb02();//seats();seats02();
+		if(window.ethereum&&window.ethereum.selectedAddress!=null)
 			{$("usba").innerHTML=web3.eth.getBalance(uac);}
 	}, 30000);}
 </script>
