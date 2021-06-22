@@ -322,7 +322,7 @@ function arf(){	var xfr = setInterval(function()
 		$("winners02").innerHTML="<tr><td>RELOADING...</td></tr>";
 		lb();lb02();//seats();seats02();
 		if(window.ethereum&&window.ethereum.selectedAddress!=null)
-			{$("usba").innerHTML=web3.eth.getBalance(uac);}
+			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}
 	}, 30000);}
 </script>
 </html>
