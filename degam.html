@@ -29,6 +29,11 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 .mainstage button{margin-bottom: 5px}
 .advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
 #errors{font-size:0.67em}
+.farmcontrols{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;width:140px;margin:5px}
+.fardet span:nth-of-type(5n+2){text-align: left}
+.fardet span:nth-of-type(5n+4){text-align: right}
+td{padding: 0px 5px;min-width:max-content;min-width: -moz-max-content}
+tr:hover{background: darkslategray}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:50% 50%}
 	.mainstages{grid-template-columns:50% 50%}
@@ -61,17 +66,47 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 <h1>El Casino</h1>
 <button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
 <br>
+Available Balance: <span id="usba">?</span> FTM
 <br>
 <br>
 <br>
 </div>
-
 <br>
-<div class="mainstage" align="center">
-<button style="font-size: 1.5em" id="habu02" onclick="hard02()">Bet .1337 FTM</button>
-<button style="font-size: 1.5em" id="habu" onclick="hard()">Bet 1.337 FTM</button>
-<br><br>
-Cast your FTM to the deGam Contract for a chance to be blessed with a whopping 300% return!
+<div class="mainstages mainstage" align="center">
+	<div class="mainstage" style="" align="center">
+		<h3>Micro-Jackpot</h3>
+		<br>
+		<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<span></span><span>Stake</span>
+			<span></span><span>0.1337 FTM</span><span></span>
+			<span></span><span>Reward</span>
+			<span></span><span>0.4011 FTM</span><span></span>
+			<span></span><span>Withdraw Fee</span>
+			<span></span><span>1%</span><span></span>
+			<span></span><span>Odds</span>
+			<span></span><span>1/3</span><span></span>
+			<span></span><span>Seats Vacant</span>
+			<span></span><span>?</span><span></span>
+		</div>
+		<br><button class="farmcontrols" id="habu02" onclick="hard02()">Deposit</button>
+	</div>
+	<div class="mainstage" style="" align="center">
+		<h3>Mini-Jackpot</h3>
+		<br>
+		<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<span></span><span>Stake</span>
+			<span></span><span>1.337 FTM</span><span></span>
+			<span></span><span>Reward</span>
+			<span></span><span>4.011 FTM</span><span></span>
+			<span></span><span>Withdraw Fee</span>
+			<span></span><span>1%</span><span></span>
+			<span></span><span>Odds</span>
+			<span></span><span>1/3</span><span></span>
+			<span></span><span>Seats Vacant</span>
+			<span></span><span>?</span><span></span>
+		</div>
+		<br><button class="farmcontrols" id="habu" onclick="hard()">Deposit</button>
+	</div>
 </div>
 <div class="mainstage" align="center">
 <h4>Manual Betting</h4>
@@ -99,21 +134,21 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <h4>Best of Luck!</h4>
 </div>
 <div class="mainstage" align="center">
-<h3>LEADERBOARD</h3>
+<h2>LEADERBOARD</h2>
 <div  style="overflow-x:auto">
-<h4>4 FTM Mini-Jackpot</h4>
-<table>
+<h3>4 FTM Mini-Jackpot</h3>
+<table class="mainstage">
 	<thead>
 		<th>#</th>
 		<th>Time Stamp</th>
-		<th>Winner</th>
-		<th>Txn.</th>
+		<th>Winning Address</th>
+		<th>Tx. Hash</th>
 	</thead>
 	<tbody id="winners">
 	</tbody>
 </table>
-<h4>.4 FTM Micro-Jackpot</h4>
-<table>
+<h3>.4 FTM Micro-Jackpot</h3>
+<table class="mainstage">
 	<thead>
 		<th>#</th>
 		<th>Time Stamp</th>
@@ -167,7 +202,11 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <script>
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
+	if(window.ethereum&&Number(window.ethereum.chainId)==250)
+	{
+		web3 = new Web3(web3.currentProvider);
+		if(window.ethereum.isConnected()){cw()}
+	}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	lb();lb02();arf();
 }, false);
@@ -240,8 +279,8 @@ function paintlb(d)
 		W=document.createElement("td");
 		T=document.createElement("td");
 		D=document.createElement("td");
-		N.innerHTML=i;
-		W.innerHTML=(d[i].data).substr(26);
+		N.innerHTML=i+1;
+		W.innerHTML="0x"+(d[i].data).substr(26);
 		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
 		D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
 		R.append(N);
@@ -269,8 +308,8 @@ function paintlb02(d)
 		W=document.createElement("td");
 		T=document.createElement("td");
 		D=document.createElement("td");
-		N.innerHTML=i;
-		W.innerHTML=(d[i].data).substr(26);
+		N.innerHTML=i+1;
+		W.innerHTML="0x"+(d[i].data).substr(26);
 		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
 		D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
 		R.append(N);
@@ -284,7 +323,9 @@ function arf(){	var xfr = setInterval(function()
 	{
 		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
 		$("winners02").innerHTML="<tr><td>RELOADING...</td></tr>";
-		lb();lb02();
+		lb();lb02();seats();seats02();
+		if(window.ethereum.isConnected())
+			{$("usba").innerHTML=web3.eth.getBalance(uac);}
 	}, 30000);}
 </script>
 </html>
