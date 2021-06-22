@@ -193,7 +193,7 @@ async function getPool(pa)
 	t0 =await PC.methods.token0().call((e,r)=>{;return(r)});
 	t1 = await PC.methods.token1().call((e,r)=>{;return(r)});
 	N =await PC.methods.name().call((e,r)=>{;return(r)});
-	$("pi_N").innerHTML=N.replaceAll("LPs","").replaceAll("lp","").replaceAll("LP","");
+	$("pi_N").innerHTML=N.replaceAll("LPs","").replaceAll("lp","").replaceAll("LP","").replaceAll("Token","").replaceAll("token","").replaceAll("Tokens","").replaceAll("tokens","");
 	T0=new web3.eth.Contract(PA,t0);
 	T1=new web3.eth.Contract(PA,t1);
 	N0 =await T0.methods.name().call((e,r)=>{;return(r)});
