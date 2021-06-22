@@ -101,22 +101,24 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <div class="mainstage" align="center">
 <h3>LEADERBOARD</h3>
 <div  style="overflow-x:auto">
-<h4>Mini-Jackpot</h4>
+<h4>4 FTM Mini-Jackpot</h4>
 <table>
 	<thead>
-		<th>Round</th>
+		<th>#</th>
+		<th>Time Stamp</th>
 		<th>Winner</th>
 		<th>Txn.</th>
 	</thead>
 	<tbody id="winners">
 	</tbody>
 </table>
-<h4>Micro-Jackpot</h4>
+<h4>.4 FTM Micro-Jackpot</h4>
 <table>
 	<thead>
-		<th>Round</th>
-		<th>Winner</th>
-		<th>Txn.</th>
+		<th>#</th>
+		<th>Time Stamp</th>
+		<th>Winning Address</th>
+		<th>Tx. Hash</th>
 	</thead>
 	<tbody id="winners02">
 	</tbody>
@@ -237,10 +239,13 @@ function paintlb(d)
 		N=document.createElement("td");
 		W=document.createElement("td");
 		T=document.createElement("td");
-		N.innerHTML=d.length-i;
+		D=document.createElement("td");
+		N.innerHTML=i;
 		W.innerHTML=(d[i].data).substr(26);
 		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
+		D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
 		R.append(N);
+		R.append(D);
 		R.append(W);
 		R.append(T);
 		B.append(R);
@@ -263,10 +268,13 @@ function paintlb02(d)
 		N=document.createElement("td");
 		W=document.createElement("td");
 		T=document.createElement("td");
-		N.innerHTML=d.length-i;
+		D=document.createElement("td");
+		N.innerHTML=i;
 		W.innerHTML=(d[i].data).substr(26);
 		T.innerHTML=`<b><a href="https://ftmscan.com/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
+		D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
 		R.append(N);
+		R.append(D);
 		R.append(W);
 		R.append(T);
 		B.append(R);
