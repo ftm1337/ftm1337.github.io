@@ -126,7 +126,8 @@ window.addEventListener('load',function()
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	//default
 	a0=new URLSearchParams(window.location.search).get("p");
-	if(isFinite(a0)&&!(a0==null)){ffind(a0);("st").value=a0}
+	if(isFinite(a0)&&!(a0==null)){a0=web3.utils.toChecksumAddress(a0);
+ffind(a0);("st").value=a0}
 }, false);
 function $(_) {return document.getElementById(_);}
 pn=[];
@@ -139,6 +140,7 @@ function find(ta)
 	if(!(Number(ta))){return(0);}
 	if(!(pn[ta])){pn[ta]=1}
 	else{pn[ta]++;}
+	ta=web3.utils.toChecksumAddress(ta);
 	document.getElementById("lo").innerHTML="Loading…";
 	R=new XMLHttpRequest();
 	if(!(pn[ta])){pn[ta]=1}
