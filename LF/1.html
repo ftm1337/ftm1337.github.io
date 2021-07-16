@@ -34,6 +34,7 @@ button:disabled {
 .lpapr{text-shadow: rgba(0,255,255,1) 0px 0px 10px;color:aqua;font-size:2em}
 .notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #000;border-radius: 20px;padding:2%;border:5px dashed}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+.advert2{background-image: url("img/bg-nips2.png");background-size: 100%;background-repeat: no-repeat ;color:#020611}
 /*.mainstage:nth-child(1),
 .mainstage:nth-child(2),
 .mainstage:nth-child(4),
@@ -61,18 +62,18 @@ input{background: #000 !important;}
 </head>
 <div class="topbar">
 	<div align="center">
-		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="../index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
 		<!--<a href="farmlands.html">Farmlands👽</a>
 		<a href="index.html">FTM-Gems</a>-->
-		<a href="pair.html">DEX-Explorer</a>
-		<a href="fantomscan.html">FantomScan</a>
-		<a href="elite.html">ELITE</a>
-		<a href="fmc.html">FantomMarketCap</a>
-		<a href="yieldstate.html">YieldState</a>
+		<a href="../pair.html">DEX-Explorer</a>
+		<a href="../fantomscan.html">FantomScan</a>
+		<a href="../elite.html">ELITE</a>
+		<a href="../fmc.html">FantomMarketCap</a>
+		<a href="../yieldstate.html">YieldState</a>
 		<!--<a href="airdrop.html">Airdrop-Tool</a>-->
-		<a href="apelist.html">Ape-List</a>
-		<a href="approver.html">Approver</a>
-		<a href="degam.html">CASINO✨</a>
+		<a href="../apelist.html">Ape-List</a>
+		<a href="../approver.html">Approver</a>
+		<a href="../degam.html">CASINO✨</a>
 	</div>
 	</div>
 </div>
@@ -327,9 +328,9 @@ Stake NIPS-WFTM ZooDex Liquidity Tokens to earn passive rewards!
 	<div class="mainstage" style="" align="center">
 		<div class="">
 		<h3>ZooDEX NIPS/WFTM LP</h3>
-		<img src="img/nips.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
-		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
-		<img src="img/nips.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br><br>
+		<img src="../img/nips.svg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<img src="../img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
+		<img src="../img/nips.svg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br><br>
 				<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
 				<span></span><span id="farm_3_i_ys">?</span>
 				<span></span><span>Your Stake</span><span></span>
@@ -371,13 +372,24 @@ Stake NIPS-WFTM ZooDex Liquidity Tokens to earn passive rewards!
 	</div>
 	<div></div>
 </div>
-<div align="center">
-Buy Nips : [Link to ZooDex]
+
+<br>
+<br>
+<div align="center" class="advert2">
+<pre>Get $NIPS
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<a href="https://ftmscan.com/token/0x667Afbb7D558c3dFd20fAbd295D31221Dab9dBC2" target="_blank"><button>ftmScan</button></a>
+<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0x667Afbb7D558c3dFd20fAbd295D31221Dab9dBC2&outputCurrency=FTM" target="_blank"><button>ZooDEX</button></a><br><br>
+</div>
+<br>
+<br>
+<div align="center" id="lfs">
 <h2>YieldStats</h2>
 <div class="mainstage">
 <h3>Net Total Yield</h3>
 <span class="lpapr" id="stats_apr_nt">? %</span>
 <br><br>
+<div style="display:none">
 <h4>Liquidity Mining</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
 	<span></span><span>24 hrs:</span><span></span><span id="stats_lm_d">?</span><span></span>
@@ -390,6 +402,7 @@ Buy Nips : [Link to ZooDex]
 	<span></span><span>1 Year:</span><span></span><span id="stats_nt_y"></span><span></span>
 	-->
 </div>
+</div>
 <h4>Yield Farming</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
 	<span></span><span>APR:</span><span></span><span id="stats_apr">?</span><span></span>
@@ -397,16 +410,17 @@ Buy Nips : [Link to ZooDex]
 	<span></span><span>Weekly:</span><span></span><span id="stats_ap_w">?</span><span></span>
 	<span></span><span>Yearly:</span><span></span><span id="stats_ap_y">?</span><span></span>
 </div>
+<div style="display:none">
 <h4>Market Data</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
-	<span></span><span>ELITE Price:</span><span></span><span id="stats_md_ep">?</span><span></span>
+	<span></span><span>NIPS Price:</span><span></span><span id="stats_md_ep">?</span><span></span>
 	<span></span><span>LPT Price:</span><span></span><span id="stats_md_lp">?</span><span></span>
 	<span></span><span>1h Volume:</span><span></span><span id="stats_md_vh">?</span><span></span>
 	<span></span><span>24h Volume:</span><span></span><span id="stats_md_vd">?</span><span></span>
 </div>
 </div>
-<br>
-<br>
+</div>
+<br><br>
 <div align="center" class="advert">
 <pre>Get $ELITE Tokens
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
@@ -423,19 +437,19 @@ Buy Nips : [Link to ZooDex]
 <br>
 <br>
 <div align="center">
-		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
-		<a href="farmlands.html">Farmlands👽</a>
-		<a href="index.html">FTM-Gems</a>
-		<a href="pair.html">DEX-Explorer</a>
-		<a href="fantomscan.html">FantomScan</a>
-		<a href="elite.html">ELITE</a>
-		<a href="fmc" target="_blank">FantomMarketCap</a>
-		<a href="yieldstate.html">YieldState</a>
-		<a href="vfat.tools/fantom/guru">vfat</a>
-		<a href="airdrop.html">Airdrop-Tool</a>
-		<a href="apelist.html">Ape-List</a>
-		<a href="approver.html">Approver</a>
-		<a href="degam.html">CASINO✨</a>
+		<a href="../index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="../farmlands.html">Farmlands👽</a>
+		<a href="../index.html">FTM-Gems</a>
+		<a href="../pair.html">DEX-Explorer</a>
+		<a href="../fantomscan.html">FantomScan</a>
+		<a href="../elite.html">ELITE</a>
+		<a href="../fmc" target="_blank">FantomMarketCap</a>
+		<a href="../yieldstate.html">YieldState</a>
+		<a href="../vfat.tools/fantom/guru">vfat</a>
+		<a href="../airdrop.html">Airdrop-Tool</a>
+		<a href="../apelist.html">Ape-List</a>
+		<a href="../approver.html">Approver</a>
+		<a href="../degam.html">CASINO✨</a>
 	<br><br>
 <h3><a href="https://t.me/FTM1337">✈t.me/FTM1337<br>Come, Join us!</a></h3>
 <i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
@@ -1304,7 +1318,7 @@ fragment c on PairHourData {
 		aapd=(aap*365e2)
 		$("stats_lm_d").innerHTML=(aapd).toLocaleString()+"%";
 		$("stats_md_vd").innerHTML=(dv).toLocaleString()+" USD";
-		hv=d[Object.keys(d)[0]]==null?1:d[Object.keys(d)[0]].volumeUSD;
+		hv=d[Object.keys(d)[0]]==null?1:(d[Object.keys(d)[0]].volumeUSD).toLocaleString();
 		$("stats_md_vh").innerHTML=hv+" USD";
 	}
 	gr1.send(JSON.stringify({query:Q_pn_c}))
