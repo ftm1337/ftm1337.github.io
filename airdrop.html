@@ -249,7 +249,7 @@ async function setok()
 		await T.methods.name().call((e,r)=>{if(r){$("tokad_m").innerHTML=`Found ${r}`;tn=r;}else{$("tokad_m").innerHTML="Nothing found!";return(0)}});
 		await T.methods.symbol().call((e,r)=>{$("tokad_m").innerHTML+=` (${r})`;ts=r});
 		await T.methods.decimals().call((e,r)=>{td=Number(r)});
-		await T.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("tokad_m").innerHTML=`Available Balance: ${Number(r)/10**td}`;tb=Number(r)});
+		await T.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("tokad_m").innerHTML+=`<br>Available Balance: ${Number(r)/10**td}`;tb=Number(r)});
 		await T.methods.allowance().call((e,r)=>{ta=Number(r)});
 		$("poeple").diasbled=false;
 		$("corec").diasbled=false;

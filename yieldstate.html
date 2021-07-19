@@ -1302,7 +1302,8 @@ fragment c on PairHourData {
 		$("stats_lm_d").innerHTML=(aapd).toLocaleString()+"%";
 		$("stats_md_vd").innerHTML=(dv).toLocaleString()+" USD";
 		hv=d[Object.keys(d)[0]]==null?1:d[Object.keys(d)[0]].volumeUSD;
-		$("stats_md_vh").innerHTML=hv+" USD";
+		console.log("hv",hv,"dv",dv);
+		$("stats_md_vh").innerHTML=hv.toLocaleString()+" USD";
 	}
 	gr1.send(JSON.stringify({query:Q_pn_c}))
 }
