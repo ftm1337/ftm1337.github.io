@@ -397,7 +397,8 @@ async function basics()
 	$("bs").innerHTML=(S_0/1e18).toFixed(5);
 	S_C = await EC.methods.balanceOf("0x5C146cd18fa53914580573C9b9604588529406Ca").call((e,r)=>{return(Number(r))});
 	S_D = await EC.methods.balanceOf("0xbab9645d1B78425A7e4e9e78E8DD32aAbd800a16").call((e,r)=>{return(Number(r))});
-	cs=(1337e18-S_0-S_C-S_D)/1e18;
+	S_T = await EC.methods.balanceOf("0x74BFb7E94bEf5767F5F6Ace2D0df73a224ADB689").call((e,r)=>{return(Number(r))});
+	cs=(1337e18-S_0-S_C-S_D-S_T)/1e18;
 	$("cs").innerHTML = cs.toFixed(5);
 	AWL = EC.methods.limit().call((e,r)=>{AWL=(Number(r));$("aw").innerHTML=(AWL/1e18).toFixed(5)});
 	P0=new web3.eth.Contract(ab1,"0xea035a13b64cb49d85e2f0a2736c9604cb21599c");
