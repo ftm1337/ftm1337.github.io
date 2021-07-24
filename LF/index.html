@@ -8,15 +8,21 @@
 <head>
 <link rel="shortcut icon" href="../img/ftm1337.jpg" />
 <style>
-#midarea{display:grid;grid-template-columns:220px auto}
+*{text-shadow:10px 10px 5px black;color:#e3e9f2}
+#midarea{display:grid;grid-template-columns:auto}
 #toparea,*{text-align:center}
 #midleft div{border:1px dotted beige;border-radius:15px}
-html{background:url("../img/hb1.png");color:#e3e9f2;background-size:cover;background-attachment:fixed}
+html{background:url("../img/hb1.png");background-size:cover;background-attachment:fixed}
 #midright{overflow-x: auto;margin:0 5%}
-table td{min-width: max-content}
+table td{min-width: max-content;padding: 10px 0}
+span{font-weight:bolder;}
+table{border: 2px ridge beige}
+@media(min-width:899px){
+	#midarea{display:grid;grid-template-columns:220px auto}
+}
 </style>
-<div id="toparea">LITE Farmlands</div>
-<br><br><br><br><br><br><br><br><br><br>
+<div id="toparea"><h1>LITE Farmlands</h1>Make hay while the sun shines!</div>
+<br><br><br>
 <div id="midarea">
 	<div id="midleft">
 		<div id="midleftTVL">
@@ -36,15 +42,16 @@ table td{min-width: max-content}
 			<span id="ml_tvl" style="font-size:1.5em">150,000 FTM</span>
 		</div>
 		<br>
-		YieldState<br>
-		FantomMarketCap<br>
-		Blockchain Tools
-		Kucino/Casino<br>
-		Telegram<br>
-		Discord<br>
+		<br>
+		<a href="../yieldstate.html" target="_blank">YieldState</a><br>
+		<a href="../fmc.html" target="_blank">FantomMarketCap</a><br>
+		<a href="../index.html" target="_blank">Blockchain Tools</a><br>
+		<a href="https://kcc.guru" target="_blank">Kucino</a><a href="../degam.html" target="_blank">Casino</a><br>
+		<a href="https://t.me/FTM1337" target="_blank">Telegram</a><br>
+		<a href="https://discord.gg/QpyfMarNrV" target="_blank">Discord</a><br><br><br>
 	</div>
+		<h3 align="center">Choose a plot to till!</h3>
 	<div id="midright">
-		<div id="midrightintro">LITE Farmlands</div>
 		<div id="midrighttab">
 			<table id="maintable" class="centerstage">
 			<thead>
@@ -58,7 +65,7 @@ table td{min-width: max-content}
 				<th onclick="sortit(6)">T.V.L.⇅</th>
 				<th onclick="sortit(7)">Eliteness⇅</th>
 				<th onclick="sortit(8)">Countdown⇅</th>
-				<th>Labels</th>
+				<th>Links</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -89,10 +96,10 @@ table td{min-width: max-content}
 			</table>
 		</div>
 	</div>
-</div>
-<div id="lowarea">
+</div><br><br>
+<div id="lowarea" style="padding:15px">
 Did you just launch a Token Pair on your favorite DEX and are looking to set up a farm for free? Head over to our telegram and type /newFarm to begin the adventure!</div>
-<div id="disclaimer">
+<div id="disclaimer" style="padding:15px">
 Anyone can request a farm for free. FTM.guru merely provides a platform to host your farm under its Farm-Maker program. Listings are in no manner an endorsement. We do not run background checks and the onus of due dilligence lies on the end-user, you. 99.7% of all projects are scams, rugs, slow-rugs, honeypots or outright lies. Please exercide extreme caution while dealing with smart contracts and crypto assets. We don not take any listing fees for this program and never DM you for personal information or keys.
 </div>
 
