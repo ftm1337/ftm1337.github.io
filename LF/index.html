@@ -9,35 +9,69 @@
 <link rel="shortcut icon" href="../img/ftm1337.jpg" />
 <style>
 *{text-shadow:10px 10px 5px black;color:#e3e9f2}
-#midarea{display:grid;grid-template-columns:auto}
+#midleft{display:grid;grid-template-columns:50% 50%}
 #toparea,*{text-align:center}
-#midleft div{border:1px dashed beige;padding:5px;border-radius:15px}
+//#midleft div{border:1px dashed beige;padding:5px;border-radius:15px}
 html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 #midright{overflow-x: auto;margin:0 5%}
 table td{min-width: 72px;padding: 10px}
 span{font-weight:bolder;}
-table{border: 2px ridge beige}
 tbody tr:hover{cursor:  alias;background: rgba(0,255,255,0.25)}
 td:nth-child(4),th:nth-child(4),
 td:nth-child(6),th:nth-child(6),
 td:nth-child(9),th:nth-child(9)
 {display:none}
+pre{overflow-x:auto;max-width:80%}
+.topbar div a, .advert a{text-decoration-line:none;padding:0 2px}
+hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+#midleft div,table{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid; min-width:max-content}
+.advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
+input,button{border-radius:25px;background:black;text-align:center;}
+.lowercat {text-align: left;}
+.lowercat a{text-decoration-line: none}
+.lowercat span{font-size: 1.25em}
+.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
 @media(min-width:899px){
-	#midarea{display:grid;grid-template-columns:220px auto}
+	#midleft{display:grid;grid-template-columns:50% 50%}
+}
+@media(min-width:641px){
+  .hhr{width: 555px}
 }
 </style>
+
+<div class="topbar">
+	<div align="center">
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<!--<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>-->
+		<a href="LF/index.html">LITE Farmlands👽</a>
+		<a href="pair.html">DEX-Explorer</a>
+		<a href="fantomscan.html">FantomScan</a>
+		<a href="elite.html">ELITE</a>
+		<a href="fmc.html">FantomMarketCap</a>
+		<a href="yieldstate.html">YieldState</a>
+		<!--<a href="airdrop.html">Airdrop-Tool</a>-->
+		<a href="apelist.html">Ape-List</a>
+		<a href="approver.html">Approver</a>
+		<a href="degam.html">CASINO🎰</a>
+	</div>
+</div>
+<br>
+<hr class="hhr">
+<br>
+
 <div id="toparea"><h1>LITE Farmlands</h1>Make hay while the sun shines!</div>
 <br><br><br>
 <div id="midarea">
 	<div id="midleft">
 		<div id="midleftTVL">
-			Land under Cultivation<br>
+			Area Cultivated<br>
 			<span id="ml_tvl" style="font-size:1.5em">3 Fields</span>
-		</div><br>
+		</div>
 		<div id="midleftNFL">
 			Total Value Locked<br>
 			<span id="ml_tvl" style="font-size:1.5em">150,000+ FTM</span>
-		</div><br><!--
+		</div><!--
 		<div id="midleftPFO">
 			Total Value Locked<br>
 			<span id="ml_tvl" style="font-size:1.5em">150,000 FTM</span>
@@ -46,15 +80,8 @@ td:nth-child(9),th:nth-child(9)
 			Total Value Locked<br>
 			<span id="ml_tvl" style="font-size:1.5em">150,000 FTM</span>
 		</div>-->
-		<br>
-		<br>
-		<a href="../yieldstate.html" target="_blank">YieldState</a><br>
-		<a href="../fmc.html" target="_blank">FantomMarketCap</a><br>
-		<a href="../index.html" target="_blank">Blockchain Tools</a><br>
-		<a href="https://kcc.guru" target="_blank">Kucino</a> | <a href="../degam.html" target="_blank">Casino</a><br>
-		<a href="https://t.me/FTM1337" target="_blank">Telegram</a><br>
-		<a href="https://discord.gg/QpyfMarNrV" target="_blank">Discord</a><br><br><br>
 	</div>
+	<BR><BR>
 	<div id="midright">
 		<h3 align="center">Choose a plot to till!</h3>
 		<div id="midrighttab">
@@ -116,7 +143,7 @@ td:nth-child(9),th:nth-child(9)
 </div><br><br>
 <div id="faq">
 <h3>Frequently Asked Questions</h3>
-
+<hr class="hhr">
 <h4>When can we claim rewards?</h4>
 Rewards accrue each 3 seconds (Opera block time) and are available for claiming instantly. Each deposit and withdraw harvests your crops automatically and sendsthem to your wallet directly.
 <h4>Are the deposits locked?</h4>
@@ -141,4 +168,78 @@ Did you just launch a Token Pair on your favorite DEX and are looking to set up 
 Anyone can request a farm for free. FTM.guru merely provides a platform to host your farm under its Farm-Maker program. Listings are in no manner an endorsement. We do not run background checks and the onus of due dilligence lies on the end-user, you. 99.7% of all projects are scams, rugs, slow-rugs, honeypots or outright lies. Please exercide extreme caution while dealing with smart contracts and crypto assets. We don not take any listing fees for this program and never DM you for personal information or keys.
 </div>
 
+<br>
+<br>
+
+<div align="center" class="advert">
+<pre>Get $ELITE Tokens
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a>
+<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spirit</button></a>
+<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
+<a href="https://t.me/Sam4x" target="_blank">To Advertise Here, Contact @Sam4x✈</a>
+</div>
+<br>
+<br>
+<hr>
+<div  class="topbar">
+	<div align="center"><!--
+			<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+			<a href="farmlands.html">LITE Farmlands👽</a>
+			<a href="index.html">FTM-Gems</a>
+			<a href="pair.html">DEX-Explorer</a>
+			<a href="fantomscan.html">FantomScan</a>
+			<a href="elite.html">ELITE</a>
+			<a href="fmc" target="_blank">FantomMarketCap</a>
+			<a href="yieldstate.html">YieldState</a>
+			<a href="vfat.tools/fantom/guru">vfat</a>
+			<a href="airdrop.html">Airdrop-Tool</a>
+			<a href="apelist.html">Ape-List</a>
+			<a href="approver.html">Approver</a>
+			<a href="degam.html">CASINO✨</a>
+		<br><br>-->
+	<h3><a href="https://t.me/FTM1337">✈t.me/FTM1337<br>Come, Join us!</a></h3>
+	<i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
+	</div>
+</div>
+<br><br>
+<div class="lowerbar" align="center">
+	<div></div>
+	<div align="left" class="lowercat">
+		<span>Farming</span><br>
+		<a href="yieldstate.html">YieldState</a><br>
+		<a href="farmlands.html">LITE Farmlands👽</a><br>
+		<a href="vfat.tools/fantom/guru">vfat</a>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Explore Opera</span><br>
+		<a href="pair.html">DEX-Explorer</a><br>
+		<a href="fantomscan.html">FantomScan</a><br>
+		<a href="apelist.html">Ape-List</a><br>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Our Dapps</span><br>
+			<a href="degam.html">CASINO✨</a><br>
+			<a href="approver.html">Approver</a><br>
+		<a href="airdrop.html">Airdrop-Tool</a>
+	</div>
+</div>
+<br>
+<div class="lowerbar" align="center">
+	<div></div>
+	<div align="left" class="lowercat">
+		<span>Ecosystem</span><br>
+		<a href="fmc" target="_blank">FantomMarketCap</a><br>
+		<a href="elite.html">ELITE</a><br>
+			<a href="index.html">FTM-Gems</a>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Social Media</span><br>
+		<a target="_blank" href="https://t.me/FTM1337">Telegram</a><br>
+		<a target="_blank" href="https://medium.com/@ftm1337">Medium</a><br>
+		<a target="_blank" href="https://discord.gg/QpyfMarNrV">Discord</a>
+	</div>
+</div>
 </html>
