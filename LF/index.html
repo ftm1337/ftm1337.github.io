@@ -11,12 +11,17 @@
 *{text-shadow:10px 10px 5px black;color:#e3e9f2}
 #midarea{display:grid;grid-template-columns:auto}
 #toparea,*{text-align:center}
-#midleft div{border:1px dotted beige;border-radius:15px}
+#midleft div{border:1px dashed beige;padding:5px;border-radius:15px}
 html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 #midright{overflow-x: auto;margin:0 5%}
-table td{min-width: max-content;padding: 10px}
+table td{min-width: 72px;padding: 10px}
 span{font-weight:bolder;}
 table{border: 2px ridge beige}
+tbody tr:hover{cursor:  alias;background: rgba(0,255,255,0.25)}
+td:nth-child(4),th:nth-child(4),
+td:nth-child(6),th:nth-child(6),
+td:nth-child(9),th:nth-child(9)
+{display:none}
 @media(min-width:899px){
 	#midarea{display:grid;grid-template-columns:220px auto}
 }
@@ -26,12 +31,12 @@ table{border: 2px ridge beige}
 <div id="midarea">
 	<div id="midleft">
 		<div id="midleftTVL">
-			Occupied Lands<br>
-			<span id="ml_tvl" style="font-size:1.5em">3 Tenants</span>
+			Land under Cultivation<br>
+			<span id="ml_tvl" style="font-size:1.5em">3 Fields</span>
 		</div><br>
 		<div id="midleftNFL">
 			Total Value Locked<br>
-			<span id="ml_tvl" style="font-size:1.5em">150,000 FTM</span>
+			<span id="ml_tvl" style="font-size:1.5em">150,000+ FTM</span>
 		</div><br><!--
 		<div id="midleftPFO">
 			Total Value Locked<br>
@@ -46,60 +51,93 @@ table{border: 2px ridge beige}
 		<a href="../yieldstate.html" target="_blank">YieldState</a><br>
 		<a href="../fmc.html" target="_blank">FantomMarketCap</a><br>
 		<a href="../index.html" target="_blank">Blockchain Tools</a><br>
-		<a href="https://kcc.guru" target="_blank">Kucino</a><a href="../degam.html" target="_blank">Casino</a><br>
+		<a href="https://kcc.guru" target="_blank">Kucino</a> | <a href="../degam.html" target="_blank">Casino</a><br>
 		<a href="https://t.me/FTM1337" target="_blank">Telegram</a><br>
 		<a href="https://discord.gg/QpyfMarNrV" target="_blank">Discord</a><br><br><br>
 	</div>
 	<div id="midright">
 		<h3 align="center">Choose a plot to till!</h3>
 		<div id="midrighttab">
-			<table id="maintable" class="centerstage">
+			<table id="maintable" class="centerstage" align="center">
 			<thead>
 				<tr>
 				<th onclick="sortit(0)">ID⇅</th>
 				<th onclick="sortit(1)">Deposit⇅</th>
 				<th onclick="sortit(2)">Reward⇅</th>
-				<th onclick="sortit(3)">Fees⇅</th>
-				<th onclick="sortit(4)">A.P.Y.⇅</th>
-				<th onclick="sortit(5)">Platform⇅</th>
-				<th onclick="sortit(6)">T.V.L.⇅</th>
+				<th onclick="sortit(3)">A.P.Y. %⇅</th>
+				<th onclick="sortit(4)">Platform⇅</th>
+				<th onclick="sortit(5)">T.V.L. FTM⇅</th>
+				<th onclick="sortit(6)">Fees⇅</th>
 				<th onclick="sortit(7)">Eliteness⇅</th>
 				<th onclick="sortit(8)">Countdown⇅</th>
 				<th>Links</th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="sca farming yields natives tools" id="tr_0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882">
+				<tr class="sca farming yields natives tools" id="LF_0" onclick="window.location='../yieldstate'">
 					<td>★</td>
 					<td>ELITE:FTM</td>
 					<td>ELITE</td>
-					<td>0.0000%</td>
 					<td>?.????%</td>
 					<td>Sushi</td>
 					<td>?.????</td>
+					<td>0%</td>
 					<td>0.00000000</td>
 					<td>?M?D?h?m?s</td>
 					<td>ftm.guru</td>
 				</tr>
-				<tr class="sca farming yields natives tools" id="tr_0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882">
+				<tr class="sca farming yields natives tools" id="LF_1" onclick="window.location='1'">
 					<td>1</td>
 					<td>NIPS:FTM</td>
 					<td>NIPS</td>
-					<td>1.0000%</td>
 					<td>?.????%</td>
 					<td>Zoo DEX</td>
 					<td>?.????</td>
-					<td>0.00133700</td>
+					<td>1%</td>
+					<td>0.001337</td>
 					<td>?M?D?h?m?s</td>
-					<td><span><a href="https://nipplelabs.com" target="_blank">🌐</a><a href="https://discord.com/invite/" target="_blank">🎮</a><a href="https://t.me/nipplelabs" target="_blank">✈</a><a href="https://twitter.com/nipplelabs" target="_blank">🐦</a></span></td>
+					<td><span><a href="https://nipplelabs.com" target="_blank">🌐</a><a href="https://discord.com/invite/6ChQmPb3as" target="_blank">🎮</a><a href="https://t.me/nipplelabs" target="_blank">✈</a><a href="https://twitter.com/nipplelabs" target="_blank">🐦</a></span></td>
+				</tr>
+				<tr class="sca farming yields natives tools" id="LF_1" onclick="window.location='2001'">
+					<td>2001</td>
+					<td>NOVA:FTM</td>
+					<td>BLK</td>
+					<td>?.????%</td>
+					<td>SpookySwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td><span><a href="https://supernovaftm.site.xyz" target="_blank">🌐</a><a href="https://discord.com/invite/ekyU57Gq" target="_blank">🎮</a></span></td>
 				</tr>
 			</table>
 		</div>
 	</div>
 </div><br><br>
-<div id="lowarea" style="padding:15px">
-Did you just launch a Token Pair on your favorite DEX and are looking to set up a farm for free? Head over to our telegram and type /newFarm to begin the adventure!</div>
-<div id="disclaimer" style="padding:15px">
+<div id="faq">
+<h3>Frequently Asked Questions</h3>
+
+<h4>When can we claim rewards?</h4>
+Rewards accrue each 3 seconds (Opera block time) and are available for claiming instantly. Each deposit and withdraw harvests your crops automatically and sendsthem to your wallet directly.
+<h4>Are the deposits locked?</h4>
+Deposits can be withdrawn at any time from our regular farms. Special farms (currently none) can havea pre-defined lockup period. Such farms will be marked with a 🔒 ("Lock Icon").
+
+
+<h4>What is Eliteness?</h4>
+To farm on the LITE Farmlands, farmers are required to hold a certain minimum amount of ELITE token on Fantom Opera Blockchain.<br>
+
+<h4>Where can we buy ELITE?</h4>
+Discover the best place to Buy ELITE at our <a href="../elite" target="_blank">ELITE market data & analytics</a> page.
+
+
+<h4>How long does a farm last?</h4>
+Fields on our LITE Farmlands last forever. Rewards last as long as the community decides to keep funding. Top-ups can be made regularly after a farm dries up to start a new season by anyone. There will be a countdown timer reflecting the same at each farm. This duration is specified by the tenants when they first occupy their fields.<br>
+</div>
+<div id="lowarea" style="padding:15px; font-size:0.9em">
+<h4>How to create a new Farm?</h4>
+Did you just launch a Token Pair on your favorite DEX and are looking to set up a farm for free? Head over to our <a href="https://t.me/FTm1337" target="_blank">telegram</a> and type /newFarm to begin the adventure!</div>
+<div id="disclaimer" style="padding:15px; font-size:0.8em">
+<h4>Disclaimer!</h4>
 Anyone can request a farm for free. FTM.guru merely provides a platform to host your farm under its Farm-Maker program. Listings are in no manner an endorsement. We do not run background checks and the onus of due dilligence lies on the end-user, you. 99.7% of all projects are scams, rugs, slow-rugs, honeypots or outright lies. Please exercide extreme caution while dealing with smart contracts and crypto assets. We don not take any listing fees for this program and never DM you for personal information or keys.
 </div>
 
