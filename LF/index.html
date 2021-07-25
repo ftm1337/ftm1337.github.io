@@ -11,7 +11,6 @@
 *{text-shadow:10px 10px 5px black;color:#e3e9f2}
 #midleft{display:grid;grid-template-columns:50% 50%}
 #toparea,*{text-align:center}
-//#midleft div{border:1px dashed beige;padding:5px;border-radius:15px}
 html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 #midright{overflow-x: auto;margin:0 5%}
 table td{min-width: 72px;padding: 10px}
@@ -21,7 +20,7 @@ td:nth-child(4),th:nth-child(4),
 td:nth-child(6),th:nth-child(6),
 td:nth-child(9),th:nth-child(9)
 {display:none}
-pre{overflow-x:auto;max-width:80%}
+pre{overflow-x:auto;}
 .topbar div a, .advert a{text-decoration-line:none;padding:0 2px}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
 #midleft div,table{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid; min-width:max-content}
@@ -31,6 +30,8 @@ input,button{border-radius:25px;background:black;text-align:center;}
 .lowercat a{text-decoration-line: none}
 .lowercat span{font-size: 1.25em}
 .lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+#midrighttab{display: grid;grid-template-columns: auto auto auto}
+thead{line-height: 4}
 @media(min-width:899px){
 	#midleft{display:grid;grid-template-columns:50% 50%}
 }
@@ -82,9 +83,9 @@ input,button{border-radius:25px;background:black;text-align:center;}
 		</div>-->
 	</div>
 	<BR><BR>
-	<div id="midright">
-		<h3 align="center">Choose a plot to till!</h3>
-		<div id="midrighttab">
+	<div id="midright" align="center">
+		<h3>Choose a plot to till!</h3>
+		<div id="midrighttab"><br>
 			<table id="maintable" class="centerstage" align="center">
 			<thead>
 				<tr>
@@ -137,7 +138,7 @@ input,button{border-radius:25px;background:black;text-align:center;}
 					<td>?M?D?h?m?s</td>
 					<td><span><a href="https://supernovaftm.site.xyz" target="_blank">🌐</a><a href="https://discord.com/invite/ekyU57Gq" target="_blank">🎮</a></span></td>
 				</tr>
-			</table>
+			</table><br>
 		</div>
 	</div>
 </div><br><br>
