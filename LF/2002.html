@@ -429,6 +429,8 @@ Stake to earn passive rewards!<br>
 	<span></span><span>Weekly:</span><span></span><span id="stats_ap_w">?</span><span></span>
 	<span></span><span>Daily:</span><span></span><span id="stats_ap_d">?</span><span></span>
 </div>
+<div id=""><button onclick="mat()">Detailed</button></div>
+<div id="mat"style="font-size:0.8em"></div>
 <div style="display:none">
 <h4>Market Data</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
@@ -1293,30 +1295,31 @@ async function refreshFarm()
 		farm_1_f_chappro();
 
 		theCon = new web3.eth.Contract(farabi, f_1_add);
-		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+		theCon.methods.earned(window.ethereum.selectedAddress).call((e, r) =>
 		{$("farm_1_s_claim").value=Number(r)/1e9;
 		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e9);
 		$("farm_3_i_re").innerHTML=(Number(r)/1e9);});
-		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+		theCon.methods.balanceOf(window.ethereum.selectedAddress).call((e, r) =>
 		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
 		$("farm_3_i_ys").innerHTML=(Number(r)/1e18);
 		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
-		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
+		the2.methods.balanceOf(window.ethereum.selectedAddress).call((e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
 		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 
 		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
 		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
 		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
 
-		pt=res[0]/res[1];
+		//pt=res[0]/res[1];
+		pt=res[1]/res[0];
 		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
 		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr+"%";
-		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
+		//$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
 		$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
 		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
@@ -1340,10 +1343,10 @@ async function DrefreshFarm()
 		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
-		//apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
+		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr.toLocaleString()+"%";
-		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
+		//$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
+		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
 		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
@@ -1394,5 +1397,52 @@ fragment c on PairHourData {
 */
 aapd=0;
 aapw=0;
+
+async function mat()
+{
+
+	nb="0x22a38f5fef8623e2f4d9ba0243cd1bd74dbbde2c"
+	nf="0xe493ce1afdcf079d0b40ff9503d7ab5f1f125477"
+	bf="0x623765857b74da6f5a52a362d228de7f7859224f"
+
+	pbf=new web3.eth.Contract(ab1,bf)
+	pnf=new web3.eth.Contract(ab1,nf)
+	pnb=new web3.eth.Contract(ab1,nb)
+
+	await pnb.methods.getReserves().call((e,r)=>{rnb=[Number(r[0]),Number(r[1])]})
+	await pnf.methods.getReserves().call((e,r)=>{rnf=[Number(r[0]),Number(r[1])]})
+	await pbf.methods.getReserves().call((e,r)=>{rbf=[Number(r[0]),Number(r[1])]})
+	await pnb.methods.totalSupply().call((e,r)=>{tnb=r})
+	await pnb.methods.balanceOf(f_1_add).call((e,r)=>{snb=r})
+
+	rnf=[rnf[0]/1e18,rnf[1]/1e9]
+	rbf=[rbf[0]/1e18,rbf[1]/1e9]
+	rnb=[rnb[0]/1e9,rnb[1]/1e9]
+
+	ppnf=rnf[0]/rnf[1]
+	ppbf=rbf[0]/rbf[1]
+	ppbn=rnb[0]/rnb[1]
+
+	tnb=Number(tnb)/1e18
+	snb=Number(snb)/1e18
+	ur=snb/tnb*100
+
+	$("mat").innerHTML=`NOVA/FTM pooled<br>FTM=${rnf[0]}<br>NOVA=${rnf[1]}<br>1 NOVA = ${ppnf} FTM<br><br>`
+	$("mat").innerHTML+=`BLK/FTM pooled<br>FTM=${rbf[0]}<br>BLK=${rbf[1]}<br>1 BLK = ${ppbf} FTM<br><br>`
+	$("mat").innerHTML+=`BLK/NOVA pooled<br>NOVA=${rnb[0]}<br>BLK=${rnb[1]}<br>1 BLK = ${ppbn} NOVA<br><br><br>`
+
+	$("mat").innerHTML+=`Total NOVA/BLK Lp = ${tnb}<br>Staked NOVA/BLK Lp = ${snb}<br>Utilization = ${ur} %<br><br>`
+
+	$("mat").innerHTML+=`OVERALL<br>${tnb} LP <br>= ${rnb[0]*2} NOVA<br>...= ${rnb[0]*2*ppnf} FTM<br>=${rnb[1]*2} BLK<br>...= ${rnb[1]*2*ppbf} FTM<br><br>`
+
+	$("mat").innerHTML+=`STAKED<br>${snb} LP <br>= ${rnb[0]*2*snb/tnb} NOVA<br>...= ${rnb[0]*2*ppnf*snb/tnb} FTM<br>=${rnb[1]*2*snb/tnb} BLK<br>...= ${rnb[1]*2*ppbf*snb/tnb} FTM<br><br>`
+
+	$("mat").innerHTML+=`32 Day rewards <br>= 150 000 NOVA<br>...= ${150000*ppnf} FTM<br><br>`
+
+	$("mat").innerHTML+=`32 Day Return % <br>= (Earned/Staked) %<br>= ${150000*ppnf}/${rnb[0]*2*ppnf*snb/tnb} x100 % (in terms of NOVA)<br>...= ${(150000*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100} %<br>...or<br>${150000*ppnf}/${rnb[1]*2*ppbf*snb/tnb} x100 % (in terms of BLK)<br>...=${150000*ppnf/(rnb[1]*2*ppbf*snb/tnb)*100} %<br>`
+
+	$("mat").innerHTML+=`365 Day Annual % Return (APR)<br>...= ${(150000*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100/32*365} (in terms of NOVA)<br>...=${(150000*ppnf)/(rnb[1]*2*ppbf*snb/tnb)*100/32*365} % (in terms of BLK)<br><br>`
+}
+
 </script>
 </html>
