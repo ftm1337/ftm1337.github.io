@@ -13,12 +13,12 @@
 #toparea,*{text-align:center}
 html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 #midright{overflow-x: auto;margin:0 5%}
-table td{min-width: 72px;padding: 10px}
+table td{padding: 10px}
 span{font-weight:bolder;}
 tbody tr:hover{cursor:  alias;background: rgba(0,255,255,0.25)}
-td:nth-child(4),th:nth-child(4),
-td:nth-child(6),th:nth-child(6),
-td:nth-child(9),th:nth-child(9)
+td:nth-child(3),th:nth-child(3),
+td:nth-child(5),th:nth-child(5),
+td:nth-child(8),th:nth-child(8)
 {display:none}
 pre{overflow-x:auto;}
 .topbar div a, .advert a{text-decoration-line:none;padding:0 2px}
@@ -31,7 +31,8 @@ input,button{border-radius:25px;background:black;text-align:center;}
 .lowercat span{font-size: 1.25em; font-weight:bold}
 .lowerbar{display: grid;grid-template-columns:0 auto auto;text-align:center}
 #midrighttab{display: grid;grid-template-columns: auto auto auto}
-thead{line-height: 4}
+thead{line-height: }
+#maintable tbody tr:nth-child(2) {cursor: not-allowed}
 @media(min-width:899px){
 	#midleft{display:grid;grid-template-columns:50% 50%}
 }
@@ -93,7 +94,6 @@ thead{line-height: 4}
 			<table id="maintable" class="centerstage" align="center">
 			<thead>
 				<tr>
-				<th onclick="sortit(0)">ID⇅</th>
 				<th onclick="sortit(1)">Deposit⇅</th>
 				<th onclick="sortit(2)">Reward⇅</th>
 				<th onclick="sortit(3)">A.P.Y. %⇅</th>
@@ -102,12 +102,14 @@ thead{line-height: 4}
 				<th onclick="sortit(6)">Fees⇅</th>
 				<th onclick="sortit(7)">Eliteness⇅</th>
 				<th onclick="sortit(8)">Countdown⇅</th>
+				<th onclick="sortit(9)">🤔⇅</th>
+				<th onclick="sortit(0)">ID⇅</th>
 				<th>Links</th>
 				</tr>
+				<tr><td colspan="9">🧑‍🌾 = Printing , 🏜️ = Deserted , 🔒 = Locker.</td></tr>
 			</thead>
 			<tbody>
 				<tr class="sca farming yields natives tools" id="LF_0" onclick="window.location='../yieldstate'">
-					<td>★</td>
 					<td>ELITE:FTM</td>
 					<td>ELITE</td>
 					<td>?.????%</td>
@@ -116,10 +118,11 @@ thead{line-height: 4}
 					<td>0%</td>
 					<td>0.000000</td>
 					<td>?M?D?h?m?s</td>
+					<td>🧑‍🌾</td>
+					<td>★</td>
 					<td>ftm.guru</td>
 				</tr>
 				<tr class="sca farming yields natives tools" id="LF_0" onclick="">
-					<td>★</td>
 					<td>ELITE:FTM</td>
 					<td>USDC</td>
 					<td>?.????%</td>
@@ -128,10 +131,11 @@ thead{line-height: 4}
 					<td>0%</td>
 					<td>0.000000</td>
 					<td>?M?D?h?m?s</td>
+					<td>🧑‍🌾</td>
+					<td>★</td>
 					<td>ftm.guru</td>
 				</tr>
 				<tr class="sca farming yields natives tools" id="LF_1" onclick="window.location='1'">
-					<td>1</td>
 					<td>NIPS:FTM</td>
 					<td>NIPS</td>
 					<td>?.????%</td>
@@ -140,10 +144,11 @@ thead{line-height: 4}
 					<td>1%</td>
 					<td>0.001337</td>
 					<td>?M?D?h?m?s</td>
+					<td>🧑‍🌾</td>
+					<td>1</td>
 					<td><span><a href="https://nipplelabs.com" target="_blank">🌐</a><a href="https://discord.com/invite/6ChQmPb3as" target="_blank">🎮</a><a href="https://t.me/nipplelabs" target="_blank">✈</a><a href="https://twitter.com/nipplelabs" target="_blank">🐦</a></span></td>
 				</tr>
 				<tr class="sca farming yields natives tools" id="LF_1" onclick="window.location='2001'">
-					<td>2001</td>
 					<td>NOVA:FTM</td>
 					<td>BLK</td>
 					<td>?.????%</td>
@@ -152,10 +157,11 @@ thead{line-height: 4}
 					<td>2%</td>
 					<td>0.001337</td>
 					<td>?M?D?h?m?s</td>
+					<td>🧑‍🌾</td>
+					<td>2001</td>
 					<td><span><a href="https://supernovaftm.site.xyz" target="_blank">🌐</a><a href="https://discord.com/invite/ekyU57Gq" target="_blank">🎮</a></span></td>
 				</tr>
 				<tr class="sca farming yields natives tools" id="LF_1" onclick="window.location='2002'">
-					<td>2002</td>
 					<td>BLK:NOVA</td>
 					<td>NOVA</td>
 					<td>?.????%</td>
@@ -164,6 +170,8 @@ thead{line-height: 4}
 					<td>2%</td>
 					<td>0.001337</td>
 					<td>?M?D?h?m?s</td>
+					<td>🧑‍🌾</td>
+					<td>2002</td>
 					<td><span><a href="https://supernovaftm.site.xyz" target="_blank">🌐</a><a href="https://discord.com/invite/ekyU57Gq" target="_blank">🎮</a></span></td>
 				</tr>
 			</table><br>

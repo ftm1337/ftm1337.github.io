@@ -399,10 +399,11 @@ Stake to earn passive rewards!<br>
 <div align="center" id="lfs">
 <h2>YieldStats</h2>
 <div class="mainstage">
-<div style="display:none">
+<div style="display:">
 <h3>Net Total Yield</h3>
 <span class="lpapr" id="stats_apr_nt">? %</span>
 <br><br>
+<div style="display:none"><!--excess-->
 <h4>Liquidity Mining</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
 	<span></span><span>24 hrs:</span><span></span><span id="stats_lm_d">?</span><span></span>
@@ -414,6 +415,7 @@ Stake to earn passive rewards!<br>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
 	<span></span><span>1 Year:</span><span></span><span id="stats_nt_y"></span><span></span>
 	-->
+</div><!--excess-->
 </div>
 </div>
 <h4>Yield Farming</h4>
@@ -1331,7 +1333,7 @@ async function DrefreshFarm()
 		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr.toLocaleString()+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
+		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
 		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
@@ -1340,10 +1342,11 @@ async function DrefreshFarm()
 	catch(e){console.log(e);}
 }
 
+/*
 function lpapr_sus_d()
 {
 	hi=Date.now();hi=(hi-hi%36e5)/36e5;
-	pi="0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0"
+	pi="0xdEAD5ee1d489b8f0d3815E4d26554fE1aeF01281"
 	Q_pn_c=`{
 `
 	for(ih=0;ih< 24;ih++)
@@ -1357,7 +1360,7 @@ fragment c on PairHourData {
   reserveUSD
 }`
 	gr1=new XMLHttpRequest();
-	gr1.open("POST","https://api.thegraph.com/subgraphs/name/sushiswap/fantom-exchange",true);
+	gr1.open("POST","https://api.thegraph.com/subgraphs/name/ruvlol/graph-n",true);
 	gr1.onload=function()
 	{
 		aap=0;
@@ -1374,12 +1377,11 @@ fragment c on PairHourData {
 		aapd=(aap*365e2)
 		$("stats_lm_d").innerHTML=(aapd).toLocaleString()+"%";
 		$("stats_md_vd").innerHTML=(dv).toLocaleString()+" USD";
-		hv=d[Object.keys(d)[0]]==null?1:(d[Object.keys(d)[0]].volumeUSD).toLocaleString();
+		hv=d[Object.keys(d)[0]]==null?1:(Number(d[Object.keys(d)[0]].volumeUSD)).toLocaleString();
 		$("stats_md_vh").innerHTML=hv+" USD";
 	}
 	gr1.send(JSON.stringify({query:Q_pn_c}))
 }
+*/
 aapd=0;
 aapw=0;
-</script>
-</html>
