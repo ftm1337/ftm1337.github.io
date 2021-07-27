@@ -429,7 +429,7 @@ Stake to earn passive rewards!<br>
 	<span></span><span>Weekly:</span><span></span><span id="stats_ap_w">?</span><span></span>
 	<span></span><span>Daily:</span><span></span><span id="stats_ap_d">?</span><span></span>
 </div>
-<div id=""><button onclick="mat()">Detailed</button></div>
+<div id=""><br><br><button onclick="mat()">Detailed</button><br><br></div>
 <div id="mat"style="font-size:0.8em"></div>
 <div style="display:none">
 <h4>Market Data</h4>
@@ -1339,7 +1339,8 @@ async function DrefreshFarm()
 		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
 		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
 		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
-		pt=res[0]/res[1];
+		//pt=res[0]/res[1];
+		pt=res[1]/res[0];
 		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
