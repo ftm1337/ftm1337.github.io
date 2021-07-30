@@ -52,13 +52,14 @@ input{background: #000 !important;}
 .advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
 .lowercat {text-align: left;padding:10px}
 .lowercat a{text-decoration-line: none}
-.lowercat span{font-size: 1.25em; font:weight:bold}
-.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+.lowercat span{font-size: 1.25em; font-weight:bold}
+.lowerbar{display: grid;grid-template-columns: 0 auto auto;text-align:center}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:50% 50%}
 	.mainstages{grid-template-columns:auto auto auto}
 	#mvg{width: 70%;}
 	.hhr{width:555px}
+	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
 }
 </style>
 </head>
@@ -382,14 +383,6 @@ Stake ELITE-paired Liquidity Tokens to earn passive rewards<br><br><input id="se
 <h4>Liquidity Mining</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
 	<span></span><span>24 hrs:</span><span></span><span id="stats_lm_d">?</span><span></span>
-	<!--
-	<span></span><span>7 Days:</span><span></span><span id="stats_lm_w"></span><span></span>
-	<span></span><span>Overall:</span><span></span><span id="stats_lm_y"></span><span></span>
-</div>
-<h4>Net Total Yield</h4>
-<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
-	<span></span><span>1 Year:</span><span></span><span id="stats_nt_y"></span><span></span>
-	-->
 </div>
 <h4>Yield Farming</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
@@ -422,8 +415,8 @@ Stake ELITE-paired Liquidity Tokens to earn passive rewards<br><br><input id="se
 <br>
 <hr>
 <div  class="topbar">
-	<div align="center"><!--
-			<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+	<div align="center">
+			<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br><!--
 			<a href="farmlands.html">LITE Farmlands👽</a>
 			<a href="index.html">FTM-Gems</a>
 			<a href="pair.html">DEX-Explorer</a>
@@ -435,8 +428,8 @@ Stake ELITE-paired Liquidity Tokens to earn passive rewards<br><br><input id="se
 			<a href="airdrop.html">Airdrop-Tool</a>
 			<a href="apelist.html">Ape-List</a>
 			<a href="approver.html">Approver</a>
-			<a href="degam.html">CASINO✨</a>
-		<br><br>-->
+			<a href="degam.html">CASINO✨</a>-->
+		<br><br>
 	<h3><a href="https://t.me/FTM1337">✈t.me/FTM1337<br>Come, Join us!</a></h3>
 	<i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
 	</div>
@@ -1340,10 +1333,10 @@ fragment c on PairHourData {
 		});
 		aapd=(aap*365e2)
 		$("stats_lm_d").innerHTML=(aapd).toLocaleString()+"%";
-		$("stats_md_vd").innerHTML=(dv).toLocaleString()+" USD";
+		$("stats_md_vd").innerHTML=Number(dv).toLocaleString()+" USD";
 		hv=d[Object.keys(d)[0]]==null?1:d[Object.keys(d)[0]].volumeUSD;
 		console.log("hv",hv,"dv",dv);
-		$("stats_md_vh").innerHTML=hv.toLocaleString()+" USD";
+		$("stats_md_vh").innerHTML=Number(hv).toLocaleString()+" USD";
 	}
 	gr1.send(JSON.stringify({query:Q_pn_c}))
 }
