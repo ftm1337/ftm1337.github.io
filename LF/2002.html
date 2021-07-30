@@ -1402,6 +1402,8 @@ aapw=0;
 async function mat()
 {
 
+	$("mat").innerHTML="Calculating...Please wait!"
+
 	nb="0x22a38f5fef8623e2f4d9ba0243cd1bd74dbbde2c"
 	nf="0xe493ce1afdcf079d0b40ff9503d7ab5f1f125477"
 	bf="0x623765857b74da6f5a52a362d228de7f7859224f"
@@ -1438,11 +1440,11 @@ async function mat()
 
 	$("mat").innerHTML+=`STAKED<br>${snb} LP <br>= ${rnb[0]*2*snb/tnb} NOVA<br>...= ${rnb[0]*2*ppnf*snb/tnb} FTM<br>=${rnb[1]*2*snb/tnb} BLK<br>...= ${rnb[1]*2*ppbf*snb/tnb} FTM<br><br>`
 
-	$("mat").innerHTML+=`32 Day rewards <br>= 150 000 NOVA<br>...= ${150000*ppnf} FTM<br><br>`
+	$("mat").innerHTML+=`32 Day rewards <br>= 250 000 NOVA<br>...= ${250000*ppnf} FTM<br><br>`
 
-	$("mat").innerHTML+=`32 Day Return % <br>= (Earned/Staked) %<br>= ${150000*ppnf}/${rnb[0]*2*ppnf*snb/tnb} x100 % (in terms of NOVA)<br>...= ${(150000*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100} %<br>...or<br>${150000*ppnf}/${rnb[1]*2*ppbf*snb/tnb} x100 % (in terms of BLK)<br>...=${150000*ppnf/(rnb[1]*2*ppbf*snb/tnb)*100} %<br>`
+	$("mat").innerHTML+=`32 Day Return % <br>= (Earned/Staked) %<br>= ${250000*ppnf}/${rnb[0]*2*ppnf*snb/tnb} x100 % (in terms of NOVA)<br>...= ${(250000*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100} %<br>...or<br>${250000*ppnf}/${rnb[1]*2*ppbf*snb/tnb} x100 % (in terms of BLK)<br>...=${250000*ppnf/(rnb[1]*2*ppbf*snb/tnb)*100} %<br>`
 
-	$("mat").innerHTML+=`365 Day Annual % Return (APR)<br>...= ${(150000*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100/32*365} (in terms of NOVA)<br>...=${(150000*ppnf)/(rnb[1]*2*ppbf*snb/tnb)*100/32*365} % (in terms of BLK)<br><br>`
+	$("mat").innerHTML+=`365 Day Annual % Return (APR)<br>...= ${(250000*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100/32*365} % (in terms of NOVA)<br>...=${(250000*ppnf)/(rnb[1]*2*ppbf*snb/tnb)*100/32*365} % (in terms of BLK)<br><br>`
 }
 
 </script>
