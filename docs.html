@@ -26,6 +26,10 @@ box-shadow: rgba(0,255,127,0.2) 0px 0px 10px 10px;}
 .ftm div{padding: 10px 20px;margin:20px;border-left: 4px solid aqua ;
 	box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;}
 
+.kcc a, .ftm a{text-decoration-line: none;text-shadow: 2px 2px 5px blue}
+
+.kcc pre,.ftm pre {margin:5px 0}
+
 @media(min-width:899px){
 	#midleft{display:grid;grid-template-columns:50% 50%}
 }
@@ -66,6 +70,8 @@ All things related to the Guru network will be documented on a single page here.
 1.1.2        kucino.sol
 1.2        Games
 1.2.1        2-Player 0.0555 KCS Jackpot
+1.2.2        Multi-player instaLOTTO
+1.2.3        Multi-player 21-hour LOTTO
 1.3        Airdropper
 1.3.1        KucinoDistributor.sol
 2        ELITE : FTM.guru
@@ -91,50 +97,73 @@ All things related to the Guru network will be documented on a single page here.
 </div>
 <br><br>
 <div class="kcc">
-<div 1>
-	<h2>KUCINO : <a href="https://kcc.guru" target="_blank">KCC.guru</a></h2>
-	Kucino is the first Casino on the Kucoin Community Chain (Chain ID:321).
-	<div 1.1>
-		<h3>Token : KUCINO</h3>
-		<div 1.1.1>
-			<h4>Utils.sol</h4>
-			Smart Contract Address:
-			<pre>0x2239e3c4cc148548f74491c121329d78560d3ab5</pre>
-			<a href="https://explorer.kcc.io/address/0x2239e3c4cc148548f74491c121329d78560d3ab5" target="_blank">View on KCC Block Explorer</a>
-			<br>
-			<a href="https://testnet.bscscan.com/address/0x2239e3c4cc148548f74491c121329d78560d3ab5" target="_blank">View on BSC Block Explorer</a>
-		</div 1.1.1>
-		<div 1.1.2>
-			<h4>kucino.sol</h4>
-			Smart Contract Address:
-			<pre>0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7</pre>
-			<a href="https://explorer.kcc.io/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank">View on KCC Block Explorer</a>
-			<br>
-			<a href="https://testnet.bscscan.com/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank">View on BSC Block Explorer</a>
-		</div 1.1.2>
-	</div 1.1>
-	<div 1.2>
-		<h3>Games</h3>
-		<div id="1.2.1">
-			<h4>2-player x 0.0555 KCS Jackpot</h4>
-			Smart Contract Address:
-			<pre>0x9259bea99062b04bfc48c17dc15c01f1ea85dd84</pre>
-			<a href="https://explorer.kcc.io/address/0x9259bea99062b04bfc48c17dc15c01f1ea85dd84" target="_blank">View on KCC Block Explorer</a>
-		</div id="1.2.1">
-	</div 1.2>
-	<div 1.3>
-		<h3>Airdropper</h3>
-		<div id="1.2.1">
-			<h4>KucinoDistributor.sol</h4>
-			Smart Contract Address:
-			<pre>0xa8c7ff4939530c31587afa7dfe28e884efd9ba1f</pre>
-			<a href="https://explorer.kcc.io/address/0xa8c7ff4939530c31587afa7dfe28e884efd9ba1f" target="_blank">View on KCC Block Explorer</a>
-		</div id="1.2.1">
-	</div 1.3>
-</div 1>
-<br>
-<br>
+	<div 1>
+		<h2>KUCINO : <a href="https://kcc.guru" target="_blank">KCC.guru</a></h2>
+		Kucino is the first Casino on the Kucoin Community Chain (Chain ID:321).
+		<div 1.1>
+			<h3>Token : KUCINO</h3>
+			KUCINO token is a combination of multiple tokenomic inoovations, including auto-buybacks to add Liquidity, Auto-distribution of KUCINO dividends, Dsitribution of KCS rewards to all holders, Auto-buyback & burn on whale (disruptive) transfers, auto buy-back and burn on Dividend Claims greater than 2 KCS, auto-buyback and burn on Long-Term beneficiaries who have earned more than 100 KCS in dividends, auto transaction tax that pays for airdrops to supporting communities, buyback and burn from the KCS rewards accrued by the reserve token-timelock contract, and even more!
+			<div 1.1.1>
+				<h4>Utils.sol</h4>
+				<b>Smart Contract Address:</b>
+				<pre>0x2239e3c4cc148548f74491c121329d78560d3ab5</pre>
+				<a href="https://explorer.kcc.io/address/0x2239e3c4cc148548f74491c121329d78560d3ab5" target="_blank">View on KCC Block Explorer</a>
+				<br>
+				<a href="https://testnet.bscscan.com/address/0x2239e3c4cc148548f74491c121329d78560d3ab5" target="_blank">View on BSC Block Explorer</a>
+			</div 1.1.1>
+			<div 1.1.2>
+				<h4>kucino.sol</h4>
+				<b>Smart Contract Address:</b>
+				<pre>0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7</pre>
+				<a href="https://explorer.kcc.io/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank">View on KCC Block Explorer</a>
+				<br>
+				<a href="https://testnet.bscscan.com/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7" target="_blank">View on BSC Block Explorer</a>
+			</div 1.1.2>
+		</div 1.1>
+		<div 1.2>
+			<h3>Games</h3>
+			The Kucino Casino is host to multiple Decentralized On-Chain Gaming and Gambling Dapps.
+			<div id="1.2.1">
+				<h4>2-player x 0.0555 KCS Jackpot</h4>
+				<b>Smart Contract Address:</b>
+				<pre>0x9259bea99062b04bfc48c17dc15c01f1ea85dd84</pre>
+				<a href="https://explorer.kcc.io/address/0x9259bea99062b04bfc48c17dc15c01f1ea85dd84" target="_blank">View on KCC Block Explorer</a>
+				<br><br>
+				<b>Graphical User Interface</b><br>
+				<a href="https://kcc.guru/jackpot_1.html" target="_blank">kcc.guru/jackpot_1</a>
+			</div id="1.2.1">
+			<div id="1.2.2">
+				<h4>Multi-player instaLOTTO</h4>
+				<b>Smart Contract Address:</b>
+				<pre>0x19d0480022eaf3e4E25472efEA9eeba372c9F35f</pre>
+				<a href="https://explorer.kcc.io/address/0x19d0480022eaf3e4E25472efEA9eeba372c9F35f" target="_blank">View on KCC Block Explorer</a>
+				<br><br>
+				<b>Graphical User Interface</b><br>
+				<a href="https://kcc.guru/instalotto.html" target="_blank">kcc.guru/instalotto</a>
+			</div id="1.2.2">
+			<div id="1.2.3">
+				<h4>Multi-player 21-hour LOTTO</h4>
+				<b>Smart Contract Address:</b>
+				<pre>0xfc762a7ce7ab2512fb9c58a5aa4cdd977caf97ef</pre>
+				<a href="https://explorer.kcc.io/address/0xfc762a7ce7ab2512fb9c58a5aa4cdd977caf97ef" target="_blank">View on KCC Block Explorer</a>
+				<br><br>
+				<b>Graphical User Interface</b><br>
+				<a href="https://kcc.guru/21hrlotto.html" target="_blank">kcc.guru/21hrlotto</a>
+			</div id="1.2.3">
+		</div 1.2>
+		<div 1.3>
+			<h3>Airdropper</h3>
+			<div id="1.2.1">
+				<h4>KucinoDistributor.sol</h4>
+				<b>Smart Contract Address:</b>
+				<pre>0xa8c7ff4939530c31587afa7dfe28e884efd9ba1f</pre>
+				<a href="https://explorer.kcc.io/address/0xa8c7ff4939530c31587afa7dfe28e884efd9ba1f" target="_blank">View on KCC Block Explorer</a>
+			</div id="1.2.1">
+		</div 1.3>
+	</div 1>
 </div>
+<br>
+<br>
 <div class="ftm">
 <div 2>
 	<h2>ELITE : <a href="https://ftm.guru" target="_blank">FTM.guru</a></h2>
@@ -144,7 +173,7 @@ All things related to the Guru network will be documented on a single page here.
 		ELITE token is the Governance token of The GURU Network. (Chain ID:250).
 		<div 2.1.1>
 			<h4>ELITE.sol</h4>
-			Smart Contract Address:
+			<b>Smart Contract Address:</b>
 			<pre>0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
 			<a href="https://ftmscan.com/address/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882" target="_blank">View on FTM Block Explorer</a>
 		</div 2.1.1>
@@ -153,13 +182,13 @@ All things related to the Guru network will be documented on a single page here.
 		<h3>Games</h3>
 		<div id="2.2.1">
 			<h4>3-player x 0.1337 FTM Jackpot</h4>
-			Smart Contract Address:
+			<b>Smart Contract Address:</b>
 			<pre>0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124</pre>
 			<a href="https://explorer.kcc.io/address/0x9259bea99062b04bfc48c17dc15c01f1ea85dd84" target="_blank">View on FTM Block Explorer</a>
 		</div id="2.2.1">
 		<div id="2.2.2">
 			<h4>3-player x 1.337 FTM Jackpot</h4>
-			Smart Contract Address:
+			<b>Smart Contract Address:</b>
 			<pre>0x9A6eb015aebC6466d407d40D278894bc773bd009</pre>
 			<a href="https://ftmscan.com/address/0x9A6eb015aebC6466d407d40D278894bc773bd009" target="_blank">View on FTM Block Explorer</a>
 		</div id="2.2.2">
@@ -168,7 +197,7 @@ All things related to the Guru network will be documented on a single page here.
 		<h3>Elite-Gems Voting</h3>
 		<div id="1.2.1">
 			<h4>TopElite.sol</h4>
-			Smart Contract Address:
+			<b>Smart Contract Address:</b>
 			<pre>0x17B0dC3bc9DE37B5137e1B0087B2EA2cfB16f0Dc</pre>
 			<a href="https://ftmscan.com/address/0x17B0dC3bc9DE37B5137e1B0087B2EA2cfB16f0Dc" target="_blank">View on FTM Block Explorer</a>
 		</div id="2.2.1">
@@ -177,7 +206,7 @@ All things related to the Guru network will be documented on a single page here.
 		<h3>Chefs398</h3>
 		<div id="1.2.1">
 			<h4>Extensible Token Locker</h4>
-			Smart Contract Address:
+			<b>Smart Contract Address:</b>
 			<pre>0x74bfb7e94bef5767f5f6ace2d0df73a224adb689</pre>
 			<a href="https://ftmscan.com/address/0x74bfb7e94bef5767f5f6ace2d0df73a224adb689" target="_blank">View on FTM Block Explorer</a>
 		</div id="2.2.1">
@@ -209,7 +238,7 @@ All things related to the Guru network will be documented on a single page here.
 	<div align="left" class="lowercat">
 		<span>Farming</span><br>
 		<a href="https://ftm.guru/yieldstate.html">YieldState</a><br>
-		<a href="LF">LITE Farmlands👽</a><br>
+		<a href="https://ftm.guru/LF">LITE Farmlands👽</a><br>
 		<a href="https://vfat.tools/fantom/guru">vfat.tools</a>
 	</div>
 	<div align="left" class="lowercat">
@@ -220,28 +249,28 @@ All things related to the Guru network will be documented on a single page here.
 	</div>
 	<div class="lowercat">
 		<span>Casino & Games</span><br>
-		<a href="jackpot_1.html">2-player Jackpot</a><br>
-		<a href="instalotto.html">instaLOTTO</a><br>
-		<a href="21hrlotto.html">21-hour LOTTO</a>
+		<a href="https://kcc.guru/jackpot_1.html">2-player Jackpot</a><br>
+		<a href="https://kcc.guru/instalotto.html">instaLOTTO</a><br>
+		<a href="https://kcc.guru/21hrlotto.html">21-hour LOTTO</a>
 	</div>
 	<div class="lowercat">
 		<span>Dashboard</span><br>
-		<a href="claimkcs.html">Claim KCS Earnings</a><br>
-		<a href="markets.html">Market Statistics</a><br>
-		<a href="balancesheet.html">Balance Sheet</a><br>
-		<a href="claimkcs.html">$KUCINO Specs</a>
+		<a href="https://kcc.guru/claimkcs.html">Claim KCS Earnings</a><br>
+		<a href="https://kcc.guru/markets.html">Market Statistics</a><br>
+		<a href="https://kcc.guru/balancesheet.html">Balance Sheet</a><br>
+		<a href="https://kcc.guru/claimkcs.html">$KUCINO Specs</a>
 	</div>
 	<div align="left" class="lowercat">
 		<span>Chain Tools</span><br>
 		<a href="https://ftm.guru/pair.html">DEX-Explorer</a><br>
 		<a href="https://ftm.guru/fantomscan.html">FantomScan</a><br>
-		<a target="_blank" href="kscan">kscan</a><br>
+		<a href="https://kcc.guru/kscan" target="_blank">kscan</a><br>
 		<a href="https://ftm.guru/apelist.html">Ape-List</a><br>
 	</div>
 	<div align="left" class="lowercat">
 		<span>Opera Utilities</span><br>
 		<a href="https://ftm.guru/elite.html">ELITE Analytics</a><br>
-		<a target="_blank" href="https://t.me/FTM1337/12497">GambleBot (Tg)</a><br>
+		<a href="https://t.me/FTM1337/12497" target="_blank">GambleBot (Tg)</a><br>
 		<a href="https://ftm.guru/index.html">Elite-Gems Voting</a>
 	</div>
 	<div class="lowercat">
@@ -252,7 +281,7 @@ All things related to the Guru network will be documented on a single page here.
 	</div>
 	<div class="lowercat">
 		<span>$KUCINO</span><br>
-		<a target="_blank" href="tokenomics">Tokenomics🎰</a><br>
+		<a target="_blank" href="https://kcc.guru/tokenomics">Tokenomics🎰</a><br>
 		<a target="_blank" href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">Trade at Kudex</a><br>
 		<a target="_blank" href="https://explorer.kcc.io/token/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">KCC Explorer</a><br>
 		<a target="_blank" href="https://t.me/kccguru">Chart at Poocoin</a><br>
