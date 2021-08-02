@@ -93,14 +93,13 @@ input{background: #000 !important;}
 Stake to earn passive rewards!<br>
 <button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br><br>
 <div id="fdet"  style="">
-<span>Staking:</span><span></span><span>NIPS/FTM LP</span>
-<span>Rewards:</span><span></span><span>NIPS LP</span>
+<span>Stakes:</span><span></span><span>NIPS/FTM LP</span>
 <span>Platform:</span><span></span><span>Zoo DEX</span>
 <span>Eliteness:</span><span></span><span>0.001337 ELITE</span>
 <span>Fees:</span><span></span><span>1%</span>
 </div>
-<br>
-</div>
+<br><br>
+</div><br><br>
 
 <div class="mainstages" align="center">
 	<div></div><!--
@@ -404,7 +403,11 @@ Stake to earn passive rewards!<br>
 <h3>Net Total Yield</h3>
 <span class="lpapr" id="stats_apr_nt">? %</span>
 <br><br>
-<div style="display:none"><!--excess-->
+
+
+<span  style="display:none">
+
+
 <h4>Liquidity Mining</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
 	<span></span><span>24 hrs:</span><span></span><span id="stats_lm_d">?</span><span></span>
@@ -416,14 +419,19 @@ Stake to earn passive rewards!<br>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
 	<span></span><span>1 Year:</span><span></span><span id="stats_nt_y"></span><span></span>
 	-->
-</div><!--excess-->
+
+
+	</span>
+
+
 </div>
 </div>
 <h4>Yield Farming</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
-	<span></span><span>APY:</span><span></span><span id="stats_ap_y">?</span><span></span>
-	<span></span><span>Weekly:</span><span></span><span id="stats_ap_w">?</span><span></span>
+	<span></span><span>APR:</span><span></span><span id="stats_apr">?</span><span></span>
 	<span></span><span>Daily:</span><span></span><span id="stats_ap_d">?</span><span></span>
+	<span></span><span>Weekly:</span><span></span><span id="stats_ap_w">?</span><span></span>
+	<span></span><span>Yearly:</span><span></span><span id="stats_ap_y">?</span><span></span>
 </div>
 <div style="display:none">
 <h4>Market Data</h4>
@@ -446,38 +454,9 @@ Stake to earn passive rewards!<br>
 <a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
 <a href="https://t.me/Sam4x" target="_blank">To Advertise Here, Contact @Sam4x✈</a>
 </div>
-
-<br>
-<br>
-
-<div id="lowarea" style="padding:15px; font-size:0.9em">
-Did you just launch a Token Pair on your favorite DEX and are looking to set up a farm for free? Head over to our telegram and type /newFarm to begin the adventure!</div>
-<div id="disclaimer" style="padding:15px; font-size:0.8em">
-Anyone can request a farm for free. FTM.guru merely provides a platform to host your farm under its Farm-Maker program. Listings are in no manner an endorsement. We do not run background checks and the onus of due dilligence lies on the end-user, you. 99.7% of all projects are scams, rugs, slow-rugs, honeypots or outright lies. Please exercise extreme caution while dealing with smart contracts and crypto assets. We do not take any listing fees for this program and never DM you for personal information or keys.
-</div>
-<br>
-<br>
 <hr>
-<div  class="topbar">
-	<div align="center">
-			<a href="index.html"><b style="font-size:2.5em">FTM.guru</b></a><br><br><!--
-			<a href="farmlands.html">LITE Farmlands👽</a>
-			<a href="index.html">FTM-Gems</a>
-			<a href="pair.html">DEX-Explorer</a>
-			<a href="fantomscan.html">FantomScan</a>
-			<a href="elite.html">ELITE</a>
-			<a href="fmc" target="_blank">FantomMarketCap</a>
-			<a href="yieldstate.html">YieldState</a>
-			<a href="vfat.tools/fantom/guru">vfat</a>
-			<a href="airdrop.html">Airdrop-Tool</a>
-			<a href="apelist.html">Ape-List</a>
-			<a href="approver.html">Approver</a>
-			<a href="degam.html">CASINO✨</a>-->
-	<h3><a href="https://t.me/FTM1337">✈t.me/FTM1337<br>Come, Join us!</a></h3>
-	<i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
-	</div>
-</div>
-<br><br>
+<br>
+<br>
 <div class="lowerbar" align="center">
 	<div align="left" class="lowercat">
 		<span>Ecosystem</span><br>
@@ -488,7 +467,7 @@ Anyone can request a farm for free. FTM.guru merely provides a platform to host 
 	<div align="left" class="lowercat">
 		<span>Farming</span><br>
 		<a href="https://ftm.guru/yieldstate.html">YieldState</a><br>
-		<a href="LF">LITE Farmlands👽</a><br>
+		<a href="https://ftm.guru/LF">LITE Farmlands👽</a><br>
 		<a href="https://vfat.tools/fantom/guru">vfat.tools</a>
 	</div>
 	<div align="left" class="lowercat">
@@ -499,28 +478,28 @@ Anyone can request a farm for free. FTM.guru merely provides a platform to host 
 	</div>
 	<div class="lowercat">
 		<span>Casino & Games</span><br>
-		<a href="jackpot_1.html">2-player Jackpot</a><br>
-		<a href="instalotto.html">instaLOTTO</a><br>
-		<a href="21hrlotto.html">21-hour LOTTO</a>
+		<a href="https://kcc.guru/jackpot_1.html">2-player Jackpot</a><br>
+		<a href="https://kcc.guru/instalotto.html">instaLOTTO</a><br>
+		<a href="https://kcc.guru/21hrlotto.html">21-hour LOTTO</a>
 	</div>
 	<div class="lowercat">
 		<span>Dashboard</span><br>
-		<a href="claimkcs.html">Claim KCS Earnings</a><br>
-		<a href="markets.html">Market Statistics</a><br>
-		<a href="balancesheet.html">Balance Sheet</a><br>
-		<a href="claimkcs.html">$KUCINO Specs</a>
+		<a href="https://kcc.guru/claimkcs.html">Claim KCS Earnings</a><br>
+		<a href="https://kcc.guru/markets.html">Market Statistics</a><br>
+		<a href="https://kcc.guru/balancesheet.html">Balance Sheet</a><br>
+		<a href="https://kcc.guru/claimkcs.html">$KUCINO Specs</a>
 	</div>
 	<div align="left" class="lowercat">
 		<span>Chain Tools</span><br>
 		<a href="https://ftm.guru/pair.html">DEX-Explorer</a><br>
 		<a href="https://ftm.guru/fantomscan.html">FantomScan</a><br>
-		<a target="_blank" href="kscan">kscan</a><br>
+		<a href="https://kcc.guru/kscan" target="_blank">kscan</a><br>
 		<a href="https://ftm.guru/apelist.html">Ape-List</a><br>
 	</div>
 	<div align="left" class="lowercat">
 		<span>Opera Utilities</span><br>
 		<a href="https://ftm.guru/elite.html">ELITE Analytics</a><br>
-		<a target="_blank" href="https://t.me/FTM1337/12497">GambleBot (Tg)</a><br>
+		<a href="https://t.me/FTM1337/12497" target="_blank">GambleBot (Tg)</a><br>
 		<a href="https://ftm.guru/index.html">Elite-Gems Voting</a>
 	</div>
 	<div class="lowercat">
@@ -531,7 +510,7 @@ Anyone can request a farm for free. FTM.guru merely provides a platform to host 
 	</div>
 	<div class="lowercat">
 		<span>$KUCINO</span><br>
-		<a target="_blank" href="tokenomics">Tokenomics🎰</a><br>
+		<a target="_blank" href="https://kcc.guru/tokenomics">Tokenomics🎰</a><br>
 		<a target="_blank" href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">Trade at Kudex</a><br>
 		<a target="_blank" href="https://explorer.kcc.io/token/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">KCC Explorer</a><br>
 		<a target="_blank" href="https://t.me/kccguru">Chart at Poocoin</a><br>
@@ -572,9 +551,8 @@ function $(_) {return document.getElementById(_);}
 window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-	else{web3 = new Web3("https://rpc.ftm.tools");
-	//lpapr_sus_d();
-	DrefreshFarm()}
+	else{web3 = new Web3("https://rpc.ftm.tools");//lpapr_sus_d()
+	;DrefreshFarm()}
 }, false);
 function fornum(n,d)
 {
@@ -827,9 +805,8 @@ function fornum(n,d)
 }
 function arf(){	var xfr = setInterval(function()
 	{
-		console.log("refreshing farm stats", Date.now());
-		//lpapr_sus_d();
-		refreshFarm()
+		console.log("refreshing farm stats", Date.now());//lpapr_sus_d()
+		;refreshFarm()
 	}, 15000);}
 
 abbrove=[
@@ -1378,6 +1355,7 @@ async function DrefreshFarm()
 		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
 		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
 		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		console.log(res);
 		pt=res[0]/res[1];
 		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
@@ -1385,7 +1363,7 @@ async function DrefreshFarm()
 		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr.toLocaleString()+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
+		$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
 		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
@@ -1398,7 +1376,7 @@ async function DrefreshFarm()
 function lpapr_sus_d()
 {
 	hi=Date.now();hi=(hi-hi%36e5)/36e5;
-	pi="0xdEAD5ee1d489b8f0d3815E4d26554fE1aeF01281"
+	pi="0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0"
 	Q_pn_c=`{
 `
 	for(ih=0;ih< 24;ih++)
@@ -1412,7 +1390,7 @@ fragment c on PairHourData {
   reserveUSD
 }`
 	gr1=new XMLHttpRequest();
-	gr1.open("POST","https://api.thegraph.com/subgraphs/name/ruvlol/graph-n",true);
+	gr1.open("POST","https://api.thegraph.com/subgraphs/name/sushiswap/fantom-exchange",true);
 	gr1.onload=function()
 	{
 		aap=0;
@@ -1429,7 +1407,7 @@ fragment c on PairHourData {
 		aapd=(aap*365e2)
 		$("stats_lm_d").innerHTML=(aapd).toLocaleString()+"%";
 		$("stats_md_vd").innerHTML=(dv).toLocaleString()+" USD";
-		hv=d[Object.keys(d)[0]]==null?1:(Number(d[Object.keys(d)[0]].volumeUSD)).toLocaleString();
+		hv=d[Object.keys(d)[0]]==null?1:(d[Object.keys(d)[0]].volumeUSD).toLocaleString();
 		$("stats_md_vh").innerHTML=hv+" USD";
 	}
 	gr1.send(JSON.stringify({query:Q_pn_c}))
@@ -1437,3 +1415,5 @@ fragment c on PairHourData {
 */
 aapd=0;
 aapw=0;
+</script>
+</html>
