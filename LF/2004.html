@@ -1375,8 +1375,8 @@ async function refreshFarm()
 
 
 
-		pps=new web3.eth.Contract(ab1,ppas);
-		ppr=new web3.eth.Contract(ab1,ppar);
+		ppas=new web3.eth.Contract(ab1,ppas);
+		ppar=new web3.eth.Contract(ab1,ppar);
 		const ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
 		const resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
 		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
