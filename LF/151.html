@@ -1364,7 +1364,6 @@ async function refreshFarm()
 		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
 		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
@@ -1393,7 +1392,6 @@ async function DrefreshFarm()
 		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr.toLocaleString()+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
 		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
