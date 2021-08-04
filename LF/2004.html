@@ -342,7 +342,7 @@ Stake to earn passive rewards!<br>
 	</div>-->
 	<div class="mainstage" style="" align="center">
 		<div class="">
-		<h3>NOVA/WFTM LP</h3>
+		<h3>NOVA Staking Pool</h3>
 		<img src="../img/nova.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
 		<!--<img src="../img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">-->
 		<img src="../img/nova.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br><br>
@@ -890,8 +890,8 @@ abbrove=[
 
 f_1_add = "0x345551265a8938472991d60a048cae3625e0cd6d";
 pairadd = "0xA1Ac4AB0E58Bb6CfDFf5797c83cDBE7cB651f7e5";
-ppas    = "0xe493CE1AfDCf079d0b40FF9503D7AB5f1f125477";
-ppar    = "0x623765857b74da6f5a52a362d228de7f7859224f";
+pas    = "0xe493CE1AfDCf079d0b40FF9503D7AB5f1f125477";
+par    = "0x623765857b74da6f5a52a362d228de7f7859224f";
 
 
 farabi=[
@@ -1375,8 +1375,8 @@ async function refreshFarm()
 
 
 
-		ppas=new web3.eth.Contract(ab1,ppas);
-		ppar=new web3.eth.Contract(ab1,ppar);
+		ppas=new web3.eth.Contract(ab1,pas);
+		ppar=new web3.eth.Contract(ab1,par);
 		const ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
 		const resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
 		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
@@ -1422,8 +1422,8 @@ async function DrefreshFarm()
 		*/
 
 
-		ppas=new web3.eth.Contract(ab1,ppas);
-		ppar=new web3.eth.Contract(ab1,ppar);
+		ppas=new web3.eth.Contract(ab1,pas);
+		ppar=new web3.eth.Contract(ab1,par);
 		const ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
 		const resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
 		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
