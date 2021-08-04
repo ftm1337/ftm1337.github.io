@@ -1350,7 +1350,8 @@ async function refreshFarm()
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
-		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
+		const _tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
+		tv = Number(_tv)/1e9;
 
 
 		/*
@@ -1377,13 +1378,16 @@ async function refreshFarm()
 
 		ppas=new web3.eth.Contract(ab1,pas);
 		ppar=new web3.eth.Contract(ab1,par);
-		const ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
-		const resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
-		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		const _ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
+		const _resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
+		const _rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		ress=[_ress[0]/1e18,_ress[1]/1e9];
+		resr=[_resr[0]/1e18,_resr[1]/1e9];
+		rera=Number(_rera)/1e9;
 		pts = Number(ress[0])/Number(ress[1]);
 		ptr = Number(resr[0])/Number(resr[1]);
-		stvl = Number(tv)/1e9*Number(pts);
-		sapr =(Number(rera)*ptr/1e9)/(pts*Number(tv)/1e9)*86400*365*100;
+		stvl = tv*pts;
+		sapr =(rera*ptr)/(tv*pts)*86400*365*100;
 		$("farm_3_i_apr").innerHTML=sapr.toLocaleString()+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(stvl,0)+" FTM";
 		$("stats_ap_d").innerHTML=(sapr/365).toLocaleString()+"%";
@@ -1401,7 +1405,8 @@ async function DrefreshFarm()
 		theCon = new web3.eth.Contract(farabi, f_1_add);
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
-		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
+		const _tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
+		tv = Number(_tv)/1e9;
 
 		/*
 		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
@@ -1424,13 +1429,16 @@ async function DrefreshFarm()
 
 		ppas=new web3.eth.Contract(ab1,pas);
 		ppar=new web3.eth.Contract(ab1,par);
-		const ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
-		const resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
-		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		const _ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
+		const _resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
+		const _rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		ress=[_ress[0]/1e18,_ress[1]/1e9];
+		resr=[_resr[0]/1e18,_resr[1]/1e9];
+		rera=Number(_rera)/1e9;
 		pts = Number(ress[0])/Number(ress[1]);
 		ptr = Number(resr[0])/Number(resr[1]);
-		stvl = Number(tv)/1e9*Number(pts);
-		sapr =(Number(rera)*ptr/1e9)/(pts*Number(tv)/1e9)*86400*365*100;
+		stvl = tv*pts;
+		sapr =(rera*ptr)/(tv*pts)*86400*365*100;
 		$("farm_3_i_apr").innerHTML=sapr.toLocaleString()+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(stvl,0)+" FTM";
 		$("stats_ap_d").innerHTML=(sapr/365).toLocaleString()+"%";
