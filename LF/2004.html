@@ -1294,7 +1294,7 @@ function farm_1_f_deposit()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		theCon.methods.stake(String(Number($("farm_1_input_deposit").value)*1e18)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.stake(String(Number($("farm_1_input_deposit").value)*1e9)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e)}
 }
@@ -1316,7 +1316,7 @@ function farm_1_f_withdraw()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		theCon.methods.withdraw(String(Number($("farm_1_input_withdraw").value)*1e18)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.withdraw(String(Number($("farm_1_input_withdraw").value)*1e9)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e)}
 }
@@ -1344,12 +1344,12 @@ async function refreshFarm()
 		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e9);
 		$("farm_3_i_re").innerHTML=(Number(r)/1e9);});
 		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
-		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
-		$("farm_3_i_ys").innerHTML=(Number(r)/1e18);
-		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)});
+		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e9;
+		$("farm_3_i_ys").innerHTML=(Number(r)/1e9);
+		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e9)});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
-		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
+		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e9});
 		const _tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 		tv = Number(_tv)/1e9;
 
