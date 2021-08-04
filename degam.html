@@ -346,7 +346,7 @@ function $(_) {return document.getElementById(_);}
 function lb()
 {
 	r = new XMLHttpRequest()
-	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x9A6eb015aebC6466d407d40D278894bc773bd009&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0&apikey=0x5cc61a78f164885776aa610fb0fe1257df78e59b",true);
+	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x9A6eb015aebC6466d407d40D278894bc773bd009&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0&apikey=HSEE9CUXFRVS1IS4MA62U3T8J6TH9ET5RP",true);
 	r.onload=function(){paintlb(JSON.parse(this.response).result)}
 	r.send();
 }
@@ -375,7 +375,7 @@ function paintlb(d)
 function lb02()
 {
 	r = new XMLHttpRequest()
-	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0&apikey=0x5cc61a78f164885776aa610fb0fe1257df78e59b",true);
+	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0&apikey=HSEE9CUXFRVS1IS4MA62U3T8J6TH9ET5RP",true);
 	r.onload=function(){paintlb02(JSON.parse(this.response).result)}
 	r.send();
 }
