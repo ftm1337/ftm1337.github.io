@@ -222,22 +222,22 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 	</div>
 	<div class="lowercat">
 		<span>Casino & Games</span><br>
-		<a href="https://kcs.guru/jackpot_1.html">2-player Jackpot</a><br>
-		<a href="https://kcs.guru/instalotto.html">instaLOTTO</a><br>
-		<a href="https://kcs.guru/21hrlotto.html">21-hour LOTTO</a>
+		<a href="https://kcc.guru/jackpot_1.html">2-player Jackpot</a><br>
+		<a href="https://kcc.guru/instalotto.html">instaLOTTO</a><br>
+		<a href="https://kcc.guru/21hrlotto.html">21-hour LOTTO</a>
 	</div>
 	<div class="lowercat">
 		<span>Dashboard</span><br>
-		<a href="https://kcs.guru/claimkcs.html">Claim KCS Earnings</a><br>
-		<a href="https://kcs.guru/markets.html">Market Statistics</a><br>
-		<a href="https://kcs.guru/balancesheet.html">Balance Sheet</a><br>
-		<a href="https://kcs.guru/claimkcs.html">$KUCINO Specs</a>
+		<a href="https://kcc.guru/claimkcs.html">Claim KCS Earnings</a><br>
+		<a href="https://kcc.guru/markets.html">Market Statistics</a><br>
+		<a href="https://kcc.guru/balancesheet.html">Balance Sheet</a><br>
+		<a href="https://kcc.guru/claimkcs.html">$KUCINO Specs</a>
 	</div>
 	<div align="left" class="lowercat">
 		<span>Chain Tools</span><br>
 		<a href="https://ftm.guru/pair.html">DEX-Explorer</a><br>
 		<a href="https://ftm.guru/fantomscan.html">FantomScan</a><br>
-		<a href="https://kcs.guru/kscan" target="_blank">kscan</a><br>
+		<a href="https://kcc.guru/kscan" target="_blank">kscan</a><br>
 		<a href="https://ftm.guru/apelist.html">Ape-List</a><br>
 	</div>
 	<div align="left" class="lowercat">
@@ -254,7 +254,7 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 	</div>
 	<div class="lowercat">
 		<span>$KUCINO</span><br>
-		<a target="_blank" href="https://kcs.guru/tokenomics">Tokenomics🎰</a><br>
+		<a target="_blank" href="https://kcc.guru/tokenomics">Tokenomics🎰</a><br>
 		<a target="_blank" href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">Trade at Kudex</a><br>
 		<a target="_blank" href="https://explorer.kcc.io/token/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">KCC Explorer</a><br>
 		<a target="_blank" href="https://t.me/kccguru">Chart at Poocoin</a><br>
@@ -346,7 +346,7 @@ function $(_) {return document.getElementById(_);}
 function lb()
 {
 	r = new XMLHttpRequest()
-	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x9A6eb015aebC6466d407d40D278894bc773bd009&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0",true);
+	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x9A6eb015aebC6466d407d40D278894bc773bd009&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0&apikey=0x5cc61a78f164885776aa610fb0fe1257df78e59b",true);
 	r.onload=function(){paintlb(JSON.parse(this.response).result)}
 	r.send();
 }
@@ -375,7 +375,7 @@ function paintlb(d)
 function lb02()
 {
 	r = new XMLHttpRequest()
-	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0",true);
+	r.open("GET", "https://api.ftmscan.com/api?module=logs&action=getLogs&fromBlock=10079224&toBlock=latest&address=0x21eE31ea0e5B4628aC3c1b2Ec6602aeB60d8D124&topic0=0x745c90b656b4aafe296c8ca35aeacfe56cb96c90e1d320e5da643fff1051b6c0&apikey=0x5cc61a78f164885776aa610fb0fe1257df78e59b",true);
 	r.onload=function(){paintlb02(JSON.parse(this.response).result)}
 	r.send();
 }
