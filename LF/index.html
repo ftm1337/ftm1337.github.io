@@ -15,7 +15,7 @@ html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2
 #midright{overflow-x: auto;margin:0 5%}
 table td{padding: 10px}
 span{font-weight:bolder;}
-tbody tr:hover{cursor:  alias;background: rgba(0,255,255,0.25)}
+tbody tr:hover{cursor:  zoom-in;background: rgba(0,255,255,0.25)}
 td:nth-child(3),th:nth-child(3),
 td:nth-child(5),th:nth-child(5),
 td:nth-child(8),th:nth-child(8)
@@ -32,7 +32,7 @@ input,button{border-radius:25px;background:black;text-align:center;}
 .lowerbar{display: grid;grid-template-columns: auto;text-align:center}
 #midrighttab{display: grid;grid-template-columns: auto auto auto}
 thead{line-height: }
-#maintable tbody tr:nth-child(2) {cursor: not-allowed}
+.de td,.de{color: gray;cursor: not-allowed;font-weight: lighter}
 @media(min-width:899px){
 	#midleft{display:grid;grid-template-columns:50% 50%}
 }
@@ -106,7 +106,7 @@ thead{line-height: }
 				<th onclick="sortit(0)">ID⇅</th>
 				<th>Links</th>
 				</tr>
-				<tr><td colspan="9">🧑‍🌾 = Printing , 🏜️ = Deserted , 🔒 = Locker.</td></tr>
+				<tr><td colspan="9">🧑‍🌾 = Printing , 🏜️ = <span class="de">Deserted</span> , 🔒 = Locker.</td></tr>
 			</thead>
 			<tbody>
 				<tr class="sca farming yields natives tools" id="LF_0" onclick="window.location='../yieldstate'">
@@ -122,7 +122,7 @@ thead{line-height: }
 					<td>★</td>
 					<td>ftm.guru</td>
 				</tr>
-				<tr class="sca farming yields natives tools" id="LF_0" onclick="">
+				<tr class="de sca farming yields natives tools" id="LF_0" onclick="">
 					<td>ELITE:FTM</td>
 					<td>USDC</td>
 					<td>?.????%</td>
@@ -187,7 +187,7 @@ thead{line-height: }
 					<td>2004</td>
 					<td><span><a href="https://supernovaftm.site.xyz" target="_blank">🌐</a><a href="https://discord.com/invite/ekyU57Gq" target="_blank">🎮</a></span></td>
 				</tr>
-				<tr class="sca farming natives" id="LF_2002" onclick="window.location='151'">
+				<tr class="de sca farming natives" id="LF_2002" onclick="window.location='151'">
 					<td>BABYSPIRIT:FTM</td>
 					<td>SPIRIT</td>
 					<td>?.????%</td>
@@ -198,6 +198,19 @@ thead{line-height: }
 					<td>?M?D?h?m?s</td>
 					<td>🏜️</td>
 					<td>151</td>
+					<td><span><a href="https://babyspirit.site" target="_blank">🌐</a><a href="https://t.me/babyspirit" target="_blank">✈</a></span></td>
+				</tr>
+				<tr class="sca farming natives" id="LF_2002" onclick="window.location='152'">
+					<td>BABYSPIRIT:FTM</td>
+					<td>BABYSPIRIT</td>
+					<td>?.????%</td>
+					<td>SpiritSwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🏜️</td>
+					<td>152</td>
 					<td><span><a href="https://babyspirit.site" target="_blank">🌐</a><a href="https://t.me/babyspirit" target="_blank">✈</a></span></td>
 				</tr>
 				<!--
