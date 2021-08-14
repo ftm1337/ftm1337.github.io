@@ -374,7 +374,7 @@ async function setok()
 async function corec()
 {
 	inp=$("people").value;
-	if(inp.indexOf(" ")||inp.indexOf("\n")||inp.indexOf('"')){$("corec_m").innerHTML="Malformed list of addresses, please check again. Use only commas to separate the addresses. Example: 0xabcd,0x12ff,0xba13";return(0)}
+	if((inp.indexOf(" ")||inp.indexOf("\n")||inp.indexOf('"'))>-1){$("corec_m").innerHTML="Malformed list of addresses, please check again. Use only commas to separate the addresses. Example: 0xabcd,0x12ff,0xba13";return(0)}
 	ai=inp.split(",");
 	if(ai.length>150){$("corec_m").innerHTML="More addresses input than allowed! Please reduce some. 150 is the max. limit.";return(0)}
 	for(i=0;i< ai.length;i++)
