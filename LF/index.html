@@ -94,16 +94,16 @@ thead{line-height: }
 			<table id="maintable" class="centerstage" align="center">
 			<thead>
 				<tr>
-				<th onclick="sortit(1)">Deposit⇅</th>
-				<th onclick="sortit(2)">Reward⇅</th>
-				<th onclick="sortit(3)">A.P.Y. %⇅</th>
-				<th onclick="sortit(4)">Platform⇅</th>
-				<th onclick="sortit(5)">T.V.L. FTM⇅</th>
-				<th onclick="sortit(6)">Fees⇅</th>
-				<th onclick="sortit(7)">Eliteness⇅</th>
-				<th onclick="sortit(8)">Countdown⇅</th>
-				<th onclick="sortit(9)">🤔⇅</th>
-				<th onclick="sortit(0)"Plot⇅</th>
+				<th onclick="sortit(0)">Deposit⇅</th>
+				<th onclick="sortit(1)">Reward⇅</th>
+				<th onclick="sortit(2)">A.P.Y. %⇅</th>
+				<th onclick="sortit(3)">Platform⇅</th>
+				<th onclick="sortit(4)">T.V.L. FTM⇅</th>
+				<th onclick="sortit(5)">Fees⇅</th>
+				<th onclick="sortit(6)">Eliteness⇅</th>
+				<th onclick="sortit(7)">Countdown⇅</th>
+				<th onclick="sortit(8)">🤔⇅</th>
+				<th onclick="sortit(9)">Plot⇅</th>
 				<th>Links</th>
 				</tr>
 				<tr><td colspan="9">🧑‍🌾 = Printing , 🏜️ = <span class="de">Deserted</span> , 🔒 = Locker.</td></tr>
@@ -196,7 +196,7 @@ thead{line-height: }
 					<td>2%</td>
 					<td>0.001337</td>
 					<td>?M?D?h?m?s</td>
-					<td>🧑‍🌾</td>
+					<td>🏜️</td>
 					<td>151</td>
 					<td><span><a href="https://babyspirit.site" target="_blank">🌐</a><a href="https://t.me/babyspirit" target="_blank">✈</a><a href="https://discord.com/invite/2EKm6EmU" target="_blank">🎮</a></span></td>
 				</tr>
@@ -209,7 +209,7 @@ thead{line-height: }
 					<td>2%</td>
 					<td>0.001337</td>
 					<td>?M?D?h?m?s</td>
-					<td>🏜️</td>
+					<td>🧑‍🌾</td>
 					<td>152</td>
 					<td><span><a href="https://babyspirit.site" target="_blank">🌐</a><a href="https://t.me/babyspirit" target="_blank">✈</a><a href="https://discord.com/invite/2EKm6EmU" target="_blank">🎮</a></span></td>
 				</tr>
@@ -380,4 +380,48 @@ Anyone can request a farm for free. FTM.guru merely provides a platform to host 
 	<div class="lowercat">
 	</div>
 </div>
+
+
+<script>
+function sortit(n) {
+  var t, r, z, i, x, y, v, b, c = 0;
+  t = document.getElementById("maintable").getElementsByTagName("tbody")[0];
+  z = true;
+  b = "a";
+  while (z) {
+    z = false;
+    r = t.rows;
+    for (i = 0; i < (r.length - 1); i++) {
+      v = false;
+      x = (r[i].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
+      y = (r[i + 1].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(y)){y=Number(y)}else{y=y.toLowerCase()}
+      if (b == "a") {
+        if ((x) > (y)) {
+          v= true;
+          break;
+        }
+      } else if (b == "d") {
+        if ((x) < (y)) {
+          v = true;
+          break;
+        }
+      }
+    }
+    if (v) {
+      r[i].parentNode.insertBefore(r[i + 1], r[i]);
+      z = true;
+      c ++;
+    } else {
+      if (c == 0 && b == "a") {
+        b = "d";
+        z = true;
+      }
+    }
+  }
+    var t, r, z, i, x, y, v, b, c = 0;
+}
+
+</script>
 </html>
