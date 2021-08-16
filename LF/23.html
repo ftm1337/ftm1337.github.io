@@ -394,7 +394,7 @@ Stake to earn passive rewards!<br>
 <pre>Get $DEATH
 0xeaF45B62d9d0Bdc1D763baF306af5eDD7C0d7e55</pre>
 <a href="https://ftmscan.com/token/0xeaF45B62d9d0Bdc1D763baF306af5eDD7C0d7e55" target="_blank"><button>ftmScan</button></a>
-<a href="https://swap.spookyswap.finance/#/swap?outputCurrency=0xeaF45B62d9d0Bdc1D763baF306af5eDD7C0d7e55" target="_blank"><button>Spooky</button></a><br><br>
+<a href="https://spookyswap.finance/swap?inputCurrency=FTM&outputCurrency=0xeaf45b62d9d0bdc1d763baf306af5edd7c0d7e55" target="_blank"><button>Spooky</button></a><br><br>
 </div>
 <br>
 <br>
@@ -1294,7 +1294,7 @@ function farm_1_f_deposit()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		theCon.methods.stake((new web3.utils.BN($("farm_1_input_deposit").value)).mul(new web3.utils.BN("1000000000000000000"))).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.stake(String(Number($("farm_1_input_deposit").value)*1e18)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e)}
 }
@@ -1316,7 +1316,7 @@ function farm_1_f_withdraw()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		theCon.methods.withdraw((new web3.utils.BN($("farm_1_input_withdraw").value)).mul(new web3.utils.BN("1000000000000000000"))).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.withdraw(String(Number($("farm_1_input_withdraw").value)*1e18)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e)}
 }
