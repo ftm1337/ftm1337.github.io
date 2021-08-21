@@ -315,7 +315,7 @@ async function hard()
 		})
 		.then((o)=>
 		{
-			console.log(o);
+			typeof o.logs=="undefined"?alert("Wager has been made!\nWait other players to join table."):alert("🎉 0x"+o.logs[0].substring(26)+" won the 4 FTM Jackpot! 🥳")
 		})
 	}
 	catch(e){console.log(e)}
@@ -334,7 +334,7 @@ async function hard02()
 		})
 		.then((o)=>
 		{
-			console.log(o);
+			typeof o.logs=="undefined"?alert("Wager has been made!\nWait other players to join table."):alert("🎉 0x"+o.logs[0].substring(26)+" won the .4 FTM Jackpot! 🥳")
 		})
 	}
 	catch(e){console.log(e)}
