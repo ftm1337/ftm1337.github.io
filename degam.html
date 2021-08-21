@@ -138,6 +138,7 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 </div>
 <div class="mainstage" align="center">
 <h2>LEADERBOARD</h2>
+<span id="loading"></span><br><br>
 <div  style="overflow-x:auto">
 <h3>4 FTM Mini-Jackpot</h3>
 <table class="mainstage">
@@ -400,11 +401,12 @@ function paintlb02(d)
 		R.append(T);
 		B.append(R);
 	}
+	$("loading").innerHTML="";
+
 }
 function arf(){	var xfr = setInterval(function()
 	{
-		$("winners").innerHTML="<tr><td>RELOADING...</td></tr>";
-		$("winners02").innerHTML="<tr><td>RELOADING...</td></tr>";
+		$("loading").innerHTML="<tr><td>RELOADING...</td></tr>";
 		lb();lb02();//seats();seats02();
 		if(window.ethereum&&window.ethereum.selectedAddress!=null)
 			{web3.eth.getBalance(uac).then(r=>{$("usba").innerHTML=Number(r)/1e18;})}
