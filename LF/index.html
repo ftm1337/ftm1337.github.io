@@ -33,13 +33,17 @@ input,button{border-radius:25px;background:black;text-align:center;}
 #midrighttab{display: grid;grid-template-columns: auto auto auto}
 thead{line-height: }
 .de td,.de{color: gray;cursor: not-allowed;font-weight: lighter}
+.car{max-width: 90%;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;}
 @media(min-width:899px){
 	#midleft{display:grid;grid-template-columns:50% 50%}
 }
 @media(min-width:641px){
   .hhr{width: 555px}
 	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+	#htc{height: 50%}
+
 }
+
 </style>
 
 <div class="topbar">
@@ -71,11 +75,11 @@ thead{line-height: }
 	<div id="midleft">
 		<div id="midleftTVL">
 			Area Cultivated<br>
-			<span id="ml_tvl" style="font-size:1.5em">10 Fields</span>
+			<span style="font-size:1.5em"><span id="gs_p" style="font-size:1.5em">10</span> Fields</span>
 		</div>
 		<div id="midleftNFL">
 			Total Value Locked<br>
-			<span id="ml_tvl" style="font-size:1.5em">150,000+ FTM</span>
+			<span style="font-size:1.5em"><span id="gs_t_f" style="font-size:1.5em"> 150,000</span>+ FTM</span>
 		</div><!--
 		<div id="midleftPFO">
 			Total Value Locked<br>
@@ -86,8 +90,8 @@ thead{line-height: }
 			<span id="ml_tvl" style="font-size:1.5em">150,000 FTM</span>
 		</div>-->
 	</div>
-	<BR><BR>
-		<h3 align="center">Choose a plot to till!</h3>
+	<br><br><br>
+		<h2 align="center">Choose a plot,<br>Plant seeds,<br>reap harvests,<br>grow more crops!</h2>
 	<div id="midright" align="center">
 		<div id="midrighttab"><br>
 			<table id="maintable" class="centerstage" align="center">
@@ -281,6 +285,28 @@ Anyone can request a farm for free. FTM.guru merely provides a platform to host 
 <br>
 <br>
 
+	<div align="center">
+		<div class="car" >
+			<svg id="htc" viewbox="0 0 100 100" preserveAspectRatio="none">
+				<polyline id="pl_t_f" fill-opacity="0.25" stroke-width="1.0" points="12 23, 42 73, 55 22" fill="aqua" stroke="aqua" stroke-opacity="1"></polyline>
+				<text style="font-size:0.25em" fill="#1ea" x="0" y="98">13 Jun</text>
+				<text style="font-size:0.25em" fill="#1ea" x="20" y="98">28 Jun</text>
+				<text style="font-size:0.25em" fill="#1ea" x="40" y="98">13 Jul</text>
+				<text style="font-size:0.25em" fill="#1ea" x="60" y="98">28 Jul</text>
+				<text style="font-size:0.25em" fill="#1ea" x="80" y="98">13 Aug</text>
+				<text style="font-size:0.25em" fill="#aea" x="1" y="20">160k</text>
+				<text style="font-size:0.25em" fill="#aea" x="1" y="40">120k</text>
+				<text style="font-size:0.25em" fill="#aea" x="1" y="60">80k</text>
+				<text style="font-size:0.25em" fill="#aea" x="1" y="80">40k</text>
+			</svg>
+			<br>
+			<br>
+			Historical TVL Curve
+		</div>
+	</div>
+<br>
+<br>
+
 <div align="center" class="advert">
 <pre>Get $ELITE Tokens
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
@@ -291,8 +317,6 @@ Anyone can request a farm for free. FTM.guru merely provides a platform to host 
 <a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
 <a href="https://t.me/Sam4x" target="_blank">To Advertise Here, Contact @Sam4x✈</a>
 </div>
-<br>
-<br>
 <hr>
 <div  class="topbar">
 	<div align="center">
@@ -399,6 +423,23 @@ Anyone can request a farm for free. FTM.guru merely provides a platform to host 
 
 
 <script>
+d=[];
+dd=d;
+async function f1()
+{
+await fetch("https://ftm.guru/LF/tvl.json").then(dd=>{return dd.json()}).then(dm=>{dd=dm;d=dd;
+$("gs_t_f").innerHTML=(d[0][1]).toLocaleString();
+$("gs_p").innerHTML=Object.keys(d[0][3]).length;})
+tl=d[0][0]-d[d.length-1][0];
+for(i=0;i<d.length;i++){dd[i][0]=(d[i][0]-d[4][0])/tl*100;dd[i][1]=d[i][1]/2000}
+var polyline= document.getElementById('pl_t_f')
+  , points = polyline.getAttribute('points');
+points ="1010 101,"
+for(i=0;i<dd.length;i++){points+=`${dd[i][0]} ${100-dd[i][1]},`}
+points+="-10,99"
+polyline.setAttribute('points', points );
+}
+f1()
 function sortit(n) {
   var t, r, z, i, x, y, v, b, c = 0;
   t = document.getElementById("maintable").getElementsByTagName("tbody")[0];
@@ -438,6 +479,7 @@ function sortit(n) {
   }
     var t, r, z, i, x, y, v, b, c = 0;
 }
+function $(_) {return document.getElementById(_);}
 
 </script>
 </html>
