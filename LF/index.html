@@ -79,6 +79,12 @@ thead{line-height: }
 	<div align="center">
 		<div class="car" >
 			<svg id="htc" viewbox="0 0 100 100" preserveAspectRatio="none">
+				<defs>
+    				<linearGradient id="g1" gradientTransform="rotate(90)">
+      					<stop stop-color="rgba(0,255,255,1)" offset="0%"></stop>
+      					<stop stop-color="rgba(0,155,155,0)" offset="100%"></stop>
+    				</linearGradient>
+  				</defs>
 				<polyline id="pl_t_f" fill-opacity="0.25" stroke-width="1.0" points="12 23, 42 73, 55 22" fill="aqua" stroke="aqua" stroke-opacity="1"></polyline>
 				<text style="font-size:0.25em" fill="#fff" x="0" y="98">13 Jun</text>
 				<text style="font-size:0.25em" fill="#fff" x="20" y="98">28 Jun</text>
@@ -437,18 +443,25 @@ d=[];
 dd=d;
 async function f1()
 {
-await fetch("https://ftm.guru/LF/tvl.json").then(dd=>{return dd.json()}).then(dm=>{dd=dm;d=dd;
-$("gs_t_f").innerHTML=(d[0][1]).toLocaleString();
-$("gs_p").innerHTML=Object.keys(d[0][3]).length;})
-tl=d[0][0]-d[d.length-1][0];
-for(i=0;i<d.length;i++){dd[i][0]=(d[i][0]-d[4][0])/tl*100;dd[i][1]=d[i][1]/2000}
-var polyline= document.getElementById('pl_t_f')
-  , points = polyline.getAttribute('points');
-points ="1010 101,"
-for(i=0;i<dd.length;i++){points+=`${dd[i][0]} ${100-dd[i][1]},`}
-points+="-10,99"
-polyline.setAttribute('points', points );
+	await fetch("https://ftm.guru/LF/tvl.json")
+		.then(dd=>{return dd.json()})
+		.then(dm=>{dd=dm;d=dd;f2(d)}
 }
+function f2(d)
+{
+	$("gs_t_f").innerHTML=(d[0][1]).toLocaleString();
+	$("gs_p").innerHTML=Object.keys(d[0][3]).length;})
+
+	tl=d[0][0]-d[d.length-1][0];
+	for(i=0;i<d.length;i++){dd[i][0]=(d[i][0]-d[4][0])/tl*100;dd[i][1]=d[i][1]/2000}
+	var polyline= document.getElementById('pl_t_f')
+  	, points = polyline.getAttribute('points');
+	points ="1010 101,"
+	for(i=0;i<dd.length;i++){points+=`${dd[i][0]} ${100-dd[i][1]},`}
+	points+="-10,99"
+	polyline.setAttribute('points', points );
+}
+
 f1()
 function sortit(n) {
   var t, r, z, i, x, y, v, b, c = 0;
