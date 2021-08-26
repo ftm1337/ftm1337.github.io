@@ -439,25 +439,28 @@ Anyone can request a farm for free. FTM.guru merely provides a platform to host 
 
 
 <script>
-d=[];
-dd=d;
+trd=[];
+trd2=[];
 async function f1()
 {
 	await fetch("https://ftm.guru/LF/tvl.json")
 		.then(dd=>{return dd.json()})
-		.then(dm=>{dd=dm;d=dd;f2(d)})
+		.then(dm=>{trd=dm;f2(trd)})
 }
 async function f2(d)
 {
-	$("gs_t_f").innerHTML=(d[0][1]).toLocaleString();
-	$("gs_p").innerHTML=Object.keys(d[0][3]).length;
-	tl=d[0][0]-d[d.length-1][0];
-	for(i=0;i<d.length;i++){dd[i][0]=(d[i][0]-d[4][0])/tl*100;dd[i][1]=d[i][1]/2000}
+	$("gs_t_f").innerHTML=(trd[0][1]).toLocaleString();
+	$("gs_p").innerHTML=Object.keys(trd[0][3]).length;
+	tf=trd[d.length-1][0];
+	tl=trd[0][0]-tf;
+	trd2=trd;
+	for(i=0;i< trd2.length;i++)
+		{trd2[i][0]=(trd[i][0]-tf)/tl*100;trd2[i][1]=trd[i][1]/2000}
 	var polyline= document.getElementById('pl_t_f')
   	, points = polyline.getAttribute('points');
-	points ="1010 101,"
-	for(i=0;i<dd.length;i++){points+=`${dd[i][0]} ${100-dd[i][1]},`}
-	points+="-10,99"
+	points ="-1010 99,"
+	for(i= trd.length-1;i>-1;i--){points+=`${trd2[i][0]} ${100-trd2[i][1]},`}
+	points+="1010,101"
 	polyline.setAttribute('points', points );
 }
 
