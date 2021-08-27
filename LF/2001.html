@@ -437,6 +437,8 @@ Stake to earn passive rewards!<br>
 </div>
 </div>
 <br><br>
+<div align="center">Dry Date<br><i id="pf">?</i></div>
+<br><br>
 <div align="center" class="advert">
 <pre>Get $ELITE Tokens
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
@@ -1292,7 +1294,7 @@ function farm_1_f_deposit()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		theCon.methods.stake(String(Number($("farm_1_input_deposit").value)*1e18)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.stake((new web3.utils.BN($("farm_1_input_deposit").value)).mul(new web3.utils.BN("1000000000000000000"))).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e)}
 }
@@ -1314,7 +1316,7 @@ function farm_1_f_withdraw()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		theCon.methods.withdraw(String(Number($("farm_1_input_withdraw").value)*1e18)).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.withdraw((new web3.utils.BN($("farm_1_input_withdraw").value)).mul(new web3.utils.BN("1000000000000000000"))).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e)}
 }
@@ -1392,6 +1394,8 @@ async function DrefreshFarm()
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
 		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
+
+		theCon.methods.periodFinish().call((e, r) => {$("pf").innerHTML=new Date(Number(r) * 1000)});
 	}
 	catch(e){console.log(e);}
 }

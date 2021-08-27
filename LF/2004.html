@@ -437,6 +437,8 @@ Stake to earn passive rewards!<br>
 </div>
 </div>
 <br><br>
+<div align="center">Dry Date<br><i id="pf">?</i></div>
+<br><br>
 <div align="center" class="advert">
 <pre>Get $ELITE Tokens
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
@@ -1447,6 +1449,7 @@ async function DrefreshFarm()
 		$("stats_ap_y").innerHTML=(((1+sapr/36500)**365-1)*100).toLocaleString()+"%";
 		$("stats_apr_nt").innerHTML=fornum((((1+sapr/36500)**365-1)*100),0)+"%";
 
+		theCon.methods.periodFinish().call((e, r) => {$("pf").innerHTML=new Date(Number(r) * 1000)});
 
 	}
 	catch(e){console.log(e);}
