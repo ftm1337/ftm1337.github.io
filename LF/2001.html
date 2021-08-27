@@ -576,9 +576,9 @@ function $(_) {return document.getElementById(_);}
 window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-	else{web3 = new Web3("https://rpc.ftm.tools");
+	else{web3 = new Web3("https://rpc.ftm.tools");}
 	//lpapr_sus_d();
-	DrefreshFarm()}
+	DrefreshFarm()
 }, false);
 function fornum(n,d)
 {
