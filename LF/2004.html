@@ -1296,7 +1296,8 @@ function farm_1_f_deposit()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		theCon.methods.stake((new web3.utils.BN($("farm_1_input_deposit").value)).mul(new web3.utils.BN("1000000000"))).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		m=($("farm_1_input_deposit").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
+		theCon.methods.stake(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e)}
 }
@@ -1318,7 +1319,8 @@ function farm_1_f_withdraw()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		theCon.methods.withdraw((new web3.utils.BN($("farm_1_input_withdraw").value)).mul(new web3.utils.BN("1000000000"))).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		m=($("farm_1_input_deposit").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
+		theCon.methods.withdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e)}
 }
