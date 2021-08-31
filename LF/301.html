@@ -348,6 +348,8 @@ Stake to earn passive rewards!<br>
 				<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
 				<span></span><span id="farm_3_i_ys">?</span>
 				<span></span><span>Your Stake</span><span></span>
+				<span></span><span id="farm_3_i_ystl">?</span>
+				<span></span><span>UnLock</span><span></span>
 				<span></span><span id="farm_3_i_re">?</span>
 				<span></span><span>Earned</span><span></span>
 				<span></span><span id="farm_3_i_apr">?</span>
@@ -387,6 +389,12 @@ Stake to earn passive rewards!<br>
 	<div></div>
 </div>
 
+<br>
+<br>
+<div align="center">
+🔒 This Plot (LF#301) has a WithDrawal Lock!<br>
+Unstaking is possible only after 7 days! 🔒
+</div>
 <br>
 <br>
 <div align="center" class="advert2">
@@ -549,7 +557,7 @@ for(i=0;i< 4;i++){mpb=(mp[i].getElementsByTagName("button"))
 for(j=0;j< mpb.length;j++){mpb[j].disabled=true}}*/
 function $(_) {return document.getElementById(_);}
 </script>
-<!--<script src="../web3.min.js"></script>-->
+<script src="../web3.min.js"></script>
 <script>
 window.addEventListener('load',async function()
 {
@@ -867,7 +875,7 @@ abbrove=[
 		"type": "function"
 	}];
 
-f_1_add = "0x8e4A2fA6e651DF75F7F4E9e9Ac81f8f9347a4aDD";
+f_1_add = "0x8B2D8EBb49f1133522E669166E605799DC445f6E";
 pairadd = "0x0B7528b304fA3B89A3D1d2C4B958134512464097";
 // tcuz = "0x8e4A2fA6e651DF75F7F4E9e9Ac81f8f9347a4aDD";
 
@@ -1325,7 +1333,12 @@ async function refreshFarm()
 		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
 		$("farm_3_i_ys").innerHTML=(Number(r)/1e18);
-		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)});
+		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)
+		if(Number(r)>0)
+			{theCon.methods.tdep(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+				{$("farm_3_i_ystl").innerHTML= (new Date(Number(r)*1000+86400000*7)).toLocaleString()}
+			}
+		});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
