@@ -9,8 +9,9 @@
 <style>
 *{color:#e3e9f2;overflow-wrap:break-word;}
 a{text-decoration-line:none;padding:0 2px}
-*{text-shadow:10px 10px 5px black;color:#e3e9f2}
-html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}img{border-radius: 50%}
+*{text-shadow:6px 6px 5px black;color:#e3e9f2}
+html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+img{border-radius: 50%}
 input,button{border-radius:25px;background:black;text-align:center}
 button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
 pre{overflow-x:auto;max-width:80%}
@@ -23,7 +24,7 @@ pre{overflow-x:auto;max-width:80%}
 .mainpanels{display:grid;grid-template-columns:auto}
 .olsa{display:grid;grid-template-columns:auto auto 1%;}
 .mainstages{text-align:center;display:grid;grid-template-columns:	 auto}
-.mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid}
+.mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: rgba(15,15,31,0.5);margin:5%;border-radius: 15px;border:aqua 2px solid}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
 .c2a{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;margin:5px}
 .advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
@@ -95,7 +96,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 			<br><input id="st" placeholder="Enter Pair Contract"><br><button onclick="prefind(st.value)"> ▶</button>
 			<br><span id="lo"></span>
 		</div>
-		<br>FTM.guru's Pair Explorer can be used with Elk, Zoo, Spooky, Spirit, Sushi, HyperJump, Waka, Shiba, Cyber, Paint and more!
+		<br>FTM.guru's Pair Explorer can be used with Shiba, Elk, Zoo, Spooky, Spirit, Sushi, HyperJump, Waka, Cyber, Paint, Bomb and more!
 	</div></div></a>
 	<div class="mainstage">
 		<a href="fantomscan.html"><div><h3>FantomScan</h3>
@@ -148,6 +149,95 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 </div>
 <br>
 <br>
+
+<br>
+<br>
+<div class="mainpanels">
+	<div class="mainpanel" align="center">
+<br>
+<br>
+		<br>
+		<span style="font-size:1.3em">[FTM Tools & Analytics]</span>
+		<br>*Coming Soon<br><br>
+		<a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
+		<br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br><br>
+		<div align="center">
+			<h3>Fantom Utilities by FTM.guru</h3>
+			<ul style="text-align:left;padding-left:25%">
+			<li><a href=".">Hot FTM Tokens (On-chain voting)</a></li>
+			<li><a href="pair.html">Multi-DEX Pair Explorer</a></li>
+			<li><a href="fantomscan.html">FantomScan</a></li>
+			<li><a href="fantomscan.html">Token Spending & Allowance Checker</a></li>
+			<li><a href="pair.html">A.M.M. Depth Monitor</a></li>
+			<li><a href="fantomscan.html">Pending Transaction Finder</a></li>
+			<li><a href="fantomscan.html">Live Gas Prices</a></li>
+			<li><a href="fantomscan.html">Transaction Cost Estimator</a></li>
+			<li><a href="fmc.html">FTMMarketCap</a></li>
+			<li><a href="yieldstate.html">ELITE Farms (YieldState)</a></li>
+			<li><a href="pair.html">Pool Explorer</a></li>
+			<li><a href="approver.html">Allowance Revoker Tool</a></li>
+			<li><a href="LF/1.html">LITE Farmlands👽</a></li>
+			<li><a href="casino.html">Casino & Games</a></li>
+			</ul>
+			<h3>Coming Soon…</h3>
+			<ul style="text-align:left;padding-left:25%">
+			<li>$GURU</li>
+			<li>FTM.monster</li>
+			<li>Elite DEX Aggregator</li>
+			<li>E.L.I.T.E. D.A.O.</li>
+			<li>Pending Txn. Cancellations</li>
+			<li>Airdrop Tool</li>
+			<li>Permissonless Farmlands👽</li>
+			</ul>
+			...and much more!
+		</div>
+		<br><br>
+	</div>
+	<div class="mainpanel" align="center">
+<br>
+<br>
+		<b><span style="font-size:1.3em">Top 10 Fantom Gems</span></b><br>
+		(Votes etched on Fantom blockchain)<br>
+		Unvetted & Not Financial Advice
+		<div id="mvg">
+		</div>
+		<br><br>
+	<!--
+	You hold <span id="eb">?</span> ELITE.<br>
+	Total Ownership : <span id="ebop">?</span>%<br>
+	Net Worth: <span id="ebnw">?</span> FTM.<br><br>
+	-->
+	</div>
+</div>
+<div class="mainpanel" style="display:block;">
+	<div class="mainpanels" style="display:block;width:calc(max(80%,255px));margin:auto">
+		<div id="votingmvg" style="padding: 10px" align="center">
+			<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
+			<br><b>Vote for your fave tokens now!</b><br><br>
+			<input id="mvgcandidate" placeholder=" FTM Contract address"><br>
+			<button id="votemvg" onclick="mvgCV()"> ▶</button><br><br>
+			<span id="mvgmsg"></span><br>
+			<hr><br>
+			<i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
+			<br><br>
+			Brief explainer:
+			<div class="olsa">
+			<div class="ols"></div>
+			<div class="ols">
+			<ol style="text-align:left;">
+			<li>Input the contract address of your preferred token.</li>
+			<li>Approve <b>EliteVoting</b> contract to spend your ELITE.</li>
+			<li>Sign the Voting transaction in your Metamask wallet.</li>
+			</ol>
+			</div>
+			<div class="ols"></div>
+			</div>
+			<i>Voting pushes the Voted Token to the top of the Elite list.</i>
+		</div>
+	</div>
+<br>
+<br>
+</div>
 <div align="center" class="advert">
 <pre>Get $ELITE Tokens
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
@@ -171,88 +261,10 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 <a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
 <a href="https://t.me/Sam4x" target="_blank">To Advertise Here, Contact @Sam4x✈</a>
 </div>
-<br>
-<br>
-<div class="mainpanels">
-	<div class="mainpanel" align="center">
-		<br>
-		<span style="font-size:1.3em">[FTM Tools & Analytics]</span>
-		<br>*Coming Soon<br><br>
-		<a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
-		<br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br><br>
-		<div align="center">
-			<h3>Fantom Utilities by FTM.guru</h3>
-			<ul style="text-align:left;padding-left:25%">
-			<li><a href=".">Hot FTM Tokens (On-chain voting)</a></li>
-			<li><a href="pair.html">Multi-DEX Pair Explorer</a></li>
-			<li><a href="fantomscan.html">FantomScan</a></li>
-			<li><a href="fantomscan.html">Token Spending & Allowance Checker</a></li>
-			<li><a href="pair.html">A.M.M. Depth Monitor</a></li>
-			<li><a href="fantomscan.html">Pending Transaction Finder</a></li>
-			<li><a href="fantomscan.html">Live Gas Prices</a></li>
-			<li><a href="fantomscan.html">Transaction Cost Estimator</a></li>
-			<li><a href="fmc.html">FTMMarketCap</a></li>
-			<li><a href="yieldstate.html">ELITE Farms (YieldState)</a></li>
-			<li><a href="pair.html">Pool Explorer</a></li>
-			<li><a href="approver.html">Allowance Revoker Tool</a></li>
-			<li><a href="LF/1.html">LITE Farmlands👽</a></li>
-			</ul>
-			<h3>Coming Soon…</h3>
-			<ul style="text-align:left;padding-left:25%">
-			<li>$GURU</li>
-			<li>FTM.monster</li>
-			<li>Elite DEX Aggregator</li>
-			<li>E.L.I.T.E. D.A.O.</li>
-			<li>Pending Txn. Cancellations</li>
-			<li>Airdrop Tool</li>
-			<li>Permissonless Farmlands👽</li>
-			</ul>
-			...and much more!
-		</div>
-		<br><br>
-	</div>
-	<div class="mainpanel" align="center">
-		<b><span style="font-size:1.3em">Top 10 Fantom Gems</span></b><br>
-		(Votes etched on Fantom blockchain)<br>
-		Unvetted & Not Financial Advice
-		<div id="mvg">
-		</div>
-		<br><br>
-	<!--
-	You hold <span id="eb">?</span> ELITE.<br>
-	Total Ownership : <span id="ebop">?</span>%<br>
-	Net Worth: <span id="ebnw">?</span> FTM.<br><br>
-	-->
-	</div>
-</div>
-<br><br><br>
-<div id="votingmvg" style="padding: 10px" align="center">
-	<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
-	<br><b>Vote for your fave tokens now!</b><br><br>
-	<input id="mvgcandidate" placeholder=" FTM Contract address"><br>
-	<button id="votemvg" onclick="mvgCV()"> ▶</button><br><br>
-	<span id="mvgmsg"></span><br>
-	<hr><br>
-	<i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
-	<br><br>
-	Brief explainer:
-	<div class="olsa">
-	<div class="ols"></div>
-	<div class="ols">
-	<ol style="text-align:left;">
-	<li>Input the contract address of your preferred token.</li>
-	<li>Approve <b>EliteVoting</b> contract to spend your ELITE.</li>
-	<li>Sign the Voting transaction in your Metamask wallet.</li>
-	</ol>
-	</div>
-	<div class="ols"></div>
-	</div>
-	<i>Voting pushes the Voted Token to the top of the Elite list.</i>
-
-</div>
+<hr><br><br>
 <div  class="topbar">
 	<div align="center">
-			<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br><!--
+			<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><!--
 			<a href="farmlands.html">LITE Farmlands👽</a>
 			<a href="index.html">FTM-Gems</a>
 			<a href="pair.html">DEX-Explorer</a>
@@ -286,6 +298,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 	</div>
 	<div class="lowercat">
 		<span><a href="https://kcc.guru/casino.html">Casino & Games</a></span><br>
+		<a href="https://kcc.guru/jackpot_1.html">2x KCS CoinToss</a><br>
 		<a href="https://kcc.guru/jackpot_1.html">2-player Jackpot</a><br>
 		<a href="https://kcc.guru/instalotto.html">instaLOTTO</a><br>
 		<a href="https://kcc.guru/21hrlotto.html">🎟 21-hour LOTTO</a>
@@ -346,6 +359,7 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<a target="_blank" href="https://discord.gg/QpyfMarNrV">Discord Server</a><br>
 		<a target="_blank" href="https://twitter.com/kccGuru">Kucino Twitter</a><br>
 		<a target="_blank" href="mailto:ftm1337@protonmail.com">Official Mail</a><br>
+		<a target="_blank" href="https://twitter.com/FTM1337">FTM1337 Twitter</a><br>
 	</div>
 	<div class="lowercat">
 		<a href="https://ftm.guru/index.html"><b style="font-size:2em"><code>FTM.guru</code></b></a><br>
@@ -355,7 +369,6 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 	<div class="lowercat">
 	</div>
 </div>
-
 <script src="web3.min.js"></script>
 <script>
 k=0;
