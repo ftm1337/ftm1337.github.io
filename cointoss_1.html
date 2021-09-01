@@ -185,11 +185,11 @@ Double your money & Win 0.2 FTM!<br><br>
 <h3>GAME HISTORY</h3>
 <table class="mainstage">
 	<thead>
-		<th onclick="sortit(0,'winners')>#⇅</th>
+		<th onclick="sortit(0,'winners')">#⇅</th>
 		<!--<th>Time Stamp</th>-->
-		<th onclick="sortit(1,'winners')>Result⇅</th>
-		<th onclick="sortit(2,'winners')>Winning Address⇅</th>
-		<th onclick="sortit(3,'winners')>Tx. Hash⇅</th>
+		<th onclick="sortit(1,'winners')">Result⇅</th>
+		<th onclick="sortit(2,'winners')">Winning Address⇅</th>
+		<th onclick="sortit(3,'winners')">Tx. Hash⇅</th>
 	</thead>
 	<tbody id="winners">
 	</tbody>
@@ -429,8 +429,8 @@ function paintwh(d)
 		P=document.createElement("td");
 		//N.innerHTML=i+1;
 		E.innerHTML=(f3[Object.keys(f3)[i]][0]/10< 0)?
-			`<span style="color:orange;font-weight:bold">${f3[Object.keys(f3)[i]][0]/10}</span>`:
-			`<span style="color:aqua;font-weight:bold">+${f3[Object.keys(f3)[i]][0]/10}</span>`;
+			`<span style="color:orange;font-weight:bold">${f3[Object.keys(f3)[i]][0]/10} FTM</span>`:
+			`<span style="color:aqua;font-weight:bold">+${f3[Object.keys(f3)[i]][0]/10} FTM</span>`;
 		L.innerHTML=(f3[Object.keys(f3)[i]][2]/f3[Object.keys(f3)[i]][1]*100).toFixed(3) +"%";
 		W.innerHTML=f3[Object.keys(f3)[i]][2];
 		G.innerHTML=f3[Object.keys(f3)[i]][1];
