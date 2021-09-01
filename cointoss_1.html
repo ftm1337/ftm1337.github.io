@@ -80,7 +80,7 @@ tr:hover{background: rgba(0,255,127,0.5);font-weight:bold}
 		grid-template-columns: auto 280px 280px auto;
 	}
 }
-
+table{width:max-content}
 html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
 .mainpanel{background: rgba(15,15,31,0.5);}
 *{text-shadow:2px 2px 5px black;color:#e3e9f2}
@@ -185,11 +185,11 @@ Double your money & Win 0.2 FTM!<br><br>
 <h3>GAME HISTORY</h3>
 <table class="mainstage">
 	<thead>
-		<th>#</th>
+		<th onclick="sortit(0,'winners')>#⇅</th>
 		<!--<th>Time Stamp</th>-->
-		<th>Result</th>
-		<th>Winning Address</th>
-		<th>Tx. Hash</th>
+		<th onclick="sortit(1,'winners')>Result⇅</th>
+		<th onclick="sortit(2,'winners')>Winning Address⇅</th>
+		<th onclick="sortit(3,'winners')>Tx. Hash⇅</th>
 	</thead>
 	<tbody id="winners">
 	</tbody>
