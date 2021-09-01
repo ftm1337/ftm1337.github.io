@@ -342,7 +342,7 @@ window.addEventListener('load',async function()
 uac="";
 async function cw()
 {
-	if(!(Number(window.ethereum.chainId)==321)){$("cw").innerHTML="Wrong network";return(0)}
+	if(!(Number(window.ethereum.chainId)==250)){$("cw").innerHTML="Wrong network";return(0)}
 	const UAC = await ethereum.request({ method: 'eth_requestAccounts' });
 	uac = UAC[0];
 	$("cw").innerHTML= (uac).substr(0,6) +"..."+(uac).substr(38);
