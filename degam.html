@@ -67,6 +67,9 @@ tr:hover{background: darkslategray}
 		grid-template-columns: auto 280px 280px auto;
 	}
 }
+html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
+.mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
+*{text-shadow:6px 6px 5px black;color:#e3e9f2}
 </style>
 </head>
 <div class="topbar">
@@ -326,10 +329,10 @@ Simply send 1.337 FTM to 0x9A6eb015aebC6466d407d40D278894bc773bd009 with <b>"Gas
 <script>
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==250)
-		{web3 = new Web3(web3.currentProvider)}
-	else{web3 = new Web3("https://rpc.ftm.tools")}
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
+	else{web3 = new Web3("https://rpc.ftm.tools");}
 	lb();lb02();arf();
+
 }, false);
 uac="";
 async function cw()
