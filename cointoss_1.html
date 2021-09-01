@@ -365,7 +365,7 @@ async function hard01()
 		.then((o)=>
 		{
 			//console.log(o);
-			o.logs[0].data.substr(-1)=="0"?console.log("You lost :("):alert("🎉 You won 0.02 KCS! 🥳")
+			o.logs[0].data.substr(-1)=="0"?alert("Flip resulted in Tails..\/You lost :(\n;) Luck favors the Brave!\nLet's toss it again 🎰"):alert("🎉 Heads it is!\nYou won 0.2 FTM! 🥳")
 		})
 	}
 	catch(e){console.log(e)}
@@ -385,7 +385,7 @@ async function hard02()
 		.then((o)=>
 		{
 			//console.log(o);
-			o.logs[0].data.substr(-1)=="0"?alert("You lost :(\n;) Luck favors the Brave!\nlet's toss it again 🎰"):alert("🎉 You won 0.2 FTM! 🥳")
+			o.logs[0].data.substr(-1)=="0"?alert("Heads faced up.. You lost :(\n;) Luck favors the Brave!\nlet's toss it again 🎰"):alert("🎉 Tails turned up!\nYou won 0.2 FTM! 🥳")
 		})
 	}
 	catch(e){console.log(e)}
@@ -414,8 +414,8 @@ function paintwh(d)
 		if(!(f3[f1[i][1]])){
 			f3[f1[i][1]]=[f1[i][0],1,f1[i][0]==1?1:0]}
 		else{f3[f1[i][1]]=[f3[f1[i][1]][0]+f1[i][0],f3[f1[i][1]][1]+1,f1[i][0]==1?f3[f1[i][1]][2]+=1:f3[f1[i][1]][2]]}}
-	for(i=0;i< f3.length;i++){f3[1]*=0.01}
-	//for(i=0;i< Object.keys(f3).length;i++){console.log("player:",Object.keys(f3)[i],"Winnings:",f3[Object.keys(f3)[i]][0]*0.01,"Attempts:",f3[Object.keys(f3)[i]][1],"Won:",f3[Object.keys(f3)[i]][2])}
+	for(i=0;i< f3.length;i++){f3[1]*=0.1}
+	//for(i=0;i< Object.keys(f3).length;i++){console.log("player:",Object.keys(f3)[i],"Winnings:",f3[Object.keys(f3)[i]][0]*0.1,"Attempts:",f3[Object.keys(f3)[i]][1],"Won:",f3[Object.keys(f3)[i]][2])}
 	B=$("allp");
 	B.innerHTML="";
 	for(i=0;i< Object.keys(f3).length;i++)
@@ -428,9 +428,9 @@ function paintwh(d)
 		G=document.createElement("td");
 		P=document.createElement("td");
 		//N.innerHTML=i+1;
-		E.innerHTML=(f3[Object.keys(f3)[i]][0]*0.01< 0)?
-			`<span style="color:orange;font-weight:bold">${f3[Object.keys(f3)[i]][0]*0.01}</span>`:
-			`<span style="color:aqua;font-weight:bold">+${f3[Object.keys(f3)[i]][0]*0.01}</span>`;
+		E.innerHTML=(f3[Object.keys(f3)[i]][0]*0.1< 0)?
+			`<span style="color:orange;font-weight:bold">${f3[Object.keys(f3)[i]][0]*0.1}</span>`:
+			`<span style="color:aqua;font-weight:bold">+${f3[Object.keys(f3)[i]][0]*0.1}</span>`;
 		L.innerHTML=(f3[Object.keys(f3)[i]][2]/f3[Object.keys(f3)[i]][1]*100).toFixed(3) +"%";
 		W.innerHTML=f3[Object.keys(f3)[i]][2];
 		G.innerHTML=f3[Object.keys(f3)[i]][1];
@@ -459,8 +459,8 @@ function paintph(d)
 		T=document.createElement("td");
 		//D=document.createElement("td");
 		N.innerHTML=i+1;
-		if((d[i].data).substr(-1)=="1"){P.innerHTML='<span style="color:aqua;font-weight:bold;">+0.02 KCS</span>'}
-		else{P.innerHTML='<span style="color:orange;font-weight:bold">-0.01 KCS</span>'}
+		if((d[i].data).substr(-1)=="1"){P.innerHTML='<span style="color:aqua;font-weight:bold;">+0.2 FTM</span>'}
+		else{P.innerHTML='<span style="color:orange;font-weight:bold">-0.1 FTM</span>'}
 		W.innerHTML="<code>0x"+(d[i].data).substring(26,26+40)+'</code>';
 		T.innerHTML=`<b><a href="https://explorer.kcc.io/tx/${d[i].transactionHash}" target=+"_blank">${d[i].transactionHash.substr(0,8)}</a></b>`;
 		//D.innerHTML=(new Date (Number(d[i].timeStamp)*1e3)).toLocaleString();
