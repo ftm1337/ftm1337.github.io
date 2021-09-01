@@ -84,6 +84,7 @@ table{width:max-content}
 html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
 .mainpanel{background: rgba(15,15,31,0.5);}
 *{text-shadow:2px 2px 5px black;color:#e3e9f2}
+#winners td:nth-child(2){text-align:right}
 </style>
 </head>
 <div class="topbar">
@@ -429,8 +430,8 @@ function paintwh(d)
 		P=document.createElement("td");
 		//N.innerHTML=i+1;
 		E.innerHTML=(f3[Object.keys(f3)[i]][0]/10< 0)?
-			`<span style="color:orange;font-weight:bold">${f3[Object.keys(f3)[i]][0]/10} FTM</span>`:
-			`<span style="color:aqua;font-weight:bold">+${f3[Object.keys(f3)[i]][0]/10} FTM</span>`;
+			`<span style="color:orange;font-weight:bold">${f3[Object.keys(f3)[i]][0]/10}</span>`:
+			`<span style="color:aqua;font-weight:bold">+${f3[Object.keys(f3)[i]][0]/10}</span>`;
 		L.innerHTML=(f3[Object.keys(f3)[i]][2]/f3[Object.keys(f3)[i]][1]*100).toFixed(3) +"%";
 		W.innerHTML=f3[Object.keys(f3)[i]][2];
 		G.innerHTML=f3[Object.keys(f3)[i]][1];
