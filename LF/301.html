@@ -1440,8 +1440,8 @@ async function refreshFarm()
 
 		theCon = new web3.eth.Contract(farabi, f_1_add);
 		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
-		{$("farm_1_s_claim").value=Number(r)/1e9;
-		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e9);
+		{$("farm_1_s_claim").value=Number(r)/1e18; //REWARD DECIMALS
+		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e18); //REWARD DECIMALS
 		$("farm_3_i_re").innerHTML=(Number(r)/1e9);});
 		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
