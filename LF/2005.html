@@ -1382,7 +1382,7 @@ function farm_1_f_withdraw()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		m=($("farm_1_input_deposit").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
+		m=($("farm_1_input_withdraw").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
 		theCon.methods.withdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e)}
