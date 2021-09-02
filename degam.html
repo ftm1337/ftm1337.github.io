@@ -38,6 +38,18 @@ tr:hover{background: darkslategray}
 .lowercat a{text-decoration-line: none}
 .lowercat span{font-size: 1.25em; font:weight:bold}
 .lowerbar{display: grid;grid-template-columns: auto;text-align:center}
+.maincards{grid-template-columns:auto ;margin: auto;display:grid;}
+.maincard{margin: calc(min(25px,10%));padding:10px;border : 1px aqua solid;
+	border-radius: 7px;
+	background: linear-gradient(45deg, rgba(0,255,0,0.125), rgba(0,0,255,0.125))}
+.maincard hr{border: 1px solid aqua}
+.gmul{border:1px solid;border-radius: 50%;	padding: 4px;margin: 0 0 0 4px;font-size: 0.8em;background: linear-gradient(225deg, rgba(0,255,0,0.5), rgba(0,0,255,0.5))}
+@media(min-width:641px){
+	.maincards{grid-template-columns:auto auto auto;margin: auto}
+	.maincard{margin: 10px;padding:10px;border : 1px aqua solid}
+	.hhr{width: 555px}
+	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:50% 50%}
 	.mainstages{grid-template-columns:50% 50%}
@@ -86,7 +98,7 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 		<!--<a href="airdrop.html">Airdrop-Tool</a>-->
 		<a href="apelist.html">Ape-List</a>
 		<a href="approver.html">Approver</a>
-		<a href="degam.html">CASINO🎰</a>
+		<a href="casino.html">CASINO🎰</a>
 	</div>
 </div>
 <br>
@@ -139,6 +151,34 @@ Available Balance: <span id="usba">?</span> FTM
 		<br><button class="farmcontrols" id="habu" onclick="hard()">Deposit</button>
 	</div>
 </div>
+<br>
+<br>
+<h3 align="center">Check out our other Games!</h3>
+<div class="maincards">
+	<a href="cointoss_1.html"><div class="maincard">
+		<span style="font-size:1.5em"><span class="gmul">2x</span> FTM Coin-Flip</span>
+		<hr>
+		<i>Classic Heads or Tails: Win 2x!<br>
+		Single-player & non-stop.<br>
+		Min. bet = o.1 FTM</i>
+	</div></a>
+	<a href="degam.html"><div class="maincard">
+		<span style="font-size:1.5em"><span class="gmul">3x</span> Mini Jackpot</span>
+		<hr>
+		<i>Enter Jackpot, win 4 FTM!<br>
+		Played against 2 opponents.<br>
+		Min. bet = 1.337 FTM</i>
+	</div></a>
+	<a href="degam.html"><div class="maincard">
+		<span style="font-size:1.5em"><span class="gmul">3x</span> Micro Jackpot</span>
+		<hr>
+		<i>Enter Jackpot, win .4 FTM!<br>
+		Played against 2 opponents.<br>
+		Min. bet = o.1337 FTM</i>
+	</div></a>
+</div>
+<br>
+<br>
 <div class="mainstage" align="center">
 <h4>Manual Betting</h4>
 Micro-jackpot<br>
