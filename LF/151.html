@@ -653,7 +653,7 @@ function fornum(n,d)
 	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+"Bn"}
 	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+"Mn"}
 	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+"Th"}
-	else if(_n>1){n_=(_n/1e1).toFixed(2)+""}
+	else if(_n>1){n_=(_n/1e0).toFixed(2)+""}
 	return(n_);
 }
 ab1=
@@ -889,7 +889,7 @@ function fornum(n,d)
 	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Billion"}
 	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
 	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
-	else if(_n>1){n_=(_n/1e1).toFixed(2)+""}
+	else if(_n>1){n_=(_n/1e0).toFixed(2)+""}
 	return(n_);
 }
 function arf(){	var xfr = setInterval(function()
