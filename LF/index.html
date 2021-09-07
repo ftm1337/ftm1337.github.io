@@ -113,11 +113,6 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
   				</defs>
 				<polyline id="pl_t_f" fill-opacity="0.67" stroke-width="1.0" points="12 23, 42 73, 55 22" fill="url(#gf)" stroke="aqua" stroke-opacity="1"></polyline>
 				<polyline id="pl_t_u" fill-opacity="0.67" stroke-width="1.0" points="82 53, 62 93, 5 12" fill="url(#gu)" stroke="#1f7" stroke-opacity="1"></polyline>
-				<text style="font-size:0.25em" fill="#fff" x="0" y="98">13 Jun</text>
-				<text style="font-size:0.25em" fill="#fff" x="20" y="98">30 Jun</text>
-				<text style="font-size:0.25em" fill="#fff" x="40" y="98">17 Jul</text>
-				<text style="font-size:0.25em" fill="#fff" x="60" y="98">3 Jul</text>
-				<text style="font-size:0.25em" fill="#fff" x="80" y="98">20 Aug</text>
 				<text style="font-size:0.25em" fill="#fff" x="1" y="12.5">175k</text>
 				<text style="font-size:0.25em" fill="#fff" x="1" y="25">150k</text>
 				<text style="font-size:0.25em" fill="#fff" x="1" y="37.5">125k</text>
@@ -125,6 +120,12 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 				<text style="font-size:0.25em" fill="#fff" x="1" y="62.5">75k</text>
 				<text style="font-size:0.25em" fill="#fff" x="1" y="75">50k</text>
 				<text style="font-size:0.25em" fill="#fff" x="1" y="87.5">25k</text>
+
+				<text style="font-size:0.25em" fill="#fff" id="ctl1" x="05" y="98">30 Jun</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctl2" x="25" y="98">17 Jul</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctl3" x="45" y="98">3 Jul</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctl4" x="65" y="98">13 Jun</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctl5" x="85" y="98">13 Jun</text>
 			</svg>
 			<br>
 			<br>
@@ -149,7 +150,7 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 		</div>
 		<div id="midleftNFL">
 			Total Value Locked<br>
-			<span style="font-size:1.5em"><span id="gs_t_f" style="font-size:1.5em"> 150,000</span>+ FTM</span>
+			<span style="font-size:1.5em"><span id="gs_t_f" style="font-size:1.5em"> 150,000</span>+ USD</span>
 		</div><!--
 		<div id="midleftPFO">
 			Total Value Locked<br>
@@ -530,10 +531,11 @@ async function f1()
 }
 async function f2(d)
 {
-	$("gs_t_f").innerHTML=(trd[0][1]).toLocaleString();
+	$("gs_t_f").innerHTML=(trd[0][1]*trd[0][2]).toLocaleString();
 	$("gs_p").innerHTML=Object.keys(trd[0][3]).length;
 	tf=trd[d.length-1][0];
-	tl=trd[0][0]-tf;
+	ti=trd[0][0];
+	tl=ti-tf;
 	trd2=trd;
 	for(i=0;i< store.length;i++)
 	{
@@ -556,6 +558,13 @@ async function f2(d)
 	upoints+="1010,101"
 	fline.setAttribute('points', fpoints );
 	uline.setAttribute('points', upoints );
+	//date
+	//dstr = (tm) => {dt0=new Date(tf+tl*tm); return ((Zdt0.getDate()+1)+"."+(dt0.getUTCMonth()+1)+"."+dt0.getUTCYear())}
+	$("ctl1").innerHTML = (new Date(tf+tl*.1)).toDateString().substr(4).replace(" ",",").split(" ")[0];
+	$("ctl2").innerHTML = (new Date(tf+tl*.3)).toDateString().substr(4).replace(" ",",").split(" ")[0];
+	$("ctl3").innerHTML = (new Date(tf+tl*.5)).toDateString().substr(4).replace(" ",",").split(" ")[0];
+	$("ctl4").innerHTML = (new Date(tf+tl*.7)).toDateString().substr(4).replace(" ",",").split(" ")[0];
+	$("ctl5").innerHTML = (new Date(tf+tl*.9)).toDateString().substr(4).replace(" ",",").split(" ")[0];
 }
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
 f1()
