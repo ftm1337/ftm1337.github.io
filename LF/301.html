@@ -435,7 +435,7 @@ Unstaking is possible only after 7 days! 🔒
 <div class="mainstage">
 <div style="display:">
 <h3>Net Total Yield</h3>
-<span class="lpapr" id="stats_apr_nt">? %</span>
+<span style="background:rgba(1,2,3,0.5);" class="lpapr" id="stats_apr_nt">? %</span>
 <br><br>
 
 
@@ -1442,7 +1442,7 @@ async function refreshFarm()
 		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_claim").value=Number(r)/1e18; //REWARD DECIMALS
 		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e18); //REWARD DECIMALS
-		$("farm_3_i_re").innerHTML=(Number(r)/1e9);});
+		$("farm_3_i_re").innerHTML=(Number(r)/1e18);});
 		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
 		$("farm_3_i_ys").innerHTML=(Number(r)/1e18);
