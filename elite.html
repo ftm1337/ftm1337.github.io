@@ -12,7 +12,11 @@
 }
 a{text-decoration-line:none;padding:0 2px}
 *{text-shadow:10px 10px 5px black;color:#e3e9f2}
-html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}input,button{border-radius:25px;background:black;text-align:center}
+html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
+.mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
+*{text-shadow:6px 6px 5px black;color:#e3e9f2}
+input,button{border-radius:25px;background:black;text-align:center}
 button:hover{	box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
 pre{overflow-x:auto;max-width:80%}
 .mainpanels,.mainpanels2,.mainpanels3{display:grid}
@@ -31,6 +35,19 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 .lowercat a{text-decoration-line: none}
 .lowercat span{font-size: 1.25em; font-weight:bold}
 .lowerbar{display: grid;grid-template-columns: auto;text-align:center}
+
+.centerstage{overflow: auto}
+
+thead{line-height: }
+td a{text-decoration-line: none}
+tbody tr:hover{cursor:  zoom-in;background: rgba(0,255,255,0.25)}
+table td{padding: 10px}
+table{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;
+	background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;
+	min-width:max-content;text-align:center}
+
+td button{padding: 0;margin: 0;width: 20px;height: 20px}
+.liqdis .mainpanel{padding-bottom: 8px;padding-top: 8px;}
 @media(min-width:641px){
 		.mainpanels{grid-template-columns:auto auto auto}
 		.liqdis{grid-template-columns:auto auto}
@@ -131,11 +148,134 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<br><br>
 	</div>-->
 </div>
-<h4 align="center">LIQUIDITY DISTRIBUTION</h4>
+<br><br>
+<h4 align="center">LIQUIDITY DISTRIBUTION</h4><!--
+<div class="centerstage" align="center">
+	<table id="maintable" class="centerstage" align="center">
+		<thead>
+			<tr>
+			<th onclick="sortit(0)">ELITEs⇅</th>
+			<th onclick="sortit(1)">Amount ⇅</th>
+			<th onclick="sortit(2)">Base ⇅</th>
+			<th onclick="sortit(3)">Platform ⇅</th>
+			<th onclick="sortit(4)">FTM TVL⇅</th>
+			<th onclick="sortit(5)">Links ⇅</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Spooky</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Sushi</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>ZooDEX</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">800</span></td>
+				<td>USDC</td>
+				<td>Spooky</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">800</span></td>
+				<td>USDC</td>
+				<td>Sushi</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">30000</span></td>
+				<td>ZOO</td>
+				<td>ZooDEX</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Elk</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">800</span></td>
+				<td>USDC</td>
+				<td>Elk</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Shiba</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">800</span></td>
+				<td>USDC</td>
+				<td>Shiba</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Cyber</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Totem</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>NipdEx</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<br><br>
+<h4 align="center">MOST USED PAIRS</h4>-->
 <div class="mainpanels liqdis" align="center">
 	<div class="mainpanel farmable">
-		<h4>Spooky:ELITE/WFTM</h4>
-		<span id="p0a">?</span> ELITE<br>+<br>
+		<b>Spooky:ELITE/WFTM</b><br><br>
+		<span id="p0a">?</span> ELITE<br>+
 		<span id="p0b">?</span> FTM<br><br>
 		1 ELITE = <b><span id="p0p">?</span></b> FTM
 		<a href="yieldstate.html"><div class="gotofarm">
@@ -145,12 +285,11 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		24h Realized APY<br><br>
 		<a href="https://spookyswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://spookyswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
-		<a href="https://info.spiritswap.finance/#/pair/0xea035a13b64cb49d85e2f0a2736c9604cb21599c" target="_blank"><button>Detail</button></a>
-		<br><br>
+		<a href="https://info.spookyswap.finance/#/pair/0xea035a13b64cb49d85e2f0a2736c9604cb21599c" target="_blank"><button>Detail</button></a>
 	</div>
 	<div class="mainpanel farmable">
-		<h4>Sushi:ELITE/WFTM</h4>
-		<span id="p1a">?</span> ELITE<br>+<br>
+		<b>Sushi:ELITE/WFTM</b><br><br>
+		<span id="p1a">?</span> ELITE<br>+
 		<span id="p1b">?</span> FTM<br><br>
 		1 ELITE = <b><span id="p1p">?</span></b> FTM
 		<a href="yieldstate.html"><div class="gotofarm">
@@ -161,12 +300,11 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
 		<a href="https://analytics-ftm.sushi.com/pairs/0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0" target="_blank"><button>Detail</button></a>
-		<br><br>
 	</div>
 	<div class="mainpanel">
-		<h4>Sushi:ELITE/USDC</h4>
-		<span id="p5a">?</span> ELITE<br>+<br>
-		<span id="p5b">?</span> FTM<br><br>
+		<b>Sushi:ELITE/USDC</b><br><br>
+		<span id="p5a">?</span> ELITE<br>+
+		<span id="p5b">?</span> USDC<br><br>
 		1 ELITE = <b><span id="p5p">?</span></b> USDC<br>
 		<span class="lpapr" id="p5apr">? %</span>
 		<br>24h Realized APY
@@ -174,11 +312,22 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
 		<a href="https://analytics-ftm.sushi.com/pairs/0x1dfcddf675038ead27f1d75b435b5b05ba825e9a" target="_blank"><button>Detail</button></a>
-		<br><br>
-	</div>
+	</div><!--
 	<div class="mainpanel">
-		<h4>Spirit:ELITE/WFTM</h4>
-		<span id="p2a">?</span> ELITE<br>+<br>
+		<b>Spooky:ELITE/USDC</b><br><br>
+		<span id="p6a">?</span> ELITE<br>+
+		<span id="p6b">?</span> USDC<br><br>
+		1 ELITE = <b><span id="p6p">?</span></b> USDC<br>
+		<span class="lpapr" id="p6apr">? %</span>
+		<br>24h Realized APY
+		<br><br>
+		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://analytics-ftm.sushi.com/pairs/0x1dfcddf675038ead27f1d75b435b5b05ba825e9a" target="_blank"><button>Detail</button></a>
+	</div>-->
+	<div class="mainpanel">
+		<b>Spirit:ELITE/WFTM</b><br><br>
+		<span id="p2a">?</span> ELITE<br>+
 		<span id="p2b">?</span> FTM<br><br>
 		1 ELITE = <b><span id="p2p">?</span></b> FTM<br>
 		<span class="lpapr" id="p2apr">? %</span>
@@ -187,11 +336,10 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://swap.spiritswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
 		<a href="https://info.spiritswap.finance/#/pair/0x7c8f47d2d151cedfdb847ab3c5b67d05daf3539b" target="_blank"><button>Detail</button></a>
-		<br><br>
 	</div>
 	<div class="mainpanel">
-		<h4>ZDEX:ELITE/WFTM</h4>
-		<span id="p3a">?</span> ELITE<br>+<br>
+		<b>ZDEX:ELITE/WFTM</b><br><br>
+		<span id="p3a">?</span> ELITE<br>+
 		<span id="p3b">?</span> FTM<br><br>
 		1 ELITE = <b><span id="p3p">?</span></b> FTM<br>
 		<span class="lpapr" id="p3apr">? %</span>
@@ -200,11 +348,10 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>Swap</button></a>
 		<a href="https://info.zoocoin.cash/#/pair/0xad28B6C529714954AE2B6d390c8eaD874ddc4970" target="_blank"><button>Detail</button></a>
-		<br><br>
 	</div>
 	<div class="mainpanel">
-		<h4>ZDEX:ZOO/ELITE</h4>
-		<span id="p4a">?</span> ELITE<br>+<br>
+		<b>ZDEX:ZOO/ELITE</b><br><br>
+		<span id="p4a">?</span> ELITE<br>+
 		<span id="p4b">?</span> ZOO<br><br>
 		1 ELITE = <b><span id="p4p">?</span></b> ZOO<br>
 		<span class="lpapr" id="p4apr">? %</span>
@@ -213,7 +360,6 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
 		<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>Swap</button></a>
 		<a href="https://info.zoocoin.cash/#/pair/0xad28B6C529714954AE2B6d390c8eaD874ddc4970" target="_blank"><button>Detail</button></a>
-		<br><br>
 	</div>
 </div>
 </div>
@@ -734,5 +880,44 @@ function dfun()
 	$("dao")
 }
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
+function sortit(n) {
+  var t, r, z, i, x, y, v, b, c = 0;
+  t = document.getElementById("maintable").getElementsByTagName("tbody")[0];
+  z = true;
+  b = "a";
+  while (z) {
+    z = false;
+    r = t.rows;
+    for (i = 0; i < (r.length - 1); i++) {
+      v = false;
+      x = (r[i].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
+      y = (r[i + 1].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(y)){y=Number(y)}else{y=y.toLowerCase()}
+      if (b == "a") {
+        if ((x) > (y)) {
+          v= true;
+          break;
+        }
+      } else if (b == "d") {
+        if ((x) < (y)) {
+          v = true;
+          break;
+        }
+      }
+    }
+    if (v) {
+      r[i].parentNode.insertBefore(r[i + 1], r[i]);
+      z = true;
+      c ++;
+    } else {
+      if (c == 0 && b == "a") {
+        b = "d";
+        z = true;
+      }
+    }
+  }
+    var t, r, z, i, x, y, v, b, c = 0;
+}
 </script>
 </html>
