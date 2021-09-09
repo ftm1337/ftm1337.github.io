@@ -435,8 +435,8 @@ async function setok()
 		await T.methods.allowance(window.ethereum.selectedAddress,adr).call((e,r)=>{ta=Number(r);console.log("ta:",ta)});
 		if(ta>1e50)
 		{
-			$("people").diasbled=false;
-			$("corec").diasbled=false;
+			$("people").disabled=false;
+			$("corec").disabled=false;
 			$("approvebtn").disabled=true;
 			$("approvebtn").innerHTML= ts + " is Approved";
 		}
@@ -463,13 +463,14 @@ async function corec()
 	ppl=ai;
 	$("amounts").disabled=false;
 	$("conum").disabled=false;
+	$("corec_m").innerHTML="Addresses look fine..";
 }
 async function conum()
 {
 	inp=$("amounts").value;
 	if(inp.indexOf(" ")||inp.indexOf("\n")||inp.indexOf('"')){$("conum_m").innerHTML="Malformed list of amounts, please check again. Use only commas to separate the addresses. Example: 1337,1,0.001,323.2323";return(0)}
 	ai=inp.split(",");
-	if(!(ai.length==ppl.length)){$("corec_m").innerHTML="More/Less amounts entered than the addresses input! Please recheck. 150 is the max. limit.";return(0)}
+	if(!(ai.length==ppl.length)||(ai.length>150)){$("corec_m").innerHTML="More/Less amounts entered than the addresses input! Please recheck. 150 is the max. limit.";return(0)}
 	tt=0;
 	for(i=0;i< ai.length;i++)
 	{
@@ -483,11 +484,6 @@ async function conum()
 	$("conum_m").innerHTML+="Total airdrop amount: "+tt/10**td+" "+ts;
 	$("conum_m").innerHTML+="<br>Your balance: "+tb/10**td+" "+ts;
 	amt=ai;
-	finalist();
-}
-async function conum()
-{
-	if(!(amt.length==ppl.length)){$("final_m").innerHTML+="Number of addresses mismatch number of addresses. Please edit.";return(0)}
 	ftb=$("ftb");
 	ftb.innerHTML=`
 	<tr>
