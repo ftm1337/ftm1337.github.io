@@ -109,7 +109,7 @@ input.fr{width: 100%;padding: 0;margin: 0;font-size: 1.25em }
 	</div>
 	<div>
 <div class="notice">
-<h1>⚠ Under final testing.</h1> DO NOT USE, PLEASE WAIT FOR ANNOUNCEMENT!<br>
+<h1>⚠ Under final testing.</h1>PLEASE WAIT FOR ANNOUNCEMENT!<br>
 Please contact us for a manual airdrop if needed.
 </div>
 <div align="center">
@@ -405,6 +405,35 @@ ab1=[
 		],
 		"stateMutability": "nonpayable",
 		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "_tokenAddr",
+				"type": "address"
+			},
+			{
+				"internalType": "address[]",
+				"name": "_to",
+				"type": "address[]"
+			},
+			{
+				"internalType": "uint256[]",
+				"name": "_value",
+				"type": "uint256[]"
+			}
+		],
+		"name": "multisend",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "_success",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
 	}]
 adr = "0xB88179791Fc4a2F2d653192ec5eC23eC63E88138";
 async function cw()
@@ -520,6 +549,11 @@ function t_approve()
 					.then((c)=>{console.log(c);setok()});
 	}
 	catch(e){console.log(e);}
+}
+async function rain()
+{
+	adp = new web3.eth.Contract(ab1,adr);
+	adr.methods.multisend(ta,ppl,amt).send({from:window.ethereum.selectedAddress},(e,r)=>{$("rain_m").innerHTML = "Airdrop initiated: <a href="https://ftmscan.com/tx/"+r+"txn. hash</a>"})
 }
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
 </script>
