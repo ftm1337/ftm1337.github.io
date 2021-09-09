@@ -468,8 +468,8 @@ async function corec()
 async function conum()
 {
 	inp=$("amounts").value;
-	if(inp.indexOf(" ")||inp.indexOf("\n")||inp.indexOf('"')){$("conum_m").innerHTML="Malformed list of amounts, please check again. Use only commas to separate the addresses. Example: 1337,1,0.001,323.2323";return(0)}
 	ai=inp.split(",");
+	if(inp.indexOf(" ")||inp.indexOf("\n")||inp.indexOf('"')){$("conum_m").innerHTML="Malformed list of amounts, please check again. Use only commas to separate the addresses. Example: 1337,1,0.001,323.2323";return(0)}
 	if(!(ai.length==ppl.length)||(ai.length>150)){$("corec_m").innerHTML="More/Less amounts entered than the addresses input! Please recheck. 150 is the max. limit.";return(0)}
 	tt=0;
 	for(i=0;i< ai.length;i++)
