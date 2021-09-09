@@ -89,6 +89,7 @@ input.fr{width: 100%;padding: 0;margin: 0;font-size: 1.25em }
 	<span id="cw_m"></span><br><br>
 	<input class="fr" id="tokad" placeholder="Input Token Address" disabled><br>
 	<button class="fr" id="setok" onclick="setok()" disabled>▶ Select</button><br>
+	<button class="fr" id="approvebtn" onclick="t_approve()" disabled>▶ Approval</button><br>
 	<span id="tokad_m"></span><br><br>
 	<input class="fr" id="people" placeholder="address,list,of,all,recepients" disabled><br>
 	<button class="fr" id="corec" onclick="corec()" disabled>▶ Check</button><br>
@@ -360,6 +361,32 @@ ab1=[
 		"type": "function"
 	},
 	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
 		"inputs": [
 			{
 				"internalType": "address",
@@ -378,7 +405,7 @@ ab1=[
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}]
-
+adr = "0xB88179791Fc4a2F2d653192ec5eC23eC63E88138";
 async function cw()
 {
 	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
@@ -405,9 +432,20 @@ async function setok()
 		await T.methods.symbol().call((e,r)=>{$("tokad_m").innerHTML+=` (${r})`;ts=r});
 		await T.methods.decimals().call((e,r)=>{td=Number(r)});
 		await T.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("tokad_m").innerHTML+=`<br>Available Balance: ${Number(r)/10**td}`;tb=Number(r)});
-		await T.methods.allowance().call((e,r)=>{ta=Number(r)});
-		$("poeple").diasbled=false;
-		$("corec").diasbled=false;
+		await T.methods.allowance(window.ethereum.selectedAddress,adr).call((e,r)=>{ta=Number(r);console.log("ta:",ta)});
+		if(ta>1e50)
+		{
+			$("people").diasbled=false;
+			$("corec").diasbled=false;
+			$("approvebtn").disabled=true;
+			$("approvebtn").innerHTML= ts + " is Approved";
+		}
+		else
+		{
+			$("approvebtn").disabled=false;
+			$("approvebtn").value=t;
+			$("approvebtn").innerHTML="Approve" + ts;
+		}
 	}
 	else{$("tokad_m").innerHTML="<br>Nothing found! Recheck, please."}
 }
@@ -471,6 +509,20 @@ async function conum()
 	TR.appendChild(D1);
 	TR.appendChild(D2);
 	}
+}
+function t_approve()
+{
+	try
+	{
+		_t = $('tokad').value;
+		_t = web3.utils.toChecksumAddress(_t);
+		theCon = new web3.eth.Contract(ab1,_t);
+		theCon.methods.approve(adr,"9999999999999999999999999999999999999999999999999999999")
+			.send({from:window.ethereum.selectedAddress},(e, r) =>
+				{console.log("approving:",_t,r)})
+					.then((c)=>{console.log(c);setok()});
+	}
+	catch(e){console.log(e);}
 }
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
 </script>
