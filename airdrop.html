@@ -101,8 +101,10 @@ input.fr{width: 100%;padding: 0;margin: 0;font-size: 1.25em }
 
 	Please double check the above info.<br>
 	<button class="fr" id="confirm" onclick="rain()" disabled>Confirm</button> <button class="fr" id="edit" onclick="window.location.reload(true)">EDIT</button><br><br>
+	<div style="overflow:auto">
 	<table id="ftb">
 	</table>
+	</div>
 	<br><br>
 	<span id="rain_m"></span><br><br>
 	</div>
@@ -486,10 +488,10 @@ async function conum()
 	amt=ai;
 	ftb=$("ftb");
 	ftb.innerHTML=`
-	<tr>
-	<th>#</th>
-	<th>Address of recepient</th>
-	<th>Amount</th>
+		<tr>
+		<th>#</th>
+		<th>Address of recepient</th>
+		<th>Amount</th>
 	</tr>`;
 	for(i=0;i< amt.length;i++)
 	{
