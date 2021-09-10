@@ -955,7 +955,7 @@ abbrove=[
 
 f_1_add = "0xB5aEd208a908bBAd4Cd8e4308A8Ef9E69E644127";
 pairadd = "0x634c206d44c8B392305fdBBC9263229A7C0a6891";
-
+rewnalp = "0x409FDAde151082444607FfA2Cb1cBFB8358c59Ff";
 
 farabi=[
 	{
@@ -1414,13 +1414,14 @@ async function refreshFarm()
 		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
+		//rewn = new web3.eth.Contract(ab1, rewnalp);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
 		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 
 		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
-		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
+		const res1 = await the2.methods.getReserves().call((e, r) => {return(r)});
 		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
-
+		res=[res1[1],res1[0]];
 		pt=res[0]/res[1];
 		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
