@@ -34,8 +34,10 @@ button:disabled {
 .lpapr{text-shadow: rgba(0,255,255,1) 0px 0px 10px;color:aqua;font-size:2em}
 .notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #000;border-radius: 20px;padding:2%;border:5px dashed}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
-.mainstage:nth-child(2){//background-image: url("../img/bg-nips2.png");background-size: 100%;background-repeat: no-repeat ;
-color:#020611;text-shadow: 0 0 2px black}
+.mainstage:nth-child(2){background-image: url("../img/bg-nova.jpeg");background-size: 100%;background-repeat: no-repeat ;
+color:#020611;text-shadow: 0 0 2px black;}
+.mainstage:nth-child(2) span{background: rgba(9,9,32,0.67);border-bottom:1px dotted aqua }
+.mainstage:nth-child(2) span:nth-child(22){border:none}
 /*.mainstage:nth-child(1),
 .mainstage:nth-child(2),
 .mainstage:nth-child(4),
@@ -90,6 +92,7 @@ input{background: #000 !important;}
 html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
 .mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
 *{text-shadow:6px 6px 5px black;color:#e3e9f2}
+
 </style>
 </head>
 <div class="topbar">
@@ -378,9 +381,9 @@ Stake to earn passive rewards!<br>
 				<span></span><span id="farm_3_i_apr">?</span>
 				<span></span><span>A.P.R.</span><span></span>
 				<span></span><span id="farm_3_i_tvl">?</span>
-				<span></span><span>T.V.L.</span><span></span>
+				<span></span><span>T.V.L.</span><span></span><!--
 				<span></span><span id="farm_3_i_roi"></span>
-				<span></span><span></span><span></span>
+				<span></span><span></span><span></span>-->
 			</div>
 			<br><button style="font-size: 1em" id="reffar" onclick="refreshFarm()">↺ Reload</button><br>
 			<br><hr>
@@ -1436,7 +1439,7 @@ async function refreshFarm()
 		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
-		$("stats_apr_nt").innerHTML=fornum(((1+apr/36500)**365-1)*100+aapd)+"%";
+		$("stats_apr_nt").innerHTML=fornum(((1+apr/36500)**365-1)*100+aapd,0)+"%";
 		console.log(res)
 	}
 	catch(e){console.log(e);}
@@ -1469,7 +1472,7 @@ async function DrefreshFarm()
 		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
-		$("stats_apr_nt").innerHTML=fornum(((1+apr/36500)**365-1)*100+aapd)+"%";
+		$("stats_apr_nt").innerHTML=fornum(((1+apr/36500)**365-1)*100+aapd,0)+"%";
 
 		theCon.methods.periodFinish().call((e, r) => {$("pf").innerHTML=new Date(Number(r) * 1000)});
 	}
