@@ -48,6 +48,8 @@ table{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;
 
 td button{padding: 0;margin: 0;width: 20px;height: 20px}
 .liqdis .mainpanel{padding-bottom: 8px;padding-top: 8px;}
+
+.p1td{display: grid;grid-template-columns: auto;}
 @media(min-width:641px){
 		.mainpanels{grid-template-columns:auto auto auto}
 		.liqdis{grid-template-columns:auto auto}
@@ -55,6 +57,7 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 		.mainpanels3{grid-template-columns: 0 50% 50% 0}
 		.hhr{width:555px}
 		.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+		.p1td{grid-template-columns:auto auto;}
 
 }
 @media(min-width:800px){
@@ -80,6 +83,37 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 		display: grid;
 		grid-template-columns: auto 280px 280px auto;
 	}
+}
+
+.chart-text {
+  /*font: 16px/1.4em "Montserrat", Arial, sans-serif;*/
+  fill: #000;
+  -moz-transform: translateY(0.25em);
+  -ms-transform: translateY(0.25em);
+  -webkit-transform: translateY(0.25em);
+  transform: translateY(0.25em);
+}
+
+.chart-number {
+  font-size: 0.5em;
+  line-height: 1;
+  text-anchor: middle;
+  -moz-transform: translateY(-0.25em);
+  -ms-transform: translateY(-0.25em);
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+  fill:aqua;
+}
+
+.chart-label {
+  font-size: 0.2em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  -moz-transform: translateY(0.7em);
+  -ms-transform: translateY(0.7em);
+  -webkit-transform: translateY(0.7em);
+  transform: translateY(0.7em);
+  fill:aqua;
 }
 </style>
 </head>
@@ -146,10 +180,73 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 		<h4>TVL/MC ratio</h4>
 		<span id="rtm">?</span> %
 		<br><br>
-	</div>-->
+	</div>
+
+
+	//sushi		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//spooky	ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//zoo		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//zoo		zoo		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F		3.18
+	//elk		ftm		0xf25417182FbfdEbf1a92142b31A1B32135f1Fd60		3.28
+	//spooky	usdc	0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9		3.25
+	//nipdex	ftm		0x736c1462feEc9D936dF0B99F4BE5eD019118534a		1.03
+	//cyber		ftm		0x2668141243eCbFEb1b7556D5F08c11Bd94d9b6db		0.35
+	//elk		usdc	0xDeC1a7eF080B22fEe247aCD033a8Aca8666bDdcb		0.34
+	//shiba		usdc	0xe2121F534316CD3fc91E70a39AAa25785e1c20C1		0.34
+	//hyper		ftm		0xdc79C700EeDc83bE8d19Ad2d245717c7539DFA1c		0.03
+	//paint		ftm		0xF33c436E3C1f0AD9EcB400aA28183910585eFe21		0.15
+	//sushi		usdc	0x1DFcDdF675038EAd27F1D75B435B5B05BA825E9A		0.035
+	//--------------------------------------------------------------- +12.00
+
+
+
+	-->
 </div>
 <br><br>
-<h4 align="center">LIQUIDITY DISTRIBUTION</h4><!--
+<h4 align="center">LIQUIDITY DISTRIBUTION</h4>
+<div align="Center" class="p1td">
+	<div align="right">
+		<svg class="donut" width="400" height="" viewBox="0 0 64 42">
+  			<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+  			<circle id="donut-segment0" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#3aa" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+  			<circle id="donut-segment6" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#77f" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+  			<circle id="donut-segment5" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#4f4" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+  			<circle id="donut-segment4" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#fff" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+  			<circle id="donut-segment3" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#93f" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+  			<circle id="donut-segment2" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#f77" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+  			<circle id="donut-segment1" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0ff" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+ 			<g class="chart-text">
+        		<text x="21" y="50%" class="chart-number" id="totalValue">
+          		?
+        		</text>
+        		<text x="21" y="50%" class="chart-label">ELITE Pooled</text>
+      		</g>
+		</svg>
+	</div>
+	<div align="left">
+		<b>Constituent Markets</b><br><br>
+		<span class="p1t" style="color:#0ff"><span id="p1tpl1">?</span>FTM (Spooky)</span><br>
+		<span class="p1t" style="color:#f77"><span id="p1tpl2">?</span>FTM (Sushi)</span><br>
+		<span class="p1t" style="color:#93f"><span id="p1tpl3">?</span>FTM (Spirit)</span><br>
+		<span class="p1t" style="color:#fff"><span id="p1tpl4">?</span>FTM (ZooDEX)</span><br>
+		<span class="p1t" style="color:#4f4"><span id="p1tpl5">?</span>ZOO (ZooDEX)</span><br>
+		<span class="p1t" style="color:#77f"><span id="p1tpl6">?</span>USDC (Sushi)</span><br>
+		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>USDC (Spooky)</span><br>
+		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Elk)</span><br>
+		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>USDC (Elk)</span><br>
+		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Shiba)</span><br>
+		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>USDC (Shiba)</span><br>
+		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (NipdEX)</span><br>
+		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Hyper)</span><br>
+		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Cyber)</span><br>
+		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Paint)</span><br>
+		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Totem)</span><br>
+	</div>
+</div>
+<br><br>
+<!--
 <div class="centerstage" align="center">
 	<table id="maintable" class="centerstage" align="center">
 		<thead>
@@ -358,8 +455,8 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 		<br>24h Realized APY
 		<br><br>
 		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
-		<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>Swap</button></a>
-		<a href="https://info.zoocoin.cash/#/pair/0xad28B6C529714954AE2B6d390c8eaD874ddc4970" target="_blank"><button>Detail</button></a>
+		<a href="https://dex.zoocoin.cash/orders/market?outputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&inputCurrency=FTM" target="_blank"><button>Swap</button></a>
+		<a href="https://info.zoocoin.cash/#/pair/0x7618793c51e0dc954ba1dd2eeeb3dfa08f777d0a" target="_blank"><button>Detail</button></a>
 	</div>
 </div>
 </div>
@@ -439,9 +536,7 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 <a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
 <a href="https://t.me/Sam4x" target="_blank">To Advertise Here, Contact @Sam4x✈</a>
 </div>
-<br>
-<br>
-<hr>
+<hr><br><br>
 <div  class="topbar">
 	<div align="center">
 			<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br><!--
@@ -457,12 +552,12 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 			<a href="apelist.html">Ape-List</a>
 			<a href="approver.html">Approver</a>
 			<a href="degam.html">CASINO✨</a>-->
-		<br><br>
 	<h3><a href="https://t.me/FTM1337">✈t.me/FTM1337<br>Come, Join us!</a></h3>
-	<i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
+	<i>Shoutout to vfat.tools, ftmscan & rpc.ftm.tools for their benign Services!</i>
 	</div>
 </div>
-<br><br><div class="lowerbar" align="center">
+<br><br>
+<div class="lowerbar" align="center">
 	<div align="left" class="lowercat">
 		<span>Ecosystem</span><br>
 		<a href="https://fmc.guru" target="_blank">FantomMarketCap</a><br>
@@ -471,55 +566,57 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 	</div>
 	<div align="left" class="lowercat">
 		<span>Farming</span><br>
-		<a href="https://ftm.guru/yieldstate.html">YieldState</a><br>
-		<a href="https://ftm.guru/LF">LITE Farmlands👽</a><br>
-		<a href="https://vfat.tools/fantom/guru">vfat.tools</a>
-	</div>
-	<div align="left" class="lowercat">
-		<span>Our Dapps</span><br>
-		<a href="https://ftm.guru/degam.html">CASINO✨</a><br>
-		<a href="https://ftm.guru/approver.html">Approver</a><br>
-		<a href="https://ftm.guru/airdrop.html">Airdrop-Tool</a><br>
+		<a href="https://ftm.guru/yieldstate.html">🔱 YieldState</a><br>
+		<a href="https://ftm.guru/LF">👽 LITE Farmlands</a><br>
+		<a href="https://vfat.tools/fantom/guru">🧑‍🌾 vfat.tools</a>
 	</div>
 	<div class="lowercat">
-		<span>Casino & Games</span><br>
+		<span><a href="https://kcc.guru/casino.html">Casino & Games</a></span><br>
 		<a href="https://kcc.guru/jackpot_1.html">2-player Jackpot</a><br>
 		<a href="https://kcc.guru/instalotto.html">instaLOTTO</a><br>
-		<a href="https://kcc.guru/21hrlotto.html">21-hour LOTTO</a>
+		<a href="https://kcc.guru/21hrlotto.html">🎟 21-hour LOTTO</a>
 	</div>
 	<div class="lowercat">
-		<span>Dashboard</span><br>
+		<span><a href="https://kcc.guru/dashboard.html">Dashboard</a></span><br>
 		<a href="https://kcc.guru/claimkcs.html">Claim KCS Earnings</a><br>
 		<a href="https://kcc.guru/markets.html">Market Statistics</a><br>
 		<a href="https://kcc.guru/balancesheet.html">Balance Sheet</a><br>
-		<a href="https://kcc.guru/claimkcs.html">$KUCINO Specs</a>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Our Dapps</span><br>
+		<a href="https://ftm.guru/degam.html">✨ FTM CASINO</a><br>
+		<a href="https://ftm.guru/degam.html">🎰 KCS Kucino</a><br>
+		<a href="https://ftm.guru/approver.html">✅ Approver</a><br>
+		<a href="https://ftm.guru/airdrop.html">Airdrop-Tool</a><br>
 	</div>
 	<div align="left" class="lowercat">
 		<span>Chain Tools</span><br>
 		<a href="https://ftm.guru/pair.html">DEX-Explorer</a><br>
-		<a href="https://ftm.guru/fantomscan.html">FantomScan</a><br>
-		<a href="https://kcc.guru/kscan" target="_blank">kscan</a><br>
+		<a href="https://ftm.guru/fantomscan.html">🔍 FantomScan</a><br>
+		<a href="https://kcc.guru/kscan" target="_blank">🔎 kscan</a><br>
 		<a href="https://ftm.guru/apelist.html">Ape-List</a><br>
 	</div>
 	<div align="left" class="lowercat">
 		<span>Opera Utilities</span><br>
 		<a href="https://ftm.guru/elite.html">ELITE Analytics</a><br>
-		<a href="https://t.me/FTM1337/12497" target="_blank">GambleBot (Tg)</a><br>
-		<a href="https://ftm.guru/index.html">Elite-Gems Voting</a>
-	</div>
-	<div class="lowercat">
-		<span>Resources</span><br>
-		<a target="_blank" href="docs">Documentation</a><br>
-		<a target="_blank" href="https://ftmscan.com/address/0x74bfb7e94bef5767f5f6ace2d0df73a224adb689">ELITE Timelock</a><br>
-		<a target="_blank" href="mailto:ftm1337@protonmail.com">Official Mail</a>
+		<a href="https://t.me/FTM1337/12497" target="_blank">🤖 GambleBot Telegram</a><br>
+		<a href="https://ftm.guru/index.html">🗳 Elite-Gems Voting</a>
 	</div>
 	<div class="lowercat">
 		<span>$KUCINO</span><br>
-		<a target="_blank" href="https://kcc.guru/tokenomics">Tokenomics🎰</a><br>
 		<a target="_blank" href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">Trade at Kudex</a><br>
 		<a target="_blank" href="https://explorer.kcc.io/token/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">KCC Explorer</a><br>
 		<a target="_blank" href="https://t.me/kccguru">Chart at Poocoin</a><br>
 		<a target="_blank" href="https://testnet.bscscan.com/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7#code">View Source</a>
+	</div>
+	<div class="lowercat">
+		<span>Resources</span><br>
+		<a target="_blank" href="https://kcc.guru/roadmap">Kucino Roadmap</a><br>
+		<a target="_blank" href="https://kcc.guru/roadmap">KUCINO Tokenimcs</a><br>
+		<a target="_blank" href="https://ftmscan.com/address/0x74bfb7e94bef5767f5f6ace2d0df73a224adb689">385 ELITE ETL</a><br>
+		<a target="_blank" href="https://kudex.finance/locker">KCS Liquidity Lock</a><br>
+		<a target="_blank" href="https://kudex.finance/locker">70% KUCINO ETL</a><br>
+		<a target="_blank" href="docs">📚 Documentation</a><br>
 	</div>
 	<div class="lowercat">
 		<span>Telegrams</span><br>
@@ -530,10 +627,12 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 		<a target="_blank" href="https://t.me/kccguru">FMC New Listings</a><br>
 	</div>
 	<div class="lowercat">
-		<span>Social Media</span><br>
+		<span>Social & Media</span><br>
 		<a target="_blank" href="https://medium.com/@ftm1337">Medium Journal</a><br>
 		<a target="_blank" href="https://discord.gg/QpyfMarNrV">Discord Server</a><br>
-		<a target="_blank" href="https://twitter.com/kccGuru">Kucino Twitter</a>
+		<a target="_blank" href="https://twitter.com/kccGuru">Kucino Twitter</a><br>
+		<a target="_blank" href="mailto:ftm1337@protonmail.com">Official Mail</a><br>
+		<a target="_blank" href="https://twitter.com/FTM1337">FTM1337 Twitter</a><br>
 	</div>
 	<div class="lowercat">
 		<a href="https://ftm.guru/index.html"><b style="font-size:2em"><code>FTM.guru</code></b></a><br>
@@ -663,8 +762,23 @@ ab1=[
 		"type": "function"
 	}
 ];
+
+var val0D = document.getElementById('donut-segment0')
+var val1D = document.getElementById('donut-segment1')
+var val2D = document.getElementById('donut-segment2')
+var val3D = document.getElementById('donut-segment3')
+var val4D = document.getElementById('donut-segment4')
+var val5D = document.getElementById('donut-segment5')
+var val6D = document.getElementById('donut-segment6')
+
+
+setTimeout(function(){
+    val1D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
+val1D.style.strokeDasharray = "100 0";
+    },20);
 async function basics()
 {
+
 	EC=new web3.eth.Contract(ab1,"0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882");
 	S_0 = await EC.methods.balanceOf("0x0000000000000000000000000000000000000000").call((e,r)=>{return(Number(r))});
 	EC.methods.balanceOf("0x167D87A906dA361A10061fe42bbe89451c2EE584").call((e,r)=>{$("daot").innerHTML=(Number(r)/1e18).toFixed(5)});
@@ -727,7 +841,7 @@ async function basics()
 	$("PBa").innerHTML=(P0B/P0T*RP0[0]/1e18+P1B/P1T*RP1[0]/1e18).toFixed(5);
 	$("PBb").innerHTML=(P0B/P0T*RP0[1]/1e18+P1B/P1T*RP1[1]/1e18).toFixed(5);
 	AP=(RP0[1]+RP1[1]+RP2[1]+RP3[1])/(RP0[0]+RP1[0]+RP2[0]+RP3[0]);
-	TL=(2*AP*(RP0[0]+RP1[0]+RP2[0]+RP3[0]+RP4[0]+RP5[0])/1e18)
+	TL=(2*AP*(RP0[0]+RP1[0]+RP2[0]+RP3[0]+RP4[0]+RP5[0]+12e18)/1e18)
 	$("tl").innerHTML=TL.toLocaleString();
 	$("mc").innerHTML=(AP*cs).toLocaleString();
 	$("ap").innerHTML=((AP)).toLocaleString();
@@ -736,7 +850,68 @@ async function basics()
 	$("lw0").innerHTML=(133.7*2*RP0[1]/RP0[0]).toLocaleString();;
 	$("lw1").innerHTML=(133.7*2*RP1[1]/RP1[0]).toLocaleString();
 	//console.log("ap",AP,"cs",cs,RP0,RP1,RP2,RP3);
-	console.log(RP4)
+	//console.log(RP4);
+	//console.log(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18);
+
+
+	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//elk		ftm		0xf25417182FbfdEbf1a92142b31A1B32135f1Fd60
+	//spooky	usdc	0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9
+	//nipdex	ftm		0x736c1462feEc9D936dF0B99F4BE5eD019118534a
+	//cyber		ftm		0x2668141243eCbFEb1b7556D5F08c11Bd94d9b6db
+	//elk		usdc	0xDeC1a7eF080B22fEe247aCD033a8Aca8666bDdcb
+	//shiba		usdc	0xe2121F534316CD3fc91E70a39AAa25785e1c20C1
+	//hyper		ftm		0xdc79C700EeDc83bE8d19Ad2d245717c7539DFA1c
+	//paint		ftm		0xF33c436E3C1f0AD9EcB400aA28183910585eFe21
+	//sushi		usdc	0x1DFcDdF675038EAd27F1D75B435B5B05BA825E9A
+	mkpi1(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18,12);
+
+}
+function mkpi1(val1,val2,val3,val4,val5,val6,val0)
+{
+
+  	totalValue = document.getElementById('totalValue');
+
+  	total = val0+val1+val2+val3+val4+val5+val6;
+
+  	per0 = val0/total*100;
+  	per1 = val1/total*100;
+  	per2 = val2/total*100;
+  	per3 = val3/total*100;
+  	per4 = val4/total*100;
+  	per5 = val5/total*100;
+  	per6 = val6/total*100;
+  	offset = 25;
+
+  	totalValue.textContent = total.toLocaleString();
+
+  	val1D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
+  	val1D.style.strokeDasharray = per1+" "+(100-per1);
+  	val1D.style.strokeDashoffset = offset;
+
+  	val2D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
+  	val2D.style.strokeDasharray = per2+" "+(100-per2);
+  	val2D.style.strokeDashoffset = 100-per1+offset;
+
+  	val3D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
+  	val3D.style.strokeDasharray = per3+" "+(100-per3);
+  	val3D.style.strokeDashoffset = 100-(per1+per2)+offset;
+
+  	val4D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
+  	val4D.style.strokeDasharray = per4+" "+(100-per4);
+  	val4D.style.strokeDashoffset = 100-(per1+per2+per3)+offset;
+
+  	val5D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
+  	val5D.style.strokeDasharray = per5+" "+(100-per5);
+  	val5D.style.strokeDashoffset = 100-(per1+per2+per3+per4)+offset;
+
+  	val6D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
+  	val6D.style.strokeDasharray = per6+" "+(100-per6);
+  	val6D.style.strokeDashoffset = 100-(per1+per2+per3+per4+per5)+offset;
+
+  	val0D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
+  	val0D.style.strokeDasharray = per0+" "+(100-per0);
+  	val0D.style.strokeDashoffset = 100-(per1+per2+per3+per4+per5+per6)+offset;
 }
 function lpapr_sus(pi,n)
 {
