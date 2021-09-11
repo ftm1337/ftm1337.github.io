@@ -1434,6 +1434,7 @@ async function refreshFarm()
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
 		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
+		console.log(res)
 	}
 	catch(e){console.log(e);}
 }
@@ -1446,8 +1447,9 @@ async function DrefreshFarm()
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
-		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
+		const res1 = await the2.methods.getReserves().call((e, r) => {return(r)});
 		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		res=[res1[1],res1[0]];
 		pt=res[0]/res[1];
 		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
