@@ -643,7 +643,7 @@ window.addEventListener('load',async function()
 	//lpapr_sus_d();
 	DrefreshFarm()
 }, false);
-function fornum(n,d)
+function fornum2(n,d)
 {
 	_n=(Number(n)/10**Number(d));
 	n_=_n;
@@ -955,7 +955,7 @@ abbrove=[
 
 f_1_add = "0xB5aEd208a908bBAd4Cd8e4308A8Ef9E69E644127";
 pairadd = "0x634c206d44c8B392305fdBBC9263229A7C0a6891";
-rewnalp = "0x409FDAde151082444607FfA2Cb1cBFB8358c59Ff";
+rewnalp = "0x623765857B74Da6F5A52A362d228de7F7859224f";
 
 farabi=[
 	{
@@ -1414,7 +1414,9 @@ async function refreshFarm()
 		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
-		//rewn = new web3.eth.Contract(ab1, rewnalp);
+		rewn = new web3.eth.Contract(ab1, rewnalp);
+		const p_rt = await rewn.methods.getReserves().call((e, r) => {return(r)});
+		prt = (p_rt[0]/1e18)/(p_rt[1]/1e9);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
 		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 
@@ -1426,7 +1428,8 @@ async function refreshFarm()
 		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
-		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
+		apr=(rera*prt/1e9)/(plp*tv/1e18)*365*86400*100;
+		//apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
 		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
@@ -1444,6 +1447,10 @@ async function DrefreshFarm()
 	{
 		theCon = new web3.eth.Contract(farabi, f_1_add);
 
+		rewn = new web3.eth.Contract(ab1, rewnalp);
+		const p_rt = await rewn.methods.getReserves().call((e, r) => {return(r)});
+		prt = (p_rt[0]/1e18)/(p_rt[1]/1e9);
+
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
@@ -1454,7 +1461,8 @@ async function DrefreshFarm()
 		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
-		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
+		apr=(rera*prt/1e9)/(plp*tv/1e18)*365*86400*100;
+		//apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr.toLocaleString()+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
 		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
