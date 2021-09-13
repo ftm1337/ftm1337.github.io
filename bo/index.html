@@ -95,6 +95,7 @@ tr:hover{background: rgba(0,255,127,0.25);}
 #db-data{display:grid;grid-template-columns: auto;}
 #db-data span{margin:auto}
 
+td{width:max-content}
 @media(min-width:432px)
 {
 	.mainstage-long,.mainstage-short,.mainstage-main
@@ -128,6 +129,7 @@ tr:hover{background: rgba(0,255,127,0.25);}
 <div align="center">
 	<h2 align="center">$FTM Binary Options</h2>
 	Go Long or Short on Fantom!<br><br>
+	<b>THIS IS ON TESTNET 4002</b><br>
 	<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br><br>
 		<div id="fdet"  style="">
 			<span>Underlying:</span><span></span><span>FTM/USD</span>
@@ -144,43 +146,44 @@ tr:hover{background: rgba(0,255,127,0.25);}
 	<br><br>
 </div>
 <br><br>
-
-<div class="mainstages" align="center">
-	<div></div>
-	<div class="mainstage mainstage-long" style="" align="center">
-		<input class="farmcontrols" value="" placeholder="FTM Amount" id="farm_1_input_withdraw" type="number">
-		<button class="farmcontrols" onclick="bhi()">Long ↗</button>
-	</div>
-	<div></div>
-</div>
-<div class="mainstages" align="center">
-	<div></div>
-	<div class="mainstage mainstage-main" style=";color:#e3e9f2" align="center">
-		<div id="db-data"  style="">
-			<span>
-				<span style="font-size:1.5em" id="hm">?x</span>
-				<br>(On Longs)
-			</span>
-			<span>
-				FTM/USD<br>
-				<span style="font-size:2.5em" id="cp">$?</span>
-				<br>(Oracle Price)
-			</span>
-			<span>
-				<span style="font-size:1.5em" id="lm">?x</span>
-				<br>(On Shorts)
-			</span>
+<div class="mainconsole">
+	<div class="mainstages" align="center">
+		<div></div>
+		<div class="mainstage mainstage-long" style="" align="center">
+			<input class="farmcontrols" value="" placeholder="FTM Amount" id="farm_1_input_withdraw" type="number">
+			<button class="farmcontrols" onclick="bhi()">Long ↗</button>
 		</div>
+		<div></div>
 	</div>
-	<div></div>
-</div>
-<div class="mainstages" align="center">
-	<div></div>
-	<div class="mainstage mainstage-short" style="" align="center">
-		<input class="farmcontrols" value="" placeholder="FTM Amount" id="farm_1_input_withdraw" type="number">
-		<button class="farmcontrols" onclick="blo()">Short ↘</button>
+	<div class="mainstages" align="center">
+		<div></div>
+		<div class="mainstage mainstage-main" style=";color:#e3e9f2" align="center">
+			<div id="db-data"  style="">
+				<span>
+					<span style="font-size:1.5em" id="hm">?x</span>
+					<br>(On Longs)
+				</span>
+				<span>
+					FTM/USD<br>
+					<span style="font-size:2.5em" id="cp">$?</span>
+					<br>(Oracle Price)
+				</span>
+				<span>
+					<span style="font-size:1.5em" id="lm">?x</span>
+					<br>(On Shorts)
+				</span>
+			</div>
+		</div>
+		<div></div>
 	</div>
-	<div></div>
+	<div class="mainstages" align="center">
+		<div></div>
+		<div class="mainstage mainstage-short" style="" align="center">
+			<input class="farmcontrols" value="" placeholder="FTM Amount" id="farm_1_input_withdraw" type="number">
+			<button class="farmcontrols" onclick="blo()">Short ↘</button>
+		</div>
+		<div></div>
+	</div>
 </div>
 
 
@@ -201,33 +204,20 @@ tr:hover{background: rgba(0,255,127,0.25);}
 		<th>Payout</th>
 		<th>Time Stamp</th>
 	</thead>
-	<tbody id="">
-		<tr>
-			<td>801</td>
-			<td>1.23</td>
-			<td>1.56</td>
-			<td>11</td>
-			<td>12</td>
-			<td>654 FTM</td>
-			<td>1.12x</td>
-			<td>1631777123</td>
-		</tr>
-	</tbody>
 	<tbody id="rohi">
-		<tr>
-			<td>801</td>
-			<td>1.23</td>
-			<td>1.56</td>
-			<td>11</td>
-			<td>12</td>
-			<td>654 FTM</td>
-			<td>1.12x</td>
-			<td>1631777123</td>
-		</tr>
+		<tr><td colspan="8" align="center">Loading ...</td></tr>
 	</tbody>
 </table>
 </div>
 
+<br><br>
+
+<br><br>
+
+<div align="center" style="overflow-x:auto">
+<h3>CLAIM REWARDS</h3>
+<input id="clarewi" placeholder="Enter Round#" class="farmcontrols">
+<button id="clarewb" class="farmcontrols">Claim FTM</button>
 <br><br>
 
 <br><br>
@@ -247,6 +237,8 @@ tr:hover{background: rgba(0,255,127,0.25);}
 	</thead>
 	<tbody id="winners">
 		<tr>
+			<tr><td colspan="8" align="center">Unavailable right now...</td>
+			<!--
 			<td>801</td>
 			<td>LONG</td>
 			<td>In the Money</td>
@@ -254,7 +246,7 @@ tr:hover{background: rgba(0,255,127,0.25);}
 			<td>1 FTM</td>
 			<td>1632132349</td>
 			<td>1.212392</td>
-			<td>1.232113</td>
+			<td>1.232113</td>-->
 		</tr>
 	</tbody>
 </table>
