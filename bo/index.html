@@ -532,13 +532,26 @@ async function drefreshStats()
 		await PM.methods.AllRounds(i).call((e,r)=>{
 			console.log("gcr at",i,r);
 			d1.innerHTML = i;
-			d2.innerHTML = "$" + (r.pi/1e18).toFixed(6);
-			d3.innerHTML = "$" + (r.pf/1e18).toFixed(6);
-			d4.innerHTML = r.nh;
-			d5.innerHTML = r.nl;
-			d6.innerHTML = (r.nh + r.nl)*mv/1e18 + " FTM";
-			d7.innerHTML = r.pi < r.pf ? (r.nl+r.nh)/r.nh :  (r.nl+r.nh)/r.nh;
-			d8.innerHTML = r.ti;
+			d2.innerHTML = "$" + (Number(r.pi)/1e18).toFixed(6);
+			d3.innerHTML = "$" + (Number(r.pf)/1e18).toFixed(6);
+			d4.innerHTML = (Number(r.nh));
+			d5.innerHTML = Number(r.nl);
+			d6.innerHTML = (Number(r.nh) + Number(r.nl))*mv/1e18 + " FTM";
+			k=0;
+			if(Number(r.pi) < Number(r.pf))
+			{
+				k = (Number(r.nl)+Number(r.nh))/Number(r.nh);
+				if (isFinite(k)){d7.innerHTML = k +"x"}
+				else {d7.innerHTML = r.nl +"x"}
+			}
+			else
+			{
+				k = (Number(r.nl)+Number(r.nh))/Number(r.nh);
+				if (isFinite(k)){d7.innerHTML = k +"x"}
+				else {d7.innerHTML = r.nh +"x"}
+			}
+
+			d8.innerHTML = Number(r.ti);
 			console.log("gcr at",i,r);
 		});
 
@@ -559,7 +572,7 @@ async function bhi()
 	{
 		await cw();
 		PM = new web3.eth.Contract(i_pm,pma);
-		PM.methods.bh().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert(`You Longed FTM at ${(new Date()).toLocaleString()}.\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!`)})
+		PM.methods.bh().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert(`You Longed FTM at ${(new Date()).toLocaleString()}.\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!`);drefreshStats()})
 	}
 	catch(e){console.log(e)}
 }
@@ -569,7 +582,7 @@ async function blo()
 	{
 		await cw();
 		PM = new web3.eth.Contract(i_pm,pma);
-		PM.methods.bl().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert(`You Shorted FTM at ${(new Date()).toLocaleString()}.\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!`)})
+		PM.methods.bl().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert(`You Shorted FTM at ${(new Date()).toLocaleString()}.\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!`);drefreshStats()})
 	}
 	catch(e){console.log(e)}
 }
