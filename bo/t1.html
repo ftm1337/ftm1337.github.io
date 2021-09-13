@@ -132,7 +132,7 @@ tr:hover{background: rgba(0,255,127,0.25);}
 		<div id="fdet"  style="">
 			<span>Underlying:</span><span></span><span>FTM/USD</span>
 			<span>Round №:</span><span></span><span id="fdet_rn">810</span>
-			<span>Expiry Time:</span><span></span><span id="fdet_rn">00h 00m 00s</span>
+			<span>Expiry Time:</span><span></span><span id="fdet_et">00h 00m 00s</span>
 			<span>Eliteness:</span><span></span><span>0 ELITE</span>
 			<span>Fees:</span><span></span><span>0% FTM</span>
 			<span>Contract Class:</span><span></span><span>Perpetual</span>
@@ -149,7 +149,7 @@ tr:hover{background: rgba(0,255,127,0.25);}
 	<div></div>
 	<div class="mainstage mainstage-long" style="" align="center">
 		<input class="farmcontrols" value="" placeholder="FTM Amount" id="farm_1_input_withdraw" type="number">
-		<button class="farmcontrols" onclick="bl()">Long ↗</button>
+		<button class="farmcontrols" onclick="bhi()">Long ↗</button>
 	</div>
 	<div></div>
 </div>
@@ -158,16 +158,16 @@ tr:hover{background: rgba(0,255,127,0.25);}
 	<div class="mainstage mainstage-main" style=";color:#e3e9f2" align="center">
 		<div id="db-data"  style="">
 			<span>
-				<span style="font-size:1.5em" id="hm">2.32x</span>
+				<span style="font-size:1.5em" id="hm">?x</span>
 				<br>(On Longs)
 			</span>
 			<span>
-				FTM/USD
-				<span style="font-size:2.5em" id="cp">1.337000</span>
+				FTM/USD<br>
+				<span style="font-size:2.5em" id="cp">$?</span>
 				<br>(Oracle Price)
 			</span>
 			<span>
-				<span style="font-size:1.5em" id="lm">1.84x</span>
+				<span style="font-size:1.5em" id="lm">?x</span>
 				<br>(On Shorts)
 			</span>
 		</div>
@@ -178,11 +178,55 @@ tr:hover{background: rgba(0,255,127,0.25);}
 	<div></div>
 	<div class="mainstage mainstage-short" style="" align="center">
 		<input class="farmcontrols" value="" placeholder="FTM Amount" id="farm_1_input_withdraw" type="number">
-		<button class="farmcontrols" onclick="bh()">Short ↘</button>
+		<button class="farmcontrols" onclick="blo()">Short ↘</button>
 	</div>
 	<div></div>
 </div>
 
+
+<br><br>
+
+<br><br>
+
+<div align="center" style="overflow-x:auto">
+<h3>ROUND HISTORY</h3>
+<table class="mainstage mainstage-trade">
+	<thead>
+		<th>R#</th>
+		<th>Open</th>
+		<th>Close</th>
+		<th>Longs</th>
+		<th>Shorts</th>
+		<th>Volume</th>
+		<th>Payout</th>
+		<th>Time Stamp</th>
+	</thead>
+	<tbody id="">
+		<tr>
+			<td>801</td>
+			<td>1.23</td>
+			<td>1.56</td>
+			<td>11</td>
+			<td>12</td>
+			<td>654 FTM</td>
+			<td>1.12x</td>
+			<td>1631777123</td>
+		</tr>
+	</tbody>
+	<tbody id="rohi">
+		<tr>
+			<td>801</td>
+			<td>1.23</td>
+			<td>1.56</td>
+			<td>11</td>
+			<td>12</td>
+			<td>654 FTM</td>
+			<td>1.12x</td>
+			<td>1631777123</td>
+		</tr>
+	</tbody>
+</table>
+</div>
 
 <br><br>
 
@@ -258,6 +302,8 @@ Rewards are paid from the deposits of the losing side. Either "Longs pay Shorts"
 ChainLINK & BAND-Protocol.</details>
 <br><details><summary><b>Is there a fee?</b></summary>
 Not yet, but its not ruled out from the future. Any fees will be duly mentioned on the top of the page.</details>
+<br><details><summary><b>what if nobody bets?</b></summary>
+In case there are no bets on the winning side, The House wins. To tackle this, we will make each round sufficiently long.</details>
 </div>
 <div id="lowarea" style="padding:15px; font-size:0.9em" align="center">
 <h4>Still testing?</h4>
@@ -405,10 +451,13 @@ Sir, Don't get rek. Please exercise extreme caution while dealing with smart con
 <script>
 function $(_) {return document.getElementById(_);}
 pma="0xa4D2B96C1Dd4D404B371C7013fdA386dFc8B0C85";
+mv = 10000000000000000;
 window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==Number(0xfa2)){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 	else{web3 = new Web3("https://rpc.testnet.fantom.network");}
+	refreshStats();
+	drefreshStats();
 }, false);
 function fornum(n,d)
 {
@@ -453,15 +502,72 @@ function arf(){	var xfr = setInterval(function()
 async function refreshStats()
 {
 	PM = new web3.eth.Contract(i_pm,pma);
-	var cp_ = await PM.methods.getOracle().call((e,r)=>{$("cp").innerHTML=(Number(r)/1e18).toFixed(6);return Number(r)});
+	var cp_ = PM.methods.getOracle().call((e,r)=>{$("cp").innerHTML=(Number(r)/1e18).toFixed(6);return Number(r)});
 	var _crd = await PM.methods.getCurrentRound().call((e,r)=>{return Number(r)});
-	lm = crd[3];
-	hm = crd[4];
+	lm = _crd[3];
+	hm = _crd[4];
+	eta=((Number(_crd[5])*1e3-Date.now()))
+	if(eta>0)
+	{
+		et = new Date(eta);
+		$("fdet_et").innerHTML=(et.getUTCDate()+1)+"D "+et.getUTCHours()+"h "+et.getUTCMinutes()+"m "+et.getUTCSeconds()+"s";
+	}
+	else{$("fdet_et").innerHTML="<button>Create New Round</button>"}
 	$("lm").innerHTML = (hm/lm).toFixed(3);
 	$("lm").innerHTML = (hm/lm).toFixed(3);
 }
 
+async function drefreshStats()
+{
+	PM = new web3.eth.Contract(i_pm,pma);
+	var _ri = await PM.methods.ri().call((e,r)=>{return Number(r)})
+	$("fdet_rn").innerHTML = _ri;
+	rohitb = $("rohi");
+	for (i=_ri;i>0;i--)
+	{
+		tr=document.createElement("tr");
+		d1=document.createElement("td");
+		d2=document.createElement("td");
+		d3=document.createElement("td");
+		d4=document.createElement("td");
+		d5=document.createElement("td");
+		d6=document.createElement("td");
+		d7=document.createElement("td");
+		d8=document.createElement("td");
+		await PM.methods.AllRounds(i).call((e,r)=>{
+			d1.innerHTML = i;
+			d2.innerHTML = "$" + r.pi;
+			d3.innerHTML = "$" + r.pf;
+			d4.innerHTML = r.nh;
+			d5.innerHTML = r.nl;
+			d6.innerHTML = (r.nh + r.nl)*mv/1e18 + "FTM";
+			d7.innerHTML = r.pi < r.pf ? (r.nl+r.nh)/nh :  (r.nl+r.nh)/nh;
+			d7.innerHTML = r.ti;
+		});
 
+		tr.append(d1);
+	}
+}
+async function bhi()
+{
+	try
+	{
+		await cw();
+		PM = new web3.eth.Contract(i_pm,pma);
+		PM.methods.bh().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert('You Longed FTM at (new Date()).toLocaleString().\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!')})
+	}
+	catch(e){console.log(e)}
+}
+async function blo()
+{
+	try
+	{
+		await cw();
+		PM = new web3.eth.Contract(i_pm,pma);
+		PM.methods.bl().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert('You Shorted FTM at (new Date()).toLocaleString().\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!')})
+	}
+	catch(e){console.log(e)}
+}
 i_pm = [
 	{
 		"inputs": [
