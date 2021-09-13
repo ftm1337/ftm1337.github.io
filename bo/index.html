@@ -507,13 +507,14 @@ async function refreshStats()
 	lm = _crd[3];
 	hm = _crd[4];
 	eta=((Number(_crd[5])*1e3-Date.now()))
+
 	if(eta>0)
 	{
 		et = new Date(eta);
 		$("fdet_et").innerHTML=(et.getUTCDate()+1)+"D "+et.getUTCHours()+"h "+et.getUTCMinutes()+"m "+et.getUTCSeconds()+"s";
 	}
-	else{$("fdet_et").innerHTML="<button>Create New Round</button>"}
-	$("lm").innerHTML = (hm/lm).toFixed(3);
+	else{$("fdet_et").innerHTML=`<button onclick='alert("Please open a Long or a Short. This is a testnet anyways!")'>Create New Round</button>`}
+	$("hm").innerHTML = (lm/hm).toFixed(3);
 	$("lm").innerHTML = (hm/lm).toFixed(3);
 }
 
@@ -521,11 +522,13 @@ async function drefreshStats()
 {
 	PM = new web3.eth.Contract(i_pm,pma);
 	var _ri = await PM.methods.ri().call((e,r)=>{return Number(r)})
+	console.log("ri:",_ri)
 	$("fdet_rn").innerHTML = _ri;
 	rohitb = $("rohi");
+	rohitb.innerHTML = "";//clear dummies
 	for (i=_ri;i>0;i--)
 	{
-		tr=document.createElement("tr");
+		r1=document.createElement("tr");
 		d1=document.createElement("td");
 		d2=document.createElement("td");
 		d3=document.createElement("td");
@@ -535,17 +538,27 @@ async function drefreshStats()
 		d7=document.createElement("td");
 		d8=document.createElement("td");
 		await PM.methods.AllRounds(i).call((e,r)=>{
+			console.log("gcr at",i,r);
 			d1.innerHTML = i;
-			d2.innerHTML = "$" + r.pi;
-			d3.innerHTML = "$" + r.pf;
+			d2.innerHTML = "$" + (r.pi/1e18).toFixed(6);
+			d3.innerHTML = "$" + (r.pf/1e18).toFixed(6);
 			d4.innerHTML = r.nh;
 			d5.innerHTML = r.nl;
-			d6.innerHTML = (r.nh + r.nl)*mv/1e18 + "FTM";
-			d7.innerHTML = r.pi < r.pf ? (r.nl+r.nh)/nh :  (r.nl+r.nh)/nh;
-			d7.innerHTML = r.ti;
+			d6.innerHTML = (r.nh + r.nl)*mv/1e18 + " FTM";
+			d7.innerHTML = r.pi < r.pf ? (r.nl+r.nh)/r.nh :  (r.nl+r.nh)/r.nh;
+			d8.innerHTML = r.ti;
+			console.log("gcr at",i,r);
 		});
 
-		tr.append(d1);
+		r1.append(d1);
+		r1.append(d2);
+		r1.append(d3);
+		r1.append(d4);
+		r1.append(d5);
+		r1.append(d6);
+		r1.append(d7);
+		r1.append(d8);
+		rohitb.append(r1)
 	}
 }
 async function bhi()
@@ -554,7 +567,7 @@ async function bhi()
 	{
 		await cw();
 		PM = new web3.eth.Contract(i_pm,pma);
-		PM.methods.bh().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert('You Longed FTM at (new Date()).toLocaleString().\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!')})
+		PM.methods.bh().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert(`You Longed FTM at ${(new Date()).toLocaleString()}.\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!`)})
 	}
 	catch(e){console.log(e)}
 }
@@ -564,7 +577,7 @@ async function blo()
 	{
 		await cw();
 		PM = new web3.eth.Contract(i_pm,pma);
-		PM.methods.bl().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert('You Shorted FTM at (new Date()).toLocaleString().\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!')})
+		PM.methods.bl().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert(`You Shorted FTM at ${(new Date()).toLocaleString()}.\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!`)})
 	}
 	catch(e){console.log(e)}
 }
