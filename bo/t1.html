@@ -405,12 +405,10 @@ Sir, Don't get rek. Please exercise extreme caution while dealing with smart con
 <script>
 function $(_) {return document.getElementById(_);}
 pma="0xa4D2B96C1Dd4D404B371C7013fdA386dFc8B0C85";
-PM = new web3.eth.Contract(i_pm,pma);
 window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==Number(0xfa2)){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 	else{web3 = new Web3("https://rpc.testnet.fantom.network");}
-	PM = new web3.eth.Contract(i_pm,pma);
 }, false);
 function fornum(n,d)
 {
@@ -450,13 +448,15 @@ function arf(){	var xfr = setInterval(function()
 	{
 		console.log("refreshing farm stats", Date.now());//lpapr_sus_d()
 		;refreshStats()
-	}, 15000);}
+	}, 30000);}
 
 async function refreshStats()
 {
+	PM = new web3.eth.Contract(i_pm,pma);
 	var cp_ = await PM.methods.getOracle().call((e,r)=>{$("cp").innerHTML=(Number(r)/1e18).toFixed(6);return Number(r)});
-	var nl_ = await PM.methods.nl().call((e,r)=>{return Number(r)});
-	var nh_ = await PM.methods.nh().call((e,r)=>{return Number(r)});
+	var _crd = await PM.methods.getCurrentRound().call((e,r)=>{return Number(r)});
+	lm = crd[3];
+	hm = crd[4];
 	$("lm").innerHTML = (hm/lm).toFixed(3);
 	$("lm").innerHTML = (hm/lm).toFixed(3);
 }
@@ -715,7 +715,7 @@ i_pm = [
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-]
+];
 
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
 </script>
