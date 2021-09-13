@@ -517,7 +517,7 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 </div>
 <br><br>
 <h3 align="center">Farming with ELITE</h3>
-<div align="center">There are multiple projects on Fantom Opear that offer rewards for contributing liquidity to ELITE pairs.</div>
+<div align="center">There are multiple projects on Fantom Opera that offer rewards for contributing liquidity to ELITE pairs.</div>
 <div class="centerstage" align="center">
 	<table id="maintable" class="centerstage" align="center">
 		<thead>
@@ -880,7 +880,7 @@ async function basics()
 	$("PBa").innerHTML=(P0B/P0T*RP0[0]/1e18+P1B/P1T*RP1[0]/1e18).toFixed(5);
 	$("PBb").innerHTML=(P0B/P0T*RP0[1]/1e18+P1B/P1T*RP1[1]/1e18).toFixed(5);
 	AP=(RP0[1]+RP1[1]+RP2[1]+RP3[1])/(RP0[0]+RP1[0]+RP2[0]+RP3[0]);
-	TL=(2*AP*(RP0[0]+RP1[0]+RP2[0]+RP3[0]+RP4[0]+RP5[0]+12e18)/1e18)
+	TL=(2*AP*(RP0[0]+RP1[0]+RP2[0]+RP3[0]+RP4[0]+RP5[0]+14e18)/1e18)
 	$("tl").innerHTML=TL.toLocaleString();
 	$("mc").innerHTML=(AP*cs).toLocaleString();
 	$("ap").innerHTML=((AP)).toLocaleString();
@@ -903,7 +903,7 @@ async function basics()
 	//hyper		ftm		0xdc79C700EeDc83bE8d19Ad2d245717c7539DFA1c
 	//paint		ftm		0xF33c436E3C1f0AD9EcB400aA28183910585eFe21
 	//sushi		usdc	0x1DFcDdF675038EAd27F1D75B435B5B05BA825E9A
-	mkpi1(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18,12);
+	mkpi1(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18,14);
 
 }
 function mkpi1(val1,val2,val3,val4,val5,val6,val0)
