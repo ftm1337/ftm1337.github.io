@@ -4,13 +4,13 @@
 <meta name="description" content="Sun Finance Launchpad on LITE Farmlands : Plot # 1011 - FTM.guru | Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting, D.I.Y. Farm lands">
 <meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<head>
+</head>
 <link rel="shortcut icon" href="../img/ftm1337.jpg" />
 <style>
 *{color:#e3e9f2;overflow-wrap:break-word;}
 a{text-decoration-line:none;padding:0 2px}
-*{text-shadow:10px 10px 5px black;color:#e3e9f2}
-html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}img{border-radius: 50%}
+html{background:#020611;color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+img{border-radius: 50%}
 input,button{border-radius:25px;background:black;text-align:center;}
 button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
 pre{overflow-x:auto;max-width:80%}
@@ -34,11 +34,10 @@ button:disabled {
 .lpapr{text-shadow: rgba(0,255,255,1) 0px 0px 10px;color:aqua;font-size:2em}
 .notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #000;border-radius: 20px;padding:2%;border:5px dashed}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
-.mainstage:nth-child(2){background-image: url("../img/bg-sun.jpg");background-size: 100%;background-repeat: no-repeat ;
-color:#020611;text-shadow: 0 0 2px black;}
-.mainstage:nth-child(2) span{background: rgba(9,9,32,0.67);border-bottom:1px dotted aqua ;}
-.mainstage:nth-child(2) h4,.mainstage:nth-child(2) h3{background: rgba(9,9,32,0.67);width:max-content;border:1px double aqua;border-radius: 20px;padding: 5px}
-.mainstage:nth-child(2) span:nth-child(22){border:none}
+.mainstage:nth-child(2){background-image: url("../img/bg-sun.jpg");background-size: 100%;background-repeat: no-repeat ;color:#020611;text-shadow: 0 0 2px black;}
+.mainstage:nth-child(2) span{background: rgba(9,9,32,0.5);border-bottom:1px dotted aqua ;}
+.mainstage:nth-child(2) h4,.mainstage:nth-child(2) h3{background: rgba(9,9,32,0.5);width:max-content;border:1px double aqua;border-radius: 20px;padding: 5px}
+.mainstage:nth-child(2) span:nth-child(){border:none}
 /*.mainstage:nth-child(1),
 .mainstage:nth-child(2),
 .mainstage:nth-child(4),
@@ -61,7 +60,7 @@ input{background: #000 !important;}
 #fdet span:nth-of-type(3n){text-align:left;font-weight:bold}
 .lowercat {text-align: left;padding:10px}
 .lowercat a{text-decoration-line: none}
-.lowercat span{font-size: 1.25em; font-weight:bold}
+.lowercat span{font-size: 1.25em; font:weight:bold}
 .lowerbar{display: grid;grid-template-columns: auto;text-align:center}
 @media(min-width:641px){
 	.mainpanels{grid-template-columns:50% 50%}
@@ -69,7 +68,8 @@ input{background: #000 !important;}
 	#mvg{width: 70%;}
 	.hhr{width:555px}
 	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
-}#c2a{
+}
+#c2a{
 	display: grid;
 	grid-template-columns: auto;
 }
@@ -93,7 +93,6 @@ input{background: #000 !important;}
 html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
 .mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
 *{text-shadow:6px 6px 5px black;color:#e3e9f2}
-
 </style>
 </head>
 <div class="topbar">
@@ -122,14 +121,14 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 Stake to earn passive rewards!<br>
 <button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br><br>
 <div id="fdet"  style="">
-<span>Staking:</span><span></span><span>SUN/FTM LP</span>
-<span>Rewards:</span><span></span><span>SUN</span>
-<span>Using:</span><span></span><span>Spirit</span>
+<span>Stakes:</span><span></span><span>TCUZ/FTM LP</span>
+<span>Platform:</span><span></span><span>SpiritSwap</span>
 <span>Eliteness:</span><span></span><span>0.001337 ELITE</span>
 <span>Fees:</span><span></span><span>2%</span>
+<span>Lockup:</span><span></span><span>1 Week</span>
 </div>
-<br>
-</div>
+<br><br>
+</div><br><br>
 
 <div class="mainstages" align="center">
 	<div></div><!--
@@ -377,6 +376,8 @@ Stake to earn passive rewards!<br>
 				<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
 				<span></span><span id="farm_3_i_ys">?</span>
 				<span></span><span>Your Stake</span><span></span>
+				<span></span><span id="farm_3_i_ystl">?</span>
+				<span></span><span>UnLock</span><span></span>
 				<span></span><span id="farm_3_i_re">?</span>
 				<span></span><span>Earned</span><span></span>
 				<span></span><span id="farm_3_i_apr">?</span>
@@ -418,11 +419,17 @@ Stake to earn passive rewards!<br>
 
 <br>
 <br>
+<div align="center">
+🔒This Plot (LF#1011) has a WithDrawal Lock!<br>
+Unstaking is possible only after 7 days! 🔒
+</div>
+<br>
+<br>
 <div align="center" class="advert2">
 <pre>Get $SUN
-0x190f4f3939ce6eef0c94fd97b71fe2c693c10200</pre>
-<a href="https://ftmscan.com/token/0x190f4f3939ce6eef0c94fd97b71fe2c693c10200" target="_blank"><button>ftmScan</button></a>
-<a href="https://spookyswap.finance/swap?outputCurrency=0x190f4f3939ce6eef0c94fd97b71fe2c693c10200" target="_blank"><button>Spooky</button></a><br><br>
+0x60e91f89A2986975822De3BfE50df002Ef46EaAD</pre>
+<a href="https://ftmscan.com/token/0x60e91f89A2986975822De3BfE50df002Ef46EaAD" target="_blank"><button>ftmScan</button></a>
+<a href="https://swap.spiritswap.finance/#/swap?inputCurrency=FTM&outputCurrency=0x60e91f89A2986975822De3BfE50df002Ef46EaAD" target="_blank"><button>Spirit</button></a><br><br>
 </div>
 <br>
 <br>
@@ -431,9 +438,13 @@ Stake to earn passive rewards!<br>
 <div class="mainstage">
 <div style="display:">
 <h3>Net Total Yield</h3>
-<span class="lpapr" id="stats_apr_nt">? %</span>
+<span style="background:rgba(1,2,3,0.5);" class="lpapr" id="stats_apr_nt">? %</span>
 <br><br>
-<div style="display:none"><!--excess-->
+
+
+<span  style="display:none">
+
+
 <h4>Liquidity Mining</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
 	<span></span><span>24 hrs:</span><span></span><span id="stats_lm_d">?</span><span></span>
@@ -445,14 +456,19 @@ Stake to earn passive rewards!<br>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
 	<span></span><span>1 Year:</span><span></span><span id="stats_nt_y"></span><span></span>
 	-->
-</div><!--excess-->
+
+
+	</span>
+
+
 </div>
 </div>
 <h4>Yield Farming</h4>
 <div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
-	<span></span><span>APY:</span><span></span><span id="stats_ap_y">?</span><span></span>
-	<span></span><span>Weekly:</span><span></span><span id="stats_ap_w">?</span><span></span>
+	<span></span><span>APR:</span><span></span><span id="stats_apr">?</span><span></span>
 	<span></span><span>Daily:</span><span></span><span id="stats_ap_d">?</span><span></span>
+	<span></span><span>Weekly:</span><span></span><span id="stats_ap_w">?</span><span></span>
+	<span></span><span>Yearly:</span><span></span><span id="stats_ap_y">?</span><span></span>
 </div>
 <div style="display:none">
 <h4>Market Data</h4>
@@ -473,7 +489,7 @@ Stake to earn passive rewards!<br>
 <h4>When can we claim rewards?</h4>
 Rewards accrue each 3 seconds (Opera block time) and are available for claiming instantly. Each deposit and withdraw harvests your crops automatically and sendsthem to your wallet directly.
 <h4>Are the deposits locked?</h4>
-Deposits can be withdrawn at any time from our regular farms. Special farms (currently none) can havea pre-defined lockup period. Such farms will be marked with a 🔒 ("Lock Icon").
+Deposits can be withdrawn at any time from our regular farms. Special farms can have a pre-defined lockup period. Such farms will be marked with a 🔒 ("Lock Icon"). A withdraw timer for stakers is shown in the Farm-Info section, above the TVL.
 
 
 <h4>What is Eliteness?</h4>
@@ -484,7 +500,7 @@ Discover the best place to Buy ELITE at our <a href="../elite" target="_blank">E
 
 
 <h4>How long does a farm last?</h4>
-Fields on our LITE Farmlands last forever. Rewards last as long as the community decides to keep funding. Top-ups can be made regularly after a farm dries up to start a new season by anyone. There will be a countdown timer reflecting the same at each farm. This duration is specified by the tenants when they first occupy their fields.<br>
+Fields on our LITE Farmlands last forever. Rewards last as long as the community decides to keep funding. Top-ups can be made regularly after a farm dries up to start a new season by anyone. There is a countdown timer reflecting the same at each farm, titled "Dry Date". This duration is specified by the tenants when they first occupy their fields.<br>
 
 <h4>Which tokens & DEX do Farmlands support?</h4>
 We support all DEXes. We support all tokens that implement the standard ERC20 functions. We support single sided staking too.<br>
@@ -647,7 +663,7 @@ window.addEventListener('load',async function()
 	//lpapr_sus_d();
 	DrefreshFarm()
 }, false);
-function fornum2(n,d)
+function fornum(n,d)
 {
 	_n=(Number(n)/10**Number(d));
 	n_=_n;
@@ -898,9 +914,8 @@ function fornum(n,d)
 }
 function arf(){	var xfr = setInterval(function()
 	{
-		console.log("refreshing farm stats", Date.now());
-		//lpapr_sus_d();
-		refreshFarm()
+		console.log("refreshing farm stats", Date.now());//lpapr_sus_d()
+		;refreshFarm()
 	}, 15000);}
 
 abbrove=[
@@ -958,8 +973,8 @@ abbrove=[
 	}];
 
 f_1_add = "";
-pairadd = "0x634c206d44c8B392305fdBBC9263229A7C0a6891";
-rewnalp = "0x623765857B74Da6F5A52A362d228de7F7859224f";
+pairadd = "0xdAaca3CA5974626E7BB18B2f2245438e04d128f1";
+// SUN	= "0x60e91f89A2986975822De3BfE50df002Ef46EaAD";
 
 farabi=[
 	{
@@ -975,6 +990,25 @@ farabi=[
 			{
 				"name": "",
 				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "tdep",
+		"outputs": [
+			{
+				"name": "",
+				"type":"uint256"
 			}
 		],
 		"payable": false,
@@ -1409,39 +1443,39 @@ async function refreshFarm()
 
 		theCon = new web3.eth.Contract(farabi, f_1_add);
 		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
-		{$("farm_1_s_claim").value=Number(r)/1e9;
-		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e9);
-		$("farm_3_i_re").innerHTML=(Number(r)/1e9);});
+		{$("farm_1_s_claim").value=Number(r)/1e18; //REWARD DECIMALS
+		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e18); //REWARD DECIMALS
+		$("farm_3_i_re").innerHTML=(Number(r)/1e18);});
 		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
 		$("farm_3_i_ys").innerHTML=(Number(r)/1e18);
-		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)});
+		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)
+		if(Number(r)>0)
+			{theCon.methods.tdep(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+				{$("farm_3_i_ystl").innerHTML= (new Date(Number(r)*1000+86400000*7)).toLocaleString()});
+			}
+		});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
-		rewn = new web3.eth.Contract(ab1, rewnalp);
-		const p_rt = await rewn.methods.getReserves().call((e, r) => {return(r)});
-		prt = (p_rt[0]/1e18)/(p_rt[1]/1e9);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
 		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 
 		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
-		const res1 = await the2.methods.getReserves().call((e, r) => {return(r)});
+		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
 		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
-		res=[res1[1],res1[0]];
+
 		pt=res[0]/res[1];
 		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
-		apr=(rera*prt/1e9)/(plp*tv/1e18)*365*86400*100;
-		//apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
+		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
+		$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
 		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
-		$("stats_apr_nt").innerHTML=fornum(((1+apr/36500)**365-1)*100+aapd,0)+"%";
-		console.log(res)
+		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
 	}
 	catch(e){console.log(e);}
 }
@@ -1451,39 +1485,34 @@ async function DrefreshFarm()
 	{
 		theCon = new web3.eth.Contract(farabi, f_1_add);
 
-		rewn = new web3.eth.Contract(ab1, rewnalp);
-		const p_rt = await rewn.methods.getReserves().call((e, r) => {return(r)});
-		prt = (p_rt[0]/1e18)/(p_rt[1]/1e9);
-
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
-		const res1 = await the2.methods.getReserves().call((e, r) => {return(r)});
+		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
 		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
-		res=[res1[1],res1[0]];
+		console.log(res);
 		pt=res[0]/res[1];
 		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
 		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
 		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
-		apr=(rera*prt/1e9)/(plp*tv/1e18)*365*86400*100;
-		//apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
+		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
 		$("farm_3_i_apr").innerHTML=apr.toLocaleString()+"%";
 		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
+		$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
 		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
 		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
-		$("stats_apr_nt").innerHTML=fornum(((1+apr/36500)**365-1)*100+aapd,0)+"%";
-
+		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
 		theCon.methods.periodFinish().call((e, r) => {$("pf").innerHTML=new Date(Number(r) * 1000)});
 	}
 	catch(e){console.log(e);}
 }
+
 /*
 function lpapr_sus_d()
 {
 	hi=Date.now();hi=(hi-hi%36e5)/36e5;
-	pi="0xdEAD5ee1d489b8f0d3815E4d26554fE1aeF01281"
+	pi="0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0"
 	Q_pn_c=`{
 `
 	for(ih=0;ih< 24;ih++)
@@ -1497,7 +1526,7 @@ fragment c on PairHourData {
   reserveUSD
 }`
 	gr1=new XMLHttpRequest();
-	gr1.open("POST","https://api.thegraph.com/subgraphs/name/ruvlol/graph-n",true);
+	gr1.open("POST","https://api.thegraph.com/subgraphs/name/sushiswap/fantom-exchange",true);
 	gr1.onload=function()
 	{
 		aap=0;
@@ -1514,7 +1543,7 @@ fragment c on PairHourData {
 		aapd=(aap*365e2)
 		$("stats_lm_d").innerHTML=(aapd).toLocaleString()+"%";
 		$("stats_md_vd").innerHTML=(dv).toLocaleString()+" USD";
-		hv=d[Object.keys(d)[0]]==null?1:(Number(d[Object.keys(d)[0]].volumeUSD)).toLocaleString();
+		hv=d[Object.keys(d)[0]]==null?1:(d[Object.keys(d)[0]].volumeUSD).toLocaleString();
 		$("stats_md_vh").innerHTML=hv+" USD";
 	}
 	gr1.send(JSON.stringify({query:Q_pn_c}))
