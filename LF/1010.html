@@ -1454,7 +1454,7 @@ async function refreshFarm()
 		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e9);
 		if(Number(r)>0)
 			{theCon.methods.tdep(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
-				{$("farm_3_i_ystl").innerHTML= (new Date(Number(r)*1000+86400000*7)).toLocaleString()});
+				{$("farm_3_i_ystl").innerHTML= (new Date(Number(r)*1000+86400000*13+3*3600000+7*60000)).toLocaleString()});
 			}
 		});
 
