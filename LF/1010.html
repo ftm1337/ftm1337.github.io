@@ -1433,6 +1433,11 @@ async function refreshFarm()
 		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e9;
 		$("farm_3_i_ys").innerHTML=(Number(r)/1e9);
 		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e9)});
+		if(Number(r)>0)
+			{theCon.methods.tdep(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+				{$("farm_3_i_ystl").innerHTML= (new Date(Number(r)*1000+86400000*7)).toLocaleString()});
+			}
+		});
 
 		the2 = new web3.eth.Contract(ab1, pairadd);
 		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e9});
