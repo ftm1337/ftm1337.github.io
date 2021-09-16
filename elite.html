@@ -6,7 +6,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
-<style>* {
+<style>
+* {
 	color:#e3e9f2;
 	overflow-wrap:break-word;
 }
@@ -41,24 +42,26 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 thead{line-height: }
 td a{text-decoration-line: none}
 tbody tr:hover{cursor:  zoom-in;background: rgba(0,255,255,0.25)}
-table td{padding: 10px}
+table td{padding: 0 5px;min-width:max-content;}
 table{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;
 	background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;
-	min-width:max-content;text-align:center}
-
+	text-align:center}
 td button{padding: 0;margin: 0;width: 20px;height: 20px}
 .liqdis .mainpanel{padding-bottom: 8px;padding-top: 8px;}
-
-.p1td{display: grid;grid-template-columns: auto;}
+.donut{width: 256px}
+.p1td{display: grid;grid-template-columns:auto}
+#consmark{margin: auto}
+.p1td div{margin:auto;width:90vw}
 @media(min-width:641px){
-		.mainpanels{grid-template-columns:auto auto auto}
-		.liqdis{grid-template-columns:auto auto}
-		.mainpanels2{grid-template-columns: auto auto auto auto}
-		.mainpanels3{grid-template-columns: 0 50% 50% 0}
-		.hhr{width:555px}
-		.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
-		.p1td{grid-template-columns:auto auto;}
-
+	.mainpanels{grid-template-columns:auto auto auto}
+	.liqdis{grid-template-columns:auto auto}
+	.mainpanels2{grid-template-columns: auto auto auto auto}
+	.mainpanels3{grid-template-columns: 0 50% 50% 0}
+	.hhr{width:555px}
+	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+	.p1td{grid-template-columns:auto auto;}
+.p1td div{margin:auto;width:40vw}
+	.donut{width: 360px}
 }
 @media(min-width:800px){
 		.liqdis{grid-template-columns:auto auto auto !important;}
@@ -84,7 +87,7 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 		grid-template-columns: auto 280px 280px auto;
 	}
 }
-
+ #consmark div{color:beige !important}
 .chart-text {
   /*font: 16px/1.4em "Montserrat", Arial, sans-serif;*/
   fill: #000;
@@ -115,6 +118,7 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
   transform: translateY(0.7em);
   fill:aqua;
 }
+
 </style>
 </head>
 <div class="topbar">
@@ -206,18 +210,13 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 </div>
 <br><br>
 <h4 align="center">LIQUIDITY DISTRIBUTION</h4>
-<div align="Center" class="p1td">
-	<div align="right">
-		<svg class="donut" width="400" height="" viewBox="0 0 42 42">
+<div align="center" class="p1td">
+	<div align="center" >
+		<svg class="donut" width="" height="" viewBox="0 0 42 42">
   			<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
-  			<circle id="donut-segment0" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#3aa" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
-  			<circle id="donut-segment6" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#77f" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
-  			<circle id="donut-segment5" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#4f4" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
-  			<circle id="donut-segment4" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#fff" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
-  			<circle id="donut-segment3" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#93f" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
-  			<circle id="donut-segment2" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#f77" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
-  			<circle id="donut-segment1" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0ff" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
- 			<g class="chart-text">
+  	  		<circle id="donut-segment-0" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0ff" stroke-width="3" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+  			<g id="dos"></g>
+  			<g class="chart-text">
         		<text x="21" y="50%" class="chart-number" id="totalValue">
           		?
         		</text>
@@ -225,24 +224,130 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
       		</g>
 		</svg>
 	</div>
-	<div align="left">
+	<div id="consmark" align="center" >
 		<b>Constituent Markets</b><br><br>
-		<span class="p1t" style="color:#0ff"><span id="p1tpl1">?</span>FTM (Spooky)</span><br>
-		<span class="p1t" style="color:#f77"><span id="p1tpl2">?</span>FTM (Sushi)</span><br>
-		<span class="p1t" style="color:#93f"><span id="p1tpl3">?</span>FTM (Spirit)</span><br>
-		<span class="p1t" style="color:#fff"><span id="p1tpl4">?</span>FTM (ZooDEX)</span><br>
-		<span class="p1t" style="color:#4f4"><span id="p1tpl5">?</span>ZOO (ZooDEX)</span><br>
-		<span class="p1t" style="color:#77f"><span id="p1tpl6">?</span>USDC (Sushi)</span><br>
-		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>USDC (Spooky)</span><br>
-		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Elk)</span><br>
-		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>USDC (Elk)</span><br>
-		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Shiba)</span><br>
-		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>USDC (Shiba)</span><br>
-		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (NipdEX)</span><br>
-		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Hyper)</span><br>
-		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Cyber)</span><br>
-		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Paint)</span><br>
-		<span class="p1t" style="color:#3aa"><span id="p1tpl7">?</span>FTM (Totem)</span><br>
+		<div style="overflow:auto">
+			<table id="maintable" class="centerstage">
+				<thead>
+					<tr>
+					<th onclick="sortit(0)">Base⇅</th>
+					<th onclick="sortit(1)">ELITEs⇅</th>
+					<th onclick="sortit(2)">DEX⇅</th>
+					<th onclick="sortit(2)">Links</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl1">0</td>
+						<td>Spooky</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl2">0</td>
+						<td>Sushi</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl3">0</td>
+						<td>Spirit</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl4">0</td>
+						<td>Zoo</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>ZOO</td>
+						<td id="p1tpl5">0</td>
+						<td>Zoo</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl6">0</td>
+						<td>Sushi</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl7">0</td>
+						<td>Spooky</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl8">0</td>
+						<td>Elk</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl9">0</td>
+						<td>Elk</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl10">0</td>
+						<td>Shiba</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl11">0</td>
+						<td>Shiba</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl12">0</td>
+						<td>NipdEx</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl13">0</td>
+						<td>Hyper</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl14">0</td>
+						<td>Cyber</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl15">0</td>
+						<td>Paint</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl16">0</td>
+						<td>Totem</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl17">0</td>
+						<td>Soul</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl18">0</td>
+						<td>Wraith</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 </div>
 <br><br>
@@ -688,11 +793,13 @@ window.addEventListener('load',function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
+	allpp();
 	basics();
 	lpapr();
 	dfun();
 }, false);
 function $(_) {return document.getElementById(_);}
+document.getElementsByClassName("donut")[0].style.width=Math.min(window.innerWidth,window.innerHeight)*0.8;
 ab1=[
 	{
 		"constant": true,
@@ -802,19 +909,10 @@ ab1=[
 	}
 ];
 
-var val0D = document.getElementById('donut-segment0')
-var val1D = document.getElementById('donut-segment1')
-var val2D = document.getElementById('donut-segment2')
-var val3D = document.getElementById('donut-segment3')
-var val4D = document.getElementById('donut-segment4')
-var val5D = document.getElementById('donut-segment5')
-var val6D = document.getElementById('donut-segment6')
-
-
-setTimeout(function(){
-    val1D.style.transition = "stroke-dasharray 15s ease-in-out, stroke-dashoffset 10s ease-in-out";
-val1D.style.strokeDasharray = "100 0";
-    },20);
+var val_1D = document.getElementById('donut-segment-0')
+val_1D.style.transition = "stroke-dasharray 15s ease-in-out, stroke-dashoffset 10s ease-in-out";
+val_1D.style.strokeDasharray = "100 0";
+	allp=[]
 async function basics()
 {
 
@@ -832,6 +930,9 @@ async function basics()
 	P0=new web3.eth.Contract(ab1,"0xea035a13b64cb49d85e2f0a2736c9604cb21599c");
 	RP0=await P0.methods.getReserves().call((e,r)=>{return(r)});
 	RP0=[Number(RP0[1]),Number(RP0[0])];
+	allp.push(RP0[0]/1e18);
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl1").innerHTML=(RP0[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl1").innerHTML;
 	$("p0a").innerHTML=(RP0[0]/1e18).toFixed(5);
 	$("p0b").innerHTML=(RP0[1]/1e18).toFixed(5);
 	$("p0p").innerHTML=(RP0[1]/RP0[0]).toFixed(5);
@@ -840,6 +941,9 @@ async function basics()
 	P1=new web3.eth.Contract(ab1,"0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0");
 	RP1=await P1.methods.getReserves().call((e,r)=>{return(r)});
 	RP1=[Number(RP1[1]),Number(RP1[0])];
+	allp.push(RP1[0]/1e18);
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl2").innerHTML=(RP1[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl2").innerHTML;
 	$("p1a").innerHTML=(RP1[0]/1e18).toFixed(5);
 	$("p1b").innerHTML=(RP1[1]/1e18).toFixed(5);
 	$("p1p").innerHTML=(RP1[1]/RP1[0]).toFixed(5);
@@ -848,6 +952,9 @@ async function basics()
 	P2=new web3.eth.Contract(ab1,"0x7c8f47d2d151cedfdb847ab3c5b67d05daf3539b");
 	RP2=await P2.methods.getReserves().call((e,r)=>{return(r)});
 	RP2=[Number(RP2[1]),Number(RP2[0])];
+	allp.push(RP2[0]/1e18);
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl3").innerHTML=(RP2[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl3").innerHTML;
 	$("p2a").innerHTML=(RP2[0]/1e18).toFixed(5);
 	$("p2b").innerHTML=(RP2[1]/1e18).toFixed(5);
 	$("p2p").innerHTML=(RP2[1]/RP2[0]).toFixed(5);
@@ -856,6 +963,10 @@ async function basics()
 	P3=new web3.eth.Contract(ab1,"0xad28B6C529714954AE2B6d390c8eaD874ddc4970");
 	RP3=await P3.methods.getReserves().call((e,r)=>{return(r)});
 	RP3=[Number(RP3[1]),Number(RP3[0])];
+	allp.push(RP3[0]/1e18);
+
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl4").innerHTML=(RP3[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl4").innerHTML;
 	$("p3a").innerHTML=(RP3[0]/1e18).toFixed(5);
 	$("p3b").innerHTML=(RP3[1]/1e18).toFixed(5);
 	$("p3p").innerHTML=(RP3[1]/RP3[0]).toFixed(5);
@@ -864,6 +975,9 @@ async function basics()
 	P4=new web3.eth.Contract(ab1,"0x7618793c51e0dc954ba1dd2eeeb3dfa08f777d0a");
 	RP4=await P4.methods.getReserves().call((e,r)=>{return(r)});
 	RP4=[Number(RP4[1]),Number(RP4[0])*1e18];
+	allp.push(RP4[0]/1e18);
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl5").innerHTML=(RP4[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl5").innerHTML;
 	$("p4a").innerHTML=(RP4[0]/1e18).toFixed(5);
 	$("p4b").innerHTML=(RP4[1]/1e18).toFixed(5);
 	$("p4p").innerHTML=(RP4[1]/RP4[0]).toFixed(5);
@@ -872,6 +986,9 @@ async function basics()
 	P5=new web3.eth.Contract(ab1,"0x1dfcddf675038ead27f1d75b435b5b05ba825e9a");
 	RP5=await P5.methods.getReserves().call((e,r)=>{return(r)});
 	RP5=[Number(RP5[1]),Number(RP5[0])*1e12];
+	allp.push(RP5[0]/1e18);
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl6").innerHTML=(RP5[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl6").innerHTML;
 	$("p5a").innerHTML=(RP5[0]/1e18).toFixed(5);
 	$("p5b").innerHTML=(RP5[1]/1e18).toFixed(5);
 	$("p5p").innerHTML=(RP5[1]/RP5[0]).toFixed(5);
@@ -892,66 +1009,129 @@ async function basics()
 	//console.log(RP4);
 	//console.log(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18);
 
-
-	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
-	//elk		ftm		0xf25417182FbfdEbf1a92142b31A1B32135f1Fd60
-	//spooky	usdc	0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9
-	//nipdex	ftm		0x736c1462feEc9D936dF0B99F4BE5eD019118534a
-	//cyber		ftm		0x2668141243eCbFEb1b7556D5F08c11Bd94d9b6db
-	//elk		usdc	0xDeC1a7eF080B22fEe247aCD033a8Aca8666bDdcb
-	//shiba		usdc	0xe2121F534316CD3fc91E70a39AAa25785e1c20C1
-	//hyper		ftm		0xdc79C700EeDc83bE8d19Ad2d245717c7539DFA1c
-	//paint		ftm		0xF33c436E3C1f0AD9EcB400aA28183910585eFe21
-	//sushi		usdc	0x1DFcDdF675038EAd27F1D75B435B5B05BA825E9A
-	mkpi1(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18,14);
+	//mkpi1(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18,14);
 
 }
-function mkpi1(val1,val2,val3,val4,val5,val6,val0)
+
+
+function gof(vv,ii,tt)
 {
-
-  	totalValue = document.getElementById('totalValue');
-
-  	total = val0+val1+val2+val3+val4+val5+val6;
-
-  	per0 = val0/total*100;
-  	per1 = val1/total*100;
-  	per2 = val2/total*100;
-  	per3 = val3/total*100;
-  	per4 = val4/total*100;
-  	per5 = val5/total*100;
-  	per6 = val6/total*100;
-  	offset = 25;
-
-  	totalValue.textContent = total.toLocaleString();
-
-  	val1D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
-  	val1D.style.strokeDasharray = per1+" "+(100-per1);
-  	val1D.style.strokeDashoffset = offset;
-
-  	val2D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
-  	val2D.style.strokeDasharray = per2+" "+(100-per2);
-  	val2D.style.strokeDashoffset = 100-per1+offset;
-
-  	val3D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
-  	val3D.style.strokeDasharray = per3+" "+(100-per3);
-  	val3D.style.strokeDashoffset = 100-(per1+per2)+offset;
-
-  	val4D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
-  	val4D.style.strokeDasharray = per4+" "+(100-per4);
-  	val4D.style.strokeDashoffset = 100-(per1+per2+per3)+offset;
-
-  	val5D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
-  	val5D.style.strokeDasharray = per5+" "+(100-per5);
-  	val5D.style.strokeDashoffset = 100-(per1+per2+per3+per4)+offset;
-
-  	val6D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
-  	val6D.style.strokeDasharray = per6+" "+(100-per6);
-  	val6D.style.strokeDashoffset = 100-(per1+per2+per3+per4+per5)+offset;
-
-  	val0D.style.transition = "stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out";
-  	val0D.style.strokeDasharray = per0+" "+(100-per0);
-  	val0D.style.strokeDashoffset = 100-(per1+per2+per3+per4+per5+per6)+offset;
+	T=0
+	for(j=0;j< ii;j++){T+=vv[j]/tt*100}
+	return(100-T+25)
 }
+function mkpi3(v)
+{
+	var svgns = "http://www.w3.org/2000/svg";
+	var container = $("dos")
+	container.innerHTML=""
+	t = 0;
+	for(i=0;i < v.length; i++)
+	{
+		t+=v[i]
+		var circle = document.createElementNS(svgns, 'circle');
+		circle.setAttributeNS(null, 'stroke', `rgba(${(255*Math.random()).toFixed(0)},${(255*Math.random()).toFixed(0)},${(255*Math.random()).toFixed(0)},1)`);
+		circle.setAttributeNS(null, 'fill', 'transparent');
+		circle.setAttributeNS(null, 'stroke-width', 3);
+		circle.setAttributeNS(null, 'id', "mc_"+i);
+		circle.setAttributeNS(null, 'cx', 21);
+		circle.setAttributeNS(null, 'cy', 21);
+		circle.setAttributeNS(null, 'r', 15.91);
+		circle.setAttributeNS(null, 'style', 'transition:stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out');
+		container.appendChild(circle);
+	};
+	console.log("total",t)
+	$('totalValue').innerHTML = t.toLocaleString();sortit(1);sortit(1);
+	setTimeout(function(){for(i= v.length -1; i>=0; i--)
+	{
+		circle=$("mc_"+i);
+		circle.setAttributeNS(null, 'stroke-dasharray',`${v[i]/(t)*100}, ${100-(v[i]/(t)*100)}`);
+		circle.setAttributeNS(null, 'stroke-dashoffset', gof(v,i,t) );
+		//$('totalValue').innerHTML = ((v.reduce((a,b)=>{return a+b},0)).toFixed(3))
+		console.log("new circle::",i)
+		console.log("da:",`${v[i]/t*100} ${100-(v[i]/t*100)}`)
+		console.log("do:",gof(v,i,t))
+	}},100);
+}
+function allpp()
+{
+	EC=new web3.eth.Contract(ab1,"0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882");
+	EC.methods.balanceOf("0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9").call((e,r)=>
+	{
+		$("p1tpl7").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl7").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xf25417182FbfdEbf1a92142b31A1B32135f1Fd60").call((e,r)=>
+	{
+		$("p1tpl8").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl8").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xDeC1a7eF080B22fEe247aCD033a8Aca8666bDdcb").call((e,r)=>
+	{
+		$("p1tpl9").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl9").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x0652Dec650566439CFFEB4BEb201F062fc13243F").call((e,r)=>
+	{
+		$("p1tpl10").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl10").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xe2121F534316CD3fc91E70a39AAa25785e1c20C1").call((e,r)=>
+	{
+		$("p1tpl11").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl11").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x736c1462feEc9D936dF0B99F4BE5eD019118534a").call((e,r)=>
+	{
+		$("p1tpl12").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl12").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+		$("")
+	})
+	EC.methods.balanceOf("0xdc79C700EeDc83bE8d19Ad2d245717c7539DFA1c").call((e,r)=>
+	{
+		$("p1tpl13").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl13").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x2668141243eCbFEb1b7556D5F08c11Bd94d9b6db").call((e,r)=>
+	{
+		$("p1tpl14").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl14").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xF33c436E3C1f0AD9EcB400aA28183910585eFe21").call((e,r)=>
+	{
+		$("p1tpl15").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl15").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x6511D0222D90A1135A755c9AC643b862824c79F6").call((e,r)=>
+	{
+		$("p1tpl16").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl16").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xE03a36ceC8E6A5cdE1Dae1dd10A5131683F53C3A").call((e,r)=>
+	{
+		$("p1tpl17").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl17").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x5817Edb6378B58Bcc9405C864191EB869F7CEc66").call((e,r)=>
+	{
+		$("p1tpl18").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl18").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+
+}
+
 function lpapr_sus(pi,n)
 {
 	hi=Date.now();hi=(hi-hi%36e5)/36e5;
