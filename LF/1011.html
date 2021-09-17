@@ -122,14 +122,14 @@ Stake to earn passive rewards!<br>
 <button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br><br>
 <div id="fdet"  style="">
 <span>Stakes:</span><span></span><span>SUN/FTM LP</span>
+<span>Rewards:</span><span></span><span>SUN/FTM LP</span>
 <span>Platform:</span><span></span><span>SpiritSwap</span>
 <span>Eliteness:</span><span></span><span>0.001337 ELITE</span>
 <span>Fees:</span><span></span><span>2%</span>
 <span>Lockup:</span><span></span><span>1 Week</span>
 </div>
+</div>
 <br><br>
-</div><br><br>
-
 <div class="mainstages" align="center">
 	<div></div><!--
 	<div class="mainstage">
@@ -1445,7 +1445,7 @@ async function refreshFarm()
 		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_claim").value=Number(r)/1e9; //REWARD DECIMALS
 		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e9); //REWARD DECIMALS
-		$("farm_3_i_re").innerHTML=(Number(r)/1e18);});
+		$("farm_3_i_re").innerHTML=(Number(r)/1e9);});//REWARD DECIMALS
 		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
 		$("farm_3_i_ys").innerHTML=(Number(r)/1e18);
