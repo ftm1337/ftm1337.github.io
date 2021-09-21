@@ -151,7 +151,7 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 		</div>
 		<div id="midleftNFL">
 			Total Value Locked<br>
-			<span style="font-size:1.5em"><span id="gs_t_f" style="font-size:1.5em"> 150,000</span>+ USD</span>
+			<span style="font-size:1.5em" id="gs_t_f"><span style="font-size:1.5em"> 50,000</span>+ USD</span>
 		</div><!--
 		<div id="midleftPFO">
 			Total Value Locked<br>
@@ -573,7 +573,9 @@ async function f1()
 }
 async function f2(d)
 {
-	$("gs_t_f").innerHTML=(trd[0][1]*trd[0][2]).toLocaleString();
+	$("gs_t_f").innerHTML=(trd[0][2]>1)?
+		`<span style="font-size:1.5em"> ${(trd[0][1]*trd[0][2]).toLocaleString()}</span>+ USD`:
+		`<span style="font-size:1.5em"> ${(trd[0][1]).toLocaleString()}</span>+ FTM`;
 	$("gs_p").innerHTML=Object.keys(trd[0][3]).length;
 	tf=trd[d.length-1][0];
 	ti=trd[0][0];
