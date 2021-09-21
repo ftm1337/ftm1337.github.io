@@ -42,10 +42,8 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 thead{line-height: }
 td a{text-decoration-line: none}
 tbody tr:hover{cursor:  zoom-in;background: rgba(0,255,255,0.25)}
-table td{padding: 0 5px;min-width:max-content;}
-table{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;
-	background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;
-	text-align:center}
+table td{padding: 0 5px;min-width:max-content;width:max-content;}
+table{width:max-content;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;text-align:center}
 td button{padding: 0;margin: 0;width: 20px;height: 20px}
 .liqdis .mainpanel{padding-bottom: 8px;padding-top: 8px;}
 .donut{width: 256px}
@@ -342,6 +340,18 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 					<tr class="">
 						<td>FTM</td>
 						<td id="p1tpl18">0</td>
+						<td>Wraith</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>SUN</td>
+						<td id="p1tpl19">0</td>
+						<td>Spirit</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>WRA</td>
+						<td id="p1tpl20">0</td>
 						<td>Wraith</td>
 						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
@@ -1126,6 +1136,18 @@ function allpp()
 	EC.methods.balanceOf("0x5817Edb6378B58Bcc9405C864191EB869F7CEc66").call((e,r)=>
 	{
 		$("p1tpl18").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl18").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xf91c58d3b908831461b462D341271959e0Aec34D").call((e,r)=>
+	{
+		$("p1tpl19").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl19").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x0Ec3f086C8be2efc1bE8C1480C6d48E9b42b816a").call((e,r)=>
+	{
+		$("p1tpl20").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl20").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
