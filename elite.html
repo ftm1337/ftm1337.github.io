@@ -355,6 +355,12 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>Wraith</td>
 						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl21">0</td>
+						<td>Empire</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -1148,6 +1154,12 @@ function allpp()
 	EC.methods.balanceOf("0x0Ec3f086C8be2efc1bE8C1480C6d48E9b42b816a").call((e,r)=>
 	{
 		$("p1tpl20").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl20").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x1218a2F1CE880c01D174C6b1AEb7f2115A152Fa1").call((e,r)=>
+	{
+		$("p1tpl21").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl21").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
