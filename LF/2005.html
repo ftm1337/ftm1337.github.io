@@ -957,7 +957,8 @@ abbrove=[
 
 f_1_add = "0x409FDAde151082444607FfA2Cb1cBFB8358c59Ff";
 pairadd = "0x623765857B74Da6F5A52A362d228de7F7859224f";
-
+pas    = "0x623765857b74da6f5a52a362d228de7f7859224f";
+par    = "0xe493CE1AfDCf079d0b40FF9503D7AB5f1f125477";
 
 farabi=[
 	{
@@ -1411,6 +1412,131 @@ async function refreshFarm()
 		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e9);
 		$("farm_3_i_re").innerHTML=(Number(r)/1e9);});
 		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;//STAKED TOKEN DECIMALS
+		$("farm_3_i_ys").innerHTML=(Number(r)/1e18);//STAKED TOKEN DECIMALS
+		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)});//STAKED TOKEN DECIMALS
+
+		the2 = new web3.eth.Contract(ab1, pairadd);
+		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+			{$("farm_1_s_deposit").innerHTML=Number(r)/1e18});//STAKED TOKEN DECIMALS
+		const _tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
+		tv = Number(_tv)/1e18;//STAKED TOKEN DECIMALS
+
+
+		/*
+		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
+		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
+		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+
+		pt=res[0]/res[1];
+		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
+		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
+		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
+		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
+		$("farm_3_i_apr").innerHTML=apr+"%";
+		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
+		$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
+		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
+		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
+		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
+		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
+		*/
+
+
+
+		ppas=new web3.eth.Contract(ab1,pas);
+		ppar=new web3.eth.Contract(ab1,par);
+		const _ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
+		const _resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
+		const _rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		ress=[_ress[0]/1e18,_ress[1]/1e9];
+		resr=[_resr[0]/1e18,_resr[1]/1e9];
+		rera=Number(_rera)/1e9;
+		pts = (ress[0]*1+ress[1]*(ress[0]/ress[1]))/tv;//pts=plp
+		//pts = Number(ress[0])/Number(ress[1]);
+		ptr = Number(resr[0])/Number(resr[1]);
+		stvl = tv*pts;
+		sapr =(rera*ptr)/(tv*pts)*86400*365*100;
+		$("farm_3_i_apr").innerHTML=sapr.toLocaleString()+"%";
+		$("farm_3_i_tvl").innerHTML=fornum(stvl,0)+" FTM";
+		$("stats_ap_d").innerHTML=(sapr/365).toLocaleString()+"%";
+		$("stats_ap_w").innerHTML=(((1+sapr/36500)**7-1)*100).toLocaleString()+"%";
+		$("stats_ap_y").innerHTML=(((1+sapr/36500)**365-1)*100).toLocaleString()+"%";
+		$("stats_apr_nt").innerHTML=fornum((((1+sapr/36500)**365-1)*100),0)+"%";
+
+
+	}
+	catch(e){console.log(e);}
+}
+async function DrefreshFarm()
+{
+	try
+	{
+		theCon = new web3.eth.Contract(farabi, f_1_add);
+
+		the2 = new web3.eth.Contract(ab1, pairadd);
+		const _tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
+		tv = Number(_tv)/1e18;//STAKED TOKEN DECIMALS
+
+		/*
+		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
+		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
+		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		pt=res[0]/res[1];
+		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
+		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
+		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
+		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
+		$("farm_3_i_apr").innerHTML=apr.toLocaleString()+"%";
+		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
+		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
+		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
+		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
+		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
+		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
+		*/
+
+
+		ppas=new web3.eth.Contract(ab1,pas);
+		ppar=new web3.eth.Contract(ab1,par);
+		const _ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
+		const _resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
+		const _rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		ress=[_ress[0]/1e18,_ress[1]/1e9];
+		resr=[_resr[0]/1e18,_resr[1]/1e9];
+		rera=Number(_rera)/1e9;
+		pts = (ress[0]*1+ress[1]*(ress[0]/ress[1]))/tv;//pts=plp
+		//pts = Number(ress[0])/Number(ress[1]);
+		ptr = Number(resr[0])/Number(resr[1]);
+		stvl = tv*pts;
+		sapr =(rera*ptr)/(tv*pts)*86400*365*100;
+		$("farm_3_i_apr").innerHTML=sapr.toLocaleString()+"%";
+		$("farm_3_i_tvl").innerHTML=fornum(stvl,0)+" FTM";
+		$("stats_ap_d").innerHTML=(sapr/365).toLocaleString()+"%";
+		$("stats_ap_w").innerHTML=(((1+sapr/36500)**7-1)*100).toLocaleString()+"%";
+		$("stats_ap_y").innerHTML=(((1+sapr/36500)**365-1)*100).toLocaleString()+"%";
+		$("stats_apr_nt").innerHTML=fornum((((1+sapr/36500)**365-1)*100),0)+"%";
+
+
+		theCon.methods.periodFinish().call((e, r) => {$("pf").innerHTML=new Date(Number(r) * 1000)});
+
+	}
+	catch(e){console.log(e);}
+}
+
+/*
+async function refreshFarm()
+{
+	try
+	{
+		farm_1_f_chappro();
+
+		theCon = new web3.eth.Contract(farabi, f_1_add);
+		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+		{$("farm_1_s_claim").value=Number(r)/1e9;
+		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e9);
+		$("farm_3_i_re").innerHTML=(Number(r)/1e9);});
+		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
 		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
 		$("farm_3_i_ys").innerHTML=(Number(r)/1e18);
 		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)});
@@ -1466,6 +1592,7 @@ async function DrefreshFarm()
 	}
 	catch(e){console.log(e);}
 }
+*/
 /*
 function lpapr_sus_d()
 {
