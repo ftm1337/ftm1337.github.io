@@ -1422,28 +1422,6 @@ async function refreshFarm()
 		const _tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 		tv = Number(_tv)/1e18;//STAKED TOKEN DECIMALS
 
-
-		/*
-		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
-		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
-		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
-
-		pt=res[0]/res[1];
-		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
-		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
-		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
-		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
-		$("farm_3_i_apr").innerHTML=apr+"%";
-		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
-		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
-		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
-		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
-		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
-		*/
-
-
-
 		ppas=new web3.eth.Contract(ab1,pas);
 		ppar=new web3.eth.Contract(ab1,par);
 		const _ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
@@ -1452,8 +1430,10 @@ async function refreshFarm()
 		ress=[_ress[0]/1e18,_ress[1]/1e9];
 		resr=[_resr[0]/1e18,_resr[1]/1e9];
 		rera=Number(_rera)/1e9;
-		pts = (ress[0]*1+ress[1]*(ress[0]/ress[1]))/tv;//pts=plp
 		//pts = Number(ress[0])/Number(ress[1]);
+			const _ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
+			ts = Number(_ts)/1e18;
+			pts = (ress[0]*1+ress[1]*(ress[0]/ress[1]))/ts;//pts=plp
 		ptr = Number(resr[0])/Number(resr[1]);
 		stvl = tv*pts;
 		sapr =(rera*ptr)/(tv*pts)*86400*365*100;
@@ -1478,25 +1458,6 @@ async function DrefreshFarm()
 		const _tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
 		tv = Number(_tv)/1e18;//STAKED TOKEN DECIMALS
 
-		/*
-		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
-		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
-		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
-		pt=res[0]/res[1];
-		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
-		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
-		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
-		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
-		$("farm_3_i_apr").innerHTML=apr.toLocaleString()+"%";
-		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
-		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
-		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
-		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
-		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
-		*/
-
-
 		ppas=new web3.eth.Contract(ab1,pas);
 		ppar=new web3.eth.Contract(ab1,par);
 		const _ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
@@ -1505,8 +1466,10 @@ async function DrefreshFarm()
 		ress=[_ress[0]/1e18,_ress[1]/1e9];
 		resr=[_resr[0]/1e18,_resr[1]/1e9];
 		rera=Number(_rera)/1e9;
-		pts = (ress[0]*1+ress[1]*(ress[0]/ress[1]))/tv;//pts=plp
 		//pts = Number(ress[0])/Number(ress[1]);
+			const _ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
+			ts = Number(_ts)/1e18;
+			pts = (ress[0]*1+ress[1]*(ress[0]/ress[1]))/ts;//pts=plp
 		ptr = Number(resr[0])/Number(resr[1]);
 		stvl = tv*pts;
 		sapr =(rera*ptr)/(tv*pts)*86400*365*100;
@@ -1524,116 +1487,6 @@ async function DrefreshFarm()
 	catch(e){console.log(e);}
 }
 
-/*
-async function refreshFarm()
-{
-	try
-	{
-		farm_1_f_chappro();
-
-		theCon = new web3.eth.Contract(farabi, f_1_add);
-		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
-		{$("farm_1_s_claim").value=Number(r)/1e9;
-		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e9);
-		$("farm_3_i_re").innerHTML=(Number(r)/1e9);});
-		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
-		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e18;
-		$("farm_3_i_ys").innerHTML=(Number(r)/1e18);
-		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e18)});
-
-		the2 = new web3.eth.Contract(ab1, pairadd);
-		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e18});
-		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
-
-		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
-		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
-		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
-
-		pt=res[0]/res[1];
-		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
-		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
-		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
-		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
-		$("farm_3_i_apr").innerHTML=apr+"%";
-		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
-		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
-		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
-		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
-		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
-	}
-	catch(e){console.log(e);}
-}
-async function DrefreshFarm()
-{
-	try
-	{
-		theCon = new web3.eth.Contract(farabi, f_1_add);
-
-		the2 = new web3.eth.Contract(ab1, pairadd);
-		const tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
-		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
-		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
-		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
-		pt=res[0]/res[1];
-		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
-		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
-		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
-		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
-		$("farm_3_i_apr").innerHTML=apr.toLocaleString()+"%";
-		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
-		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
-		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
-		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
-		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
-		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
-
-		theCon.methods.periodFinish().call((e, r) => {$("pf").innerHTML=new Date(Number(r) * 1000)});
-	}
-	catch(e){console.log(e);}
-}
-*/
-/*
-function lpapr_sus_d()
-{
-	hi=Date.now();hi=(hi-hi%36e5)/36e5;
-	pi="0xdEAD5ee1d489b8f0d3815E4d26554fE1aeF01281"
-	Q_pn_c=`{
-`
-	for(ih=0;ih< 24;ih++)
-	{Q_pn_c+=`h${ih}: pairHourData(id:"${pi}-${hi-ih}"){
-    ...c
-  }
-`;}
-	Q_pn_c+=`}
-fragment c on PairHourData {
-  volumeUSD
-  reserveUSD
-}`
-	gr1=new XMLHttpRequest();
-	gr1.open("POST","https://api.thegraph.com/subgraphs/name/ruvlol/graph-n",true);
-	gr1.onload=function()
-	{
-		aap=0;
-		dv=1;fh=false;
-		d=JSON.parse(this.response).data;
-		Object.keys(d).forEach(D=>
-		{
-			if(d[D]!=null)
-			{
-				aap+=Number(d[D].volumeUSD)*0.25/100/Number(d[D].reserveUSD);
-				dv+=Number(d[D].volumeUSD);
-			}
-		});
-		aapd=(aap*365e2)
-		$("stats_lm_d").innerHTML=(aapd).toLocaleString()+"%";
-		$("stats_md_vd").innerHTML=(dv).toLocaleString()+" USD";
-		hv=d[Object.keys(d)[0]]==null?1:(Number(d[Object.keys(d)[0]].volumeUSD)).toLocaleString();
-		$("stats_md_vh").innerHTML=hv+" USD";
-	}
-	gr1.send(JSON.stringify({query:Q_pn_c}))
-}
-*/
 aapd=0;
 aapw=0;
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
