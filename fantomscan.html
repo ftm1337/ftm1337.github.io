@@ -9,12 +9,11 @@
 <style>
 *{color:#e3e9f2;overflow-wrap:break-word;}
 a{text-decoration-line:none;padding:0 2px}
-*{text-shadow:10px 10px 5px black;color:#e3e9f2}
+*{text-shadow:5px 1px 5px black;color:#e3e9f2}
 html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
 .mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
-*{text-shadow:6px 6px 5px black;color:#e3e9f2}
-input,button{border-radius:25px;background:black;text-align:center}
+input,button{border-radius:25px;background:black;text-align:center;font-size:1.25em}
 button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
 pre{overflow-x:auto;max-width:80%}
 .mainpanels{display:grid}
@@ -49,12 +48,17 @@ table{width:max-content}
 	cursor:  grab;
 }
 .c2a:hover{box-shadow: rgba(0,255,195,0.2) 0px 0px 10px 10px;}
+.et{background: linear-gradient(to right,rgba(0,255,127,0.15),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:right}
+.ot{background: linear-gradient(to left,rgba(0,255,127,0.15),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:left}
+.uo{background: linear-gradient(to bottom,rgba(0,255,127,0.15),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
+
 @media(min-width:641px){
 	#c2a{
 		display: grid;
 		grid-template-columns: auto 280px 280px auto;
 	}
 }
+
 </style>
 </head>
 <div class="topbar">
@@ -76,12 +80,9 @@ table{width:max-content}
 </div>
 <br>
 <hr class="hhr">
-<br>
-<br>
-<br>
 <h2 align="center">FantomScan</h2>
-<div class="mainpanel" align="center">
-	<br><h4>Fantom Opera Gas Prices</h4>
+<div class="mainpanel uo" align="center">
+	<h4>Fantom Opera Gas Prices</h4>
 	<div id="dt">
 	<table id="gt">
 		<thead>
@@ -128,6 +129,12 @@ table{width:max-content}
 				<td id="gt5a">?</td>
 				<td id="gt5b">?</td>
 				<td id="gt5c">?</td>
+			</tr>
+			<tr>
+				<td>Summon Rarity</td>
+				<td id="gt6a">?</td>
+				<td id="gt6b">?</td>
+				<td id="gt6c">?</td>
 			</tr><!--
 			<tr>
 				<td>Create Pair</td>
@@ -144,21 +151,21 @@ table{width:max-content}
 	<span id="bh"></span><br>
 </div>
 <div class="mainpanels" align="center">
-	<div class="mainpanel">
+	<div class="mainpanel ot">
 		<h4>Check FTM Balance</h4>
 		<input id="ibf" placeholder="Enter Address"><br>
 		<button onclick="fbf(ibf.value)"> ▶</button>
 		<br><br>
 		<span id="sbf"></span>
 	</div>
-	<div class="mainpanel">
+	<div class="mainpanel et">
 		<h4>Check Transaction Status</h4>
 		<input id="its" placeholder="Transaction Hash"><br>
 		<button onclick="fts(its.value)"> ▶</button>
 		<br><br>
 		<span id="sts"></span>
 	</div>
-	<div class="mainpanel">
+	<div class="mainpanel ot">
 		<h4>Check Token Balance</h4>
 		<input id="ibtt" placeholder="Token's Address">
 		<br><input id="ibth" placeholder="Holder's Address"><br>
@@ -166,7 +173,7 @@ table{width:max-content}
 		<br><br>
 		<span id="sbt"></span>
 	</div>
-	<div class="mainpanel">
+	<div class="mainpanel et">
 		<h4>Check Allowances</h4>
 		<input id="icat" placeholder="Token's Address"><br>
 		<input id="icao" placeholder="Owner's Address"><br>
@@ -319,9 +326,9 @@ async function basics()
 {
 	web3.eth.getBlockNumber().then(r=>$("bh").innerHTML = "Block Height "+r.toLocaleString());
 	await web3.eth.getGasPrice((e,r)=>{gpb=Number(r)/1e9;gpa=Math.min(50,gpb);gpc=gpb*1.11})
-	$("gt0a").innerHTML=(gpa)+" GWei";
-	$("gt0b").innerHTML=(gpb).toFixed(2)+" Gwei";
-	$("gt0c").innerHTML=(gpc).toFixed(2)+" Gwei";
+	$("gt0a").innerHTML="<b>"+(gpa)+"</b> GWei";
+	$("gt0b").innerHTML="<b>"+(gpb).toFixed(0)+"</b> Gwei";
+	$("gt0c").innerHTML="<b>"+(gpc).toFixed(0)+"</b> Gwei";
 
 	$("gt1a").innerHTML = (gpa*21000/1e9).toFixed(6);
 	$("gt1b").innerHTML = (gpb*21000/1e9).toFixed(6);
@@ -342,11 +349,11 @@ async function basics()
 	$("gt5a").innerHTML = (gpa*175000/1e9).toFixed(6);
 	$("gt5b").innerHTML = (gpb*175000/1e9).toFixed(6);
 	$("gt5c").innerHTML = (gpc*175000/1e9).toFixed(6);
-/*
-	$("gt6a").innerHTML = (gpa*175000/1e9).toFixed(6);
-	$("gt6b").innerHTML = (gpb*175000/1e9).toFixed(6);
-	$("gt6c").innerHTML = (gpc*175000/1e9).toFixed(6);
-*/
+
+	$("gt6a").innerHTML = (gpa*102000/1e9).toFixed(6);
+	$("gt6b").innerHTML = (gpb*102000/1e9).toFixed(6);
+	$("gt6c").innerHTML = (gpc*102000/1e9).toFixed(6);
+
 
 }
 ab1=[
