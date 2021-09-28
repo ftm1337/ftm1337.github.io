@@ -102,6 +102,18 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 	<div align="center">
 		<div class="car" >
 			<svg id="htc" viewbox="0 0 100 100" preserveAspectRatio="none">
+			<polyline stroke-width="0.25" points="0 5, 100 5" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 20, 100 20" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 35, 100 35" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 50, 100 50" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 65, 100 65" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 80, 100 80" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+
+			<polyline stroke-width="0.25" points="10 0, 10 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="30 0, 30 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="50 0, 50 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="70 0, 70 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="90 0, 90 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
 				<defs>
     				<linearGradient id="gf" gradientTransform="rotate(90)">
       					<stop stop-color="rgba(0,255,255,1)" offset="0%"></stop>
@@ -114,13 +126,13 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
   				</defs>
 				<polyline id="pl_t_f" fill-opacity="0.67" stroke-width="1.0" points="12 23, 42 73, 55 22" fill="url(#gf)" stroke="aqua" stroke-opacity="1"></polyline>
 				<polyline id="pl_t_u" fill-opacity="0.67" stroke-width="1.0" points="82 53, 62 93, 5 12" fill="url(#gu)" stroke="#1f7" stroke-opacity="1"></polyline>
-				<text style="font-size:0.25em" fill="#fff" x="1" y="12.5">175k</text>
-				<text style="font-size:0.25em" fill="#fff" x="1" y="25">150k</text>
-				<text style="font-size:0.25em" fill="#fff" x="1" y="37.5">125k</text>
-				<text style="font-size:0.25em" fill="#fff" x="1" y="50">100k</text>
-				<text style="font-size:0.25em" fill="#fff" x="1" y="62.5">75k</text>
-				<text style="font-size:0.25em" fill="#fff" x="1" y="75">50k</text>
-				<text style="font-size:0.25em" fill="#fff" x="1" y="87.5">25k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv1" x="1" y="5">175k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv2" x="1" y="20">150k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv3" x="1" y="35">125k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv4" x="1" y="50">100k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv5" x="1" y="65">75k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv6" x="1" y="80">50k</text>
+				<!--<text style="font-size:0.25em" fill="#fff" id="ctv7" x="1" y="95">25k</text>-->
 
 				<text style="font-size:0.25em" fill="#fff" id="ctl1" x="05" y="98">30 Jun</text>
 				<text style="font-size:0.25em" fill="#fff" id="ctl2" x="25" y="98">17 Jul</text>
@@ -581,10 +593,16 @@ async function f2(d)
 	ti=trd[0][0];
 	tl=ti-tf;
 	trd2=trd;
+	vmax=0;
+	for(i=0;i< store.length;i++)
+	{
+		if(trd[i][1]>vmax){vmax=trd[i][1]}
+		if(trd[i][1]*trd[i][2]>vmax){vmax=trd[i][1]*trd[i][2]}
+	}
 	for(i=0;i< store.length;i++)
 	{
 		trd2[i][0]=(trd[i][0]-tf)/tl*100;
-		trd2[i][1]=trd[i][1]/2000;
+		trd2[i][1]=trd[i][1]/vmax*100;
 		trd2[i][2]=store[i][1]*store[i][2];
 	}
 	var fline= document.getElementById('pl_t_f');
@@ -609,6 +627,13 @@ async function f2(d)
 	$("ctl3").innerHTML = (new Date(tf+tl*.5)).toDateString().substr(4).replace(" ","-").split(" ")[0];
 	$("ctl4").innerHTML = (new Date(tf+tl*.7)).toDateString().substr(4).replace(" ","-").split(" ")[0];
 	$("ctl5").innerHTML = (new Date(tf+tl*.9)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctv1").innerHTML = (vmax/1000*0.95).toFixed(0)+"k";
+	$("ctv2").innerHTML = (vmax/1000*0.80).toFixed(0)+"k";
+	$("ctv3").innerHTML = (vmax/1000*0.65).toFixed(0)+"k";
+	$("ctv4").innerHTML = (vmax/1000*0.50).toFixed(0)+"k";
+	$("ctv5").innerHTML = (vmax/1000*0.35).toFixed(0)+"k";
+	$("ctv6").innerHTML = (vmax/1000*0.20).toFixed(0)+"k";
+//	$("ctv7").innerHTML = (vmax/1000*0.05).toFixed(0)+"k";
 }
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
 f1()
