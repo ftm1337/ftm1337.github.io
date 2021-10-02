@@ -33,11 +33,29 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 	background: linear-gradient(45deg, rgba(0,255,0,0.125), rgba(0,0,255,0.125))}
 .maincard hr{border: 1px solid aqua}
 .gmul{border:1px solid;border-radius: 50%;	padding: 4px;margin: 0 0 0 4px;font-size: 0.8em;background: linear-gradient(225deg, rgba(0,255,0,0.5), rgba(0,0,255,0.5))}
+.mainstages{text-align:center;display:grid;grid-template-columns:	 auto}
+.mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: rgba(15,15,31,0.5);margin:5%;border-radius: 15px;border:aqua 2px solid}
 @media(min-width:641px){
 	.maincards{grid-template-columns:auto auto auto;margin: auto}
 	.maincard{margin: 10px;padding:10px;border : 1px aqua solid}
 	.hhr{width: 555px}
 	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+}
+@media(min-width:641px){
+	.mainpanels{grid-template-columns:50% 50%}
+	.mainstages{grid-template-columns:50% 50%}
+	#mvg{width: 70%;}
+	.hhr{width: 555px}
+	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+	.maincards{grid-template-columns:auto auto auto;margin: auto}
+	.maincard{margin: 10px;padding:10px;border : 1px aqua solid}
+}
+
+@media(min-width:641px){
+	.maincards{grid-template-columns:50% 50%;margin: auto}
+}
+@media(min-width:1024px){
+	.maincards{grid-template-columns:33% 33% 33%;margin: auto}
 }
 #c2a{
 	display: grid;
@@ -59,6 +77,112 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 		display: grid;
 		grid-template-columns: auto 280px 280px auto;
 	}
+}
+.container {
+  position: ;
+  height: ;
+  top: 60px;
+  left: calc(50% - 300px);
+  display: flex;
+  padding: 40px;
+  overflow:auto;
+  color: red !important;;
+  padding:60px;
+}
+
+.card {
+  display: flex;
+  overflow: hidden;
+  height: ;
+  min-width: 200px;
+  background-color: rgba(23,20,30,.85);
+  border-radius: 10px;
+  box-shadow: -1rem 0 3rem #000;
+/*   margin-left: -50px; */
+  transition: 0.4s ease-out;
+  position: relative;
+  left: 0px;
+}
+
+.card:not(:first-child) {
+    margin-left: -50px;
+}
+
+.card:hover {
+  transform: translateY(-20px);
+  transition: 0.4s ease-out;
+  background: linear-gradient(to left,rgba(0,255,127,.5),rgba(1,240,255,.5));
+}
+
+
+.card:hover ~ .card {
+  position: relative;
+  left: 50px;
+  transition: 0.4s ease-out;
+
+}
+
+.title {
+  color: white;
+  font-weight: 300;
+  position: absolute;
+  left: 20px;
+  top: 15px;
+}
+
+.bar {
+  position: absolute;
+  top: 100px;
+  left: 20px;
+  height: 5px;
+  width: 180px;
+}
+
+.emptybar {
+  background-color: #2e3033;
+  width: 100%;
+  height: 100%;
+}
+
+.filledbar {
+  position: absolute;
+  top: 0px;
+  z-index: 3;
+  width: 0px;
+  height: 100%;
+  background: rgb(0,154,217);
+  background: linear-gradient(to right,rgba(0,255,127,1),rgba(1,240,255,1));
+  transition: 0.6s ease-out;
+  border: 1px dashed black
+}
+
+.card:hover .filledbar {
+  width: 150px;
+  transition: 0.4s ease-out;
+
+}
+
+.circle {
+  position: ;
+  top: 150px;
+  left: calc(50% - 60px);
+}
+
+.stroke {
+  stroke: rgba(0,255,127,0.24);;
+  stroke-dasharray: 360;
+  stroke-dashoffset: 360;
+  transition: 0.6s ease-out;
+}
+
+svg {
+  fill: #17141d;
+  stroke-width: 2px;
+}
+
+.card:hover .stroke {
+  stroke-dashoffset: 100;
+  transition: 0.6s ease-out;
 }
 </style>
 </head>
@@ -84,7 +208,147 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 <div align="center"><a href="https://kcc.guru" style="color:#0f7">Switch to Kucoin Version</a></div>
 <br>
 <br>
-<div class="maincards">
+<h2 align="center">Gam(bl)ing Department 🎰</h2>
+<br>
+<br>
+<div class="mainstages" align="center">
+<div class="mainstage">
+		<a href="casino.html"><div><b><span style="font-size:1.3em">El Casino: <b>De</b>gen <b>Gam</b>es</span></b><br><br>
+		<b>The DeGam Casino</b> offers two simple games to triple your FTM coins. This 3-player indulgence selects a random winner from the three participants and rewards them with 3x their deposit.<br><br>This game is available on Telegram too using the @Fantom_Tip_bot to place the wagers, being the First-of-its-Kind on Fantom Opera.<br><br>While playing this game of chance, don't forget to wear your lucky socks!<br><br>
+		<button class="c2a">Hit the Casino</button></div></a>
+	</div>
+	<div class="mainstage">
+		<a href="https://kcc.guru" target="_blank"><div><b><span style="font-size:1.3em">KUCINO on Kucoin Chain</span></b><br><br>
+		<b>The Kucino Project</b> is the development arm of the DeGam and runs autonomously, independent of the ftm.guru project. It is part of the Guru Network that spans multiple chains.<br><br>The KUCINO are the in-game "chips" for accessing the Kucino Casino. On the tokenomics front, holders of KUCINO earn both KCS & KUCINO everyday due a sophisticated De-Fi strategy.<br><br>
+		<button class="c2a">🎰 Check it out!</button></div></a>
+		</div></a>
+	</div>
+</div>
+<div class="mainstage" align="center" style="font-size:1.2em;padding:0">
+	<div class="mte uo" align="center">
+		<br>
+		<b><span style="font-size:1.25em;">DeGam Casino x Kucino Casino</span>
+		<br>
+		<i>Decentralizd gaming platform on Fantom Opera & Kucoin Chain.</i><br>
+		<br>Fair & Secure
+		<br>100% Decentralized
+		<br>10+ innovative Games
+		<br>Played 1000s of Times
+		<br>Round-the-Clock, 1440x365
+		<br>Full On-chain Game History
+		<br>Real-Time Leaderboard
+		</b>
+		<br><br>
+	</div><!--
+	<a href="cointoss_1.html"><div class="tile et">
+		<div style="font-size:2em;color:"><i>Single-Player CoinToss,<b> Double or Nothing!</b></i></div>
+		<div style="font-size:1.25em;color:">Stake 0.01 KCS to our Smart Contract and get back 2x 0.01 = 0.02 KCS on winning! Be careful, a coin has two sides!<br><i>(Pot Limit : 0.02 KCS)</i></div>
+	</div></a>
+	<a href="jackpot_1.html"><div class="tile ot">
+		<div style="font-size:2em;color:"><i>2-player Jackpot,<b> Doubles your KCS!</b></i></div>
+		<div style="font-size:1.25em;color:">Bet against a friend or a random online player, one-on-one, for a chance to beat your opponent and Double your bet! <br><i>(Pot Limit : 0.11 KCS)</i></div>
+	</div></a>
+	<a href="instalotto.html"><div class="tile et">
+		<div style="font-size:2em;color:"><i>The instaLOTTO, <b>on-demand winners!</b></i></div>
+		<div style="font-size:1.25em;color:">A competetive game of Lotto where any number of players can buy unlimited tickets for just 0.01 KCS. Winning ticket is drawn on-demand: totally permissionless, and the winner takes home the entire Raise!
+		<br><i>(Pot Limit : Unlimited)</i></div>
+	</div></a>
+	<a href="21hrlotto.html"><div class="tile ot">
+		<div style="font-size:2em;color:"><i>21-hour Lotto, <b>Win KCS everyday!</b></i></div>
+		<div style="font-size:1.25em;color:">This special Daily can be contested by purchaing an entry ticket for 0.01 KCS. Winning ticket can be drawn only after a minimum of 21hrs being elapsesd after the first entry. Permissionles, decentralized and even smart contracts can play it as a yield strategy!
+		<br><i>(Pot Limit: 777 KCS)</i></div>
+	</div></a>-->
+	<br>
+
+	<div class="oc">
+		<div class="container">
+  			<div class="card" onclick="window.location='https://kcc.guru/jackpot_1.html'">
+    			<h3 class="title">PvP Jackpot</h3>
+    			<div class="bar">
+      			<div class="emptybar"></div>
+      			<div class="filledbar"></div>
+    			</div>
+    			<div class="circle">
+      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      			<circle class="stroke" cx="20" cy="20" r="10"/>
+    			</svg>
+    			<span style="font-size:">BET</span><br>
+    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    			<span style="font-size:">EARN</span><br>
+    			<span style="font-size:1.5em">0.02 KCS</span>
+    			<br><br><br>
+    			</div>
+  			</div>
+  			<div class="card" onclick="window.location='https://kcc.guru/instalotto.html'">
+    			<h3 class="title">instaLOTTO</h3>
+    			<div class="bar">
+      			<div class="emptybar"></div>
+      			<div class="filledbar"></div>
+    			</div>
+    			<div class="circle">
+      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      			<circle class="stroke" cx="20" cy="20" r="10"/>
+    			</svg>
+    			<span style="font-size:">BET</span><br>
+    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    			<span style="font-size:">EARN</span><br>
+    			<span style="font-size:1.5em">∞x KCS*</span>
+    			<br><i>*No Limits</i><br><br>
+    			</div>
+  			</div>
+  			<div class="card">
+    			<h3 class="title">21-hour Lotto</h3>
+    			<div class="bar">
+      			<div class="emptybar"></div>
+      			<div class="filledbar"></div>
+    			</div>
+    			<div class="circle">
+      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      			<circle class="stroke" cx="20" cy="20" r="10"/>
+    			</svg>
+    			<span style="font-size:">BET</span><br>
+    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    			<span style="font-size:">EARN</span><br>
+    			<span style="font-size:1.5em">∞x KCS*</span>
+    			<br><i>*No Limits</i><br><br>
+    			</div>
+  			</div>
+  			<div class="card" onclick="window.location='https://kcc.guru/cointoss_1.html'">
+    			<h3 class="title">KCS Coin-Flip</h3>
+    			<div class="bar">
+      			<div class="emptybar"></div>
+      			<div class="filledbar"></div>
+    			</div>
+    			<div class="circle">
+      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      			<circle class="stroke" cx="20" cy="20" r="10"/>
+    			</svg>
+    			<span style="font-size:">BET</span><br>
+    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    			<span style="font-size:">EARN</span><br>
+    			<span style="font-size:1.5em">0.02 KCS</span>
+    			<br><br><br>
+    			</div>
+  			</div>
+  			<div class="card" onclick="window.location='https://kcc.guru/cointoss_2.html'">
+    			<h3 class="title">1000 KUD Flipper</h3>
+    			<div class="bar">
+      			<div class="emptybar"></div>
+      			<div class="filledbar"></div>
+    			</div>
+    			<div class="circle">
+      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
+      			<circle class="stroke" cx="20" cy="20" r="10"/>
+    			</svg>
+    			<span style="font-size:">BET</span><br>
+    			<span style="font-size:1.5em">1000 KUD</span><br><br>
+    			<span style="font-size:">EARN</span><br>
+    			<span style="font-size:1.5em">2000 KUD</span>
+    			<br><br><br>
+    			</div>
+  			</div>
+		</div>
+		<div class="maincards">
 	<a href="cointoss_1.html"><div class="maincard">
 		<span style="font-size:1.5em"><span class="gmul">2x</span> FTM Coin-Flip</span>
 		<hr>
@@ -106,6 +370,17 @@ background: linear-gradient(45deg, rgba(0,255,0,0.25), rgba(0,0,255,0.25));paddi
 		Played against 2 opponents.<br>
 		Min. bet = o.1337 FTM</i>
 	</div></a>
+</div>
+	</div>
+	<br>
+	<div class="mte uo" align="center">
+	<br>
+	<i>More Games under active development!</i>
+	<br>
+	<br>
+	<div style="font-size:1.25em"><a href="https://kcc.guru/casino.html">Explore all titles ↗</a></div>
+	<br>
+	</div>
 </div>
 <br>
 <br>
