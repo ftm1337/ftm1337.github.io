@@ -1,0 +1,1396 @@
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>Stake JOKER to Earn JOKER at Staking.JokerCoin.live</title>
+<meta name="description" content="JokerCoin Staking on Binance Smart Chain - single sided staking without impermanent loss!">
+<meta name="keywords" content="BSC, Stake, Joker, Casino, GameFi, Decentralized Finance, defi, farming, JokerCoin">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="shortcut icon" href=".." />
+<style>
+*{color:#e3e9f2;overflow-wrap:break-word;}
+a{text-decoration-line:none;padding:0 2px}
+*{text-shadow:10px 10px 5px black;color:#e3e9f2}
+html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}img{border-radius: 50%}
+input,button{border-radius:25px;background:black;text-align:center;}
+button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
+pre{overflow-x:auto;max-width:80%}
+#votingmvg{background:#040b22;border-radius:20px;border: #aaa solid 1px}
+.topbar{display:grid;grid-template-columns: auto;}
+#mvg pre{margin: 0 0 0 0;}
+#mvg hr{border: 0px dashed;width: 50%}
+#mvg div{background: #000013;margin: auto;border-radius: 15px;border:dashed 1px;border-top: none }
+	#mvg{width: 70vw}
+.mainpanels{display:grid;grid-template-columns:auto}
+.olsa{display:grid;grid-template-columns:auto auto 1%;}
+.mainstages{text-align:center;display:grid;grid-template-columns:auto auto auto}
+.mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid}
+#createnewfarm{font-size:1.5em}
+#searchforafarm{font-size:1.1em;border-radius:10px;width:75%}
+.farmcontrols{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;width:140px;margin:5px}
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
+}
+.lpapr{text-shadow: rgba(0,255,255,1) 0px 0px 10px;color:aqua;font-size:2em}
+.notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #000;border-radius: 20px;padding:2%;border:5px dashed}
+hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+.mainstage:nth-child(2){//background-image: url("../img/bg-nips2.png");background-size: 100%;background-repeat: no-repeat ;
+color:#020611;text-shadow: 0 0 2px black}
+/*.mainstage:nth-child(1),
+.mainstage:nth-child(2),
+.mainstage:nth-child(4),
+.mainstage:nth-child(5)
+{background: #111;border:none}
+.mainstage:nth-child(1) button,
+.mainstage:nth-child(2) button,
+.mainstage:nth-child(4) button,
+.mainstage:nth-child(5) button
+{color:grey;background: black}
+*/
+#reffar{line-height: 1em}
+#ff{  font-family: 'Courier New', "Lucida Console", Monaco,"FreeMono","Andale Mono", monospace;color:cyan}
+.fardet span:nth-of-type(5n+2){text-align: left}
+.fardet span:nth-of-type(5n+4){text-align: right}
+input{background: #000 !important;}
+.advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
+#fdet{display:grid;grid-template-columns:auto auto auto;max-width:280px}
+#fdet span:nth-of-type(3n+1){text-align:right}
+#fdet span:nth-of-type(3n){text-align:left;font-weight:bold}
+.lowercat {text-align: left;padding:10px}
+.lowercat a{text-decoration-line: none}
+.lowercat span{font-size: 1.25em; font-weight:bold}
+.lowerbar{display: grid;grid-template-columns: auto;text-align:center}
+@media(min-width:641px){
+	.mainpanels{grid-template-columns:50% 50%}
+	.mainstages{grid-template-columns:auto auto auto}
+	#mvg{width: 70%;}
+	.hhr{width:555px}
+	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+}
+
+#c2a{
+	display: grid;
+	grid-template-columns: auto;
+}
+.c2a{
+	border: 2px solid ;
+	width:220px;
+	margin: auto;
+	padding:5px;
+	margin: 5px auto;
+	background: rgba(0,255,255,0.2);
+	border-radius: 10px;
+	cursor:  grab;
+}
+.c2a:hover{box-shadow: rgba(0,255,195,0.2) 0px 0px 10px 10px;}
+@media(min-width:641px){
+	#c2a{
+		display: grid;
+		grid-template-columns: auto 280px 280px auto;
+	}
+}
+html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
+.mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
+*{text-shadow:6px 6px 5px black;color:#e3e9f2}
+</style>
+</head>
+<div class="topbar">
+	<div align="center">
+		<a href="index.html"><b style="font-size:2em">Staking JOKER</b></a><br><br>
+		<!--<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>-->
+		<a href="https://jokercoin.live">JokerCOIN</a> |
+		<a href="https://jokerbank.live">JokerBANK</a>
+	</div>
+</div>
+<br>
+<hr class="hhr">
+<br>
+<br>
+<div align="center">
+<h2 align="center">Stake JOKER Coin</h2>
+Earn passive JOKER rewards!<br>
+<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br><br>
+</div>
+
+<div class="mainstages" align="center">
+	<div></div><!--
+	<div class="mainstage">
+		<h3>Spiritswap ELITE/WFTM LP</h3>
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br>
+		<br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">APR:</div>
+			<div></div>
+			<div style="text-align:right">133.7%</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Earns:</div>
+			<div></div>
+			<div style="text-align:right">ELITE</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Farmland:</div>
+			<div></div>
+			<div style="text-align:right">#1</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Approve Farm</button><br><br>
+		<hr><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Your Stake:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Deposit</button>
+		<button class="farmcontrols" id="approve-1">Unstake</button><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Earnings:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Harvest</button>
+		<button class="farmcontrols" id="approve-1">Withdraw</button><br><br>
+	</div>
+	<div class="mainstage">
+		<h3>Spookyswap ELITE/WFTM LP</h3>
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br>
+		<br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">APR:</div>
+			<div></div>
+			<div style="text-align:right">133.7%</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Earns:</div>
+			<div></div>
+			<div style="text-align:right">ELITE</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Farmland:</div>
+			<div></div>
+			<div style="text-align:right">#2</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Approve Farm</button><br><br>
+		<hr><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Your Stake:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Deposit</button>
+		<button class="farmcontrols" id="approve-1">Unstake</button><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Earnings:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Harvest</button>
+		<button class="farmcontrols" id="approve-1">Withdraw</button><br><br>
+	</div>
+	<div class="mainstage">
+		<h3>Sushiswap ELITE/WFTM LP</h3>
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br>
+		<br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">APR:</div>
+			<div></div>
+			<div style="text-align:right">133.7%</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Earns:</div>
+			<div></div>
+			<div style="text-align:right">ELITE</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Farmland:</div>
+			<div></div>
+			<div style="text-align:right">#3</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Approve Farm</button><br><br>
+		<hr><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Your Stake:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Deposit</button>
+		<button class="farmcontrols" id="approve-1">Unstake</button><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Earnings:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Harvest</button>
+		<button class="farmcontrols" id="approve-1">Withdraw</button><br><br>
+	</div>
+	<div class="mainstage">
+		<h3>ZooDEX ELITE/WFTM LP</h3>
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br>
+		<br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">APR:</div>
+			<div></div>
+			<div style="text-align:right">133.7%</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Earns:</div>
+			<div></div>
+			<div style="text-align:right">ELITE</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Farmland:</div>
+			<div></div>
+			<div style="text-align:right">#4</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Approve Farm</button><br><br>
+		<hr><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Your Stake:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Deposit</button>
+		<button class="farmcontrols" id="approve-1">Unstake</button><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Earnings:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Harvest</button>
+		<button class="farmcontrols" id="approve-1">Withdraw</button><br><br>
+	</div>
+	<div class="mainstage">
+		<h3>ZooDEX ZOO/ELITE LP</h3>
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<img src="img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75);position:relative;left:-16px">
+		<img src="img/ftm1337.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br>
+		<br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">APR:</div>
+			<div></div>
+			<div style="text-align:right">133.7%</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Earns:</div>
+			<div></div>
+			<div style="text-align:right">ELITE</div>
+			<div></div>
+			<div></div>
+			<div style="text-align:left">Farmland:</div>
+			<div></div>
+			<div style="text-align:right">#5</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Approve Farm</button><br><br>
+		<hr><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Your Stake:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Deposit</button>
+		<button class="farmcontrols" id="approve-1">Unstake</button><br><br>
+		<div style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+			<div></div>
+			<div style="text-align:left">Earnings:</div>
+			<div></div>
+			<div style="text-align:right">0.00</div>
+			<div></div>
+		</div>
+		<br>
+		<button class="farmcontrols" id="approve-1">Harvest</button>
+		<button class="farmcontrols" id="approve-1">Withdraw</button><br><br>
+	</div>-->
+	<div class="mainstage" style="" align="center">
+		<div class="">
+		<h3>JOKER Staking Pool</h3>
+		<img src="../img/wftm.jpg" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,127,0.75)">
+		<span style=";position:relative;bottom:8px;font-size:2em"> ➠</span>
+		<img src="../img/sst.png" style="width:32px;border-radius:50%;border:2px solid rgba(0,255,255,0.75)"><br><br>
+			<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto">
+				<span></span><span id="farm_3_i_ys">?</span>
+				<span></span><span>Your Stake</span><span></span>
+				<span></span><span id="farm_3_i_re">?</span>
+				<span></span><span>Earned</span><span></span>
+				<span></span><span id="farm_3_i_apr">?</span>
+				<span></span><span>A.P.R.</span><span></span>
+				<span></span><span id="farm_3_i_tvl">?</span>
+				<span></span><span>T.V.L.</span><span></span>
+				<span></span><span id="farm_3_i_roi"></span>
+				<span></span><span></span><span></span>
+			</div>
+			<br><button style="font-size: 1em" id="reffar" onclick="refreshFarm()">↺ Reload</button><br>
+			<br><hr>
+		</div>
+		<br>
+		<div id="f1app">
+			<input class="farm_i farm_input_approve" value="Not Approved" disabled="true" id="farm_1_approved"><br>
+			<button class="farmcontrols farm_b farm_approve" onclick="farm_1_f_approve()" id="farm_1_approval">Approve</button><br><br>
+		</div>
+			<div id="farm_1_after" style="display:none">
+
+				Balance: <span class="farm_s farm_s_deposit" id="farm_1_s_deposit" onclick="$('farm_1_input_deposit').value=this.innerHTML">0</span><br>
+				<input class="farmcontrols farm_i farm_input_deposit" value="" placeholder="Deposit Amount" id="farm_1_input_deposit"><br>
+				<button class="farmcontrols farm_b farm_deposit" onclick="farm_1_f_deposit()">Deposit</button><br><br>
+
+				<input class="farm_i farm_input_claim" value="Earnings Unknown" disabled="true" id="farm_1_s_claim"><br>
+				<button class="farmcontrols farm_b farm_claim" onclick="farm_1_f_claim()">Claim</button><br><br>
+
+				Staked:<span class="farm_s farm_s_deposit" id="farm_1_s_withdraw" onclick="$('farm_1_input_withdraw').value=this.innerHTML">0</span><br>
+				<input class="farmcontrols farm_i farm_input_withdraw" value="" placeholder="Un-Stake Amount" id="farm_1_input_withdraw"><br>
+				<button class="farmcontrols farm_b farm_withdraw" onclick="farm_1_f_withdraw()">Withdraw</button><br><br>
+
+				<input class="farm_i farm_input_claim_e" value="Earnings Unknown" disabled="true" id="farm_1_s_claim_e"><br>
+				<input class="farm_i farm_input_claim_s" value="Stake Unknown" disabled="true" id="farm_1_s_claim_s"><br>
+				<button class="farmcontrols farm_b farm_exit" onclick="farm_1_f_exit()">Claim & Exit</button><br>
+
+			</div>
+	</div>
+	<div></div>
+</div>
+
+<br>
+<br>
+<div align="center" class="advert2">
+<pre>Buy $JOKER
+0xEd554ce4d15D83858F57E9996296fCD742E76E24</pre>
+<a href="https://bscscan.com/token/0xEd554ce4d15D83858F57E9996296fCD742E76E24" target="_blank"><button>bscScan</button></a>
+<a href="https://pancakeswap.finance/swap?outputCurrency=0xEd554ce4d15D83858F57E9996296fCD742E76E24" target="_blank"><button>pancake</button></a><br><br>
+</div>
+<br>
+<br>
+<div align="center" id="lfs">
+<h2>YieldStats</h2>
+<div class="mainstage">
+<div style="display:">
+<h3>Net Total Yield</h3>
+<span class="lpapr" id="stats_apr_nt">? %</span>
+<br><br>
+<div style="display:none"><!--excess-->
+<h4>Liquidity Mining</h4>
+<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
+	<span></span><span>24 hrs:</span><span></span><span id="stats_lm_d">?</span><span></span>
+	<!--
+	<span></span><span>7 Days:</span><span></span><span id="stats_lm_w"></span><span></span>
+	<span></span><span>Overall:</span><span></span><span id="stats_lm_y"></span><span></span>
+</div>
+<h4>Net Total Yield</h4>
+<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
+	<span></span><span>1 Year:</span><span></span><span id="stats_nt_y"></span><span></span>
+	-->
+</div><!--excess-->
+</div>
+</div>
+<h4>Yield Farming</h4>
+<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
+	<span></span><span>APY:</span><span></span><span id="stats_ap_y">?</span><span></span>
+	<span></span><span>Weekly:</span><span></span><span id="stats_ap_w">?</span><span></span>
+	<span></span><span>Daily:</span><span></span><span id="stats_ap_d">?</span><span></span>
+</div>
+<div style="display:none">
+<h4>Market Data</h4>
+<div class="fardet" style="font-weight:bolder;display:grid;grid-template-columns:auto auto auto auto auto;max-width:500px">
+	<span></span><span>JOKER Price:</span><span></span><span id="stats_md_ep">?</span><span></span>
+	<span></span><span>LPT Price:</span><span></span><span id="stats_md_lp">?</span><span></span>
+	<span></span><span>1h Volume:</span><span></span><span id="stats_md_vh">?</span><span></span>
+	<span></span><span>24h Volume:</span><span></span><span id="stats_md_vd">?</span><span></span>
+</div>
+</div>
+</div>
+<br><br>
+<div align="center">Dry Date<br><i id="pf">?</i></div>
+<br><br>
+
+
+<br>
+<br>
+<hr>
+<div align="center">(C) 2021 JokerCoin.live</div>
+<script>/*m=document.getElementsByClassName("mainstage");
+mp=[m[0],m[1],m[3],m[4]];
+mpb=[];
+for(i=0;i< 4;i++){mpb=(mp[i].getElementsByTagName("button"))
+for(j=0;j< mpb.length;j++){mpb[j].disabled=true}}*/
+function $(_) {return document.getElementById(_);}
+</script>
+<script src="../web3.min.js"></script>
+<script>
+window.addEventListener('load',async function()
+{
+	if(window.ethereum&&Number(window.ethereum.chainId)==56){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
+	else{web3 = new Web3("https://bsc-dataseed1.binance.org");}
+	//lpapr_sus_d();
+	DrefreshFarm()
+}, false);
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+"Qt"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+"Qd"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+"Tn"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+"Bn"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+"Mn"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+"Th"}
+	else if(_n>1e0){n_=(_n/1e0).toFixed(2);}
+	return(n_);
+}
+ab1=
+[
+	{
+	"constant": true,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		},
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		}
+	],
+	"name": "allowance",
+	"outputs": [
+		{
+		"internalType": "uint256",
+		"name": "",
+		"type": "uint256"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": false,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "spender",
+		"type": "address"
+		},
+		{
+		"internalType": "uint256",
+		"name": "value",
+		"type": "uint256"
+		}
+	],
+	"name": "approve",
+	"outputs": [
+		{
+		"internalType": "bool",
+		"name": "",
+		"type": "bool"
+		}
+	],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "guy",
+				"type": "address"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		}
+	],
+	"name": "balanceOf",
+	"outputs": [
+		{
+		"internalType": "uint256",
+		"name": "",
+		"type": "uint256"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "decimals",
+	"outputs": [
+		{
+		"internalType": "uint8",
+		"name": "",
+		"type": "uint8"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "factory",
+	"outputs": [
+		{
+		"internalType": "address",
+		"name": "",
+		"type": "address"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "getReserves",
+	"outputs": [
+		{
+		"internalType": "uint112",
+		"name": "_reserve0",
+		"type": "uint112"
+		},
+		{
+		"internalType": "uint112",
+		"name": "_reserve1",
+		"type": "uint112"
+		},
+		{
+		"internalType": "uint32",
+		"name": "_blockTimestampLast",
+		"type": "uint32"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": false,
+	"inputs": [
+		{
+		"internalType": "address",
+		"name": "_token0",
+		"type": "address"
+		},
+		{
+		"internalType": "address",
+		"name": "_token1",
+		"type": "address"
+		}
+	],
+	"name": "initialize",
+	"outputs": [],
+	"payable": false,
+	"stateMutability": "nonpayable",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "symbol",
+	"outputs": [
+		{
+		"internalType": "string",
+		"name": "",
+		"type": "string"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+	"constant": true,
+	"inputs": [],
+	"name": "name",
+	"outputs": [
+		{
+		"internalType": "string",
+		"name": "",
+		"type": "string"
+		}
+	],
+	"payable": false,
+	"stateMutability": "view",
+	"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+async function cw()
+{
+	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
+	if(!(Number(window.ethereum.chainId)==56)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
+	await window.ethereum.enable();
+	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38);
+	arf();
+}
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Quintillion"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Quadrillion"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Trillion"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Billion"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
+	else if(_n>1){n_=(_n/1e0).toFixed(2)+""}
+	return(n_);
+}
+function arf(){	var xfr = setInterval(function()
+	{
+		console.log("refreshing farm stats", Date.now());
+		//lpapr_sus_d();
+		refreshFarm()
+	}, 15000);}
+
+abbrove=[
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "spender",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "value",
+				"type": "uint256"
+			}
+		],
+		"name": "approve",
+		"outputs": [
+			{
+				"internalType": "bool",
+				"name": "",
+				"type": "bool"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			},
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "allowance",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}];
+
+f_1_add = "0x58B794921BD0AeEb1FBDDF365C5449c3c50F9Fa8";
+pairadd = "0xEd554ce4d15D83858F57E9996296fCD742E76E24";
+pas    = "0xEd554ce4d15D83858F57E9996296fCD742E76E24";
+par    = "0xEd554ce4d15D83858F57E9996296fCD742E76E24";
+
+
+farabi=[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "earned",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "uniswapTokenExchange",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "rewards",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "DURATION",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "withdraw",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "_amount",
+				"type": "uint256"
+			}
+		],
+		"name": "notifyRewardAmount",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "getReward",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "account",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rewardRate",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "lastTimeRewardApplicable",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "userRewardPerTokenPaid",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [
+			{
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "stake",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "lastUpdateTime",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rewardPerToken",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "tradedToken",
+		"outputs": [
+			{
+				"name": "",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "rewardPerTokenStored",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": false,
+		"inputs": [],
+		"name": "exit",
+		"outputs": [],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "periodFinish",
+		"outputs": [
+			{
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"name": "_uniswapTokenExchange",
+				"type": "address"
+			}
+		],
+		"payable": false,
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"name": "reward",
+				"type": "uint256"
+			}
+		],
+		"name": "RewardAdded",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "Staked",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "amount",
+				"type": "uint256"
+			}
+		],
+		"name": "Withdrawn",
+		"type": "event"
+	},
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": true,
+				"name": "user",
+				"type": "address"
+			},
+			{
+				"indexed": false,
+				"name": "reward",
+				"type": "uint256"
+			}
+		],
+		"name": "RewardPaid",
+		"type": "event"
+	}
+];
+
+function farm_1_f_approve()
+{
+	try
+	{
+		var conAdd = pairadd;
+		theCon = new web3.eth.Contract(abbrove, pairadd);
+		theCon.methods.approve(f_1_add,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){$("er").innerHTML=e;}
+}
+function farm_1_f_chappro()
+{
+	try
+	{
+		var conAdd = pairadd;
+		theCon = new web3.eth.Contract(abbrove, conAdd);
+		theCon.methods.allowance(window.ethereum.selectedAddress,f_1_add).call
+		(
+			{from:window.ethereum.selectedAddress},(e, r) =>
+			{
+				console.log(r);
+				if(Number(r)>0)
+				{
+					$("farm_1_approved").value="Approved";
+					$("farm_1_approval").disabled=true;
+					$("farm_1_after").style.display="block";
+					$("f1app").style.display="none";
+				}
+				else
+				{
+					$("farm_1_approved").value="Not Approved";
+					$("farm_1_approval").disabled=false;
+					$("farm_1_after").style.display="none";
+					$("f1app").style.display="block";
+				}
+			}
+		);
+	}
+	catch(e){console.log(e)}
+}
+
+function farm_1_f_deposit()
+{
+	try
+	{
+		var conAdd = f_1_add;
+		theCon = new web3.eth.Contract(farabi, conAdd);
+		m=($("farm_1_input_deposit").value);m*=1e9;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
+		theCon.methods.stake(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){console.log(e)}
+}
+function gs(){console.log("gs lol");refreshFarm()}
+function farm_1_f_claim()
+{
+	try
+	{
+		var conAdd = f_1_add;
+		theCon = new web3.eth.Contract(farabi, conAdd);
+		theCon.methods.getReward().send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){console.log(e)}
+}
+
+function farm_1_f_withdraw()
+{
+	try
+	{
+		var conAdd = f_1_add;
+		theCon = new web3.eth.Contract(farabi, conAdd);
+		m=($("farm_1_input_withdraw").value);m*=1e9;//DEPOSIT DECIMALS
+		m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
+		theCon.methods.withdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){console.log(e)}
+}
+
+function farm_1_f_exit()
+{
+	try
+	{
+		var conAdd = f_1_add;
+		theCon = new web3.eth.Contract(farabi, conAdd);
+		theCon.methods.exit().send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){console.log(e)}
+}
+
+async function refreshFarm()
+{
+	try
+	{
+		farm_1_f_chappro();
+
+		theCon = new web3.eth.Contract(farabi, f_1_add);
+		theCon.methods.earned(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+		{$("farm_1_s_claim").value=Number(r)/1e9;
+		$("farm_1_s_claim_e").value="Earned: "+(Number(r)/1e9);
+		$("farm_3_i_re").innerHTML=(Number(r)/1e9);});
+		theCon.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) =>
+		{$("farm_1_s_withdraw").innerHTML=Number(r)/1e9;
+		$("farm_3_i_ys").innerHTML=(Number(r)/1e9);
+		$("farm_1_s_claim_s").value="Staked: "+(Number(r)/1e9)});
+
+		the2 = new web3.eth.Contract(ab1, pairadd);
+		the2.methods.balanceOf(window.ethereum.selectedAddress).call({from:window.ethereum.selectedAddress},(e, r) => {$("farm_1_s_deposit").innerHTML=Number(r)/1e9});
+		const _tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
+		tv = Number(_tv)/1e9;
+
+
+		/*
+		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
+		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
+		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+
+		pt=res[0]/res[1];
+		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
+		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
+		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
+		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
+		$("farm_3_i_apr").innerHTML=apr+"%";
+		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
+		$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
+		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
+		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
+		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
+		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
+		*/
+
+
+
+
+		ppas=new web3.eth.Contract(ab1,pas);
+		ppar=new web3.eth.Contract(ab1,par);
+		const _ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
+		const _resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
+		const _rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		ress=[_ress[0]/1e18,_ress[1]/1e9];
+		resr=[_resr[0]/1e18,_resr[1]/1e9];
+		rera=Number(_rera)/1e9;
+		pts = Number(ress[0])/Number(ress[1]);
+		ptr = Number(resr[0])/Number(resr[1]);
+		stvl = tv*pts;
+		sapr =(rera*ptr)/(tv*pts)*86400*365*100;
+		$("farm_3_i_apr").innerHTML=sapr.toLocaleString()+"%";
+		$("farm_3_i_tvl").innerHTML=fornum(stvl,0)+" FTM";
+		$("stats_ap_d").innerHTML=(sapr/365).toLocaleString()+"%";
+		$("stats_ap_w").innerHTML=(((1+sapr/36500)**7-1)*100).toLocaleString()+"%";
+		$("stats_ap_y").innerHTML=(((1+sapr/36500)**365-1)*100).toLocaleString()+"%";
+		$("stats_apr_nt").innerHTML=fornum((((1+sapr/36500)**365-1)*100),0)+"%";
+
+
+	}
+	catch(e){console.log(e);}
+}
+async function DrefreshFarm()
+{
+	try
+	{
+		theCon = new web3.eth.Contract(farabi, f_1_add);
+
+		the2 = new web3.eth.Contract(ab1, pairadd);
+		const _tv = await the2.methods.balanceOf(f_1_add).call((e, r) => {return(r)});
+		tv = Number(_tv)/1e9;
+
+		/*
+		const ts = await the2.methods.totalSupply().call((e, r) => {return(r)});
+		const res = await the2.methods.getReserves().call((e, r) => {return(r)});
+		const rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		pt=res[0]/res[1];
+		$("stats_md_ep").innerHTML=pt.toLocaleString()+" FTM";
+		plp = (res[0]*1+res[1]*(res[0]/res[1]))/ts;
+		$("stats_md_lp").innerHTML=plp.toLocaleString()+" FTM";
+		apr=(rera*pt/1e18)/(plp*tv/1e18)*365*86400*100;
+		$("farm_3_i_apr").innerHTML=apr.toLocaleString()+"%";
+		$("farm_3_i_tvl").innerHTML=fornum(Number(tv)*plp,18)+" FTM";
+		//$("stats_apr").innerHTML=(apr).toLocaleString()+"%";
+		$("stats_ap_d").innerHTML=(apr/365).toLocaleString()+"%";
+		$("stats_ap_w").innerHTML=(((1+apr/36500)**7-1)*100).toLocaleString()+"%";
+		$("stats_ap_y").innerHTML=(((1+apr/36500)**365-1)*100).toLocaleString()+"%";
+		$("stats_apr_nt").innerHTML=(((1+apr/36500)**365-1)*100+aapd).toLocaleString()+"%";
+		*/
+
+
+		ppas=new web3.eth.Contract(ab1,pas);
+		ppar=new web3.eth.Contract(ab1,par);
+		const _ress = await ppas.methods.getReserves().call((e,r)=>{return(r)})
+		const _resr = await ppar.methods.getReserves().call((e,r)=>{return(r)})
+		const _rera = await theCon.methods.rewardRate().call((e, r) => {return(r)});
+		ress=[_ress[0]/1e18,_ress[1]/1e9];
+		resr=[_resr[0]/1e18,_resr[1]/1e9];
+		rera=Number(_rera)/1e9;
+		pts = Number(ress[0])/Number(ress[1]);
+		ptr = Number(resr[0])/Number(resr[1]);
+		stvl = tv*pts;
+		sapr =(rera*ptr)/(tv*pts)*86400*365*100;
+		$("farm_3_i_apr").innerHTML=sapr.toLocaleString()+"%";
+		$("farm_3_i_tvl").innerHTML=fornum(stvl,0)+" FTM";
+		$("stats_ap_d").innerHTML=(sapr/365).toLocaleString()+"%";
+		$("stats_ap_w").innerHTML=(((1+sapr/36500)**7-1)*100).toLocaleString()+"%";
+		$("stats_ap_y").innerHTML=(((1+sapr/36500)**365-1)*100).toLocaleString()+"%";
+		$("stats_apr_nt").innerHTML=fornum((((1+sapr/36500)**365-1)*100),0)+"%";
+
+		theCon.methods.periodFinish().call((e, r) => {$("pf").innerHTML=new Date(Number(r) * 1000)});
+
+	}
+	catch(e){console.log(e);}
+}
+/*
+function lpapr_sus_d()
+{
+	hi=Date.now();hi=(hi-hi%36e5)/36e5;
+	pi="0xdEAD5ee1d489b8f0d3815E4d26554fE1aeF01281"
+	Q_pn_c=`{
+`
+	for(ih=0;ih< 24;ih++)
+	{Q_pn_c+=`h${ih}: pairHourData(id:"${pi}-${hi-ih}"){
+    ...c
+  }
+`;}
+	Q_pn_c+=`}
+fragment c on PairHourData {
+  volumeUSD
+  reserveUSD
+}`
+	gr1=new XMLHttpRequest();
+	gr1.open("POST","https://api.thegraph.com/subgraphs/name/ruvlol/graph-n",true);
+	gr1.onload=function()
+	{
+		aap=0;
+		dv=1;fh=false;
+		d=JSON.parse(this.response).data;
+		Object.keys(d).forEach(D=>
+		{
+			if(d[D]!=null)
+			{
+				aap+=Number(d[D].volumeUSD)*0.25/100/Number(d[D].reserveUSD);
+				dv+=Number(d[D].volumeUSD);
+			}
+		});
+		aapd=(aap*365e2)
+		$("stats_lm_d").innerHTML=(aapd).toLocaleString()+"%";
+		$("stats_md_vd").innerHTML=(dv).toLocaleString()+" USD";
+		hv=d[Object.keys(d)[0]]==null?1:(Number(d[Object.keys(d)[0]].volumeUSD)).toLocaleString();
+		$("stats_md_vh").innerHTML=hv+" USD";
+	}
+	gr1.send(JSON.stringify({query:Q_pn_c}))
+}
+*/
+aapd=0;
+aapw=0;
+async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
+</script>
+</html>
