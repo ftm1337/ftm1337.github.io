@@ -514,50 +514,46 @@ async function drefreshStats()
 {
 	PM = new web3.eth.Contract(i_pm,pma);
 	var _ri = await PM.methods.ri().call((e,r)=>{return Number(r)})
+	console.log("ri:",_ri)
 	$("fdet_rn").innerHTML = _ri;
-	const rohitb = $("rohi");
+	rohitb = $("rohi");
 	rohitb.innerHTML = "";//clear dummies
-
-	ball={};j=0;
-	for (i=0;i < _ri;i++)
+	for (i=_ri;i>0;i--)
 	{
-	    await PM.methods.AllRounds(i).call((e,r)=>{ball[j]=r;j++});
-	}
-
-	for (i=_ri;i>=0;i--)
-	{
-		const r1=document.createElement("tr");
-		const d1=document.createElement("td");
-		const d2=document.createElement("td");
-		const d3=document.createElement("td");
-		const d4=document.createElement("td");
-		const d5=document.createElement("td");
-		const d6=document.createElement("td");
-		const d7=document.createElement("td");
-		const d8=document.createElement("td");
+		r1=document.createElement("tr");
+		d1=document.createElement("td");
+		d2=document.createElement("td");
+		d3=document.createElement("td");
+		d4=document.createElement("td");
+		d5=document.createElement("td");
+		d6=document.createElement("td");
+		d7=document.createElement("td");
+		d8=document.createElement("td");
+		await PM.methods.AllRounds(i).call((e,r)=>{
+			console.log("gcr at",i,r);
 			d1.innerHTML = i;
-			d2.innerHTML = "$" + (Number(ball[i].pi)/1e18).toFixed(6);
-			d3.innerHTML = "$" + (Number(ball[i].pf)/1e18).toFixed(6);
-			d4.innerHTML = (Number(ball[i].nh));
-			d5.innerHTML = Number(ball[i].nl);
-			d6.innerHTML = (Number(ball[i].nh) + Number(ball[i].nl))*mv/1e18 + " FTM";
+			d2.innerHTML = "$" + (Number(r.pi)/1e18).toFixed(6);
+			d3.innerHTML = "$" + (Number(r.pf)/1e18).toFixed(6);
+			d4.innerHTML = (Number(r.nh));
+			d5.innerHTML = Number(r.nl);
+			d6.innerHTML = (Number(r.nh) + Number(r.nl))*mv/1e18 + " FTM";
 			k=0;
-			if(Number(ball[i].pi) < Number(ball[i].pf))
+			if(Number(r.pi) < Number(r.pf))
 			{
-				k = (Number(ball[i].nl)+Number(ball[i].nh))/Number(ball[i].nh);
-				if (isFinite(k)){d7.innerHTML = (k).toFixed(3) +"x"}
-				else {d7.innerHTML = Number(ball[i].nl).toFixed(3) +"x"}
+				k = (Number(r.nl)+Number(r.nh))/Number(r.nh);
+				if (isFinite(k)){d7.innerHTML = k +"x"}
+				else {d7.innerHTML = r.nl +"x"}
 			}
 			else
 			{
-				k = (Number(ball[i].nl)+Number(ball[i].nh))/Number(ball[i].nh);
-				if (isFinite(k)){d7.innerHTML = (k).toFixed(3) +"x"}
-				else {d7.innerHTML = Number(ball[i].nh).toFixed(3) +"x"}
+				k = (Number(r.nl)+Number(r.nh))/Number(r.nh);
+				if (isFinite(k)){d7.innerHTML = k +"x"}
+				else {d7.innerHTML = r.nh +"x"}
 			}
 
-			d8.innerHTML = Number(ball[i].ti) +":"+ball[i].tf;
+			d8.innerHTML = Number(r.ti);
 			console.log("gcr at",i,r);
-
+		});
 
 		r1.append(d1);
 		r1.append(d2);
