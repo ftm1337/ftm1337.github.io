@@ -453,7 +453,7 @@ pma="0x92679257ecA3c3Dba25b777185EB82cD81991e72";
 mv = 10000000000000000;
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==Number(0xfa2)){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
+	if(window.ethereum&&Number(window.ethereum.chainId)==Number(0xfa2)){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw();gub()}}
 	else{web3 = new Web3("https://rpc.testnet.fantom.network");}
 	refreshStats();
 	drefreshStats();
@@ -495,7 +495,7 @@ function fornum(n,d)
 function arf(){	var xfr = setInterval(function()
 	{
 		console.log("refreshing farm stats", Date.now());//lpapr_sus_d()
-		;refreshStats()
+		;refreshStats();gub()
 	}, 30000);}
 
 async function refreshStats()
