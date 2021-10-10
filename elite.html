@@ -189,6 +189,7 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 	//spooky	ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
 	//zoo		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
 	//zoo		zoo		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//spirit	usdc	0x2221b4ed9d5f2a706f6bf4fcd40ee36da88d2476
 	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
 	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F		3.18
 	//elk		ftm		0xf25417182FbfdEbf1a92142b31A1B32135f1Fd60		3.28
@@ -359,6 +360,12 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>USDC</td>
 						<td id="p1tpl21">0</td>
 						<td>Empire</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl22">0</td>
+						<td>Spirit</td>
 						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
 				</tbody>
@@ -1160,6 +1167,12 @@ function allpp()
 	EC.methods.balanceOf("0x1218a2F1CE880c01D174C6b1AEb7f2115A152Fa1").call((e,r)=>
 	{
 		$("p1tpl21").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl21").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x2221b4ed9d5f2a706f6bf4fcd40ee36da88d2476").call((e,r)=>
+	{
+		$("p1tpl22").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl22").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
