@@ -76,14 +76,31 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 	}
 }
 
+
+
+* {
+  scrollbar-width: thick;
+  scrollbar-color: #0f7 #174;
+}
+*::-webkit-scrollbar {
+  width: 20px;
+}
+*::-webkit-scrollbar-track {
+  background: #174;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: #0f7;
+  border-radius: 20px;
+  border: 3px solid #174;
+}
 .container {
   position: ;
   height: ;
   top: 60px;
   left: calc(50% - 300px);
-  display: flex;
+  display: grid;
   padding: 40px;
-  overflow:auto;
+  overflow: auto;
   color: red !important;;
   padding:60px;
 }
@@ -93,36 +110,35 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
   overflow: hidden;
   height: ;
   min-width: 200px;
+  max-width: 240px;
   background-color: rgba(23,20,30,.85);
   border-radius: 10px;
   box-shadow: -1rem 0 3rem #000;
-/*   margin-left: -50px; */
   transition: 0.4s ease-out;
   position: relative;
-  left: 0px;
+  margin: 20px auto;
+  border-width: 3px;
+  border-style: solid;
+  border-image:
+    linear-gradient(
+      to top,
+      aqua,
+      rgba(0, 0, 0, 0)
+    )  0 0 1 100%;
 }
 
-.card:not(:first-child) {
-    margin-left: -50px;
-}
 
 .card:hover {
-  transform: translateY(-20px);
+  transform: translateX(-20px) translateY(-20px);
   transition: 0.4s ease-out;
   background: linear-gradient(to left,rgba(0,255,127,.5),rgba(1,240,255,.5));
 }
 
 
-.card:hover ~ .card {
-  position: relative;
-  left: 50px;
-  transition: 0.4s ease-out;
-
-}
 
 .title {
   color: white;
-  font-weight: 300;
+  font-weight: 1000;
   position: absolute;
   left: 20px;
   top: 15px;
@@ -160,12 +176,6 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 
 }
 
-.circle {
-  position: ;
-  top: 150px;
-  left: calc(50% - 60px);
-}
-
 .stroke {
   stroke: rgba(0,255,127,0.24);;
   stroke-dasharray: 360;
@@ -181,6 +191,16 @@ svg {
 .card:hover .stroke {
   stroke-dashoffset: 100;
   transition: 0.6s ease-out;
+}
+
+@media(min-width:639px){
+  .container{grid-template-columns: auto  auto}
+}
+@media(min-width:899px){
+  .container{grid-template-columns: auto auto auto }
+}
+@media(min-width:1279px){
+  .container{grid-template-columns: auto auto auto auto }
 }
 </style>
 </head>
@@ -412,118 +432,143 @@ svg {
 		<br><i>(Pot Limit: 777 KCS)</i></div>
 	</div></a>-->
 	<br>
+	<div>
+		<div class="oc">
+			<div class="container">
+				<div class="card" onclick="window.location='jackpot_1.html'">
+    				<h3 class="title">PvP Jackpot</h3>
+    				<div class="bar">
+      					<div class="emptybar"></div>
+      					<div class="filledbar"></div>
+    				</div>
+    				<div>
+      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      					<circle class="stroke" cx="20" cy="20" r="10"/>
+    					</svg>
+    					<span style="font-size:">BET</span><br>
+    					<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    					<span style="font-size:">EARN</span><br>
+    					<span style="font-size:1.5em">0.02 KCS</span>
+    					<br><br><br>
+    				</div>
+  				</div>
+  				<div class="card" onclick="window.location='instalotto.html'">
+    				<h3 class="title">instaLOTTO</h3>
+    				<div class="bar">
+      					<div class="emptybar"></div>
+      					<div class="filledbar"></div>
+    				</div>
+    				<div>
+      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      					<circle class="stroke" cx="20" cy="20" r="10"/>
+    					</svg>
+    					<span style="font-size:">BET</span><br>
+    					<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    					<span style="font-size:">EARN</span><br>
+    					<span style="font-size:1.5em">∞x KCS*</span>
+    					<br><i>*No Limits</i><br><br>
+    				</div>
+  				</div>
+  				<div class="card" onclick="">
+    				<h3 class="title">21-hour Lotto</h3>
+    				<div class="bar">
+      					<div class="emptybar"></div>
+      					<div class="filledbar"></div>
+    				</div>
+    				<div>
+      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      					<circle class="stroke" cx="20" cy="20" r="10"/>
+    					</svg>
+    					<span style="font-size:">BET</span><br>
+    					<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    					<span style="font-size:">EARN</span><br>
+    					<span style="font-size:1.5em">∞x KCS*</span>
+    					<br><i>*No Limits</i><br><br>
+    				</div>
+  				</div>
 
-	<div class="oc">
-		<div class="container">
-  			<div class="card" onclick="window.location='https://kcc.guru/jackpot_1.html'">
-    			<h3 class="title">PvP Jackpot</h3>
-    			<div class="bar">
-      			<div class="emptybar"></div>
-      			<div class="filledbar"></div>
-    			</div>
-    			<div class="circle">
-      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-      			<circle class="stroke" cx="20" cy="20" r="10"/>
-    			</svg>
-    			<span style="font-size:">BET</span><br>
-    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
-    			<span style="font-size:">EARN</span><br>
-    			<span style="font-size:1.5em">0.02 KCS</span>
-    			<br><br><br>
-    			</div>
-  			</div>
-  			<div class="card" onclick="window.location='https://kcc.guru/instalotto.html'">
-    			<h3 class="title">instaLOTTO</h3>
-    			<div class="bar">
-      			<div class="emptybar"></div>
-      			<div class="filledbar"></div>
-    			</div>
-    			<div class="circle">
-      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-      			<circle class="stroke" cx="20" cy="20" r="10"/>
-    			</svg>
-    			<span style="font-size:">BET</span><br>
-    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
-    			<span style="font-size:">EARN</span><br>
-    			<span style="font-size:1.5em">∞x KCS*</span>
-    			<br><i>*No Limits</i><br><br>
-    			</div>
-  			</div>
-  			<div class="card">
-    			<h3 class="title">21-hour Lotto</h3>
-    			<div class="bar">
-      			<div class="emptybar"></div>
-      			<div class="filledbar"></div>
-    			</div>
-    			<div class="circle">
-      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-      			<circle class="stroke" cx="20" cy="20" r="10"/>
-    			</svg>
-    			<span style="font-size:">BET</span><br>
-    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
-    			<span style="font-size:">EARN</span><br>
-    			<span style="font-size:1.5em">∞x KCS*</span>
-    			<br><i>*No Limits</i><br><br>
-    			</div>
-  			</div>
-  			<div class="card" onclick="window.location='https://kcc.guru/cointoss_1.html'">
-    			<h3 class="title">KCS Coin-Flip</h3>
-    			<div class="bar">
-      			<div class="emptybar"></div>
-      			<div class="filledbar"></div>
-    			</div>
-    			<div class="circle">
-      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-      			<circle class="stroke" cx="20" cy="20" r="10"/>
-    			</svg>
-    			<span style="font-size:">BET</span><br>
-    			<span style="font-size:1.5em">0.01 KCS</span><br><br>
-    			<span style="font-size:">EARN</span><br>
-    			<span style="font-size:1.5em">0.02 KCS</span>
-    			<br><br><br>
-    			</div>
-  			</div>
-  			<div class="card" onclick="window.location='https://kcc.guru/cointoss_2.html'">
-    			<h3 class="title">1000 KUD Flipper</h3>
-    			<div class="bar">
-      			<div class="emptybar"></div>
-      			<div class="filledbar"></div>
-    			</div>
-    			<div class="circle">
-      			<svg version="1.1" xmlns="http://www.w3.org/2000/svg">
-      			<circle class="stroke" cx="20" cy="20" r="10"/>
-    			</svg>
-    			<span style="font-size:">BET</span><br>
-    			<span style="font-size:1.5em">1000 KUD</span><br><br>
-    			<span style="font-size:">EARN</span><br>
-    			<span style="font-size:1.5em">2000 KUD</span>
-    			<br><br><br>
-    			</div>
-  			</div>
+  				<div class="card" onclick="window.location='cointoss_1.html'">
+    				<h3 class="title">KCS Coin-Flip</h3>
+    				<div class="bar">
+      					<div class="emptybar"></div>
+      					<div class="filledbar"></div>
+    				</div>
+    				<div>
+      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      					<circle class="stroke" cx="20" cy="20" r="10"/>
+    					</svg>
+    					<span style="font-size:">BET</span><br>
+    					<span style="font-size:1.5em">0.01 KCS</span><br>
+    					<span style="font-size:">EARN</span><br>
+    					<span style="font-size:1.5em">0.02 KCS</span>
+    					<br><br><br>
+    				</div>
+  				</div>
+  				<div class="card" onclick="window.location='cointoss_2.html'">
+    				<h3 class="title">1000 KUD Flipper</h3>
+    				<div class="bar">
+      					<div class="emptybar"></div>
+      					<div class="filledbar"></div>
+    				</div>
+    				<div>
+      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      					<circle class="stroke" cx="20" cy="20" r="10"/>
+    					</svg>
+    					<span style="font-size:">BET</span><br>
+    					<span style="font-size:1.5em">1000 KUD</span><br>
+    					<span style="font-size:">EARN</span><br>
+    					<span style="font-size:1.5em">2000 KUD</span>
+    					<br><br><br>
+    				</div>
+  				</div>
+  				<div class="card" onclick="window.location='cointoss_3.html'">
+    				<h3 class="title">The TIKU-Toss</h3>
+    				<div class="bar">
+      					<div class="emptybar"></div>
+      					<div class="filledbar"></div>
+    				</div>
+    				<div>
+      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      					<circle class="stroke" cx="20" cy="20" r="10"/>
+    					</svg>
+    					<span style="font-size:">BET</span><br>
+    					<span style="font-size:1.5em">3000 TIKU</span><br>
+    					<span style="font-size:">EARN</span><br>
+    					<span style="font-size:1.5em">6000 TIKU</span>
+    					<br><br><br>
+    				</div>
+  				</div>
+			</div>
 		</div>
 		<div class="maincards">
-	<a href="cointoss_1.html"><div class="maincard">
-		<span style="font-size:1.5em"><span class="gmul">2x</span> FTM Coin-Flip</span>
-		<hr>
-		<i>Classic Heads or Tails: Win 2x!<br>
-		Single-player & non-stop.<br>
-		Min. bet = o.1 FTM</i>
-	</div></a>
-	<a href="degam.html"><div class="maincard">
-		<span style="font-size:1.5em"><span class="gmul">3x</span> Mini Jackpot</span>
-		<hr>
-		<i>Enter Jackpot, win 4 FTM!<br>
-		Played against 2 opponents.<br>
-		Min. bet = 1.337 FTM</i>
-	</div></a>
-	<a href="degam.html"><div class="maincard">
-		<span style="font-size:1.5em"><span class="gmul">3x</span> Micro Jackpot</span>
-		<hr>
-		<i>Enter Jackpot, win .4 FTM!<br>
-		Played against 2 opponents.<br>
-		Min. bet = o.1337 FTM</i>
-	</div></a>
-</div>
+			<a href="cointoss_1.html">
+				<div class="maincard">
+				<span style="font-size:1.5em"><span class="gmul">2x</span> FTM Coin-Flip</span>
+				<hr>
+				<i>Classic Heads or Tails: Win 2x!<br>
+				Single-player & non-stop.<br>
+				Min. bet = o.1 FTM</i>
+				</div>
+			</a>
+			<a href="degam.html">
+				<div class="maincard">
+				<span style="font-size:1.5em"><span class="gmul">3x</span> Mini Jackpot</span>
+				<hr>
+				<i>Enter Jackpot, win 4 FTM!<br>
+				Played against 2 opponents.<br>
+				Min. bet = 1.337 FTM</i>
+				</div>
+			</a>
+			<a href="degam.html">
+				<div class="maincard">
+				<span style="font-size:1.5em"><span class="gmul">3x</span> Micro Jackpot</span>
+				<hr>
+				<i>Enter Jackpot, win .4 FTM!<br>
+				Played against 2 opponents.<br>
+				Min. bet = o.1337 FTM</i>
+				</div>
+			</a>
+		</div>
 	</div>
 	<br>
 	<div class="mte uo" align="center">
@@ -535,6 +580,9 @@ svg {
 	<br>
 	</div>
 </div>
+<br>
+<br>
+<div class="mainpanel" style="font-style:italic"" >You are viewing the legacy version of ftm.guru website. Chainlink/Band Protocol powered FTM/USD Binary Options Platform is accesible only on the IPFS version due to jurisdictional regulations and restrictions. The DeGam Casino & Kucino Casino will be available over IPFS soon and later over ETH-DNS as well. Some other tools such as Liquidity Finder, x3 and EA are available on the newer version.  	A word of advice: ftm.guru is a complex project spanning dozens of smart-contracts and DApps. Please reach out on Twitter or Telegram [@FTM1337] for queries and latest information. Our community will be elated to provide assistance.</div>
 <br>
 <br>
 <div align="center" class="advert">
@@ -1148,7 +1196,13 @@ async function fillmvg(aaa)
 		S=await C.methods.symbol().call((e,r)=>{return(r)});
 		s.innerHTML = " "+S+"<br>";
 		T=await C.methods.totalSupply().call((e,r)=>{return(r)});
-		D=await C.methods.decimals().call((e,r)=>{return(r)});
+		try{
+			D=await C.methods.decimals().call((e,r)=>{return(r)});
+		}
+		catch(e)
+		{
+			D=0;
+		}
 		ts.innerHTML=fornum(T,D);
 	}
 	else
@@ -1184,6 +1238,5 @@ function fornum(n,d)
 	return(n_);
 }
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
-alert("	You are viewing the legacy version of ftm.guru website.\nChainlink/Band Protocol powered FTM/USD Binary Options Platform is accesible only on the IPFS version due to jurisdictional regulations and restrictions. The DeGam Casino & Kucino Casino will be available over IPFS soon and later over ETH-DNS as well. Some other tools such as Liquidity Finder, x3 and EA are available on the newer version.\n\n	A word of advice:\nftm.guru is a complex project spanning dozens of smart-contracts and DApps. Please reach out on Twitter or Telegram [@FTM1337] for queries and latest information. Our community will be elated to provide assistance.")
 </script>
 </html>
