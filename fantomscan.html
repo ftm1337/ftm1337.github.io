@@ -1,6 +1,6 @@
 <!doctype html><html><meta charset="UTF-8">
 <head>
-<title>FantomScan : FTM.guru | FTM1337</title>
+<title id="tbar">FantomScan : FTM.guru | FTM1337</title>
 <meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
 <meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -93,7 +93,7 @@ table{width:max-content}
 		</thead>
 		<tbody>
 			<tr>
-				<td>Current Gas Fees</td>
+				<td>Live Gas Prices</td>
 				<td id="gt0a">?</td>
 				<td id="gt0b">?</td>
 				<td id="gt0c">?</td>
@@ -129,7 +129,7 @@ table{width:max-content}
 				<td id="gt5c">?</td>
 			</tr>
 			<tr>
-				<td>Summon Rarity</td>
+				<td>Rarity: Summon</td>
 				<td id="gt6a">?</td>
 				<td id="gt6b">?</td>
 				<td id="gt6c">?</td>
@@ -317,16 +317,21 @@ window.addEventListener('load',function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
-	basics();
+	fbasics();basics();
 }, false);
 function $(_) {return document.getElementById(_);}
-async function basics()
+
+function basics() {
+	var x=setInterval(fbasics,6000)
+}
+async function fbasics()
 {
 	web3.eth.getBlockNumber().then(r=>$("bh").innerHTML = "Block Height "+r.toLocaleString());
-	await web3.eth.getGasPrice((e,r)=>{gpb=Number(r)/1e9;gpa=Math.min(50,gpb);gpc=gpb*1.11})
+	await web3.eth.getGasPrice((e,r)=>{gpb=Number(r)/1e9;gpa=Math.min(100.1,gpb);gpc=gpb*1.11})
 	$("gt0a").innerHTML="<b>"+(gpa)+"</b> GWei";
 	$("gt0b").innerHTML="<b>"+(gpb).toFixed(0)+"</b> Gwei";
 	$("gt0c").innerHTML="<b>"+(gpc).toFixed(0)+"</b> Gwei";
+	$("tbar").innerHTML="FantomScan:"+(gpb)+"GWei - FTM.guru | FTM1337";
 
 	$("gt1a").innerHTML = (gpa*21000/1e9).toFixed(6);
 	$("gt1b").innerHTML = (gpb*21000/1e9).toFixed(6);
