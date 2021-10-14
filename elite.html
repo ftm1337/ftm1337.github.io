@@ -368,6 +368,12 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>Spirit</td>
 						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl23">0</td>
+						<td>Wraith</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -652,28 +658,39 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 			<tr>
 			<th onclick="sortit(0)">Pledged Tokens ⇅</th>
 			<th onclick="sortit(1)">Rewards ⇅</th>
-			<th onclick="sortit(2)">Platform ⇅</th>
+			<th onclick="sortit(2)">Farm ⇅</th>
+			<th onclick="sortit(3)">DEX ⇅</th>
 			<th onclick="sortit(3)">Fees ⇅</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr class="" id="" onclick="">
-				<td>ELITE-WFTM SLP</td>
+				<td>ELITE-WFTM LP</td>
 				<td>ELITE</td>
+				<td><a target="_blank" href="https://app.sushi.com/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882">Sushi.com</a></td>
 				<td><b><a target="_blank" href="https://ftm.guru/YS/1">YieldState</a></b></td>
 				<td>0%</td>
 			</tr>
 			<tr class="" id="" onclick="">
-				<td>ELITE-WFTM spLP</td>
+				<td>ELITE-WFTM LP</td>
 				<td>ELITE</td>
+				<td><a target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882">Spookyswap</a></td>
 				<td><b><a target="_blank" href="https://ftm.guru/YS/2">YieldState 2</a></b></td>
 				<td>0%</td>
 			</tr>
 			<tr class="" id="" onclick="">
-				<td>ELITE-WFTM Nips-LP</td>
+				<td>ELITE-WFTM LP</td>
 				<td>BOOB</td>
+				<td><a target="_blank" href="https://exchange.nipplelabs.finance/#/add/FTM/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882">NipdEx</a></td>
 				<td><b><a target="_blank" href="https://nipplelabs.finance">Nipple Labs</a></b></td>
 				<td>4%</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td>ELITE-WRA LP</td>
+				<td>WRA</td>
+				<td><a target="_blank" href="https://wraithswap.finance/add/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882/FTM">Wraithswap</a></td>
+				<td><b><a target="_blank" href="https://wraithswap.finance">SyFin's Wraith</a></b></td>
+				<td>?%</td>
 			</tr>
 		</tbody>
 	</table>
@@ -1173,6 +1190,12 @@ function allpp()
 	EC.methods.balanceOf("0x2221b4ed9d5f2a706f6bf4fcd40ee36da88d2476").call((e,r)=>
 	{
 		$("p1tpl22").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl22").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x7808640c1127B31764d549c7Cf0d0bCbA599f7B4").call((e,r)=>
+	{
+		$("p1tpl23").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl23").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
