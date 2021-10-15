@@ -1538,8 +1538,6 @@ async function bmat()
 	$("mat").innerHTML="Calculating...Please wait!";}
 async function mat()
 {
-
-
 	nb="0x22a38f5fef8623e2f4d9ba0243cd1bd74dbbde2c"
 	nf="0xe493ce1afdcf079d0b40ff9503d7ab5f1f125477"
 	bf="0x623765857b74da6f5a52a362d228de7f7859224f"
@@ -1553,6 +1551,11 @@ async function mat()
 	await pbf.methods.getReserves().call((e,r)=>{rbf=[Number(r[0]),Number(r[1])]})
 	await pnb.methods.totalSupply().call((e,r)=>{tnb=r})
 	await pnb.methods.balanceOf(f_1_add).call((e,r)=>{snb=r})
+
+	const _rera = await theCon.methods.rewardRate().call((e, r) => {return(r)})
+	rera = (Number(_rera)/1e9)*(13*3-7)*86400;
+
+
 
 	rnf=[rnf[0]/1e18,rnf[1]/1e9]
 	rbf=[rbf[0]/1e18,rbf[1]/1e9]
@@ -1576,17 +1579,17 @@ async function mat()
 
 	$("mat").innerHTML+=`STAKED<br>${snb} LP <br>= ${rnb[0]*2*snb/tnb} NOVA<br>...= ${rnb[0]*2*ppnf*snb/tnb} FTM<br>=${rnb[1]*2*snb/tnb} BLK<br>...= ${rnb[1]*2*ppbf*snb/tnb} FTM<br><br>`
 
-	$("mat").innerHTML+=`32 Day rewards <br>= 250 000 NOVA<br>...= ${250000*ppnf} FTM<br><br>`
+	$("mat").innerHTML+=`32 Day rewards <br>= ${rera} NOVA<br>...= ${rera*ppnf} FTM<br><br>`
 
-	$("mat").innerHTML+=`32 Day Return % <br>= (Earned/Staked) %<br>= ${250000*ppnf}/${rnb[0]*2*ppnf*snb/tnb} x100 % (in terms of NOVA)<br>...= ${(250000*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100} %<br>...or<br>${250000*ppnf}/${rnb[1]*2*ppbf*snb/tnb} x100 % (in terms of BLK)<br>...=${250000*ppnf/(rnb[1]*2*ppbf*snb/tnb)*100} %<br>`
+	$("mat").innerHTML+=`32 Day Return % <br>= (Earned/Staked) %<br>= ${rera*ppnf}/${rnb[0]*2*ppnf*snb/tnb} x100 % (in terms of NOVA)<br>...= ${(rera*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100} %<br>...or<br>${rera*ppnf}/${rnb[1]*2*ppbf*snb/tnb} x100 % (in terms of BLK)<br>...=${rera*ppnf/(rnb[1]*2*ppbf*snb/tnb)*100} %<br>`
 
-	$("mat").innerHTML+=`365 Day Annual % Return (APR)<br>...= ${(250000*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100/32*365} % (in terms of NOVA)<br>...=${(250000*ppnf)/(rnb[1]*2*ppbf*snb/tnb)*100/32*365} % (in terms of BLK)<br><br>`;
+	$("mat").innerHTML+=`365 Day Annual % Return (APR)<br>...= ${(rera*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100/32*365} % (in terms of NOVA)<br>...=${(rera*ppnf)/(rnb[1]*2*ppbf*snb/tnb)*100/32*365} % (in terms of BLK)<br><br>`;
 
 	$("farm_3_i_tvl_detail").innerHTML=
 		fornum(Math.max(rnb[0]*2*ppnf*snb/tnb,rnb[1]*2*ppbf*snb/tnb),0)
 
 
-		xapr = Math.min(((250000*ppnf)/(rnb[1]*2*ppbf*snb/tnb)*100/32*365),((250000*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100/32*365));
+		xapr = Math.min(((rera*ppnf)/(rnb[1]*2*ppbf*snb/tnb)*100/32*365),((rera*ppnf)/(rnb[0]*2*ppnf*snb/tnb)*100/32*365));
 		$("farm_3_i_apr").innerHTML=xapr.toLocaleString()+"%";
 		$("stats_ap_d").innerHTML=(xapr/365).toLocaleString()+"%";
 		$("stats_ap_w").innerHTML=(((1+xapr/36500)**7-1)*100).toLocaleString()+"%";
