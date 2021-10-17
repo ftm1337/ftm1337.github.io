@@ -509,8 +509,9 @@ function arf(){	var xfr = setInterval(function()
 async function refreshStats()
 {
 	PM = new web3.eth.Contract(i_pm,pma);
+	var _ri = await PM.methods.cursor().call((e,r)=>{return Number(r)});
 	var cp_ = PM.methods.getOracle().call((e,r)=>{$("cp").innerHTML=(Number(r)/1e18).toFixed(6);return Number(r)});
-	var _crd = await PM.methods.getCurrentRound().call((e,r)=>{return Number(r)});
+	var _crd = await PM.methods.getSomeRound(Number(_ri)+1).call((e,r)=>{return Number(r)});
 	lm = _crd[0];
 	hm = _crd[1];
 	eta=((Number(_crd[5])*1e3-Date.now()))
@@ -528,7 +529,7 @@ async function refreshStats()
 async function drefreshStats()
 {
 	PM = new web3.eth.Contract(i_pm,pma);
-	var _ri = await PM.methods.ri().call((e,r)=>{return Number(r)})
+	var _ri = await PM.methods.cursor().call((e,r)=>{return Number(r)})
 	$("fdet_rn").innerHTML = _ri;
 	const rohitb = $("rohi");
 	rohitb.innerHTML = "";//clear dummies
