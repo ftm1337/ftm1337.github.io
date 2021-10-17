@@ -129,10 +129,10 @@ td{width:max-content}
 <div align="center">
 	<h2 align="center">$FTM Binary Options</h2>
 	Go Long or Short on Fantom!<br><br>
-	<b>THIS IS ON MAINNET<br>Opera (0xFA)</b><br>
-	<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br>
-	<span>Balance:</span><br><br>
-	<span id="fdet_ub" style="font-size:1em">?</span> FTM<br>
+	<b>THIS IS ON MAINNET<br>Fantom Opera: 0xFA</b><br>
+	<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span>
+	<span>Balance:</span><br>
+	<span id="fdet_ub" style="font-size:1em">?</span> FTM<br><br><br>
 	<div id="fdet"  style="">
 		<span>Underlying:</span><span></span><span>FTM/USD</span>
 		<span>Round №:</span><span></span><span id="fdet_rn">?</span>
@@ -187,18 +187,18 @@ td{width:max-content}
 	</div>
 </div>
 <br>
-<div align="center">
-	<span>Expiry Time:</span><br>
-	<span id="fdet_et" style="font-size:2em">00h 00m 00s</span>
-</div>
-<div align="center" class="mainstages" style="display:grid;grid-template-columns:auto max-content max-content auto">
+<br>
+<div align="center" class="mainstage" style="display:grid;grid-template-columns:auto max-content max-content auto">
 	<br>
 	<span>Net Short<br><span id="net_s" style="font-size:2em">?</span> FTM</span>
 	<span>Net Long<br><span id="net_l" style="font-size:2em">?</span> FTM</span>
 	<br>
 </div>
 <br>
-<br><br>
+<div align="center">
+	<span>Expiry Time:</span><br>
+	<span id="fdet_et" style="font-size:2em">00h 00m 00s</span>
+</div>
 
 <br><br>
 
@@ -516,8 +516,8 @@ async function refreshStats()
 	var _ri = await PM.methods.cursor().call((e,r)=>{return Number(r)});
 	var cp_ = PM.methods.getOracle().call((e,r)=>{$("cp").innerHTML=(Number(r)/1e18).toFixed(6);return Number(r)});
 	var _crd = await PM.methods.getSomeRound(Number(_ri)+1).call((e,r)=>{return Number(r)});
-	nh = _crd[0];
-	nl = _crd[1];
+	nh = Number(_crd[0]);
+	nl = Number(_crd[1]);
 	eta=((Number(_crd[5])*1e3-Date.now()))
 
 	if(eta>0)
@@ -542,7 +542,7 @@ async function drefreshStats()
 	rohitb.innerHTML = "";//clear dummies
 
 	ball=[];j=0;
-	for (i=0;i < _ri;i++)
+	for (i=0;i <= _ri;i++)
 	{
 	    await PM.methods.AllRounds(i).call((e,r)=>{ball[j]=r;j++});
 	}
