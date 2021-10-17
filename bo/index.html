@@ -96,12 +96,21 @@ tr:hover{background: rgba(0,255,127,0.25);}
 #db-data span{margin:auto}
 
 td{width:max-content}
+
+#ckc{text-align: center;padding:0;border-radius: 5px}
+#ckc iframe{width: 100%;height: calc(max(80vh,400px)) !important;text-align: center}
+.oe_2{display:grid;grid-template-columns:auto}
+.oe_3{display:grid;grid-template-columns:auto}
 @media(min-width:432px)
 {
 	.mainstage-long,.mainstage-short,.mainstage-main
 	 {width: max-content;margin:auto}
 	.mainstage-main{width: 380px}
 	#db-data{display:grid;grid-template-columns:auto auto auto;}
+}
+@media(min-width:641px){
+	.oe_2{display:grid;grid-template-columns:auto max-content 1% max-content auto}
+	.oe_3{display:grid;grid-template-columns:auto max-content 1% max-content 1% max-content auto}
 }
 </style>
 </head>
@@ -190,12 +199,15 @@ td{width:max-content}
 		<div></div>
 	</div>
 </div>
-<iframe class="mainstage" title="crypto-kek-chart" loading="lazy" src="https://kek.tools/t/0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83/chart" scrolling="no" width="100%" height="600px" frameborder="0" align="middle"> </iframe>
+<div class="mainstage" id="ckc">
+	<iframe title="crypto-kek-chart" loading="lazy" src="https://kek.tools/t/0x21be370d5312f44cb42ce377bc9b8a0cef1a4c83/chart" scrolling="no" width="" height="600px" frameborder="0" align="middle"> </iframe>
+</div>
 <br>
 <br>
 <div align="center" class="mainstage">
-	<b>Ongoing Epoch Trade Volume</b>
-	<div  style="display:grid;grid-template-columns:auto max-content 1% max-content 1% max-content auto">
+	<h3>Ongoing Round#<span id="oe_rn">?</span></h3>
+	<b>Trade Volumes</b>
+	<div class="oe_3">
 		<br>
 		<span><span id="oe_net_s" style="font-size:1.5em">?</span> FTM<br>Net Short</span>
 		<br>
@@ -206,7 +218,7 @@ td{width:max-content}
 	</div>
 	<br><br>
 	<b>Current Trader's Expectation</b>
-	<div  style="display:grid;grid-template-columns:auto max-content 1% max-content auto">
+	<div class="oe_2">
 		<br>
 		<span><span id="oe_c_s" style="font-size:2em">?</span>x<br>If Shorts pay Longs</span>
 		<br>
@@ -215,7 +227,7 @@ td{width:max-content}
 	</div>
 	<br><br>
 	<b>Next Trader's Expectation</b>
-	<div  style="display:grid;grid-template-columns:auto max-content 1% max-content auto">
+	<div class="oe_2">
 		<br>
 		<span><span id="oe_n_s" style="font-size:2em">?</span>x<br>If Shorts pay Longs</span>
 		<br>
@@ -571,7 +583,8 @@ async function drefreshStats()
 {
 	PM = new web3.eth.Contract(i_pm,pma);
 	var _ri = await PM.methods.cursor().call((e,r)=>{return Number(r)})
-	$("fdet_rn").innerHTML = _ri;
+	$("fdet_rn").innerHTML = Number(_ri)+1;
+	$("oe_rn").innerHTML = Number(_ri)+1;
 	const rohitb = $("rohi");
 	rohitb.innerHTML = "";//clear dummies
 
