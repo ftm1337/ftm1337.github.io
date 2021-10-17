@@ -531,8 +531,8 @@ function fornum(n,d)
 function arf(){	var xfr = setInterval(function()
 	{
 		console.log("refreshing farm stats", Date.now());//lpapr_sus_d()
-		;refreshStats();gub()
-	}, 30000);}
+		;refreshStats();gub();drefreshStats()
+	}, 10000);}
 
 async function refreshStats()
 {
@@ -631,7 +631,7 @@ async function bhi()
 	{
 		await cw();
 		PM = new web3.eth.Contract(i_pm,pma);
-		PM.methods.bh().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert(`You Longed FTM at ${(new Date()).toLocaleString()}.\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!`);drefreshStats()})
+		PM.methods.bh().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert(`You Longed FTM at ${(new Date()).toLocaleString()}.\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!`)}).then(drefreshStats())
 	}
 	catch(e){console.log(e)}
 }
@@ -641,7 +641,7 @@ async function blo()
 	{
 		await cw();
 		PM = new web3.eth.Contract(i_pm,pma);
-		PM.methods.bl().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert(`You Shorted FTM at ${(new Date()).toLocaleString()}.\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!`);drefreshStats()})
+		PM.methods.bl().send({from:window.ethereum.selectedAddress, value: mv},(e,r)=>{console.log(r);alert(`You Shorted FTM at ${(new Date()).toLocaleString()}.\n\nPlease check back in next round for results.\n\nMay the Oracle be with you!`)}).then(drefreshStats())
 	}
 	catch(e){console.log(e)}
 }
