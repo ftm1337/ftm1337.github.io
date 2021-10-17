@@ -189,29 +189,31 @@ td{width:max-content}
 <br>
 <br>
 <div align="center" class="mainstage">
-	<div  style="display:grid;grid-template-columns:auto max-content auto max-content auto">
+	<div  style="display:grid;grid-template-columns:auto max-content auto max-content auto max-content auto">
 		<br>
-		<span>Net Short<br><span id="oe_net_s" style="font-size:2em">?</span> FTM</span>
+		<span><span id="oe_net_s" style="font-size:1.5em">?</span> FTM<br>Net Short</span>
 		<br>
-		<span>Net Long<br><span id="oe_net_l" style="font-size:2em">?</span> FTM</span>
+		<span><span id="oe_net_t" style="font-size:2em">?</span> FTM<br>Total Volume</span>
+		<br>
+		<span><span id="oe_net_l" style="font-size:1.5em">?</span> FTM<br>Net Long</span>
 		<br>
 	</div>
 	<b>Ongoing Epoch Trade Volume</b>
-	<br>
+	<br><br>
 	<div  style="display:grid;grid-template-columns:auto max-content auto max-content auto">
 		<br>
-		<span>If Shorts pay Longs<br><span id="oe_c_s" style="font-size:2em">?</span>x</span>
+		<span><span id="oe_c_s" style="font-size:2em">?</span>x<br>If Shorts pay Longs</span>
 		<br>
-		<span>If Longs pay Shorts<br><span id="oe_c_l" style="font-size:2em">?</span>x</span>
+		<span><span id="oe_c_l" style="font-size:2em">?</span>x<br>If Longs pay Shorts</span>
 		<br>
 	</div>
 	<b>Current Trader's Expectation</b>
-	<br>
+	<br><br>
 	<div  style="display:grid;grid-template-columns:auto max-content auto max-content auto">
 		<br>
-		<span>If Shorts pay Longs<br><span id="oe_n_s" style="font-size:2em">?</span>x</span>
+		<span><span id="oe_n_s" style="font-size:2em">?</span>x<br>If Shorts pay Longs</span>
 		<br>
-		<span>If Longs pay Shorts<br><span id="oe_n_l" style="font-size:2em">?</span>x</span>
+		<span><span id="oe_n_l" style="font-size:2em">?</span>x<br>If Longs pay Shorts</span>
 		<br>
 	</div>
 	<b>Next Trader's Expectation</b>
@@ -555,6 +557,7 @@ async function refreshStats()
 
 	$("oe_net_l").innerHTML = (mv/1e18*nh).toFixed(2);
 	$("oe_net_s").innerHTML = (mv/1e18*nl).toFixed(2);
+	$("oe_net_t").innerHTML = (mv/1e18*(nh+nl)).toFixed(2);
 
 	$("oe_c_l").innerHTML = ((nh+nl)/nl).toFixed(2);
 	$("oe_c_s").innerHTML = ((nh+nl)/nh).toFixed(2);
