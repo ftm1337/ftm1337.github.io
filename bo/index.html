@@ -129,19 +129,21 @@ td{width:max-content}
 <div align="center">
 	<h2 align="center">$FTM Binary Options</h2>
 	Go Long or Short on Fantom!<br><br>
-	<b>THIS IS ON MAINNET 0xFA</b><br>
-	<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br><br>
-		<div id="fdet"  style="">
-			<span>Underlying:</span><span></span><span>FTM/USD</span>
-			<span>Round №:</span><span></span><span id="fdet_rn">?</span>
-			<span>Eliteness:</span><span></span><span>0.001337 ELITE</span>
-			<span>Fees:</span><span></span><span>0% + 0 FTM</span>
-			<span>Contract Class:</span><span></span><span>Perpetual</span>
-			<span>Duration:</span><span></span><span>13hrs 37mins.</span>
-			<span>Position Size:</span><span></span><span>1.337 FTM</span>
-			<span>Max. opens:</span><span></span><span>1 position</span>
-			<span>Status:</span><span></span><span>LIVE</span>
-		</div>
+	<b>THIS IS ON MAINNET<br>Opera (0xFA)</b><br>
+	<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br>
+	<span>Balance:</span><br><br>
+	<span id="fdet_ub" style="font-size:1em">?</span> FTM<br>
+	<div id="fdet"  style="">
+		<span>Underlying:</span><span></span><span>FTM/USD</span>
+		<span>Round №:</span><span></span><span id="fdet_rn">?</span>
+		<span>Eliteness:</span><span></span><span>0.001337 ELITE</span>
+		<span>Fees:</span><span></span><span>0% + 0 FTM</span>
+		<span>Contract Class:</span><span></span><span>Perpetual</span>
+		<span>Duration:</span><span></span><span>13hrs 37mins.</span>
+		<span>Position Size:</span><span></span><span>1.337 FTM</span>
+		<span>Max. opens:</span><span></span><span>1 position</span>
+		<span>Status:</span><span></span><span>LIVE</span>
+	</div>
 	<br><br>
 </div>
 <br><br>
@@ -189,11 +191,13 @@ td{width:max-content}
 	<span>Expiry Time:</span><br>
 	<span id="fdet_et" style="font-size:2em">00h 00m 00s</span>
 </div>
-<br>
-<div align="center">
-	<span>Balance:</span><br>
-	<span id="fdet_ub" style="font-size:2em">?</span>FTM
+<div align="center" class="mainstages" style="display:grid;grid-template-columns:auto max-content max-content auto">
+	<br>
+	<span>Net Short<br><span id="net_s" style="font-size:2em">?</span> FTM</span>
+	<span>Net Long<br><span id="net_l" style="font-size:2em">?</span> FTM</span>
+	<br>
 </div>
+<br>
 <br><br>
 
 <br><br>
@@ -303,8 +307,8 @@ ChainLINK & BAND-Protocol.</details>
 Not yet, but its not ruled out from the future. Any fees will be duly mentioned on the top of the page.</details>
 <br><details><summary><b>What if nobody bets?</b></summary>
 In case there are no bets on the winning side, The House wins. To tackle this, we will make each round sufficiently long. Technically, it's possible to take both long and short positions for the same round.</details>
-<br><details><summary><b>what if nobody bets?</b></summary>
-In case there are no bets on the winning side, The House wins. To tackle this, we will make each round sufficiently long.</details>
+<br><details><summary><b>Where does the Price come from?</b></summary>
+Our Price feeds are Authentic and provided by the on-chain Band Protocol Oracle.</details>
 </div>
 <div id="lowarea" style="padding:15px; font-size:0.9em" align="center">
 <h4>Still testing?</h4>
@@ -512,8 +516,8 @@ async function refreshStats()
 	var _ri = await PM.methods.cursor().call((e,r)=>{return Number(r)});
 	var cp_ = PM.methods.getOracle().call((e,r)=>{$("cp").innerHTML=(Number(r)/1e18).toFixed(6);return Number(r)});
 	var _crd = await PM.methods.getSomeRound(Number(_ri)+1).call((e,r)=>{return Number(r)});
-	lm = _crd[0];
-	hm = _crd[1];
+	nh = _crd[0];
+	nl = _crd[1];
 	eta=((Number(_crd[5])*1e3-Date.now()))
 
 	if(eta>0)
@@ -521,9 +525,12 @@ async function refreshStats()
 		et = new Date(eta);console.log("eta",eta,"et",et);
 		$("fdet_et").innerHTML=(et.getUTCDate()-1)+"D "+et.getUTCHours()+"h "+et.getUTCMinutes()+"m "+et.getUTCSeconds()+"s";
 	}
-	else{$("fdet_et").innerHTML=`<button onclick='alert("Please open a Long or a Short. This is a testnet anyways!")'>Create New Round</button>`}
-	$("hm").innerHTML = (lm/hm+1).toFixed(2)+"x";
-	$("lm").innerHTML = (hm/lm+1).toFixed(2)+"x";
+	else{$("fdet_et").innerHTML=`<button onclick='alert("Please open a Long or a Short!")'>Create New</button>`}
+	$("hm").innerHTML = (nl/(1+nh)+1).toFixed(2)+"x";
+	$("lm").innerHTML = (nh/(1+nl)+1).toFixed(2)+"x";
+
+	$("net_s").innerHTML = (mv/1e18*nl).toFixed(2);
+	$("net_l").innerHTML = (mv/1e18*nh).toFixed(2);
 }
 
 async function drefreshStats()
@@ -540,7 +547,7 @@ async function drefreshStats()
 	    await PM.methods.AllRounds(i).call((e,r)=>{ball[j]=r;j++});
 	}
 console.log(ball,"balls")
-	for (i=_ri-1;i>=0;i--)
+	for (i=_ri;i>=0;i--)
 	{
 		const r1=document.createElement("tr");
 		const d1=document.createElement("td");
@@ -887,7 +894,7 @@ async function claimrewards(n)
 	catch(e){alert(e)}
 }
 function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
-			{web3.eth.getBalance(window.ethereum.selectedAddress).then(r=>{$("fdet_ub").innerHTML=Number(r)/1e18;})}}
+			{web3.eth.getBalance(window.ethereum.selectedAddress).then(r=>{$("fdet_ub").innerHTML=(Number(r)/1e18).toFixed(4);})}}
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
 </script>
 </html>
