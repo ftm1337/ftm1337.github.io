@@ -188,11 +188,33 @@ td{width:max-content}
 </div>
 <br>
 <br>
-<div align="center" class="mainstage" style="display:grid;grid-template-columns:auto max-content max-content auto">
+<div align="center" class="mainstage">
+	Ongoing Epoch Trade Volume
+	<div  style="display:grid;grid-template-columns:auto max-content auto max-content auto">
+		<br>
+		<span>Net Short<br><span id="oe_net_s" style="font-size:2em">?</span> FTM</span>
+		<br>
+		<span>Net Long<br><span id="oe_net_l" style="font-size:2em">?</span> FTM</span>
+		<br>
+	</div>
 	<br>
-	<span>Net Short<br><span id="net_s" style="font-size:2em">?</span> FTM</span>
-	<span>Net Long<br><span id="net_l" style="font-size:2em">?</span> FTM</span>
+	Current Trader's Expectation
+	<div  style="display:grid;grid-template-columns:auto max-content auto max-content auto">
+		<br>
+		<span>If Shorts<br>pay Longs<span id="oe_c_s" style="font-size:2em">?</span>x</span>
+		<br>
+		<span>Net Long<br><span id="oe_c_l" style="font-size:2em">?</span>x</span>
+		<br>
+	</div>
 	<br>
+	Nex Trader's Expectation
+	<div  style="display:grid;grid-template-columns:auto max-content auto max-content auto">
+		<br>
+		<span>If Shorts pay Longs<span id="oe_n_s" style="font-size:2em">?</span>x</span>
+		<br>
+		<span>If Longs pay Shorts<span id="oe_n_l" style="font-size:2em">?</span>x</span>
+		<br>
+	</div>
 </div>
 <br>
 <div align="center">
@@ -204,6 +226,8 @@ td{width:max-content}
 
 <div align="center" style="overflow-x:auto">
 <h3>ROUND HISTORY</h3>
+Latest Round will have its "Opening Price" locked-in when the current Round ends. Traders won't be able to take positions for that round thereafter. Positions can be taken for the next round."Closing Price" will be locked in 1 Round after the Opening Price Lock-in.
+<br>
 <table class="mainstage mainstage-trade">
 	<thead>
 		<th>R#</th>
@@ -518,7 +542,7 @@ async function refreshStats()
 	var _crd = await PM.methods.getSomeRound(Number(_ri)+1).call((e,r)=>{return Number(r)});
 	nh = Number(_crd[0]);
 	nl = Number(_crd[1]);
-	eta=((Number(_crd[5])*1e3-Date.now()))
+	eta=((Number(_crd[4])*1e3-Date.now()))
 
 	if(eta>0)
 	{
@@ -529,8 +553,14 @@ async function refreshStats()
 	$("hm").innerHTML = (nl/(1+nh)+1).toFixed(2)+"x";
 	$("lm").innerHTML = (nh/(1+nl)+1).toFixed(2)+"x";
 
-	$("net_s").innerHTML = (mv/1e18*nl).toFixed(2);
-	$("net_l").innerHTML = (mv/1e18*nh).toFixed(2);
+	$("oe_net_l").innerHTML = (mv/1e18*nh).toFixed(2);
+	$("oe_net_s").innerHTML = (mv/1e18*nl).toFixed(2);
+
+	$("oe_c_l").innerHTML = ((nh+nl)/nl).toFixed(2);
+	$("oe_c_s").innerHTML = ((nh+nl)/nh).toFixed(2);
+
+	$("oe_n_s").innerHTML = (nh/(1+nl)+1).toFixed(2);
+	$("oe_n_l").innerHTML = (nl/(1+nh)+1).toFixed(2);
 }
 
 async function drefreshStats()
@@ -542,12 +572,12 @@ async function drefreshStats()
 	rohitb.innerHTML = "";//clear dummies
 
 	ball=[];j=0;
-	for (i=0;i <= _ri;i++)
+	for (i=0;i <= _ri+1;i++)
 	{
 	    await PM.methods.AllRounds(i).call((e,r)=>{ball[j]=r;j++});
 	}
 console.log(ball,"balls")
-	for (i=_ri;i>=0;i--)
+	for (i=Number(_ri)+1;i>=0;i--)
 	{
 		const r1=document.createElement("tr");
 		const d1=document.createElement("td");
@@ -558,6 +588,7 @@ console.log(ball,"balls")
 		const d6=document.createElement("td");
 		const d7=document.createElement("td");
 		const d8=document.createElement("td");
+		console.log("gcr0 at",i,_ri);
 		console.log(ball[i],"ballsi",i,"ri",_ri)
 		d1.innerHTML = i;
 		d2.innerHTML = "$" + (Number(ball[i].pi)/1e18).toFixed(6);
