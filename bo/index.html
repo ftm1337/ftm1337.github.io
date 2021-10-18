@@ -276,18 +276,14 @@ Latest Round will have its "Opening Price" locked-in when the current Round ends
 <h3>TRADE HISTORY</h3>
 <table class="mainstage mainstage-trade">
 	<thead>
-		<th>R#</th>
 		<th>Type</th>
-		<th>Result</th>
-		<th>Action</th>
-		<th>Amount</th>
-		<th>Time Stamp</th>
-		<th>Open</th>
-		<th>Close</th>
+		<th>Trader's Address</th>
+		<th>Time Since Trade</th>
+		<th>Txn. Hash</th>
 	</thead>
-	<tbody id="winners">
+	<tbody id="actibar">
 		<tr>
-			<tr><td colspan="8" align="center">Unavailable right now...</td>
+			<td colspan="8" align="center">Loading...</td>
 			<!--
 			<td>801</td>
 			<td>LONG</td>
@@ -545,9 +541,40 @@ function fornum(n,d)
 function arf(){	var xfr = setInterval(function()
 	{
 		console.log("refreshing farm stats", Date.now());//lpapr_sus_d()
-		;refreshStats();gub();drefreshStats()
+		;refreshStats();gub();drefreshStats();getActivities()
 	}, 10000);}
 
+async function GetActivities()
+{
+	var actibar=$("actibar");
+	actibar.innerHTML="Re-Loading . . .";
+	var acti = await web3.eth.getPastLogs
+		({
+			"fromBlock":"1390000",
+			"toBlock":"latest",
+			"address":pma,
+			"topics":[["0x4fb164734984b31f9cc134fa62fd1bb542e87c8bc97c51dd53db4130c0fe5e1f","0x0cd7154bba423a8bb8bf9349bf036cb4230cc3b4399ecd235738f61a46931a43"]],
+		},(e,r)=>{return(r)})
+	var bnum = await web3.eth.getBlockNumber;
+	for(i=0;i< acti.length;i++)
+	{
+		const r1=document.createElement("tr");
+		const d1=document.createElement("td");
+		const d2=document.createElement("td");
+		const d3=document.createElement("td");
+		const d4=document.createElement("td");
+		d1.innerHTML= acti[i].topics[0] == "0x0cd7154bba423a8bb8bf9349bf036cb4230cc3b4399ecd235738f61a46931a43" ? "LONG" : "Short";
+		d2date = new Date((Number(acti[i].blockNumber) - bnum)*1e3);
+		d2.innerHTML = (d2date.getUTCDate()-1)+"D "+d2date.getUTCHours()+"h "+d2date.getUTCMinutes()+"m "+d2date.getUTCSeconds()+"s";
+		d3.innerHTML = "0x"+(acti[i].topics[1]).substr(26,8)+"_"+(acti[i].topics[1]).substr(60,8);
+		d4.innerHTML = '<a href="https://ftmscsan.com/tx/${acti[i].transactionHash}" target ="_blank">${acti[i].transactionHash.substr(0,8)} ↗</a>'
+		r1.append(d1);
+		r1.append(d2);
+		r1.append(d3);
+		r1.append(d4);
+		actibar.append(r1);
+	}
+}
 async function refreshStats()
 {
 	PM = new web3.eth.Contract(i_pm,pma);
@@ -626,7 +653,7 @@ console.log(ball,"balls")
 			else {d7.innerHTML = Number(ball[i].nh).toFixed(3) +"x"}
 		}
 
-		d8.innerHTML = Number(ball[i].ti) +":"+ball[i].tf;
+		d8.innerHTML = (new Date(Number(ball[i].ti)*1e3)).toLocaleString() +" to "+ (new Date(Number(ball[i].tf)*1e3)).toLocaleString();
 		console.log("gcr at",i,_ri);
 
 
