@@ -241,7 +241,9 @@ td{width:max-content}
 
 <div align="center" style="overflow-x:auto">
 <h3>ROUND HISTORY</h3>
-Latest Round will have its "Opening Price" locked-in when the current Round ends. Traders won't be able to take positions for that round thereafter. Positions can be taken for the next round."Closing Price" will be locked in 1 Round after the Opening Price Lock-in.
+<div style="padding:5%">
+Latest Round will have its "Opening Price" locked-in when the current Round ends. "Closing Price" will be locked in 1 Round after the Opening Price Lock-in. Traders won't be able to take positions for a round after Opening Price is locked, but Positions can be taken for the upcoming round.
+</div>
 <br>
 <table class="mainstage mainstage-trade">
 	<thead>
@@ -273,7 +275,7 @@ Latest Round will have its "Opening Price" locked-in when the current Round ends
 <br><br>
 
 <div align="center" style="overflow-x:auto">
-<h3>TRADE HISTORY</h3>
+<h3>Recent Activities</h3>
 <table class="mainstage mainstage-trade">
 	<thead>
 		<th>Type</th>
@@ -544,7 +546,7 @@ function arf(){	var xfr = setInterval(function()
 		;refreshStats();gub();drefreshStats();getActivities()
 	}, 10000);}
 
-async function GetActivities()
+async function getActivities()
 {
 	var actibar=$("actibar");
 	actibar.innerHTML="Re-Loading . . .";
@@ -590,7 +592,7 @@ async function refreshStats()
 		et = new Date(eta);console.log("eta",eta,"et",et);
 		$("fdet_et").innerHTML=(et.getUTCDate()-1)+"D "+et.getUTCHours()+"h "+et.getUTCMinutes()+"m "+et.getUTCSeconds()+"s";
 	}
-	else{$("fdet_et").innerHTML=`<button onclick='alert("Please open a Long or a Short!")'>Create New</button>`}
+	else{$("fdet_et").innerHTML=`<button onclick='alert("Please open a Long or a Short!")'>Create New Round</button>`}
 	$("hm").innerHTML = (nl/(1+nh)+1).toFixed(2)+"x";
 	$("lm").innerHTML = (nh/(1+nl)+1).toFixed(2)+"x";
 
