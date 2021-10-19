@@ -511,6 +511,7 @@ window.addEventListener('load',async function()
 	refreshStats();
 	drefreshStats();
 	getActivities();
+	arf();
 }, false);
 function fornum(n,d)
 {
@@ -531,7 +532,6 @@ async function cw()
 	if(!(Number(window.ethereum.chainId)==Number(0xfa))){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	await window.ethereum.enable();
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38);
-	arf();
 }
 function fornum(n,d)
 {
