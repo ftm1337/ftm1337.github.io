@@ -140,8 +140,9 @@ td{width:max-content}
 	Go Long or Short on Fantom!<br><br>
 	<b>THIS IS ON MAINNET<br>Fantom Opera: 0xFA</b><br>
 	<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span>
-	<span>Balance:</span><br>
-	<span id="fdet_ub" style="font-size:1em">?</span> FTM<br><br><br>
+	<span>Balances:</span><br>
+	<span id="fdet_ub" style="font-size:1.2em">?</span> FTM<br>
+	<span id="fdet_ub" style="font-size:1.2em">?</span> ELITE<br><br><br>
 	<div id="fdet"  style="">
 		<span>Underlying:</span><span></span><span>FTM/USD</span>
 		<span>Round №:</span><span></span><span id="fdet_rn">?</span>
@@ -279,8 +280,8 @@ Latest Round will have its "Opening Price" locked-in when the current Round ends
 <table class="mainstage mainstage-trade">
 	<thead>
 		<th>Type</th>
-		<th>Trader's Address</th>
 		<th>Time Since Trade</th>
+		<th>Trader's Address</th>
 		<th>Txn. Hash</th>
 	</thead>
 	<tbody id="actibar">
@@ -557,7 +558,8 @@ async function getActivities()
 			"address":pma,
 			"topics":[["0x4fb164734984b31f9cc134fa62fd1bb542e87c8bc97c51dd53db4130c0fe5e1f","0x0cd7154bba423a8bb8bf9349bf036cb4230cc3b4399ecd235738f61a46931a43"]],
 		},(e,r)=>{return(r)})
-	var bnum = await web3.eth.getBlockNumber;
+	var bnum = await web3.eth.getBlockNumber();
+	actibar.innerHTML="";
 	for(i=0;i< acti.length;i++)
 	{
 		const r1=document.createElement("tr");
@@ -566,10 +568,10 @@ async function getActivities()
 		const d3=document.createElement("td");
 		const d4=document.createElement("td");
 		d1.innerHTML= acti[i].topics[0] == "0x0cd7154bba423a8bb8bf9349bf036cb4230cc3b4399ecd235738f61a46931a43" ? "LONG" : "Short";
-		d2date = new Date((Number(acti[i].blockNumber) - bnum)*1e3);
+		d2date = new Date((Number(bnum)-Number(acti[i].blockNumber))*1e3);
 		d2.innerHTML = (d2date.getUTCDate()-1)+"D "+d2date.getUTCHours()+"h "+d2date.getUTCMinutes()+"m "+d2date.getUTCSeconds()+"s";
 		d3.innerHTML = "0x"+(acti[i].topics[1]).substr(26,8)+"_"+(acti[i].topics[1]).substr(60,8);
-		d4.innerHTML = '<a href="https://ftmscsan.com/tx/${acti[i].transactionHash}" target ="_blank">${acti[i].transactionHash.substr(0,8)} ↗</a>'
+		d4.innerHTML = `<a href="https://ftmscsan.com/tx/${acti[i].transactionHash}" target ="_blank">${acti[i].transactionHash.substr(0,8)} ↗</a>`
 		r1.append(d1);
 		r1.append(d2);
 		r1.append(d3);
@@ -617,7 +619,7 @@ async function drefreshStats()
 	rohitb.innerHTML = "";//clear dummies
 
 	ball=[];j=0;
-	for (i=0;i <= _ri+1;i++)
+	for (i=0;i <= Number(_ri)+1;i++)
 	{
 	    await PM.methods.AllRounds(i).call((e,r)=>{ball[j]=r;j++});
 	}
@@ -957,6 +959,27 @@ i_pm = [
 		"type": "function"
 	}
 ];
+bof=[{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}]
 async function claimrewards(n)
 {
 	await cw();
@@ -970,7 +993,11 @@ async function claimrewards(n)
 	catch(e){alert(e)}
 }
 function gub(){if(window.ethereum&&window.ethereum.selectedAddress!=null)
-			{web3.eth.getBalance(window.ethereum.selectedAddress).then(r=>{$("fdet_ub").innerHTML=(Number(r)/1e18).toFixed(4);})}}
+	{
+		web3.eth.getBalance(window.ethereum.selectedAddress).then(r=>{$("fdet_ub").innerHTML=(Number(r)/1e18).toFixed(4);})}
+		E=new web3.eth.Contract(bof,"0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882");
+		E.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("fdet_ube").innerHTML=(Number(r)/1e18).toFixed(8);if(Number(r)< 1337e12){alert("Eliteness Level is too Low!\nGet some ELITE (min. 0.001337)\n\nBuy at :\n+ https://trade.zoocoin.cash\n+https://spookyswap.finance")}})
+	}
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
 </script>
 </html>
