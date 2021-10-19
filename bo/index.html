@@ -565,18 +565,21 @@ async function getActivities()
 		},(e,r)=>{return(r)})
 	var bnum = await web3.eth.getBlockNumber();
 	actibar.innerHTML="";
-	for(i=0;i< acti.length;i++)
+	for(i=acti.length-1;i>=0;i--)
 	{
 		const r1=document.createElement("tr");
 		const d1=document.createElement("td");
 		const d2=document.createElement("td");
 		const d3=document.createElement("td");
 		const d4=document.createElement("td");
-		d1.innerHTML= acti[i].topics[0] == "0x0cd7154bba423a8bb8bf9349bf036cb4230cc3b4399ecd235738f61a46931a43" ? "LONG" : "Short";
+		d1.innerHTML= acti[i].topics[0] ==
+			"0x0cd7154bba423a8bb8bf9349bf036cb4230cc3b4399ecd235738f61a46931a43"?
+			"<span style='color:#3f3'>Long</span>" :
+			"<span style='color:#f33'>Short</span>";
 		d2date = new Date((Number(bnum)-Number(acti[i].blockNumber))*1e3);
 		d2.innerHTML = (d2date.getUTCDate()-1)+"D "+d2date.getUTCHours()+"h "+d2date.getUTCMinutes()+"m "+d2date.getUTCSeconds()+"s";
-		d3.innerHTML = "0x"+(acti[i].topics[1]).substr(26,8)+"_"+(acti[i].topics[1]).substr(60,8);
-		d4.innerHTML = `<a href="https://ftmscsan.com/tx/${acti[i].transactionHash}" target ="_blank">${acti[i].transactionHash.substr(0,8)} ↗</a>`
+		d3.innerHTML = "<code>0x"+(acti[i].topics[1]).substr(26,6)+"―"+(acti[i].topics[1]).substr(58,8)+"</code>";
+		d4.innerHTML = `<code><a href="https://ftmscsan.com/tx/${acti[i].transactionHash}" target ="_blank">${acti[i].transactionHash.substr(0,8)}↗</a></code>`
 		r1.append(d1);
 		r1.append(d2);
 		r1.append(d3);
@@ -625,7 +628,9 @@ async function drefreshStats()
 	ball=[];
 	for (i=Number(_ri)+1;i>=0;i--)
 	{
-	    await PM.methods.AllRounds(i).call((e,r)=>{ball[j]=r;j++});
+	    var tb = await PM.methods.AllRounds(i).call((e,r)=>
+	    	{ball[i]=r;return(r)});
+		ball[i]=tb;
 		const r1=document.createElement("tr");
 		const d1=document.createElement("td");
 		const d2=document.createElement("td");
