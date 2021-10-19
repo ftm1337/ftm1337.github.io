@@ -502,10 +502,15 @@ pma = "0x92679257ecA3c3Dba25b777185EB82cD81991e72"
 mv = 1337000000000000000
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==Number(0xfa)){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw();gub()}}
+	if(window.ethereum&&Number(window.ethereum.chainId)==Number(0xfa))
+	{
+		web3 = new Web3(web3.currentProvider);
+		if(!(window.ethereum.selectedAddress==null)){cw();gub()}
+	}
 	else{web3 = new Web3("https://rpc.ftm.tools");}
 	refreshStats();
 	drefreshStats();
+	getActivities();
 }, false);
 function fornum(n,d)
 {
@@ -617,6 +622,7 @@ async function drefreshStats()
 	$("oe_rn").innerHTML = Number(_ri)+1;
 	const rohitb = $("rohi");
 	rohitb.innerHTML = "";//clear dummies
+	ball=[];
 	for (i=Number(_ri)+1;i>=0;i--)
 	{
 	    await PM.methods.AllRounds(i).call((e,r)=>{ball[j]=r;j++});
