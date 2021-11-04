@@ -374,6 +374,12 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>Wraith</td>
 						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl24">0</td>
+						<td>DMM</td>
+						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -1196,6 +1202,12 @@ function allpp()
 	EC.methods.balanceOf("0x7808640c1127B31764d549c7Cf0d0bCbA599f7B4").call((e,r)=>
 	{
 		$("p1tpl23").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl23").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xba293BeBB30CB8Aa144CB6246ed0cDC1232e12fF").call((e,r)=>
+	{
+		$("p1tpl24").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl24").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
