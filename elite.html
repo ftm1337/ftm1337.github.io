@@ -755,7 +755,7 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 		<a href="https://kcc.guru" target="_blank">Kucino Casino</a><br>
 	</div>
 	<div align="left" class="lowercat">
-		<span>Farming</span><br>
+		<span>Farming</span><br>14e18
 		<a href="https://ftm.guru/yieldstate.html">🔱 YieldState</a><br>
 		<a href="https://ftm.guru/LF">👽 LITE Farmlands</a><br>
 		<a href="https://vfat.tools/fantom/guru">🧑‍🌾 vfat.tools</a>
@@ -1043,7 +1043,7 @@ async function basics()
 	$("PBa").innerHTML=(P0B/P0T*RP0[0]/1e18+P1B/P1T*RP1[0]/1e18).toFixed(5);
 	$("PBb").innerHTML=(P0B/P0T*RP0[1]/1e18+P1B/P1T*RP1[1]/1e18).toFixed(5);
 	AP=(RP0[1]+RP1[1]+RP2[1]+RP3[1])/(RP0[0]+RP1[0]+RP2[0]+RP3[0]);
-	TL=(2*AP*(RP0[0]+RP1[0]+RP2[0]+RP3[0]+RP4[0]+RP5[0]+14e18)/1e18)
+	TL=(2*AP*(RP0[0]+RP1[0]+RP2[0]+RP3[0]+RP4[0]+RP5[0])/1e18)
 	$("tl").innerHTML=TL.toLocaleString();
 	$("mc").innerHTML=(AP*cs).toLocaleString();
 	$("ap").innerHTML=((AP)).toLocaleString();
@@ -1059,7 +1059,7 @@ async function basics()
 
 }
 
-
+AP=0;
 function gof(vv,ii,tt)
 {
 	T=0
@@ -1087,16 +1087,18 @@ function mkpi3(v)
 		container.appendChild(circle);
 	};
 	console.log("total",t)
-	$('totalValue').innerHTML = t.toLocaleString();sortit(1);sortit(1);
+	$('totalValue').innerHTML = t.toLocaleString();
+	$('tl').innerHTML = (t*AP).toLocaleString();
+	sortit(1);sortit(1);
 	setTimeout(function(){for(i= v.length -1; i>=0; i--)
 	{
 		circle=$("mc_"+i);
 		circle.setAttributeNS(null, 'stroke-dasharray',`${v[i]/(t)*100}, ${100-(v[i]/(t)*100)}`);
 		circle.setAttributeNS(null, 'stroke-dashoffset', gof(v,i,t) );
 		//$('totalValue').innerHTML = ((v.reduce((a,b)=>{return a+b},0)).toFixed(3))
-		console.log("new circle::",i)
-		console.log("da:",`${v[i]/t*100} ${100-(v[i]/t*100)}`)
-		console.log("do:",gof(v,i,t))
+		//console.log("new circle::",i)
+		//console.log("da:",`${v[i]/t*100} ${100-(v[i]/t*100)}`)
+		//console.log("do:",gof(v,i,t))
 	}},100);
 }
 function allpp()
