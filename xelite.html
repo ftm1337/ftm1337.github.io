@@ -246,7 +246,7 @@ table{width:max-content}
 <script>
 window.addEventListener('load',function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==4002){web3 = new Web3(web3.currentProvider);}
+	if(window.ethereum&&Number(window.ethereum.chainId)==4002){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 	else{web3 = new Web3("https://rpc.testnet.fantom.network")}
 	//else{web3 = new Web3("https://rpc.ftm.tools")}
 	console.log("pre-refreshing stats", Date.now());
@@ -513,8 +513,8 @@ function farm_1_f_approve()
 {
 	try
 	{
-		f_1_add = ELITE;
-		pairadd = XELITE;
+		f_1_add = XELITE;
+		pairadd = ELITE;
 		var conAdd = pairadd;
 		theCon = new web3.eth.Contract(xabi, pairadd);
 		theCon.methods.approve(f_1_add,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
