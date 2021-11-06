@@ -842,12 +842,16 @@ window.addEventListener('load',function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
+	fetch("https://api.coingecko.com/api/v3/simple/price?ids=fantom%2Celite-1337&vs_currencies=usd").then(d => d.json()).then(d2 =>{PFU=d2["fantom"].usd;APU=d2["elite-1337"].usd})
 	allpp();
 	basics();
 	lpapr();
 	dfun();
 }, false);
 function $(_) {return document.getElementById(_);}
+CS = 250; //HARDCODED
+APU = 0;
+PFU = 0;
 document.getElementsByClassName("donut")[0].style.width=Math.min(window.innerWidth,window.innerHeight)*0.8;
 ab1=[
 	{
@@ -973,8 +977,8 @@ async function basics()
 	S_C = await EC.methods.balanceOf("0x5C146cd18fa53914580573C9b9604588529406Ca").call((e,r)=>{return(Number(r))});
 	S_D = await EC.methods.balanceOf("0xbab9645d1B78425A7e4e9e78E8DD32aAbd800a16").call((e,r)=>{return(Number(r))});
 	S_T = await EC.methods.balanceOf("0x74BFb7E94bEf5767F5F6Ace2D0df73a224ADB689").call((e,r)=>{return(Number(r))});
-	cs=(1337e18-S_0-S_C-S_D-S_T)/1e18;
-	$("cs").innerHTML = cs.toFixed(5);
+	CS=(1337e18-S_0-S_C-S_D-S_T)/1e18;
+	$("cs").innerHTML = CS.toFixed(5);
 	AWL = EC.methods.limit().call((e,r)=>{AWL=(Number(r));$("aw").innerHTML=(AWL/1e18).toFixed(5)});
 	P0=new web3.eth.Contract(ab1,"0xea035a13b64cb49d85e2f0a2736c9604cb21599c");
 	RP0=await P0.methods.getReserves().call((e,r)=>{return(r)});
@@ -1047,26 +1051,26 @@ async function basics()
 	$("PBb").innerHTML=(P0B/P0T*RP0[1]/1e18+P1B/P1T*RP1[1]/1e18).toFixed(5);
 	AP=(RP0[1]+RP1[1]+RP2[1]+RP3[1])/(RP0[0]+RP1[0]+RP2[0]+RP3[0]);
 	TL=(2*AP*(RP0[0]+RP1[0]+RP2[0]+RP3[0]+RP4[0]+RP5[0])/1e18)
-	$("tl").innerHTML=TL.toLocaleString();
-	$("mc").innerHTML=(AP*cs).toLocaleString();
+	//$("tl").innerHTML=TL.toLocaleString();
+	$("mc").innerHTML=(AP*CS).toLocaleString();
 	$("ap").innerHTML=((AP)).toLocaleString();
 	//$("rtm").innerHTML=(100*TL/(AP*cs)).toLocaleString();
 	$("lwt").innerHTML=(267.4*AP).toLocaleString();
 	$("lw0").innerHTML=(133.7*2*RP0[1]/RP0[0]).toLocaleString();;
 	$("lw1").innerHTML=(133.7*2*RP1[1]/RP1[0]).toLocaleString();
-	//console.log("ap",AP,"cs",cs,RP0,RP1,RP2,RP3);
-	//console.log(RP4);
-	//console.log(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18);
-	//mkpi1(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18,14);
-	fetch("https://api.coingecko.com/api/v3/simple/price?ids=fantom%2Celite-1337&vs_currencies=usd").then(d => d.json()).then(d2 =>
-	{
-		$("tl_u").innerHTML=Number((TL*d2["fantom"].usd).toFixed(0)).toLocaleString();
-		$("mc_u").innerHTML=Number((AP*cs*d2["fantom"].usd).toFixed(0)).toLocaleString();
-		$("ap_u").innerHTML=Number(((AP*d2["fantom"].usd)).toFixed(0)).toLocaleString();
-	})
+		//console.log("ap",AP,"cs",cs,RP0,RP1,RP2,RP3);
+		//console.log(RP4);
+		//console.log(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18);
+		//mkpi1(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18,14);
+		/*
+		fetch("https://api.coingecko.com/api/v3/simple/price?ids=fantom%2Celite-1337&vs_currencies=usd").then(d => d.json()).then(d2 =>
+		{
+			$("tl_u").innerHTML=Number((TL*d2["fantom"].usd).toFixed(0)).toLocaleString();
+			$("mc_u").innerHTML=Number((AP*CS*d2["fantom"].usd).toFixed(0)).toLocaleString();
+			$("ap_u").innerHTML=Number(((AP*d2["fantom"].usd)).toFixed(0)).toLocaleString();
+		})
+		*/
 }
-
-AP=0;
 function gof(vv,ii,tt)
 {
 	T=0
@@ -1095,7 +1099,13 @@ function mkpi3(v)
 	};
 	console.log("total",t)
 	$('totalValue').innerHTML = t.toLocaleString();
-	$('tl').innerHTML = (t*AP).toLocaleString();
+	$("tl").innerHTML = (t*(APU/PFU)*2).toLocaleString();
+	$("tl_u").innerHTML=Number((t*APU*2).toFixed(0)).toLocaleString();
+	$("mc_u").innerHTML=Number((APU*CS).toFixed(0)).toLocaleString();
+	$("ap_u").innerHTML=Number(((APU)).toFixed(0)).toLocaleString();
+	console.log("checks:",t,APU,PFU,CS)
+
+
 	sortit(1);sortit(1);
 	setTimeout(function(){for(i= v.length -1; i>=0; i--)
 	{
