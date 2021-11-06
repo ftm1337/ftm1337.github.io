@@ -102,7 +102,7 @@ table{width:max-content}
 			Lock up ELITE to mint XELITE
 	</div>
 	<div class="mainpanel">
-		Balance: <span class="farm_s farm_s_deposit" id="farm_1_s_deposit_x" onclick="$('farm_1_input_depos	it_x').value=this.innerHTML">?</span> XELITE<br>
+		Balance: <span class="farm_s farm_s_deposit" id="farm_1_s_deposit_x" onclick="$('farm_1_input_deposit_x').value=this.innerHTML">?</span> XELITE<br>
 		<input class="farmcontrols farm_i farm_input_deposit" value="" placeholder="Amount to Burn" id="farm_1_input_deposit_x"><br>
 		<button class="farmcontrols farm_b farm_deposit" onclick="farm_1_f_deposit()">Unstake ELITE</button><br><br>
 		Burn xELITE to redeem ELITE!
@@ -570,13 +570,13 @@ function xen()
 {
 	a = Number((Number($("farm_1_s_deposit_e").innerHTML)*1e18).toFixed(0)).toLocaleString("fullwide",{useGrouping:false});
 	X = new web3.eth.Contract(xabi, XELITE);
-	X.methods.enter(a).call((e,r)=>{console.log("enter: ",r)}).then(basics())
+	X.methods.enter(a).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("enter: ",r)}).then(basics())
 }
 function xel()
 {
 	a = Number((Number($("farm_1_s_deposit_x").innerHTML)*1e18).toFixed(0)).toLocaleString("fullwide",{useGrouping:false});
 	X = new web3.eth.Contract(xabi, XELITE);
-	X.methods.leave(a).call((e,r)=>{console.log("enter: ",r)}).then(basics())
+	X.methods.leave(a).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("enter: ",r)}).then(basics())
 }
 
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
