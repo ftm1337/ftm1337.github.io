@@ -505,59 +505,6 @@ function gub()
 		});
 	farm_1_f_chappro()
 }
-abbrove=[
-	{
-		"constant": false,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "spender",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "value",
-				"type": "uint256"
-			}
-		],
-		"name": "approve",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"payable": false,
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"name": "allowance",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	}];
 
 ELITE	= "0xa8E5D922774C2B0360083b64879fB23869fCd343";
 XELITE	= "0x8ddD725a8a8666c4166879E45c8704D60Df6C60D";
@@ -569,7 +516,7 @@ function farm_1_f_approve()
 		f_1_add = ELITE;
 		pairadd = XELITE;
 		var conAdd = pairadd;
-		theCon = new web3.eth.Contract(abbrove, pairadd);
+		theCon = new web3.eth.Contract(xabi, pairadd);
 		theCon.methods.approve(f_1_add,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){$("er").innerHTML=e;}
@@ -581,7 +528,7 @@ function farm_1_f_chappro()
 		f_1_add = XELITE;
 		pairadd = ELITE;
 		var conAdd = pairadd;
-		theCon = new web3.eth.Contract(abbrove, conAdd);
+		theCon = new web3.eth.Contract(xabi, conAdd);
 		theCon.methods.allowance(window.ethereum.selectedAddress,f_1_add).call
 		(
 			{from:window.ethereum.selectedAddress},(e, r) =>
