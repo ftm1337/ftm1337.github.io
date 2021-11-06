@@ -151,16 +151,19 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 <div class="mainpanels" align="center">
 	<div class="mainpanel">
 		<h4>Average Price</h4>
+		$<span id="ap_u" style="font-size:2em">?</span><br>
 		<span id="ap">?</span> FTM
 		<br><br>
 	</div>
 	<div class="mainpanel">
 		<h4>Market Cap</h4>
+		$<span id="mc_u" style="font-size:2em">?</span><br>
 		<span id="mc">?</span> FTM
 		<br><br>
 	</div>
 	<div class="mainpanel">
 		<h4>Total Liquidity</h4>
+		$<span id="tl_u" style="font-size:2em">?</span><br>
 		<span id="tl">?</span> FTM
 		<br><br>
 	</div>
@@ -1054,9 +1057,13 @@ async function basics()
 	//console.log("ap",AP,"cs",cs,RP0,RP1,RP2,RP3);
 	//console.log(RP4);
 	//console.log(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18);
-
 	//mkpi1(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18,14);
-
+	fetch("https://api.coingecko.com/api/v3/simple/price?ids=fantom%2Celite-1337&vs_currencies=usd").then(d => d.json()).then(d2 =>
+	{
+		$("tl_u").innerHTML=Number((TL*d2["fantom"].usd).toFixed(0)).toLocaleString();
+		$("mc_u").innerHTML=Number((AP*cs*d2["fantom"].usd).toFixed(0)).toLocaleString();
+		$("ap_u").innerHTML=Number(((AP*d2["fantom"].usd)).toFixed(0)).toLocaleString();
+	})
 }
 
 AP=0;
