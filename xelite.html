@@ -84,7 +84,7 @@ table{width:max-content}
 <hr class="hhr">
 <br>
 <h2 align="center">xELITE</h2>
-<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br><br>
+<div align="center"><button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br><br></div>
 <div align="center">1 ELITE = <span id="r_ex">1,337,000,000</span> XELITE</div>
 <div align="center">1M XELITE = <span id="r_xe">0.007479431563</span> XELITE</div>
 <br><br>
@@ -105,7 +105,7 @@ table{width:max-content}
 		Balance: <span class="farm_s farm_s_deposit" id="farm_1_s_deposit_x" onclick="$('farm_1_input_depos	it').value=this.innerHTML">?</span> XELITE<br>
 		<input class="farmcontrols farm_i farm_input_deposit" value="" placeholder="Amount to Burn" id="farm_1_input_deposit"><br>
 		<button class="farmcontrols farm_b farm_deposit" onclick="farm_1_f_deposit()">Unstake ELITE</button><br><br>
-		Burn xELITE to unlock ELITE!
+		Burn xELITE to redeem ELITE!
 	</div>
 </div>
 	<br>
@@ -495,14 +495,15 @@ function gub()
 	E = new web3.eth.Contract(xabi, ELITE);
 	b_x = X.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>
 		{
-			$("farm_1_s_deposit_x").innerHTML = (Number(b_x)/1e18);
+			$("farm_1_s_deposit_x").innerHTML = (Number(r)/1e18);
 			return r;
 		});
 	b_e = E.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>
 		{
-			$("farm_1_s_deposit_e").innerHTML = (Number(b_e)/1e18);
+			$("farm_1_s_deposit_e").innerHTML = (Number(r)/1e18);
 			return r;
 		});
+	farm_1_f_chappro()
 }
 abbrove=[
 	{
@@ -577,8 +578,8 @@ function farm_1_f_chappro()
 {
 	try
 	{
-		f_1_add = ELITE;
-		pairadd = XELITE;
+		f_1_add = XELITE;
+		pairadd = ELITE;
 		var conAdd = pairadd;
 		theCon = new web3.eth.Contract(abbrove, conAdd);
 		theCon.methods.allowance(window.ethereum.selectedAddress,f_1_add).call
