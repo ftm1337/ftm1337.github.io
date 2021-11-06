@@ -568,13 +568,15 @@ function farm_1_f_chappro()
 
 function xen()
 {
-	a = Number((Number($("farm_1_s_deposit_e").innerHTML)*1e18).toFixed(0)).toLocaleString("fullwide",{useGrouping:false});
+	a = Number((Number($("farm_1_input_deposit_e").value)*1e18).toFixed(0)).toLocaleString("fullwide",{useGrouping:false});
+	console.log("enter:",a);
 	X = new web3.eth.Contract(xabi, XELITE);
 	X.methods.enter(a).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("enter: ",r)}).then(basics())
 }
 function xel()
 {
-	a = Number((Number($("farm_1_s_deposit_x").innerHTML)*1e18).toFixed(0)).toLocaleString("fullwide",{useGrouping:false});
+	a = Number((Number($("farm_1_input_deposit_x").value)*1e18).toFixed(0)).toLocaleString("fullwide",{useGrouping:false});
+	console.log("leave:",a);
 	X = new web3.eth.Contract(xabi, XELITE);
 	X.methods.leave(a).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("enter: ",r)}).then(basics())
 }
