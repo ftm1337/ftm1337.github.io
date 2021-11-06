@@ -7,6 +7,7 @@
 </head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
 <style>
+
 *{color:#e3e9f2;overflow-wrap:break-word;}
 a{text-decoration-line:none;padding:0 2px}
 *{color:#e3e9f2}
@@ -56,11 +57,24 @@ table{width:max-content}
 .ot{background: linear-gradient(to top,rgba(0,127,255,0.15),rgba(1,240,255,0.5));grid-template-columns: auto;}
 .uo{background: linear-gradient(to bottom,rgba(0,127,255,0.15),rgba(1,240,255,0.5));grid-template-columns: auto;text-align:}
 
+
+#xd_ {display: grid;grid-template-columns: auto}
+#xd_ div {
+	background: rgba(0,123,234,0.15);
+	margin:15px;
+	margin-bottom:
+	padding:5px;
+}
+#xd_ div div:last-child{background: rgba(0,255,255,0.2);margin:0px;padding:5px;border-radius:0}
+#xd_ div div:first-child{padding: 5px;border-radius: 15px}
+
+
 @media(min-width:641px){
 	#c2a{
 		display: grid;
 		grid-template-columns: auto 280px 280px auto;
 	}
+	#xd_ {display: grid;grid-template-columns: 50% 50%}
 }</style>
 </head>
 <div class="topbar">
@@ -110,7 +124,31 @@ table{width:max-content}
 </div>
 <br>
 <br>
-<div align="center" style="border:4px dashed #3ef">
+<div align="center" id="xd_" style="border:4px dashed #3ef">
+	<div>
+		<div>$<span id="xd_vl_u">?</span></div>
+		<div>Value Locked</div>
+	</div>
+	<div>
+		<div><span id="xd_vl_e">?</span> </div>
+		<div>ELITEs Locked</div>
+	</div>
+	<div>
+		<div><span id="xd_ts"></span></div>
+		<div>Total Supply</div>
+	</div>
+	<div>
+		<div>$<span id="xd_cp_u"></span>/Mil.</div>
+		<div>Current Price</div>
+	</div>
+	<div>
+		<div><span id="xd_ty"></span>%</div>
+		<div>Total Yield</div>
+	</div>
+</div>
+<br>
+<br>
+<div align="center" style="border:4px dashed #3ef;display:none">
 	Complete:
 	<li>Stake ELITE to unlock xELITE!</li>
 	<li>Stake xELITE to share rewards!</li>
@@ -231,7 +269,7 @@ table{width:max-content}
 		<a target="_blank" href="https://testnet.bscscan.com/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7#code">View Source</a>
 	</div>
 	<div class="lowercat">
-		<span>Telegrams</span><br>
+		<span>Telexd_cp_ugrams</span><br>
 		<a target="_blank" href="https://t.me/ftm1337">FantomOpera#1337</a><br>
 		<a target="_blank" href="https://t.me/ftmguru">Announcements</a><br>
 		<a target="_blank" href="https://t.me/kucino">Kucino Group</a><br>
@@ -262,7 +300,6 @@ window.addEventListener('load',function()
 	//else{web3 = new Web3("https://rpc.ftm.tools")}
 	console.log("pre-refreshing stats", Date.now());
 	basics();
-	farm_1_f_chappro();
 	arf();
 }, false);
 function $(_) {return document.getElementById(_);}
@@ -477,6 +514,31 @@ xabi = [
 		],
 		"stateMutability": "view",
 		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getReserves",
+		"outputs": [
+			{
+				"internalType": "uint112",
+				"name": "_reserve0",
+				"type": "uint112"
+			},
+			{
+				"internalType": "uint112",
+				"name": "_reserve1",
+				"type": "uint112"
+			},
+			{
+				"internalType": "uint32",
+				"name": "_blockTimestampLast",
+				"type": "uint32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
 	}
 ]
 function arf(){	var xfr = setInterval(function()
@@ -484,14 +546,21 @@ function arf(){	var xfr = setInterval(function()
 		console.log("refreshing stats", Date.now());
 		basics()
 	}, 30000);}
-function basics()
+async function basics()
 {
 	X = new web3.eth.Contract(xabi, XELITE);
 	E = new web3.eth.Contract(xabi, ELITE);
 
-	r_xe = X.methods.xELITEForELITE("1000000000000000000000000").call((e,r)=>
+	r_ts = X.methods.totalSupply().call((e,r)=>
+		{
+			$("xd_ts").innerHTML = (Number(r)/1e18).toLocaleString();
+			return r;
+		});
+
+	r_xe = await X.methods.xELITEForELITE("1000000000000000000000000").call((e,r)=>
 		{
 			$("r_ex").innerHTML = (Number(r)/1e18);
+			$("xd_ty").innerHTML = ((133700000e18/Number(r)-1)*100).toLocaleString();
 			return r;
 		});
 	r_ex = X.methods.ELITEForxELITE("1000000000000000000").call((e,r)=>
@@ -499,7 +568,26 @@ function basics()
 			$("r_xe").innerHTML = (Number(r)/1e18).toLocaleString();
 			return r;
 		});
+
 	if(window.ethereum&&window.ethereum.selectedAddress){gub()}
+
+	el = await E.methods.balanceOf(XELITE).call((e,r)=>
+		{
+			$("xd_vl_e").innerHTML = (Number(r)/1e18).toFixed(4);
+			return r;
+		});
+
+	web32 = new Web3("https://rpc.ftm.tools")
+	epc = new web32.eth.Contract(xabi,"0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9");
+    await epc.methods.getReserves().call((e,r2)=>
+    {
+        let cp_e = (Number(r2[0])/Number(r2[1]));
+        let vl = cp_e*Number(el)/1e18;
+        let cp_x = vl/Number(r_xe)/1e18;
+        $("xd_vl_u").innerHTML = vl.toLocaleString();
+        $("xd_cp_u").innerHTML = (cp_x*1e6).toLocaleString();
+    })
+
 }
 function gub()
 {
