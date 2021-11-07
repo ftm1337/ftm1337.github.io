@@ -99,8 +99,8 @@ table{width:max-content}
 <br>
 <h2 align="center">xELITE</h2>
 <div align="center"><button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br><span id="cw_m"></span><br><br></div>
-<div align="center">1 ELITE = <span id="r_ex">1,337,000,000</span> XELITE</div>
-<div align="center">1M XELITE = <span id="r_xe">0.007479431563</span> ELITE</div>
+<div align="center">1 ELITE = <span id="r_ex">133.7 Million</span> XELITE</div>
+<div align="center">1M XELITE = <span id="r_xe">0.007</span> ELITE</div>
 <br><br>
 <div align="center" style="" class="scal">
 	<div class="mainpanel">
@@ -269,7 +269,7 @@ table{width:max-content}
 		<a target="_blank" href="https://testnet.bscscan.com/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7#code">View Source</a>
 	</div>
 	<div class="lowercat">
-		<span>Telexd_cp_ugrams</span><br>
+		<span>Telegrams</span><br>
 		<a target="_blank" href="https://t.me/ftm1337">FantomOpera#1337</a><br>
 		<a target="_blank" href="https://t.me/ftmguru">Announcements</a><br>
 		<a target="_blank" href="https://t.me/kucino">Kucino Group</a><br>
@@ -559,13 +559,13 @@ async function basics()
 
 	r_xe = await X.methods.xELITEForELITE("1000000000000000000000000").call((e,r)=>
 		{
-			$("r_ex").innerHTML = (Number(r)/1e18);
+			$("r_xe").innerHTML = (Number(r)/1e18);
 			$("xd_ty").innerHTML = ((133700000e18/Number(r)-1)*100).toLocaleString();
 			return r;
 		});
 	r_ex = X.methods.ELITEForxELITE("1000000000000000000").call((e,r)=>
 		{
-			$("r_xe").innerHTML = (Number(r)/1e18).toLocaleString();
+			$("r_ex").innerHTML = (Number(r)/1e18).toLocaleString();
 			return r;
 		});
 
@@ -579,13 +579,15 @@ async function basics()
 
 	web32 = new Web3("https://rpc.ftm.tools")
 	epc = new web32.eth.Contract(xabi,"0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9");
-    await epc.methods.getReserves().call((e,r2)=>
+    await epc.methods.getReserves().call(async(e,r2)=>
     {
-        let cp_e = (Number(r2[0])/Number(r2[1]));
+        let cp_e = (Number(r2[0])/1e6)/(Number(r2[1])/1e18);
         let vl = cp_e*Number(el)/1e18;
-        let cp_x = vl/Number(r_xe)/1e18;
+        r_ts = await r_ts
+        let cp_x = vl/(Number(r_ts)/1e18);
         $("xd_vl_u").innerHTML = vl.toLocaleString();
         $("xd_cp_u").innerHTML = (cp_x*1e6).toLocaleString();
+        //console.log("ep:",cp_e,"\n val locked",vl,"\nxel price",cp_x,"\nel locked",el/1e18,"\nr_x2e",r_xe,"\nts:",r_ts,"\nvl/ts",vl/r_ts)
     })
 
 }
@@ -605,9 +607,13 @@ function gub()
 		});
 	farm_1_f_chappro()
 }
-
+/* testnet:4002
 ELITE	= "0xa8E5D922774C2B0360083b64879fB23869fCd343";
 XELITE	= "0x8ddD725a8a8666c4166879E45c8704D60Df6C60D";
+
+mainnet:250*/
+ELITE	= "0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882";
+XELITE	= "0x1BE23c78038B6057172848534AcD62667fA2620d";
 function farm_1_f_approve()
 {
 	try
