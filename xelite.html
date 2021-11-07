@@ -295,9 +295,9 @@ table{width:max-content}
 <script>
 window.addEventListener('load',function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==4002){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-	else{web3 = new Web3("https://rpc.testnet.fantom.network")}
-	//else{web3 = new Web3("https://rpc.ftm.tools")}
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
+	//else{web3 = new Web3("https://rpc.testnet.fantom.network")}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
 	console.log("pre-refreshing stats", Date.now());
 	basics();
 	arf();
@@ -308,7 +308,7 @@ function $(_) {return document.getElementById(_);}
 async function cw()
 {
 	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
-	if(!(Number(window.ethereum.chainId)==4002)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
+	if(!(Number(window.ethereum.chainId)==250)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	await window.ethereum.enable();
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38);
 }
@@ -577,8 +577,9 @@ async function basics()
 			return r;
 		});
 
-	web32 = new Web3("https://rpc.ftm.tools")
-	epc = new web32.eth.Contract(xabi,"0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9");
+	//web32 = new Web3("https://rpc.ftm.tools")
+	epc = new //web32
+	web3.eth.Contract(xabi,"0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9");
     await epc.methods.getReserves().call(async(e,r2)=>
     {
         let cp_e = (Number(r2[0])/1e6)/(Number(r2[1])/1e18);
