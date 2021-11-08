@@ -139,6 +139,10 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 				<text style="font-size:0.25em" fill="#fff" id="ctl3" x="45" y="98">3 Jul</text>
 				<text style="font-size:0.25em" fill="#fff" id="ctl4" x="65" y="98">13 Jun</text>
 				<text style="font-size:0.25em" fill="#fff" id="ctl5" x="85" y="98">13 Jun</text>
+
+
+				<polyline id="pl_t_f_l" stroke-dasharray="2" stroke-width="0.04" points="0 35, 100 35" fill="none" stroke="aqua"></polyline>
+				<polyline id="pl_t_u_l" stroke-dasharray="2" stroke-dashoffset="2" stroke-width="0.04" fill="none" stroke="#1f7" points="0 25, 100 25"></polyline>
 			</svg>
 			<br>
 			<br>
@@ -238,6 +242,19 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 					<td>★</td>
 					<td>ftm.guru</td>
 				</tr>
+				<tr class="sca farming yields natives tools advert" id="XEL" onclick="window.location='../xelite'">
+					<td>ELITE 🆕</td>
+					<td>ELITE</td>
+					<td>?.????%</td>
+					<td>ftm.guru/xelite</td>
+					<td>?.????</td>
+					<td>0%</td>
+					<td>0.000000</td>
+					<td>?M?D?h?m?s</td>
+					<td>🌾</td>
+					<td>★</td>
+					<td><span><a href="https://ftm.guru.com" target="_blank">🌐</a> <a href="https://discord.com/invite/QpyfMarNrV" target="_blank">🎮</a><a href="https://t.me/ftm1337" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><a href="https://vfat.tools/fantom/guru_ys2" target="_blank">🇻</a></span></td>
+				</tr>
 				<tr class="sca farming yields natives tools" id="LF_1" onclick="window.location='1'">
 					<td>NIPS:FTM</td>
 					<td>NIPS</td>
@@ -281,7 +298,7 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 					<td>NOVA</td>
 					<td>BLK</td>
 					<td>?.????%</td>
-					<td>FTM.guru</td>
+					<td>ftm.guru</td>
 					<td>?.????</td>
 					<td>2%</td>
 					<td>0.001337</td>
@@ -381,9 +398,9 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 					<td>1010</td>
 					<td><span><a href="https://sunfinance.site" target="_blank">🌐</a><a href="https://t.me/sunfinancelaunchpad" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><a href="https://vfat.tools/fantom/guru_lite1010" target="_blank">🇻</a></span></td>
 				</tr>
-				<tr class="sca farming launchpad natives advert" id="LF_1011" onclick="window.location='1011'">
+				<tr class="sca farming launchpad natives" id="LF_1011" onclick="window.location='1011'">
 					<td>SUN:FTM</td>
-					<td>SUN 🌞</td>
+					<td>SUN</td>
 					<td>?.????%</td>
 					<td>SpiritSwap</td>
 					<td>?.????</td>
@@ -394,9 +411,9 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 					<td>1011</td>
 					<td><span><a href="https://sunfinance.site" target="_blank">🌐</a><a href="https://t.me/sunfinancelaunchpad" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><a href="https://vfat.tools/fantom/guru_lite1010" target="_blank">🇻</a></span></td>
 				</tr>
-				<tr class="sca farming launchpad natives advert" id="LF_2007" onclick="window.location='2007'">
-					<td>NOVA 🆕</td>
-					<td>SUN 🌞</td>
+				<tr class="sca farming launchpad natives" id="LF_2007" onclick="window.location='2007'">
+					<td>NOVA</td>
+					<td>SUN</td>
 					<td>?.????%</td>
 					<td>ftm.guru</td>
 					<td>?.????</td>
@@ -407,8 +424,8 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 					<td>2007</td>
 					<td><span><a href="https://sunfinance.site" target="_blank">🌐</a><a href="https://t.me/sunfinancelaunchpad" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><!--<a href="https://vfat.tools/fantom/guru_lite2007" target="_blank">🇻</a>--></span></td>
 				</tr>
-				<tr class="sca farming launchpad natives advert" id="LF_1012" onclick="window.location='1012'">
-					<td>SUN 🌞 🆕</td>
+				<tr class="sca farming launchpad natives" id="LF_1012" onclick="window.location='1012'">
+					<td>SUN</td>
 					<td>NOVA</td>
 					<td>?.????%</td>
 					<td>ftm.guru</td>
@@ -646,6 +663,9 @@ async function f2(d)
 	upoints+="1010,101"
 	fline.setAttribute('points', fpoints );
 	uline.setAttribute('points', upoints );
+	//da
+	$("pl_t_f_l").setAttribute('points',`0 ${100-trd2[0][1]}, 100 ${100-trd2[0][1]}`);
+	$("pl_t_u_l").setAttribute('points',`0 ${100-trd2[0][2]}, 100 ${100-trd2[0][2]}`);
 	//date
 	//dstr = (tm) => {dt0=new Date(tf+tl*tm); return ((Zdt0.getDate()+1)+"."+(dt0.getUTCMonth()+1)+"."+dt0.getUTCYear())}
 	$("ctl1").innerHTML = (new Date(tf+tl*.1)).toDateString().substr(4).replace(" ","-").split(" ")[0];
