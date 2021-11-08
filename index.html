@@ -80,18 +80,18 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 
 * {
   scrollbar-width: thick;
-  scrollbar-color: #0f7 #174;
+  scrollbar-color: #07f #147;
 }
 *::-webkit-scrollbar {
   width: 20px;
 }
 *::-webkit-scrollbar-track {
-  background: #174;
+  background: #147;
 }
 *::-webkit-scrollbar-thumb {
-  background-color: #0f7;
+  background-color: #07f;
   border-radius: 20px;
-  border: 3px solid #174;
+  border: 3px solid #147;
 }
 .container {
   position: ;
@@ -192,6 +192,7 @@ svg {
   stroke-dashoffset: 100;
   transition: 0.6s ease-out;
 }
+.hovli li:hover{font-size:1.125em;background:rgba(0,255,255,0.5);}
 .partners img, .partners svg{height:128px;border-radius: 0}
 @media(min-width:639px){
   .container,.mainstages{grid-template-columns: auto  auto}
@@ -233,18 +234,11 @@ svg {
 <div class="mainstages" align="center">
 	<div class="mainstage">
 		<a href="bo/index.html"><div><b><span style="font-size:1.3em">FTMUSD Binary Options</span></b><br><br>
-		<b>B.O.</b> is the First Binary Options platform on Fantom Opera.<br><br>A perpetual Prediction Market enabled by Band Protocol. Current Markets include FTM/USD with contract expiries of 13hrs.37mins. <br><br>
+		<b>B.O.</b> is the First Binary Options platform on Fantom Opera.<br><br>A perpetual Prediction Market enabled by Band Protocol. Current Markets include FTM/USD with contract expiries of 13hrs.37mins.<br><br>Another FTMUSD and an ETHBTC market with a 75hr expiry is releasing this November.<br><br>
 		Currently in pre-alpha! (v0.3.3) <br><br>
 		<button class="c2a">Go Long/Short on FTM</button></div></a>
 	</div>
 	<div class="mainstage advert">
-		<a href="LF/index.html"><div><b><span style="font-size:1.3em">👽Farmlands</span></b><br><br>
-		<b>[LITE] Farmlands</b> enable any user to start their own farms and set their own conditions, including the Farmed asset, the Reward asset, the Duration and the Annual Percentage Returns.<br><br>
-		Join our Farm-Maker program today and get your own Field on our Farmslnds!<br><br>
-		<!--<i>The upcoming version will make this process permissionless and be integrated with our IPFS-based user-interface.</i>-->
-		<button class="c2a">Explore Yield platforms</button></div></a>
-	</div>
-	<div class="mainstage">
 		<a href="https://fmc.guru" target="_blank"><div><b><span style="font-size:1.3em">FantomMarketCap</span></b><br><br>
 		<b>FMC.guru</b> is a data aggregator for Fantom Opera Blockchain. It provides a bird-eye view of the top and vetted projects running atop FTM. It is open to all users and includes vital information such as official links, contract addresses, social channels and categorical tags. FantomMarketCap brings us essential market data like Token Prices, Market Cap, Supply figures and other essential metrics.<br><br>
 		<button class="c2a">Explore FMC.guru</button></div></a>
@@ -253,18 +247,18 @@ svg {
 		<a href="pair.html"><div><b><span style="font-size:1.3em">Multi-DEX Pair Explorer</span></b><br><br>
 		Find out the latest movements in pools and liquidity depths and constituents of any AMM pair!
 		<div>
-			<br><input id="st" placeholder="Enter Pair Contract"><br><button onclick="prefind(st.value)"> ▶</button>
+			<br><input id="st" placeholder="Enter Pair Contract"><br><button style="font-size:1.5em;border-radius:50%" onclick="prefind(st.value)">▶</button>
 			<br><span id="lo"></span>
 		</div>
-		<br>FTM.guru's Pair Explorer can be used with Shiba, Elk, Zoo, Spooky, Spirit, Sushi, HyperJump, Waka, Cyber, Paint, Bomb, Jet, Soul, Empire, Wraith, DMM and more!</div></a>
+		<br>FTM.guru's Pair Explorer can be used with Shiba, Elk, Zoo, Spooky, Spirit, Sushi, HyperJump, Waka, Cyber, Paint, Bomb, Jet, Soul, Totem, Nugget, Empire, Wraith, DMM and more!</div></a>
 	</div>
 	<div class="mainstage">
 		<a href="fantomscan.html"><div><b><span style="font-size:1.3em">FantomScan</span></b><br><br>
-		<i>(May 2021) We know that FTMScan is not in the best shape right now and fellow Fanties need an alternative tool to track their Fantom Opera interactions in real-time.</i><br><br>
+		<i>(May 2021)<br><br> We know that FTMScan is not in the best shape right now and fellow Fanties need an alternative tool to track their Fantom Opera interactions in real-time.</i><br><br>
 		<u><b>Introducing —FantomScan.</b></u><br>
 		Find out anyone's FTM balance, Token Balances, View Token Allowances, find out the status of a Transaction, Check gas prices, estimate transaction costs and more useful data!</div></a>
 	</div>
-	<div class="mainstage">
+	<div class="mainstage advert">
 		<a href="yieldstate"><div><b><span style="font-size:1.3em">YieldState</span></b><br><br>
 		<b>YieldState</b> presents the "Core" liquidity providers of ELITE the opportunity to generate a passive yield on top of the AMM volumetric returns.<br><br>
 		Stake ELITE-paired LP tokens in the YieldState to boost your Liquidity APYs using Spooky/Sushi.<br><br>
@@ -280,19 +274,25 @@ svg {
 		<b>The Airdropper</b> tool can help you to distribute Tokens effortlessly and within 2-seconds, thanks to the Faassst speed of Fantom Opera.<br><br>All tokens are supported, including fee-on-Transfer, reflective, rebasing, baby, auto-LP, etc. other exotic De-Fi tokenomic assets.<br><br>
 		<button class="c2a">Airdropper</button></div></a>
 	</div>
+	<div class="mainstage advert">
+		<a href="LF/index.html"><div><b><span style="font-size:1.3em">👽Farmlands</span></b><br><br>
+		<b>[LITE] Farmlands</b> enable any user to start their own farms and set their own conditions, including the Farmed asset, the Reward asset, the Duration and the Annual Percentage Returns. Active since June of 2021, our platform has amassed hundereds of thousands $ in TVL! Join our Farm-Maker program today to create your own Field on our Farmland!<br><br>
+		<!--<i>The upcoming version will make this process permissionless and be integrated with our IPFS-based user-interface.</i>-->
+		<button class="c2a">Explore Yield platforms</button></div></a>
+	</div>
 	<div class="mainstage">
 		<a href="approver"><div><b><span style="font-size:1.3em">The Approver</span></b><br><br>
 		<b>The Approver</b> tool enables everyone to create allowance, edit or modify spending limits, grant infinite permissions or Revoke any of these easily.<br><br>Two intuitive functions, "Soft Approve" and "Hard Approve" make editing allowances on Smart Contracts a lot quicker and comfortable, even for Mobile users.<br><br>
 		<button class="c2a">Approval Tool</button></div></a>
 	</div>
 	<div class="mainstage">
-		<a href="elite"><div><b><span style="font-size:1.3em">ELITE & XELITE</span></b><br><br>
+		<a href="elite"><div><b><span style="font-size:1.3em">ELITE Token</span></b><br><br>
 		<b>The ELITE</b> Token is the access pass for ftm.guru's premium services.<br><br>A concept called "Eliteness" dictates elibility to use some of our decentralized apps. Holding ELITE unlocks our tiered services and grants holders exciting perks with our partner-platforms as well.<br><br>
 		ELITE token has a highly limited supply of 250 tokens and is an extremely scrace resource.<br><br>
-		<button class="c2a">Explore ELITE</button><br>
+		<button class="c2a">Explore ELITE</button><br></div></a>
 	</div>
 	<div class="mainstage advert">
-		<a href="xelite"><div><b><span style="font-size:1.3em">ELITE & XELITE</span></b><br><br>
+		<a href="xelite"><div><b><span style="font-size:1.3em">The XELITE</span></b><br><br>
 		<b>The xELITE</b> is an interest-bearing, over-collateralized form of ELITE. In contrast, it is abundant in fungibility and yet envelopes all the qualities of its underlying.<br><br> XELITE introduces a novel approach that enables a unique kind of Yield farming - "Parallel Farming", enabling a single asset to participate in multiple yield farming opportunities together at once.<br><br>
 		<button class="c2a">Mint XELITE</button></div></a>
 	</div>
@@ -314,11 +314,11 @@ svg {
 <br>
 <br>
 		<br>
-		<span style="font-size:1.3em">[FTM Tools & Analytics]</span>
-		<br>*Coming Soon<br><br>
+		<span style="font-size:1.3em">[FTM Tools & Analytics]</span><br>
 		<a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
 		<br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br><br>
-		<div align="center">
+		<div align="center" class="hovli">
+			<h2>The Road so far..</h2>
 			<h3>Fantom Utilities by FTM.guru</h3>
 			<ul style="text-align:left;padding-left:25%">
 			<li><a href=".">Hot FTM Tokens (On-chain voting)</a></li>
@@ -330,16 +330,20 @@ svg {
 			<li><a href="fantomscan.html">Live Gas Prices</a></li>
 			<li><a href="fantomscan.html">Transaction Cost Estimator</a></li>
 			<li><a href="fmc.html">FantomMarketCap (FMC.guru)</a></li>
-			<li><a href="yieldstate.html">ELITE Farms (YieldState)</a></li>
+			<li><a href="yieldstate/index.html">ELITE Farms (YieldState)</a></li>
 			<li><a href="pair.html">Pool Explorer</a></li>
 			<li><a href="approver.html">Allowance Revoker Tool</a></li>
 			<li><a href="LF/1.html">LITE Farmlands👽</a></li>
 			<li><a href="casino.html">Casino & Games</a></li>
 			<li><a href="airdrop.html">Airdrop Tool</a></li>
+			<li><a href="bo/index.html">Binary Options Platform</a></li>
+			<li><a href="xelite.html">Earn interest on ELITE</a></li>
 			</ul>
 			<h3>Coming Soon…</h3>
 			<ul style="text-align:left;padding-left:25%">
-			<li>Binary Options Platform</li>
+			<li><a>The Granary: Vault Workers</a></li>
+			<li><a>eNFT : Index-Funds-as-a-NFT</a></li>
+			<li><a>NFT Airdrop Tool</a></li>
 			<li>Token Locker Service</li>
 			<li>Elite DEX Aggregator</li>
 			<li>E.L.I.T.E. D.A.O.</li>
@@ -454,7 +458,58 @@ svg {
 	<div>
 		<div class="oc">
 			<div class="container">
-				<div class="card" onclick="window.location='jackpot_1.html'">
+				<div class="card" onclick="window.location='https://ftm.guru/coinflip_1.html'">
+    				<h3 class="title">FTM Coin-Flip</h3>
+    				<div class="bar">
+      					<div class="emptybar"></div>
+      					<div class="filledbar"></div>
+    				</div>
+    				<div>
+      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      					<circle class="stroke" cx="20" cy="20" r="10"/>
+    					</svg>
+    					<span style="font-size:">BET</span><br>
+    					<span style="font-size:1.5em">.1 FTM</span><br><br>
+    					<span style="font-size:">EARN</span><br>
+    					<span style="font-size:1.5em">.2 FTM</span>
+    					<br><br><br>
+    				</div>
+  				</div>
+				<div class="card" onclick="window.location='https://ftm.guru/degam.html'">
+    				<h3 class="title">Mini Jackpot</h3>
+    				<div class="bar">
+      					<div class="emptybar"></div>
+      					<div class="filledbar"></div>
+    				</div>
+    				<div>
+      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      					<circle class="stroke" cx="20" cy="20" r="10"/>
+    					</svg>
+    					<span style="font-size:">BET</span><br>
+    					<span style="font-size:1.5em">1.337 FTM</span><br><br>
+    					<span style="font-size:">EARN</span><br>
+    					<span style="font-size:1.5em">4.011 FTM</span>
+    					<br><br><br>
+    				</div>
+  				</div>
+				<div class="card" onclick="window.location='https://ftm.guru/coinflip_1.html'">
+    				<h3 class="title">Micro Jackpot</h3>
+    				<div class="bar">
+      					<div class="emptybar"></div>
+      					<div class="filledbar"></div>
+    				</div>
+    				<div>
+      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      					<circle class="stroke" cx="20" cy="20" r="10"/>
+    					</svg>
+    					<span style="font-size:">BET</span><br>
+    					<span style="font-size:1.5em">.1337 FTM</span><br><br>
+    					<span style="font-size:">EARN</span><br>
+    					<span style="font-size:1.5em">.4011 FTM</span>
+    					<br><br><br>
+    				</div>
+  				</div>
+				<div class="card" onclick="window.location='https://kcc.guru/jackpot_1.html'">
     				<h3 class="title">PvP Jackpot</h3>
     				<div class="bar">
       					<div class="emptybar"></div>
@@ -465,13 +520,13 @@ svg {
       					<circle class="stroke" cx="20" cy="20" r="10"/>
     					</svg>
     					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    					<span style="font-size:1.5em">.01 KCS</span><br><br>
     					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">0.02 KCS</span>
+    					<span style="font-size:1.5em">.02 KCS</span>
     					<br><br><br>
     				</div>
   				</div>
-  				<div class="card" onclick="window.location='instalotto.html'">
+  				<div class="card" onclick="window.location='https://kcc.guru/instalotto.html'">
     				<h3 class="title">instaLOTTO</h3>
     				<div class="bar">
       					<div class="emptybar"></div>
@@ -482,13 +537,13 @@ svg {
       					<circle class="stroke" cx="20" cy="20" r="10"/>
     					</svg>
     					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    					<span style="font-size:1.5em">.01 KCS</span><br><br>
     					<span style="font-size:">EARN</span><br>
     					<span style="font-size:1.5em">∞x KCS*</span>
     					<br><i>*No Limits</i><br><br>
     				</div>
   				</div>
-  				<div class="card" onclick="">
+  				<div class="card" onclick="window.location='https://kcc.guru/casino'">
     				<h3 class="title">21-hour Lotto</h3>
     				<div class="bar">
       					<div class="emptybar"></div>
@@ -499,14 +554,13 @@ svg {
       					<circle class="stroke" cx="20" cy="20" r="10"/>
     					</svg>
     					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">0.01 KCS</span><br><br>
+    					<span style="font-size:1.5em">.01 KCS</span><br><br>
     					<span style="font-size:">EARN</span><br>
     					<span style="font-size:1.5em">∞x KCS*</span>
     					<br><i>*No Limits</i><br><br>
     				</div>
   				</div>
-
-  				<div class="card" onclick="window.location='cointoss_1.html'">
+  				<div class="card" onclick="window.location='https://kcc.guru/cointoss_1.html'">
     				<h3 class="title">KCS Coin-Flip</h3>
     				<div class="bar">
       					<div class="emptybar"></div>
@@ -517,13 +571,13 @@ svg {
       					<circle class="stroke" cx="20" cy="20" r="10"/>
     					</svg>
     					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">0.01 KCS</span><br>
+    					<span style="font-size:1.5em">.01 KCS</span><br>
     					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">0.02 KCS</span>
+    					<span style="font-size:1.5em">.02 KCS</span>
     					<br><br><br>
     				</div>
   				</div>
-  				<div class="card" onclick="window.location='cointoss_2.html'">
+  				<div class="card" onclick="window.location='https://kcc.guru/cointoss_2.html'">
     				<h3 class="title">1000 KUD Flipper</h3>
     				<div class="bar">
       					<div class="emptybar"></div>
@@ -540,7 +594,7 @@ svg {
     					<br><br><br>
     				</div>
   				</div>
-  				<div class="card" onclick="window.location='cointoss_3.html'">
+  				<div class="card" onclick="window.location='https://kcc.guru/cointoss_3.html'">
     				<h3 class="title">The TIKU-Toss</h3>
     				<div class="bar">
       					<div class="emptybar"></div>
@@ -632,9 +686,9 @@ svg {
 	<h3>Official Oracle Solution</h3>
 	<br><br>
 	<div>
-		<img src="img/FMC.svg">
-		<img src="img/cmc.svg">
-		<img src="img/gecko.svg">
+		<a href="https://fmc.guru" target="_blank"><img src="img/FMC.svg"></a>
+		<a href="https://coinmarketcap.com/currencies/elite-1337" target="_blank"><img src="img/cmc.svg"></a>
+		<a href="https://www.coingecko.com/en/coins/elite-1337" target="_blank"><img src="img/gecko.svg"></a>
 	</div>
 	<h3>Official Public Data</h3>
 	<br><br>

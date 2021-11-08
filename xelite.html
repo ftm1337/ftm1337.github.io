@@ -64,9 +64,11 @@ table{width:max-content}
 	margin:15px;
 	margin-bottom:
 	padding:5px;
+	font-weight: bolder
 }
 #xd_ div div:last-child{background: rgba(0,255,255,0.2);margin:0px;padding:5px;border-radius:0}
-#xd_ div div:first-child{padding: 5px;border-radius: 15px}
+#xd_ div div:first-child{padding: 5px;border-radius: 15px;font-size: 1.25em}
+
 
 
 @media(min-width:641px){
@@ -138,7 +140,7 @@ table{width:max-content}
 		<div>Total Supply</div>
 	</div>
 	<div>
-		<div>$<span id="xd_cp_u"></span>/Mil.</div>
+		<div>$<span id="xd_cp_u"></span></div>
 		<div>Current Price</div>
 	</div>
 	<div>
@@ -560,12 +562,12 @@ async function basics()
 	r_xe = await X.methods.xELITEForELITE("1000000000000000000000000").call((e,r)=>
 		{
 			$("r_xe").innerHTML = (Number(r)/1e18);
-			$("xd_ty").innerHTML = ((133700000e18/Number(r)-1)*100).toLocaleString();
 			return r;
 		});
 	r_ex = X.methods.ELITEForxELITE("1000000000000000000").call((e,r)=>
 		{
 			$("r_ex").innerHTML = (Number(r)/1e18).toLocaleString();
+			$("xd_ty").innerHTML = ((133700000e18/Number(r)-1)*100).toLocaleString();
 			return r;
 		});
 
@@ -587,7 +589,7 @@ async function basics()
         r_ts = await r_ts
         let cp_x = vl/(Number(r_ts)/1e18);
         $("xd_vl_u").innerHTML = vl.toLocaleString();
-        $("xd_cp_u").innerHTML = (cp_x*1e6).toLocaleString();
+        $("xd_cp_u").innerHTML = (cp_x).toFixed(10);
         //console.log("ep:",cp_e,"\n val locked",vl,"\nxel price",cp_x,"\nel locked",el/1e18,"\nr_x2e",r_xe,"\nts:",r_ts,"\nvl/ts",vl/r_ts)
     })
 
