@@ -555,7 +555,7 @@ async function basics()
 
 	r_ts = X.methods.totalSupply().call((e,r)=>
 		{
-			$("xd_ts").innerHTML = (Number(r)/1e18).toLocaleString();
+			$("xd_ts").innerHTML = Number((Number(r)/1e18).toFixed(0)).toLocaleString();
 			return r;
 		});
 
@@ -575,7 +575,7 @@ async function basics()
 
 	el = await E.methods.balanceOf(XELITE).call((e,r)=>
 		{
-			$("xd_vl_e").innerHTML = (Number(r)/1e18).toFixed(4);
+			$("xd_vl_e").innerHTML = (Number(r)/1e18).toFixed(8);
 			return r;
 		});
 
@@ -589,7 +589,7 @@ async function basics()
         r_ts = await r_ts
         let cp_x = vl/(Number(r_ts)/1e18);
         $("xd_vl_u").innerHTML = vl.toLocaleString();
-        $("xd_cp_u").innerHTML = (cp_x).toFixed(10);
+        $("xd_cp_u").innerHTML = (cp_x).toFixed(8);
         //console.log("ep:",cp_e,"\n val locked",vl,"\nxel price",cp_x,"\nel locked",el/1e18,"\nr_x2e",r_xe,"\nts:",r_ts,"\nvl/ts",vl/r_ts)
     })
 
