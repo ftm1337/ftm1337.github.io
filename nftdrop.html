@@ -17,12 +17,12 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 input,button{border-radius:25px;background:black;text-align:center}
 button:hover,select:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
 pre{overflow-x:auto;max-width:80%}
-.mainpanels{display:grid}
-.mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
+.mainpanels{display:grid;padding:15px;grid-template-columns:auto;}
+.mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;width: calc(max(200px,40vw))}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
-.fr{border-radius:25px;background:black;text-align:center;width: 234px;padding:5px;margin:5px;font-size:1em}
+.fr{border-radius:25px;background:black;text-align:center;width: auto;padding:5px;margin:5px;font-size:1em}
 .notice{font-weight: bold;font-size: 1.25em;margin:10%;background: #003e3e;border-radius: 20px;padding:2%;border:5px dashed}
-input.fr{width: 100%;padding: 0;margin: 0;font-size: 1.25em }
+input.fr{width:95% ;padding: 0;margin: 0;font-size: 1.25em }
 .fmsg{color:rgba(0,255,255,0.85)}
 .advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
 .lowercat {text-align: left;padding:10px}
@@ -30,7 +30,7 @@ input.fr{width: 100%;padding: 0;margin: 0;font-size: 1.25em }
 .lowercat span{font-size: 1.25em; font-weight:bold}
 .lowerbar{display: grid;grid-template-columns: auto;text-align:center}
 @media(min-width:641px){
-    .mainpanels{grid-template-columns:50% 50%}
+    .mainpanels{grid-template-columns:auto auto}
     hr{width: 555px}
 	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
 }
@@ -49,7 +49,20 @@ input.fr{width: 100%;padding: 0;margin: 0;font-size: 1.25em }
 	border-radius: 10px;
 	cursor:  grab;
 }
+#im1,img {
+    border-radius: 50%;
+    display: inline-block;
+    position: relative;
+}
+.im1 img{
+    border-radius: 50%;
+    display: block;
+    border:1px solid #fff;
+}
 .c2a:hover{box-shadow: rgba(0,255,195,0.2) 0px 0px 10px 10px;}
+
+.mp1{background: initial}
+.mainpanel{margin: auto;}
 @media(min-width:641px){
 	#c2a{
 		display: grid;
@@ -80,21 +93,24 @@ input.fr{width: 100%;padding: 0;margin: 0;font-size: 1.25em }
 <br>
 <br>
 
-
+<div align="center">
+<h2>NFT Airdrop Tool</h2>
+Want to send NFTs as an airdrop to your loyal supporters or simply distribute your creative Non-Fungible tokens to a wider audience? Bulk send ERC-721 NFT tokens to multiple addresses in a single transaction with the ELITE Distributor. Say Goodbye to the hassle of manually sending NFTs one by one. Upload <u>upto 150 Fantom Opera addresses</u> at a time and spread NFTs by custom TokenIDs to your patrons!
+</div>
 <br>
 <br>
 <div class="mainpanels" align="center">
-	<div class="mainpanel">
+	<div class="mainpanel mp1">
 	<button class="fr" id="cw" onclick="cw()">▶ Connect Wallet</button><br>
 	<span id="cw_m"></span><br><br>
-	<input class="fr" id="tokad" placeholder="Input Token Address" disabled><br>
+	<input class="fr" id="tokad" placeholder="NFT Address" disabled><br>
 	<button class="fr" id="setok" onclick="setok()" disabled>▶ Select</button><br>
 	<button class="fr" id="approvebtn" onclick="t_approve()" disabled>▶ Verify</button><br>
 	<span id="tokad_m"></span><br><br>
-	<input class="fr" id="people" placeholder="address,list,of,all,recepients" disabled><br>
+	<input class="fr" id="people" placeholder="addr,ess,list" disabled><br>
 	<button class="fr" id="corec" onclick="corec()" disabled>▶ Check</button><br>
 	<span id="corec_m"></span><br><br>
-	<input class="fr" id="amounts" placeholder="list,of,amounts,for,each" disabled><br>
+	<input class="fr" id="amounts" placeholder="tok,en,IDs" disabled><br>
 	<button class="fr" id="conum" onclick="conum()" disabled>▶ Finalize</button><br>
 	<span id="conum_m"></span><br>
 	<span id="final_m"></span><br><br>
@@ -107,17 +123,14 @@ input.fr{width: 100%;padding: 0;margin: 0;font-size: 1.25em }
 	<br><br>
 	<span id="rain_m"></span><br><br>
 	</div>
-	<div>
-<div class="notice">
-<img src="img/magician.png">
+	<div class="mainpanel mp2">
+<div id="im1">
+<img src="img/m2.png" width="50%">
 </div>
-<div align="center">
-<h2>NFT Airdrop Tool</h2>
-Want to send NFTs as an airdrop to your loyal supporters or simply distribute your creative Non-Fungible tokens to a wider audience? Bulk send ERC-721 NFT tokens to multiple addresses in a single transaction with the ELITE Distributor. Say Goodbye to the hassle of manually sending NFTs one by one. Upload <u>upto 150 Fantom Opera addresses</u> at a time and spread NFTs by custom TokenIDs to your patrons!
-</div>
-<br>
+
+<br><br><br>
 <b>PLEASE NOTE!<br>
-<u>List of addresses and TokenIDs should be comma-separated.</u></b><br>
+<u>List of addresses and TokenIDs should be comma-separated.</u></b><br><br><br>
 Example Addresses:<br>
 <code>0x21436765abcdf54,0x65875757daaa,0x1234567890</code><br>or<br>
 <code>0x21436765abcdf54</code><br>or<br>
@@ -125,7 +138,7 @@ Example Addresses:<br>
 Example TokenIDs:<br>
 <code>54,42,11,1</code><br>or<br>
 <code>1337</code>
-<br>
+<br><br><br>
 This service is FREE of cost to users who hold more than 0.01337 <b><a href="elite.html">ELITE tokens</a></b>.<!-- For everyone else, there's a small fee of 0.01337 FTM per beneficiary. Any proceeds generated are paid to ELITE holders as dividends.--> We recommend acquiring some ELITE to be able to make use of this Tool without incurring extra fees.
 </div>
 </div>
@@ -1010,7 +1023,7 @@ na = [
 		"type": "function"
 	}
 ]
-adr = "0x5E62e97A73258947e1745071Ba342C6169A25E80";//TN
+adr = "0xcc1cb6814C3aD3E432FfA517d9e16704a543A72e";//TN2
 async function cw()
 {
 	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
