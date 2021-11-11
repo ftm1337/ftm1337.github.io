@@ -277,8 +277,8 @@ This service is FREE of cost to users who hold more than 0.01337 <b><a href="eli
 window.addEventListener('load',function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-	//else{web3 = new Web3("https://rpc.ftm.tools")}
-	else{web3 = new Web3("https://rpc.testnet.fantom.network")}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
+	//else{web3 = new Web3("https://rpc.testnet.fantom.network")}
 }, false);
 function $(_) {return document.getElementById(_);}
 ab1=[
@@ -1027,7 +1027,7 @@ adr = "0xf9AED57ec3D083c7C65a5511193fAba888888f1E";//TN2
 async function cw()
 {
 	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
-	if(!(Number(window.ethereum.chainId)==4002)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
+	if(!(Number(window.ethereum.chainId)==250)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	await window.ethereum.enable();
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38) + " connected.";
 	$("tokad").disabled=false;
