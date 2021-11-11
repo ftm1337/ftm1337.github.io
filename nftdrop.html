@@ -89,7 +89,7 @@ input.fr{width: 100%;padding: 0;margin: 0;font-size: 1.25em }
 	<span id="cw_m"></span><br><br>
 	<input class="fr" id="tokad" placeholder="Input Token Address" disabled><br>
 	<button class="fr" id="setok" onclick="setok()" disabled>▶ Select</button><br>
-	<button class="fr" id="approvebtn" onclick="t_approve()" disabled>▶ Approval</button><br>
+	<button class="fr" id="approvebtn" onclick="t_approve()" disabled>▶ Verify</button><br>
 	<span id="tokad_m"></span><br><br>
 	<input class="fr" id="people" placeholder="address,list,of,all,recepients" disabled><br>
 	<button class="fr" id="corec" onclick="corec()" disabled>▶ Check</button><br>
@@ -114,11 +114,11 @@ Please contact us for a manual airdrop if needed.
 </div>
 <div align="center">
 <h2>ELITE Airdrop Tool</h2>
-Want to send an airdrop to your loyal supporters or simply distribute your tokens to a wider audience? Bulk send FTM tokens to multiple addresses in a single transaction with the ELITE Distributor. Say Goodbye to the hassle of manually sending tokens one by one. Upload <u>upto 150 Fantom Opera addresses</u> at a time and spread equal, custom or random amounts to your patrons!
+Want to send NFTs as an airdrop to your loyal supporters or simply distribute your creative Non-Fungible tokens to a wider audience? Bulk send ERC-721 NFT tokens to multiple addresses in a single transaction with the ELITE Distributor. Say Goodbye to the hassle of manually sending NFTs one by one. Upload <u>upto 150 Fantom Opera addresses</u> at a time and spread NFTs by custom TokenIDs to your patrons!
 </div>
 <br>
 <b>PLEASE NOTE!<br>
-<u>List of addresses and amounts should be comma-separated.</u></b><br>
+<u>List of addresses and TokenIDs should be comma-separated.</u></b><br>
 Example Addresses:<br>
 <code>0x21436765abcdf54,0x65875757daaa,0x1234567890</code><br>or<br>
 <code>0x21436765abcdf54</code><br>or<br>
@@ -1038,8 +1038,8 @@ async function setok()
 		await T.methods.symbol().call((e,r)=>{$("tokad_m").innerHTML+=` (${r})`;ts=r});
 		//await T.methods.decimals().call((e,r)=>{td=Number(r)});
 		await T.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{$("tokad_m").innerHTML+=`<br>Available Balance: ${Number(r)}`;tb=Number(r)});
-		await T.methods.isApprovedForAll(window.ethereum.selectedAddress,adr).call((e,r)=>{ta=(r.toLowerCase() === 'true');console.log("ta:",ta)});
-		if(ta>1e50)
+		await T.methods.isApprovedForAll(window.ethereum.selectedAddress,adr).call((e,r)=>{ta=(String(r).toLowerCase() === 'true');console.log("ta:",ta)});
+		if(ta)
 		{
 			$("people").disabled=false;
 			$("corec").disabled=false;
