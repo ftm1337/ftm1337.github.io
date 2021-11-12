@@ -120,7 +120,7 @@ table{width:max-content;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10p
   transform: translateY(0.7em);
   fill:aqua;
 }
-#farm_1_s_deposit_x,#farm_1_s_deposit_e {text-decoration: 2px dashed  underline rgba(0,255,255,0.75)}
+#farm_1_s_deposit_x,#farm_1_s_deposit_e {text-decoration: 2px dashed  underline rgba(0,255,255,0.3)}
 </style>
 </head>
 <div class="topbar">
@@ -150,8 +150,8 @@ table{width:max-content;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10p
 <br><br>
 <div align="center" style="" class="scal">
 	<div class="mainpanel">
-		Available Balance: <br><u class="farm_s farm_s_deposit" id="farm_1_s_deposit_e" onclick="$('farm_1_input_deposit_e').value=this.innerHTML">?</u> ELITE<br>
-		(Worth $<span id="xd_va_e">-.---</span>)<br>
+		Available ELITE: <br><u class="farm_s farm_s_deposit" id="farm_1_s_deposit_e" onclick="$('farm_1_input_deposit_e').value=this.innerHTML">?</u> <br>
+		($<span id="xd_va_e">-.---</span>)<br><br>
 		<div id="f1app">
 			<input class="farmcontrols farm_i farm_input_approve" value="Not Approved" disabled="true" id="farm_1_approved"><br>
 			<button class="farmcontrols farm_b farm_approve" onclick="farm_1_f_approve()" id="farm_1_approval">Approve</button><br><br>
@@ -163,8 +163,8 @@ table{width:max-content;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10p
 			Lock up ELITE to mint XELITE
 	</div>
 	<div class="mainpanel">
-		Available Balance: <br><u class="farm_s farm_s_deposit" id="farm_1_s_deposit_x" onclick="$('farm_1_input_deposit_x').value=this.innerHTML">?</u> XELITE<br>
-		(Worth $<span id="xd_va_x">-.---</span>)<br>
+		Available XELITE: <br><u class="farm_s farm_s_deposit" id="farm_1_s_deposit_x" onclick="$('farm_1_input_deposit_x').value=this.innerHTML">?</u> <br>
+		($<span id="xd_va_x">-.---</span>)<br><br>
 		<input class="farmcontrols farm_i farm_input_deposit" value="" placeholder="Amount to Burn" id="farm_1_input_deposit_x"><br>
 		<button class="farmcontrols farm_b farm_deposit" onclick="xel()">Claim ELITE</button><br><br>
 		Burn xELITE to redeem ELITE!
