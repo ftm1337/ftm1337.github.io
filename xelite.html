@@ -31,11 +31,22 @@ table{width:max-content}
 .lowercat span{font-size: 1.25em; font-weight:bold}
 .lowerbar{display: grid;grid-template-columns: auto;text-align:center}
 .scal{display: grid;grid-template-columns:auto}
+table{width:max-content;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;text-align:center}
+
+.p1td{display: grid;grid-template-columns:auto}
+#consmark{margin: auto}
+.p1td div{margin:auto;width:90vw}
+.centerstage{overflow: auto}
+
 @media(min-width:641px){
     .mainpanels{grid-template-columns:50% 50%}
     .hhr{width: 555px}
 	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
 	.scal{display: grid;grid-template-columns:auto auto;}
+	.donut{width: 360px}
+	.p1td{grid-template-columns:auto auto;}
+	.p1td div{margin:auto;width:40vw}.donut{width: 256px}
+
 }
 
 #c2a{
@@ -77,6 +88,37 @@ table{width:max-content}
 		grid-template-columns: auto 280px 280px auto;
 	}
 	#xd_ {display: grid;grid-template-columns: 50% 50%}
+}
+#consmark div{color:beige !important}
+.chart-text {
+  /*font: 16px/1.4em "Montserrat", Arial, sans-serif;*/
+  fill: #000;
+  -moz-transform: translateY(0.25em);
+  -ms-transform: translateY(0.25em);
+  -webkit-transform: translateY(0.25em);
+  transform: translateY(0.25em);
+}
+
+.chart-number {
+  font-size: 0.5em;
+  line-height: 1;
+  text-anchor: middle;
+  -moz-transform: translateY(-0.25em);
+  -ms-transform: translateY(-0.25em);
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+  fill:aqua;
+}
+
+.chart-label {
+  font-size: 0.2em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  -moz-transform: translateY(0.7em);
+  -ms-transform: translateY(0.7em);
+  -webkit-transform: translateY(0.7em);
+  transform: translateY(0.7em);
+  fill:aqua;
 }</style>
 </head>
 <div class="topbar">
@@ -108,7 +150,7 @@ table{width:max-content}
 	<div class="mainpanel">
 		Balance: <span class="farm_s farm_s_deposit" id="farm_1_s_deposit_e" onclick="$('farm_1_input_deposit_e').value=this.innerHTML">?</span> ELITE<br>
 		<div id="f1app">
-			<input class="farmcontrols farm_i farm_input_approve" value="Not Approved" disabled="true" id="farm_1_approved"><br>
+			<input class="farmcontrols farm_i farm_input_approve" value="Not Approved" disabled="true" id="farm	_1_approved"><br>
 			<button class="farmcontrols farm_b farm_approve" onclick="farm_1_f_approve()" id="farm_1_approval">Approve</button><br><br>
 		</div>
 		<div id="farm_1_after" style="display:none">
@@ -145,7 +187,11 @@ table{width:max-content}
 	</div>
 	<div>
 		<div><span id="xd_ty"></span>%</div>
-		<div>Total Yield</div>
+		<div>Normalized Yield</div>
+	</div>
+	<div>
+		<div><span id="xd_lp"></span></div>
+		<div>XELITEs in Liquidity</div>
 	</div>
 </div>
 <br>
@@ -162,7 +208,54 @@ table{width:max-content}
 	<li>Price (Market) chart for xelite</li>
 	<li>TVL (in Elite) historical chart</li>
 	<li>TVL (in FTM, USD) historical chart</li>
+</div>
+
+<br><br>
+<h4 align="center" onclick="mkpi3(allp.sort(function(a, b){return a-b}));">LIQUIDITY DISTRIBUTION</h4>
+<div align="center" class="p1td">
+	<div align="center" >
+		<svg class="donut" width="" height="" viewBox="0 0 42 42">
+  			<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+  	  		<circle id="donut-segment-0" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0ff" stroke-width="4" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+  			<g id="dos"></g>
+  			<g class="chart-text">
+        		<text x="21" y="50%" class="chart-number" id="totalValue">
+          		?
+        		</text>
+        		<text x="21" y="50%" class="chart-label">XELITE Pooled</text>
+      		</g>
+		</svg>
 	</div>
+	<div id="consmark" align="center" >
+		<b>Constituent Markets</b><br><br>
+		<div style="overflow:auto">
+			<table id="maintable" class="centerstage">
+				<thead>
+					<tr>
+					<th onclick="sortit(0)">Base⇅</th>
+					<th onclick="sortit(1)">XELITEs⇅</th>
+					<th onclick="sortit(2)">DEX⇅</th>
+					<th onclick="sortit(2)">Links</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl1">0</td>
+						<td>Spooky</td>
+						<td><span onclick="window.location='https://spookyswap.finance/add/FTM/'+XELITE"><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl2">0</td>
+						<td>Beethoven</td>
+						<td><span onclick="window.location='https://app.beets.fi/#/pool/0xe402555efa3b232ee8bc4c79a446b47b38b93ebf00010000000000000000007e'"><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
 <br>
 <br>
 <div align="center" class="advert">
@@ -301,6 +394,7 @@ window.addEventListener('load',function()
 	//else{web3 = new Web3("https://rpc.testnet.fantom.network")}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	console.log("pre-refreshing stats", Date.now());
+    allpp();
 	basics();
 	arf();
 }, false);
@@ -314,6 +408,7 @@ async function cw()
 	await window.ethereum.enable();
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38);
 }
+
 function fornum(n,d)
 {
 	_n=(Number(n)/10**Number(d));
@@ -325,6 +420,32 @@ function fornum(n,d)
 	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
 	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
 	else if(_n>1e0){n_=(_n/1e0).toFixed(2)+""}
+	return(n_);
+}
+function fornum2(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+"Qt"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+"Qd"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+"Tn"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+"Bn"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+"Mn"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+"Th"}
+	else if(_n>1){n_=(_n/1e0).toFixed(2)+""}
+	return(n_);
+}
+function fornum3(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(0)+"Qt"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(0)+"Q"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(0)+"Tn"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(0)+"Bn"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(0)+"Mn"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(0)+"Th"}
+	else if(_n>1){n_=(_n/1e0).toFixed(2)+""}
 	return(n_);
 }
 xabi = [
@@ -567,7 +688,9 @@ async function basics()
 	r_ex = X.methods.ELITEForxELITE("1000000000000000000").call((e,r)=>
 		{
 			$("r_ex").innerHTML = (Number(r)/1e18).toLocaleString();
-			$("xd_ty").innerHTML = ((133700000e18/Number(r)-1)*100).toLocaleString();
+			rtd = ((1337e25/Number(r)-100));
+			te = Date.now() - 1636323561000
+			$("xd_ty").innerHTML = (rtd/te * 86400*365000).toLocaleString();
 			return r;
 		});
 
@@ -592,7 +715,6 @@ async function basics()
         $("xd_cp_u").innerHTML = (cp_x).toFixed(8);
         //console.log("ep:",cp_e,"\n val locked",vl,"\nxel price",cp_x,"\nel locked",el/1e18,"\nr_x2e",r_xe,"\nts:",r_ts,"\nvl/ts",vl/r_ts)
     })
-
 }
 function gub()
 {
@@ -676,6 +798,109 @@ function xel()
 	console.log("leave:",a);
 	X = new web3.eth.Contract(xabi, XELITE);
 	X.methods.leave(a).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("enter: ",r)}).then(basics())
+}
+
+allp=[]
+var val_1D = document.getElementById('donut-segment-0')
+val_1D.style.transition = "stroke-dasharray 15s ease-in-out, stroke-dashoffset 10s ease-in-out";
+val_1D.style.strokeDasharray = "100 0";
+function gof(vv,ii,tt)
+{
+	T=0
+	for(j=0;j< ii;j++){T+=vv[j]/tt*100}
+	return(100-T+25)
+}
+function mkpi3(v)
+{
+	var svgns = "http://www.w3.org/2000/svg";
+	var container = $("dos")
+	container.innerHTML=""
+	t = 0;
+	for(i=0;i < v.length; i++)
+	{
+		t+=v[i]
+		var circle = document.createElementNS(svgns, 'circle');
+		circle.setAttributeNS(null, 'stroke', `rgba(${(255*Math.random()).toFixed(0)},${(255*Math.random()).toFixed(0)},${(255*Math.random()).toFixed(0)},1)`);
+		circle.setAttributeNS(null, 'fill', 'transparent');
+		circle.setAttributeNS(null, 'stroke-width', 3);
+		circle.setAttributeNS(null, 'id', "mc_"+i);
+		circle.setAttributeNS(null, 'cx', 21);
+		circle.setAttributeNS(null, 'cy', 21);
+		circle.setAttributeNS(null, 'r', 15.91);
+		circle.setAttributeNS(null, 'style', 'transition:stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out');
+		container.appendChild(circle);
+	};
+	console.log("total",t)
+	$('totalValue').innerHTML = fornum3(Number(t),0);
+	$('xd_lp').innerHTML = fornum(Number(t),0);
+
+
+	sortit(1);sortit(1);
+	setTimeout(function(){for(i= v.length -1; i>=0; i--)
+	{
+		circle=$("mc_"+i);
+		circle.setAttributeNS(null, 'stroke-dasharray',`${v[i]/(t)*100}, ${100-(v[i]/(t)*100)}`);
+		circle.setAttributeNS(null, 'stroke-dashoffset', gof(v,i,t) );
+		//$('totalValue').innerHTML = ((v.reduce((a,b)=>{return a+b},0)).toFixed(3))
+		//console.log("new circle::",i)
+		//console.log("da:",`${v[i]/t*100} ${100-(v[i]/t*100)}`)
+		//console.log("do:",gof(v,i,t))
+	}},100);
+}
+function sortit(n) {
+  var t, r, z, i, x, y, v, b, c = 0;
+  t = document.getElementById("maintable").getElementsByTagName("tbody")[0];
+  z = true;
+  b = "a";
+  while (z) {
+    z = false;
+    r = t.rows;
+    for (i = 0; i < (r.length - 1); i++) {
+      v = false;
+      x = (r[i].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
+      y = (r[i + 1].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(y)){y=Number(y)}else{y=y.toLowerCase()}
+      if (b == "a") {
+        if ((x) > (y)) {
+          v= true;
+          break;
+        }
+      } else if (b == "d") {
+        if ((x) < (y)) {
+          v = true;
+          break;
+        }
+      }
+    }
+    if (v) {
+      r[i].parentNode.insertBefore(r[i + 1], r[i]);
+      z = true;
+      c ++;
+    } else {
+      if (c == 0 && b == "a") {
+        b = "d";
+        z = true;
+      }
+    }
+  }
+    var t, r, z, i, x, y, v, b, c = 0;
+}
+function allpp()
+{
+	EC=new web3.eth.Contract(xabi,XELITE);
+	EC.methods.balanceOf("0xf97Cd673358086383BFfCd5bC3763F8c450D4810").call((e,r)=>
+	{
+		$("p1tpl1").innerHTML=fornum(Number(r),18);
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce").call((e,r)=>
+	{
+		$("p1tpl2").innerHTML=fornum(Number(r),18);
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
 }
 
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
