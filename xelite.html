@@ -119,7 +119,9 @@ table{width:max-content;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10p
   -webkit-transform: translateY(0.7em);
   transform: translateY(0.7em);
   fill:aqua;
-}</style>
+}
+#farm_1_s_deposit_x,#farm_1_s_deposit_e {text-decoration: 2px dashed  underline rgba(0,255,255,0.75)}
+</style>
 </head>
 <div class="topbar">
 	<div align="center">
@@ -724,13 +726,13 @@ async function basics()
 		})
     })
 }
-function gub()
+async function gub()
 {
 	X = new web3.eth.Contract(xabi, XELITE);
 	E = new web3.eth.Contract(xabi, ELITE);
 	b_x = X.methods.balanceOf(window.ethereum.selectedAddress).call()
 	b_e = E.methods.balanceOf(window.ethereum.selectedAddress).call()
-	await Promise.all([b_e,b_x]).then(b_=>{
+	await Promise.all([b_e,b_x]).then(b_=> async(){
 		$("farm_1_s_deposit_x").innerHTML = (Number(b_[1])/1e18);
 		$("farm_1_s_deposit_e").innerHTML = (Number(b_[0])/1e18);
 		agg=b_
