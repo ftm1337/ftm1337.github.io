@@ -20,7 +20,7 @@ html{background:radial-gradient(circle at bottom, #125, #122, #100);background-a
 input,button{border-radius:25px;background:black;text-align:center}
 button:hover{	box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
 pre{overflow-x:auto;max-width:80%}
-.mainpanels,.mainpanels2,.mainpanels3{display:grid}
+.mainpanels,.mainpanels2,.mainpanels3,.mainpanels4{display:grid}
 .mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
 .mainpanel button{font-size: 1em}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
@@ -54,11 +54,12 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 	.mainpanels{grid-template-columns:auto auto auto}
 	.liqdis{grid-template-columns:auto auto}
 	.mainpanels2{grid-template-columns: auto auto auto auto}
-	.mainpanels3{grid-template-columns: 0 50% 50% 0}
+	.mainpanels3{grid-template-columns: auto 40% 40% auto}
+	.mainpanels4{grid-template-columns: auto auto auto}
 	.hhr{width:555px}
 	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
 	.p1td{grid-template-columns:auto auto;}
-.p1td div{margin:auto;width:40vw}
+	.p1td div{margin:auto;width:40vw}
 	.donut{width: 360px}
 }
 @media(min-width:800px){
@@ -167,48 +168,6 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 		<span id="tl">?</span> FTM
 		<br><br>
 	</div>
-</div>
-<div class="mainpanels2" align="center">
-	<div></div>
-	<div class="mainpanel">
-		<h4>Circulating Supply</h4>
-		<span id="cs">?</span> ELITE
-		<br><br>
-	</div>
-	<div class="mainpanel">
-		<h4>Burnt Supply</h4>
-		<span id="bs">?</span> ELITE
-		<br><br>
-	</div>
-	<div></div><!--
-	<div class="mainpanel">
-		<h4>TVL/MC ratio</h4>
-		<span id="rtm">?</span> %
-		<br><br>
-	</div>
-
-
-	//sushi		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
-	//spooky	ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
-	//zoo		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
-	//zoo		zoo		0x0652Dec650566439CFFEB4BEb201F062fc13243F
-	//spirit	usdc	0x2221b4ed9d5f2a706f6bf4fcd40ee36da88d2476
-	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
-	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F		3.18
-	//elk		ftm		0xf25417182FbfdEbf1a92142b31A1B32135f1Fd60		3.28
-	//spooky	usdc	0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9		3.25
-	//nipdex	ftm		0x736c1462feEc9D936dF0B99F4BE5eD019118534a		1.03
-	//cyber		ftm		0x2668141243eCbFEb1b7556D5F08c11Bd94d9b6db		0.35
-	//elk		usdc	0xDeC1a7eF080B22fEe247aCD033a8Aca8666bDdcb		0.34
-	//shiba		usdc	0xe2121F534316CD3fc91E70a39AAa25785e1c20C1		0.34
-	//hyper		ftm		0xdc79C700EeDc83bE8d19Ad2d245717c7539DFA1c		0.03
-	//paint		ftm		0xF33c436E3C1f0AD9EcB400aA28183910585eFe21		0.15
-	//sushi		usdc	0x1DFcDdF675038EAd27F1D75B435B5B05BA825E9A		0.035
-	//--------------------------------------------------------------- +12.00
-
-
-
-	-->
 </div>
 <br><br>
 <h4 align="center" onclick="mkpi3(allp.sort(function(a, b){return a-b}));">LIQUIDITY DISTRIBUTION</h4>
@@ -381,6 +340,18 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>FTM</td>
 						<td id="p1tpl24">0</td>
 						<td>DMM</td>
+						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl25">0</td>
+						<td>DMM</td>
+						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl26">0</td>
+						<td>Dfyn</td>
 						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
 				</tbody>
@@ -701,9 +672,67 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 				<td><b><a target="_blank" href="https://wraithswap.finance">SyFin's Wraith</a></b></td>
 				<td>?%</td>
 			</tr>
+			<tr class="advert" id="" onclick="">
+				<td>ELITE</td>
+				<td>ELITE</td>
+				<td><a target="_blank" href="https://ftm.guru/xelite">XELITE</a></td>
+				<td><b><a target="_blank" href="https://ftm.guru/xelite">ftm.guru</a></b></td>
+				<td>1.337%</td>
+			</tr>
 		</tbody>
 	</table>
 </div>
+<br>
+<br>
+<h3 align="center">Supply Distribution</h3>
+<div align="center">
+	<div class="mainpanels4" align="center">
+		<div class="mainpanel">
+			<h4>Circulating Supply</h4>
+			<span id="cs">?</span> ELITE
+			<br><br>
+		</div>
+		<div class="mainpanel">
+			<h4>Burnt Supply</h4>
+			<span id="bs">?</span> ELITE
+			<br><br>
+		</div>
+		<div class="mainpanel">
+			<h4>Staked as XELITE</h4>
+			<span id="xs">?</span> ELITE
+			<br><br>
+		</div>
+	</div>
+</div>
+	<!--
+	<div class="mainpanel">
+		<h4>TVL/MC ratio</h4>
+		<span id="rtm">?</span> %
+		<br><br>
+	</div>
+
+
+	//sushi		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//spooky	ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//zoo		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//zoo		zoo		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//spirit	usdc	0x2221b4ed9d5f2a706f6bf4fcd40ee36da88d2476
+	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F		3.18
+	//elk		ftm		0xf25417182FbfdEbf1a92142b31A1B32135f1Fd60		3.28
+	//spooky	usdc	0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9		3.25
+	//nipdex	ftm		0x736c1462feEc9D936dF0B99F4BE5eD019118534a		1.03
+	//cyber		ftm		0x2668141243eCbFEb1b7556D5F08c11Bd94d9b6db		0.35
+	//elk		usdc	0xDeC1a7eF080B22fEe247aCD033a8Aca8666bDdcb		0.34
+	//shiba		usdc	0xe2121F534316CD3fc91E70a39AAa25785e1c20C1		0.34
+	//hyper		ftm		0xdc79C700EeDc83bE8d19Ad2d245717c7539DFA1c		0.03
+	//paint		ftm		0xF33c436E3C1f0AD9EcB400aA28183910585eFe21		0.15
+	//sushi		usdc	0x1DFcDdF675038EAd27F1D75B435B5B05BA825E9A		0.035
+	//--------------------------------------------------------------- +12.00
+
+
+
+	-->
 <br>
 <br>
 <div align="center" class="advert">
@@ -758,7 +787,7 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 		<a href="https://kcc.guru" target="_blank">Kucino Casino</a><br>
 	</div>
 	<div align="left" class="lowercat">
-		<span>Farming</span><br>14e18
+		<span>Farming</span><br>
 		<a href="https://ftm.guru/yieldstate.html">🔱 YieldState</a><br>
 		<a href="https://ftm.guru/LF">👽 LITE Farmlands</a><br>
 		<a href="https://vfat.tools/fantom/guru">🧑‍🌾 vfat.tools</a>
@@ -977,6 +1006,8 @@ async function basics()
 	S_C = await EC.methods.balanceOf("0x5C146cd18fa53914580573C9b9604588529406Ca").call((e,r)=>{return(Number(r))});
 	S_D = await EC.methods.balanceOf("0xbab9645d1B78425A7e4e9e78E8DD32aAbd800a16").call((e,r)=>{return(Number(r))});
 	S_T = await EC.methods.balanceOf("0x74BFb7E94bEf5767F5F6Ace2D0df73a224ADB689").call((e,r)=>{return(Number(r))});
+	//S_X = await
+				EC.methods.balanceOf("0x1BE23c78038B6057172848534AcD62667fA2620d").call((e,r)=>{$("xs").innerHTML=(Number(r)/1e18).toFixed(5)});
 	CS=(1337e18-S_0-S_C-S_D-S_T)/1e18;
 	$("cs").innerHTML = CS.toFixed(5);
 	AWL = EC.methods.limit().call((e,r)=>{AWL=(Number(r));$("aw").innerHTML=(AWL/1e18).toFixed(5)});
@@ -1227,6 +1258,18 @@ function allpp()
 	EC.methods.balanceOf("0xba293BeBB30CB8Aa144CB6246ed0cDC1232e12fF").call((e,r)=>
 	{
 		$("p1tpl24").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl24").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x2AFb5E33Dd34C6dA03d64444721251B7D17D15BE").call((e,r)=>
+	{
+		$("p1tpl25").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl25").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x8E6f0C6c4D3Ad3606001b1C918e8C45Ffbb8678D").call((e,r)=>
+	{
+		$("p1tpl26").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl26").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
