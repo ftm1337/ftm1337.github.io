@@ -342,6 +342,18 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>DMM</td>
 						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl25">0</td>
+						<td>DMM</td>
+						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl26">0</td>
+						<td>Dfyn</td>
+						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -633,13 +645,6 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 		</thead>
 		<tbody>
 			<tr class="" id="" onclick="">
-				<td>ELITE</td>
-				<td>ELITE</td>
-				<td><a target="_blank" href="https://ftm.guru/xelite">XELITE</a></td>
-				<td><b><a target="_blank" href="https://ftm.guru/xelite">ftm.guru</a></b></td>
-				<td>1.337%</td>
-			</tr>
-			<tr class="" id="" onclick="">
 				<td>ELITE-WFTM LP</td>
 				<td>ELITE</td>
 				<td><a target="_blank" href="https://app.sushi.com/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882">Sushi.com</a></td>
@@ -666,6 +671,13 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 				<td><a target="_blank" href="https://wraithswap.finance/add/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882/FTM">Wraithswap</a></td>
 				<td><b><a target="_blank" href="https://wraithswap.finance">SyFin's Wraith</a></b></td>
 				<td>?%</td>
+			</tr>
+			<tr class="advert" id="" onclick="">
+				<td>ELITE</td>
+				<td>ELITE</td>
+				<td><a target="_blank" href="https://ftm.guru/xelite">XELITE</a></td>
+				<td><b><a target="_blank" href="https://ftm.guru/xelite">ftm.guru</a></b></td>
+				<td>1.337%</td>
 			</tr>
 		</tbody>
 	</table>
@@ -1246,6 +1258,18 @@ function allpp()
 	EC.methods.balanceOf("0xba293BeBB30CB8Aa144CB6246ed0cDC1232e12fF").call((e,r)=>
 	{
 		$("p1tpl24").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl24").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x2AFb5E33Dd34C6dA03d64444721251B7D17D15BE").call((e,r)=>
+	{
+		$("p1tpl25").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl25").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x8E6f0C6c4D3Ad3606001b1C918e8C45Ffbb8678D").call((e,r)=>
+	{
+		$("p1tpl26").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl26").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
