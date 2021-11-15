@@ -1,59 +1,48 @@
+<html>
 <!doctype html><html><meta charset="UTF-8">
 <head>
-<title>FTM1337 : ftm.guru</title>
-<meta name="description" content="FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
+<title>LITE Farmlands - FTM1337 (ftm.guru)</title>
+<meta name="description" content="LITE Farmlands - FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting, D.I.Y. Farm lands">
 <meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
-<link rel="shortcut icon" href="img/ftm1337.jpg" />
+<link rel="shortcut icon" href="../img/ftm1337.jpg" />
 <style>
-*{color:#e3e9f2;overflow-wrap:break-word;}
-a{text-decoration-line:none;padding:0 2px}
-*{text-shadow:6px 6px 5px black;color:#e3e9f2}
-html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
-img{border-radius: 50%}
-input,button{border-radius:25px;background:black;text-align:center}
-button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
-pre{overflow-x:auto;max-width:80%}
-#votingmvg{background:#040b22;border-radius:20px;border: #aaa solid 1px}
-.topbar{display:grid;grid-template-columns: auto;}
-#mvg pre{margin: 0 0 0 0;}
-#mvg hr{border: 0px dashed;width: 50%}
-#mvg div{background: #000013;margin: auto;border-radius: 15px;border:dashed 1px;border-top: none }
-	#mvg{width: 70vw}
-.mainpanels{display:grid;grid-template-columns:auto}
-.olsa{display:grid;grid-template-columns:auto auto 1%;}
-.mainstages{text-align:center;display:grid;grid-template-columns:	 auto}
-.mainstage{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: rgba(15,15,31,0.5);margin:5%;border-radius: 15px;border:aqua 2px solid}
+*{text-shadow:10px 10px 5px black;color:#e3e9f2}
+#midleft{display:grid;grid-template-columns:auto}
+#toparea,*{text-align:center}
+html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+#midright{overflow:auto;margin:0 5%}
+table td{padding: 10px}
+span{font-weight:bolder;}
+tbody tr:hover{cursor:  zoom-in;background: rgba(0,255,255,0.25)}
+td:nth-child(3),th:nth-child(3),
+td:nth-child(5),th:nth-child(5),
+td:nth-child(8),th:nth-child(8)
+{display:none}
+pre{overflow-x:auto;}
+.topbar div a, .advert a{text-decoration-line:none;padding:0 2px}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
-.c2a{background: rgba(0,255,255,0.5);font-size:1em;padding:10px;margin:5px}
+#midleft div,table{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid; min-width:max-content}
 .advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
+input,button{border-radius:25px;background:black;text-align:center;}
 .lowercat {text-align: left;padding:10px}
 .lowercat a{text-decoration-line: none}
 .lowercat span{font-size: 1.25em; font-weight:bold}
 .lowerbar{display: grid;grid-template-columns: auto;text-align:center}
-.maincards{grid-template-columns:auto ;margin: auto;display:grid;}
-.maincard{margin: calc(min(25px,10%));padding:10px;border : 1px aqua solid;
-	border-radius: 7px;
-	background: linear-gradient(45deg, rgba(0,255,0,0.125), rgba(0,0,255,0.125))}
-.maincard hr{border: 1px solid aqua}
-.gmul{border:1px solid;border-radius: 50%;	padding: 4px;margin: 0 0 0 4px;font-size: 0.8em;background: linear-gradient(225deg, rgba(0,255,0,0.5), rgba(0,0,255,0.5))}
+#midrighttab{display: grid;grid-template-columns: auto auto auto}
+thead{line-height: }
+.de td,.de{color: gray;cursor: not-allowed;font-weight: lighter}
+.car{max-width: 90%;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;}
+td a{text-decoration-line: none}
 @media(min-width:641px){
-	.mainpanels{grid-template-columns:50% 50%}
-	.mainstages{grid-template-columns:50% 50%}
-	#mvg{width: 70%;}
-	.hhr{width: 555px}
+  .hhr{width: 555px}
 	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
-	.maincards{grid-template-columns:auto auto auto;margin: auto}
-	.maincard{margin: 10px;padding:10px;border : 1px aqua solid}
+	#htc{height: 50%}
+	.car{width: 50%;margin: auto}
+	#midleft{display:grid;grid-template-columns:50% 50%}
 }
 
-@media(min-width:641px){
-	.maincards{grid-template-columns:50% 50%;margin: auto}
-}
-@media(min-width:1024px){
-	.maincards{grid-template-columns:33% 33% 33%;margin: auto}
-}
 #c2a{
 	display: grid;
 	grid-template-columns: auto;
@@ -75,636 +64,427 @@ hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-
 		grid-template-columns: auto 280px 280px auto;
 	}
 }
-
-
-
-* {
-  scrollbar-width: thick;
-  scrollbar-color: #07f #147;
-}
-*::-webkit-scrollbar {
-  width: 20px;
-}
-*::-webkit-scrollbar-track {
-  background: #147;
-}
-*::-webkit-scrollbar-thumb {
-  background-color: #07f;
-  border-radius: 20px;
-  border: 3px solid #147;
-}
-.container {
-  position: ;
-  height: ;
-  top: 60px;
-  left: calc(50% - 300px);
-  display: grid;
-  padding: 40px;
-  overflow: auto;
-  color: red !important;;
-  padding:60px;
-}
-
-.card {
-  display: flex;
-  overflow: hidden;
-  height: ;
-  min-width: 200px;
-  max-width: 240px;
-  background-color: rgba(23,20,30,.85);
-  border-radius: 10px;
-  box-shadow: -1rem 0 3rem #000;
-  transition: 0.4s ease-out;
-  position: relative;
-  margin: 20px auto;
-  border-width: 3px;
-  border-style: solid;
-  border-image:
-    linear-gradient(
-      to top,
-      aqua,
-      rgba(0, 0, 0, 0)
-    )  0 0 1 100%;
-}
-
-
-.card:hover {
-  transform: translateX(-20px) translateY(-20px);
-  transition: 0.4s ease-out;
-  background: linear-gradient(to left,rgba(0,255,127,.5),rgba(1,240,255,.5));
-}
-
-
-
-.title {
-  color: white;
-  font-weight: 1000;
-  position: absolute;
-  left: 20px;
-  top: 15px;
-}
-
-.bar {
-  position: absolute;
-  top: 100px;
-  left: 20px;
-  height: 5px;
-  width: 180px;
-}
-
-.emptybar {
-  background-color: #2e3033;
-  width: 100%;
-  height: 100%;
-}
-
-.filledbar {
-  position: absolute;
-  top: 0px;
-  z-index: 3;
-  width: 0px;
-  height: 100%;
-  background: rgb(0,154,217);
-  background: linear-gradient(to right,rgba(0,255,127,1),rgba(1,240,255,1));
-  transition: 0.6s ease-out;
-  border: 1px dashed black
-}
-
-.card:hover .filledbar {
-  width: 150px;
-  transition: 0.4s ease-out;
-
-}
-
-.stroke {
-  stroke: rgba(0,255,127,0.24);;
-  stroke-dasharray: 360;
-  stroke-dashoffset: 360;
-  transition: 0.6s ease-out;
-}
-
-svg {
-  fill: #17141d;
-  stroke-width: 2px;
-}
-
-.card:hover .stroke {
-  stroke-dashoffset: 100;
-  transition: 0.6s ease-out;
-}
-.hovli li:hover{font-size:1.125em;background:rgba(0,255,255,0.5);}
-.partners img, .partners svg{height:128px;border-radius: 0}
-@media(min-width:639px){
-  .container,.mainstages{grid-template-columns: auto  auto}
-}
-@media(min-width:899px){
-  .container,.mainstages{grid-template-columns: auto auto auto }
-}
-@media(min-width:1279px){
-  .container,.mainstages{grid-template-columns: auto auto auto auto }
-}
+html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
+.mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
+*{text-shadow:6px 6px 5px black;color:#e3e9f2}
 </style>
-</head>
+
 <div class="topbar">
 	<div align="center">
-		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<a href="../index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
 		<!--<a href="farmlands.html">Farmlands👽</a>
 		<a href="index.html">FTM-Gems</a>-->
-		<a href="bo/index.html">B.O.</a>
-		<a href="LF/index.html">LITE Farmlands👽</a>
-		<a href="pair.html">DEX-Explorer</a>
-		<a href="fantomscan.html">FantomScan</a>
-		<a href="elite.html">ELITE</a>
-		<a href="fmc.html">FantomMarketCap</a>
-		<a href="yieldstate.html">YieldState</a>
+		<a href="../LF/index.html">LITE Farmlands👽</a>
+		<a href="../pair.html">DEX-Explorer</a>
+		<a href="../fantomscan.html">FantomScan</a>
+		<a href="../elite.html">ELITE</a>
+		<a href="../fmc.html">FantomMarketCap</a>
+		<a href="../yieldstate.html">YieldState</a>
 		<!--<a href="airdrop.html">Airdrop-Tool</a>-->
-		<a href="apelist.html">Ape-List</a>
-		<a href="approver.html">Approver</a>
-		<a href="casino.html">CASINO🎰</a>
+		<a href="../apelist.html">Ape-List</a>
+		<a href="../approver.html">Approver</a>
+		<a href="../degam.html">CASINO🎰</a>
 	</div>
 </div>
 <br>
 <hr class="hhr">
 <br>
 <br>
+<div id="toparea">
+	<h1>LITE Farmlands</h1>
+</div>
+
+
+
 <br>
-<h3 align="center">Discover GURU Network</h3>
-<div align="center">A Multi-faceted growth hacker for indie projects, ftm.guru provides numerous Tools, Services and niche utility-applications to users and bespoke product customization, liquidity enhancement and data analytics products to De-Fi innovators. The Guru Network has something to offer for everyone:</div>
+<br>
+
+	<div align="center">
+		<div class="car" >
+			<svg id="htc" viewbox="0 0 100 100" preserveAspectRatio="none">
+			<polyline stroke-width="0.25" points="0 5, 100 5" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 20, 100 20" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 35, 100 35" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 50, 100 50" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 65, 100 65" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="0 80, 100 80" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+
+			<polyline stroke-width="0.25" points="10 0, 10 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="30 0, 30 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="50 0, 50 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="70 0, 70 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+			<polyline stroke-width="0.25" points="90 0, 90 100" fill="none" stroke="grey" stroke-opacity="0.25"></polyline>
+				<defs>
+    				<linearGradient id="gf" gradientTransform="rotate(90)">
+      					<stop stop-color="rgba(0,255,255,1)" offset="0%"></stop>
+      					<stop stop-color="rgba(0,155,155,0)" offset="100%"></stop>
+    				</linearGradient>
+    				<linearGradient id="gu" gradientTransform="rotate(90)">
+      					<stop stop-color="rgba(0,255,127,1)" offset="0%"></stop>
+      					<stop stop-color="rgba(0,255,127,0)" offset="100%"></stop>
+    				</linearGradient>
+  				</defs>
+				<polyline id="pl_t_f" fill-opacity="0.67" stroke-width="1.0" points="12 23, 42 73, 55 22" fill="url(#gf)" stroke="aqua" stroke-opacity="1"></polyline>
+				<polyline id="pl_t_u" fill-opacity="0.67" stroke-width="1.0" points="82 53, 62 93, 5 12" fill="url(#gu)" stroke="#1f7" stroke-opacity="1"></polyline>
+				<text style="font-size:0.25em" fill="#fff" id="ctv1" x="1" y="5">175k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv2" x="1" y="20">150k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv3" x="1" y="35">125k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv4" x="1" y="50">100k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv5" x="1" y="65">75k</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctv6" x="1" y="80">50k</text>
+				<!--<text style="font-size:0.25em" fill="#fff" id="ctv7" x="1" y="95">25k</text>-->
+
+				<text style="font-size:0.25em" fill="#fff" id="ctl1" x="05" y="98">30 Jun</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctl2" x="25" y="98">17 Jul</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctl3" x="45" y="98">3 Jul</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctl4" x="65" y="98">13 Jun</text>
+				<text style="font-size:0.25em" fill="#fff" id="ctl5" x="85" y="98">13 Jun</text>
+
+
+				<polyline id="pl_t_f_l" stroke-dasharray="2" stroke-width="0.04" points="0 35, 100 35" fill="none" stroke="aqua"></polyline>
+				<polyline id="pl_t_u_l" stroke-dasharray="2" stroke-dashoffset="2" stroke-width="0.04" fill="none" stroke="#1f7" points="0 25, 100 25"></polyline>
+			</svg>
+			<br>
+			<br>
+			<span style="font-size:1.15em;display:grid;grid-template-columns:auto auto auto auto">
+				<span></span>
+				<span style="-webkit-text-decoration: underline 5px aqua;text-decoration: underline 5px aqua;color:aqua">FTM</span>
+				<span style="-webkit-text-decoration: underline 5px #0f7;text-decoration: underline 5px #0f7;color:#0f7">USD</span>
+				<span></span>
+			</span>
+			<br>
+			<b>Historical TVL Curve</b>
+			<br>
+			<br>
+		</div>
+	</div>
 <br><br>
-<div class="mainstages" align="center">
-	<div class="mainstage">
-		<a href="bo/index.html"><div><b><span style="font-size:1.3em">FTMUSD Binary Options</span></b><br><br>
-		<b>B.O.</b> is the First Binary Options platform on Fantom Opera.<br><br>A perpetual Prediction Market enabled by Band Protocol. Current Markets include FTM/USD with contract expiries of 13hrs.37mins.<br><br>Another FTMUSD and an ETHBTC market with a 75hr expiry is releasing this November.<br><br>
-		Currently in pre-alpha! (v0.3.3) <br><br>
-		<button class="c2a">Go Long/Short on FTM</button></div></a>
-	</div>
-	<div class="mainstage advert">
-		<a href="https://fmc.guru" target="_blank"><div><b><span style="font-size:1.3em">FantomMarketCap</span></b><br><br>
-		<b>FMC.guru</b> is a data aggregator for Fantom Opera Blockchain. It provides a bird-eye view of the top and vetted projects running atop FTM. It is open to all users and includes vital information such as official links, contract addresses, social channels and categorical tags. FantomMarketCap brings us essential market data like Token Prices, Market Cap, Supply figures and other essential metrics.<br><br>
-		<button class="c2a">Explore FMC.guru</button></div></a>
-	</div>
-	<div class="mainstage">
-		<a href="pair.html"><div><b><span style="font-size:1.3em">Multi-DEX Pair Explorer</span></b><br><br>
-		Find out the latest movements in pools and liquidity depths and constituents of any AMM pair!
-		<div>
-			<br><input id="st" placeholder="Enter Pair Contract"><br><button style="font-size:1.5em;border-radius:50%" onclick="prefind(st.value)">▶</button>
-			<br><span id="lo"></span>
+
+	<div id="midleft">
+		<div id="midleftTVL">
+			Area Cultivated<br>
+			<span style="font-size:1.5em"><span id="gs_p" style="font-size:1.5em">10</span> Fields</span>
 		</div>
-		<br>FTM.guru's Pair Explorer can be used with Shiba, Elk, Zoo, Spooky, Spirit, Sushi, HyperJump, Waka, Cyber, Paint, Bomb, Jet, Soul, Totem, Nugget, Empire, Wraith, DMM and more!</div></a>
+		<div id="midleftNFL">
+			Total Value Locked<br>
+			<span style="font-size:1.5em" id="gs_t_f"><span style="font-size:1.5em"> 50,000</span>+ USD</span>
+		</div><!--
+		<div id="midleftPFO">
+			Total Value Locked<br>
+			<span id="ml_tvl" style="font-size:1.5em">150,000 FTM</span>
+		</div><br>
+		<div id="midleftPEL">
+			Total Value Locked<br>
+			<span id="ml_tvl" style="font-size:1.5em">150,000 FTM</span>
+		</div>-->
 	</div>
-	<div class="mainstage">
-		<a href="fantomscan.html"><div><b><span style="font-size:1.3em">FantomScan</span></b><br><br>
-		<i>(May 2021)<br><br> We know that FTMScan is not in the best shape right now and fellow Fanties need an alternative tool to track their Fantom Opera interactions in real-time.</i><br><br>
-		<u><b>Introducing —FantomScan.</b></u><br>
-		Find out anyone's FTM balance, Token Balances, View Token Allowances, find out the status of a Transaction, Check gas prices, estimate transaction costs and more useful data!</div></a>
+<br><br>
+
+<h2 align="center">Choose a plot,<br>Plant seeds,<br>Reap harvests,<br>Grow more crops!</h2>
+
+<div id="midarea">
+	<div id="midright" align="center">
+		<div id="midrighttab"><br>
+			<table id="maintable" class="centerstage" align="center">
+			<thead>
+				<tr>
+				<th onclick="sortit(0)">Deposit⇅</th>
+				<th onclick="sortit(1)">Reward⇅</th>
+				<th onclick="sortit(2)">A.P.Y. %⇅</th>
+				<th onclick="sortit(3)">Platform⇅</th>
+				<th onclick="sortit(4)">T.V.L. FTM⇅</th>
+				<th onclick="sortit(5)">Fees⇅</th>
+				<th onclick="sortit(6)">Eliteness⇅</th>
+				<th onclick="sortit(7)">Countdown⇅</th>
+				<th onclick="sortit(8)">🤔⇅</th>
+				<th onclick="sortit(9)">Plot⇅</th>
+				<th>Links</th>
+				</tr>
+				<tr><td colspan="9">🌾 = Fertile, 🏜️ = Deserted, <span class="de">Disabled</span>, 🔒 = Locker, 🆕 = New, 👹 = Danger!</td></tr>
+			</thead>
+			<tbody>
+				<tr class="sca farming yields natives tools" id="YS_1" onclick="window.location='../YS/1'">
+					<td>ELITE:FTM</td>
+					<td>ELITE</td>
+					<td>?.????%</td>
+					<td>Sushi</td>
+					<td>?.????</td>
+					<td>0%</td>
+					<td>0.000000</td>
+					<td>?M?D?h?m?s</td>
+					<td>🌾</td>
+					<td>★</td>
+					<td><span><a href="https://ftm.guru.com" target="_blank">🌐</a> <a href="https://discord.com/invite/QpyfMarNrV" target="_blank">🎮</a><a href="https://t.me/ftm1337" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><a href="https://vfat.tools/fantom/guru" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming yields natives tools advert" id="YS_2" onclick="window.location='../YS/2'">
+					<td>ELITE:FTM 🆕</td>
+					<td>ELITE</td>
+					<td>?.????%</td>
+					<td>Spooky</td>
+					<td>?.????</td>
+					<td>0%</td>
+					<td>0.000000</td>
+					<td>?M?D?h?m?s</td>
+					<td>🌾</td>
+					<td>★</td>
+					<td><span><a href="https://ftm.guru.com" target="_blank">🌐</a> <a href="https://discord.com/invite/QpyfMarNrV" target="_blank">🎮</a><a href="https://t.me/ftm1337" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><a href="https://vfat.tools/fantom/guru_ys2" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="de sca farming yields natives tools" id="YS_0" onclick="">
+					<td>ELITE:FTM</td>
+					<td>USDC</td>
+					<td>?.????%</td>
+					<td>ShibaSwap</td>
+					<td>?.????</td>
+					<td>0%</td>
+					<td>0.000000</td>
+					<td>?M?D?h?m?s</td>
+					<td>🏜️</td>
+					<td>★</td>
+					<td>ftm.guru</td>
+				</tr>
+				<tr class="sca farming yields natives tools advert" id="XEL" onclick="window.location='../xelite'">
+					<td>ELITE 🆕</td>
+					<td>ELITE</td>
+					<td>?.????%</td>
+					<td>ftm.guru/xelite</td>
+					<td>?.????</td>
+					<td>0%</td>
+					<td>0.000000</td>
+					<td>?M?D?h?m?s</td>
+					<td>🌾</td>
+					<td>★</td>
+					<td><span><a href="https://ftm.guru.com" target="_blank">🌐</a> <a href="https://discord.com/invite/QpyfMarNrV" target="_blank">🎮</a><a href="https://t.me/ftm1337" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><a href="https://vfat.tools/fantom/guru_ys2" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming yields natives tools" id="LF_1" onclick="window.location='1'">
+					<td>NIPS:FTM</td>
+					<td>NIPS</td>
+					<td>?.????%</td>
+					<td>Zoo DEX</td>
+					<td>?.????</td>
+					<td>1%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🏜️👹</td>
+					<td>1</td>
+					<td><span><a href="https://nipplelabs.com" target="_blank">🌐</a><a href="https://discord.com/invite/6ChQmPb3as" target="_blank">🎮</a><a href="https://t.me/nipplelabs" target="_blank">✈</a><a href="https://twitter.com/nipplelabs" target="_blank">🐦</a><a href="https://vfat.tools/fantom/guru_lite1" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming natives" id="LF_2001" onclick="window.location='2001'">
+					<td>NOVA:FTM</td>
+					<td>BLK</td>
+					<td>?.????%</td>
+					<td>SpookySwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🌾</td>
+					<td>2001</td>
+					<td><span><a href="https://supernovaftm.site.xyz" target="_blank">🌐</a><a href="https://discord.com/invite/ekyU57Gq" target="_blank">🎮</a><a href="https://t.me/supernovaftm" target="_blank">✈</a><a href="https://vfat.tools/fantom/guru_lite2001" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming natives" id="LF_2002" onclick="window.location='2002'">
+					<td>BLK:NOVA</td>
+					<td>NOVA</td>
+					<td>?.????%</td>
+					<td>SpookySwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🌾</td>
+					<td>2002</td>
+					<td><span><a href="https://supernovaftm.site.xyz" target="_blank">🌐</a><a href="https://discord.com/invite/ekyU57Gq" target="_blank">🎮</a><a href="https://t.me/supernovaftm" target="_blank">✈</a><a href="https://vfat.tools/fantom/guru_lite2002" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming natives" id="LF_2004" onclick="window.location='2004'">
+					<td>NOVA</td>
+					<td>BLK</td>
+					<td>?.????%</td>
+					<td>ftm.guru</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🌾</td>
+					<td>2004</td>
+					<td><span><a href="https://supernovaftm.site.xyz" target="_blank">🌐</a><a href="https://discord.com/invite/ekyU57Gq" target="_blank">🎮</a><a href="https://t.me/supernovaftm" target="_blank">✈</a><a href="https://vfat.tools/fantom/guru_lite2004" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="de sca farming natives" id="LF_151" onclick="window.location='151'">
+					<td>BABYSPIRIT:FTM</td>
+					<td>SPIRIT</td>
+					<td>?.????%</td>
+					<td>SpiritSwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🏜️</td>
+					<td>151</td>
+					<td><span><a href="https://babyspirit.site" target="_blank">🌐</a><a href="https://t.me/babyspirit" target="_blank">✈</a><a href="https://discord.com/invite/2EKm6EmU" target="_blank">🎮</a></span></td>
+				</tr>
+				<tr class="sca farming natives" id="LF_152" onclick="window.location='152'">
+					<td>BABYSPIRIT:FTM</td>
+					<td>BABYSPIRIT</td>
+					<td>?.????%</td>
+					<td>SpiritSwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🏜️</td>
+					<td>152</td>
+					<td><span><a href="https://babyspirit.site" target="_blank">🌐</a><a href="https://t.me/babyspirit" target="_blank">✈</a><a href="https://discord.com/invite/2EKm6EmU" target="_blank">🎮</a></span></td>
+				</tr>
+				<tr class="sca farming natives" id="LF_23" onclick="window.location='23'">
+					<td>DEATH:FTM</td>
+					<td>DEATH</td>
+					<td>?.????%</td>
+					<td>SpookySwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🏜️</td>
+					<td>23</td>
+					<td><span><a href="https://twitter.com/death_ftm" target="_blank">🐦</a><a href="https://t.me/deathftm" target="_blank">✈</a><a href="https://discord.com/invite/tCYEpYGU" target="_blank">🎮</a><a href="https://vfat.tools/fantom/guru_lite23" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming natives" id="LF_2005" onclick="window.location='2005'">
+					<td>BLK:FTM</td>
+					<td>NOVA</td>
+					<td>?.????%</td>
+					<td>SpookySwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🌾</td>
+					<td>2005</td>
+					<td><span><a href="https://supernovaftm.site.xyz" target="_blank">🌐</a><a href="https://discord.com/invite/ekyU57Gq" target="_blank">🎮</a><a href="https://t.me/supernovaftm" target="_blank">✈</a><a href="https://vfat.tools/fantom/guru_lite2005" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming natives" id="LF_301" onclick="window.location='301'">
+					<td>TCUZ:FTM</td>
+					<td>TCUZ</td>
+					<td>?.????%</td>
+					<td>SpiritSwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🏜️🔒</td>
+					<td>301</td>
+					<td><span><a href="https://twitter.com/" target="_blank">🐦</a><a href="https://t.me/" target="_blank">✈</a><a href="https://discord.com/invite/" target="_blank">🎮</a><a href="https://vfat.tools/fantom/guru_lite301" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming natives" id="LF_2006" onclick="window.location='2006'">
+					<td>SST:FTM</td>
+					<td>BLK</td>
+					<td>?.????%</td>
+					<td>SpookySwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🌾</td>
+					<td>2006</td>
+					<td><span><a href="https://supernovaftm.site.xyz" target="_blank">🌐</a><a href="https://discord.com/invite/ekyU57Gq" target="_blank">🎮</a><a href="https://t.me/supernovaftm" target="_blank">✈</a><a href="https://vfat.tools/fantom/guru_lite2006" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming launchpad natives" id="LF_1010" onclick="window.location='1010'">
+					<td>SUN</td>
+					<td>SUN</td>
+					<td>?.????%</td>
+					<td>ftm.guru</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🌾🔒</td>
+					<td>1010</td>
+					<td><span><a href="https://sunfinance.site" target="_blank">🌐</a><a href="https://t.me/sunfinancelaunchpad" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><a href="https://vfat.tools/fantom/guru_lite1010" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming launchpad natives" id="LF_1011" onclick="window.location='1011'">
+					<td>SUN:FTM</td>
+					<td>SUN</td>
+					<td>?.????%</td>
+					<td>SpiritSwap</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🏜️🔒</td>
+					<td>1011</td>
+					<td><span><a href="https://sunfinance.site" target="_blank">🌐</a><a href="https://t.me/sunfinancelaunchpad" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><a href="https://vfat.tools/fantom/guru_lite1010" target="_blank">🇻</a></span></td>
+				</tr>
+				<tr class="sca farming launchpad natives" id="LF_2007" onclick="window.location='2007'">
+					<td>NOVA</td>
+					<td>SUN</td>
+					<td>?.????%</td>
+					<td>ftm.guru</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🏜️🔒</td>
+					<td>2007</td>
+					<td><span><a href="https://sunfinance.site" target="_blank">🌐</a><a href="https://t.me/sunfinancelaunchpad" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><!--<a href="https://vfat.tools/fantom/guru_lite2007" target="_blank">🇻</a>--></span></td>
+				</tr>
+				<tr class="sca farming launchpad natives" id="LF_1012" onclick="window.location='1012'">
+					<td>SUN</td>
+					<td>NOVA</td>
+					<td>?.????%</td>
+					<td>ftm.guru</td>
+					<td>?.????</td>
+					<td>2%</td>
+					<td>0.001337</td>
+					<td>?M?D?h?m?s</td>
+					<td>🏜️🔒</td>
+					<td>1012</td>
+					<td><span><a href="https://sunfinance.site" target="_blank">🌐</a><a href="https://t.me/sunfinancelaunchpad" target="_blank">✈</a><a href="https://twitter.com/ftm1337" target="_blank">🐦</a><!--<a href="https://vfat.tools/fantom/guru_lite1012" target="_blank">🇻</a>--></span></td>
+				</tr>
+				<!--
+				<td><span><a href="https://" target="_blank">🌐</a><a href="" target="_blank">🎮</a><a >✈</a><a >🐦</a><a >🐙</a></span></td>-->
+				<thead>
+					<tr><td colspan="9">🌐 = Website, 🐦 = Twitter, ✈ = Telegram, 🎮 = Discord, 🇻 = vfat.tools</td></tr>
+				</thead>
+			</table><br>
+		</div>
 	</div>
-	<div class="mainstage advert">
-		<a href="yieldstate"><div><b><span style="font-size:1.3em">YieldState</span></b><br><br>
-		<b>YieldState</b> presents the "Core" liquidity providers of ELITE the opportunity to generate a passive yield on top of the AMM volumetric returns.<br><br>
-		Stake ELITE-paired LP tokens in the YieldState to boost your Liquidity APYs using Spooky/Sushi.<br><br>
-		<button class="c2a">Enter YieldState</button></div></a>
-	</div>
-	<div class="mainstage">
-		<a href="apelist"><div><b><span style="font-size:1.3em">Ape List</span></b><br><br>
-		<b>The Ape List</b> scans the Fantom Opera for latest markets created on its DEXes and brings the Elites an overview of the most recent Tokens created.<br><br>Essentially a Coal field studded with rare Diamonds, The Ape-List brings a plateful of opportunities and risks alike!<br><br>
-		<button class="c2a">Explore Top-6 Dexes</button></div></a>
-	</div>
-	<div class="mainstage">
-		<a href="approver"><div><b><span style="font-size:1.3em">The Airdropper</span></b><br><br>
-		<b>The Airdropper</b> tool can help you to distribute Tokens effortlessly and within 2-seconds, thanks to the Faassst speed of Fantom Opera.<br><br>All tokens are supported, including fee-on-Transfer, reflective, rebasing, baby, auto-LP, etc. other exotic De-Fi tokenomic assets.<br><br>
-		<button class="c2a">Airdropper</button></div></a>
-	</div>
-	<div class="mainstage advert">
-		<a href="LF/index.html"><div><b><span style="font-size:1.3em">👽Farmlands</span></b><br><br>
-		<b>[LITE] Farmlands</b> enable any user to start their own farms and set their own conditions, including the Farmed asset, the Reward asset, the Duration and the Annual Percentage Returns. Active since June of 2021, our platform has amassed hundereds of thousands $ in TVL! Join our Farm-Maker program today to create your own Field on our Farmland!<br><br>
-		<!--<i>The upcoming version will make this process permissionless and be integrated with our IPFS-based user-interface.</i>-->
-		<button class="c2a">Explore Yield platforms</button></div></a>
-	</div>
-	<div class="mainstage">
-		<a href="approver"><div><b><span style="font-size:1.3em">The Approver</span></b><br><br>
-		<b>The Approver</b> tool enables everyone to create allowance, edit or modify spending limits, grant infinite permissions or Revoke any of these easily.<br><br>Two intuitive functions, "Soft Approve" and "Hard Approve" make editing allowances on Smart Contracts a lot quicker and comfortable, even for Mobile users.<br><br>
-		<button class="c2a">Approval Tool</button></div></a>
-	</div>
-	<div class="mainstage">
-		<a href="elite"><div><b><span style="font-size:1.3em">ELITE Token</span></b><br><br>
-		<b>The ELITE</b> Token is the access pass for ftm.guru's premium services.<br><br>A concept called "Eliteness" dictates elibility to use some of our decentralized apps. Holding ELITE unlocks our tiered services and grants holders exciting perks with our partner-platforms as well.<br><br>
-		ELITE token has a highly limited supply of 250 tokens and is an extremely scrace resource.<br><br>
-		<button class="c2a">Explore ELITE</button><br></div></a>
-	</div>
-	<div class="mainstage advert">
-		<a href="xelite"><div><b><span style="font-size:1.3em">The XELITE</span></b><br><br>
-		<b>The xELITE</b> is an interest-bearing, over-collateralized form of ELITE. In contrast, it is abundant in fungibility and yet envelopes all the qualities of its underlying.<br><br> XELITE introduces a novel approach that enables a unique kind of Yield farming - "Parallel Farming", enabling a single asset to participate in multiple yield farming opportunities together at once.<br><br>
-		<button class="c2a">Mint XELITE</button></div></a>
-	</div>
-	<div class="mainstage">
-		<a href="nftdrop"><div><b><span style="font-size:1.3em">NFT Airdrop Tool</span></b><br><br>
-		Want to send NFTs as an airdrop to your loyal supporters or simply distribute your creative Non-Fungible tokens to a wider audience? Bulk send ERC-721 NFT tokens to multiple addresses in a single transaction with the ELITE Distributor. Say Goodbye to the hassle of manually sending NFTs one by one. Upload <u>upto 150 Fantom Opera addresses</u> at a time and spread NFTs by custom TokenIDs to your patrons!<br><br>
-		<button class="c2a">Send NFTs</button></div></a>
-	</div>
-	<!--<div class="mainstage">
-		<a href="delite.html"><div><h3>dELITE : Dark ELITE</h3>
-		Introducing: The Dark Elites - A special token backed 1:1 by FTM.
-		<br><br>
-		<b>What can dELITE do?</b><br>
-		Dark Elite are psuedonomous tokens, that break free from today's greater chain-analysis tools. dELITE are harder to trace than other regular cryprocurrency tokens using simple block-explorers, masking your Fantom transactions away from prying normies. <b>Learn more.</b></div></a>
-	</div>-->
+</div>
+<div id="toparea">Featured DEX<br>
+	<a href="https://swap.shibafantom.finance/#/swap?inputCurrency=FTM&outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882"><img src="../img/ss.svg" width="250px"></a><br>Make your Farm today!
 </div>
 <br>
 <br>
+<br>
+<div id="faq">
+<h3>Frequently Asked Questions</h3>
+<hr class="hhr">
+<h4>When can we claim rewards?</h4>
+Rewards accrue each 3 seconds (Opera block time) and are available for claiming instantly. Each deposit and withdraw harvests your crops automatically and sendsthem to your wallet directly.
+<h4>Are the deposits locked?</h4>
+Deposits can be withdrawn at any time from our regular farms. Special farms (currently none) can havea pre-defined lockup period. Such farms will be marked with a 🔒 ("Lock Icon").
+
+
+<h4>What is Eliteness?</h4>
+To farm on the LITE Farmlands, farmers are required to hold a certain minimum amount of ELITE token on Fantom Opera Blockchain.<br>
+
+<h4>Where can we buy ELITE?</h4>
+Discover the best place to Buy ELITE at our <a href="../elite" target="_blank">ELITE market data & analytics</a> page.
+
+
+<h4>How long does a farm last?</h4>
+Fields on our LITE Farmlands last forever. Rewards last as long as the community decides to keep funding. Top-ups can be made regularly after a farm dries up to start a new season by anyone. There will be a countdown timer reflecting the same at each farm. This duration is specified by the tenants when they first occupy their fields.<br>
+
+<h4>Which tokens & DEX do Farmlands support?</h4>
+We support all DEXes. We support all tokens that implement the standard ERC20 functions. We support single sided staking too.<br>
+</div>
+<div id="lowarea" style="padding:15px; font-size:0.9em">
+<h4>How to create a new Farm?</h4>
+Did you just launch a Token Pair on your favorite DEX and are looking to set up a farm for free? Head over to our <a href="https://t.me/FTm1337" target="_blank">telegram</a> and type /newFarm to begin the adventure!</div>
+<div id="disclaimer" style="padding:15px; font-size:0.8em">
+<h4>Disclaimer!</h4>
+Anyone can request a farm for free. FTM.guru merely provides a platform to host your farm under its Farm-Maker program. Listings are in no manner an endorsement. We do not run background checks and the onus of due dilligence lies on the end-user, you. 99.7% of all projects are scams, rugs, slow-rugs, honeypots or outright lies. Please exercise extreme caution while dealing with smart contracts and crypto assets. We don not take any listing fees for this program and never DM you for personal information or keys.
+</div>
 
 <br>
 <br>
-<div class="mainpanels">
-	<div class="mainpanel" align="center">
-<br>
-<br>
-		<br>
-		<span style="font-size:1.3em">[FTM Tools & Analytics]</span><br>
-		<a href="https://t.me/FTM1337"><img width="256px" src="img/ftm1337.jpg"></a>
-		<br><br>Discover the shiniest of Gems from the Fantom Opera blockchain and ease your research efforts with FTM.guru<br><br>
-		<div align="center" class="hovli">
-			<h2>The Road so far..</h2>
-			<h3>Fantom Utilities by FTM.guru</h3>
-			<ul style="text-align:left;padding-left:25%">
-			<li><a href=".">Hot FTM Tokens (On-chain voting)</a></li>
-			<li><a href="pair.html">Multi-DEX Pair Explorer</a></li>
-			<li><a href="fantomscan.html">FantomScan</a></li>
-			<li><a href="fantomscan.html">Token Spending & Allowance Checker</a></li>
-			<li><a href="pair.html">A.M.M. Depth Monitor</a></li>
-			<li><a href="fantomscan.html">Pending Transaction Finder</a></li>
-			<li><a href="fantomscan.html">Live Gas Prices</a></li>
-			<li><a href="fantomscan.html">Transaction Cost Estimator</a></li>
-			<li><a href="fmc.html">FantomMarketCap (FMC.guru)</a></li>
-			<li><a href="yieldstate/index.html">ELITE Farms (YieldState)</a></li>
-			<li><a href="pair.html">Pool Explorer</a></li>
-			<li><a href="approver.html">Allowance Revoker Tool</a></li>
-			<li><a href="LF/1.html">LITE Farmlands👽</a></li>
-			<li><a href="casino.html">Casino & Games</a></li>
-			<li><a href="airdrop.html">Airdrop Tool</a></li>
-			<li><a href="bo/index.html">Binary Options Platform</a></li>
-			<li><a href="xelite.html">Earn interest on ELITE</a></li>
-			</ul>
-			<h3>Coming Soon…</h3>
-			<ul style="text-align:left;padding-left:25%">
-			<li><a>The Granary: Vault Workers</a></li>
-			<li><a>eNFT : Index-Funds-as-a-NFT</a></li>
-			<li><a>NFT Airdrop Tool</a></li>
-			<li>Token Locker Service</li>
-			<li>Elite DEX Aggregator</li>
-			<li>E.L.I.T.E. D.A.O.</li>
-			<li>Token Liquidity Finder</li>
-			<li>Pending Txn. Cancellations</li>
-			<li>Permissonless Farmlands👽</li>
-			</ul>
-			...and much more!
-		</div>
-		<br><br>
-	</div>
-	<div class="mainpanel" align="center">
-<br>
-<br>
-		<b><span style="font-size:1.3em">Top 10 Fantom Gems</span></b><br>
-		(Votes etched on Fantom blockchain)<br>
-		Unvetted & Not Financial Advice
-		<div id="mvg">
-		</div>
-		<br><br>
-	<!--
-	You hold <span id="eb">?</span> ELITE.<br>
-	Total Ownership : <span id="ebop">?</span>%<br>
-	Net Worth: <span id="ebnw">?</span> FTM.<br><br>
-	-->
-	</div>
-</div>
-<div class="mainpanel" style="display:block;">
-	<div class="mainpanels" style="display:block;width:calc(max(80%,255px));margin:auto">
-		<div id="votingmvg" style="padding: 10px" align="center">
-			<button style="font-size: 1.5em" id="cw" onclick="cw()">Connect Wallet</button><br>
-			<br><b>Vote for your fave tokens now!</b><br><br>
-			<input id="mvgcandidate" placeholder=" FTM Contract address"><br>
-			<button id="votemvg" onclick="mvgCV()"> ▶</button><br><br>
-			<span id="mvgmsg"></span><br>
-			<hr><br>
-			<i>Voting consumes .oo1337 ELITE tokens, which are burned subsequently.</i>
-			<br><br>
-			Brief explainer:
-			<div class="olsa">
-			<div class="ols"></div>
-			<div class="ols">
-			<ol style="text-align:left;">
-			<li>Input the contract address of your preferred token.</li>
-			<li>Approve <b>EliteVoting</b> contract to spend your ELITE.</li>
-			<li>Sign the Voting transaction in your Metamask wallet.</li>
-			</ol>
-			</div>
-			<div class="ols"></div>
-			</div>
-			<i>Voting pushes the Voted Token to the top of the Elite list.</i>
-		</div>
-	</div>
-<br>
-<br>
-</div>
-<br>
-<br>
-<br>
-<br>
-<h2 align="center">Gam(bl)ing Department 🎰</h2>
-<br>
-<br>
-<div class="mainstages" align="center">
-<div class="mainstage">
-		<a href="casino.html"><div><b><span style="font-size:1.3em">El Casino: <b>De</b>gen <b>Gam</b>es</span></b><br><br>
-		<b>The DeGam Casino</b> offers two simple games to triple your FTM coins. This 3-player indulgence selects a random winner from the three participants and rewards them with 3x their deposit.<br><br>This game is available on Telegram too using the @Fantom_Tip_bot to place the wagers, being the First-of-its-Kind on Fantom Opera.<br><br>While playing this game of chance, don't forget to wear your lucky socks!<br><br>
-		<button class="c2a">Hit the Casino</button></div></a>
-	</div>
-	<div class="mainstage">
-		<a href="https://kcc.guru" target="_blank"><div><b><span style="font-size:1.3em">KUCINO on Kucoin Chain</span></b><br><br>
-		<b>The Kucino Project</b> is the development arm of the DeGam and runs autonomously, independent of the ftm.guru project. It is part of the Guru Network that spans multiple chains.<br><br>The KUCINO are the in-game "chips" for accessing the Kucino Casino. On the tokenomics front, holders of KUCINO earn both KCS & KUCINO everyday due a sophisticated De-Fi strategy.<br><br>
-		<button class="c2a">🎰 Check it out!</button></div></a>
-		</div></a>
-	</div>
-</div>
-<div class="mainstage" align="center" style="font-size:1.2em;padding:0">
-	<div class="mte uo" align="center">
-		<br>
-		<b><span style="font-size:1.25em;">DeGam Casino x Kucino Casino</span>
-		<br>
-		<i>Decentralizd gaming platform on Fantom Opera & Kucoin Chain.</i><br>
-		<br>Fair & Secure
-		<br>100% Decentralized
-		<br>10+ innovative Games
-		<br>Played 1000s of Times
-		<br>Round-the-Clock, 1440x365
-		<br>Full On-chain Game History
-		<br>Real-Time Leaderboard
-		</b>
-		<br><br>
-	</div><!--
-	<a href="cointoss_1.html"><div class="tile et">
-		<div style="font-size:2em;color:"><i>Single-Player CoinToss,<b> Double or Nothing!</b></i></div>
-		<div style="font-size:1.25em;color:">Stake 0.01 KCS to our Smart Contract and get back 2x 0.01 = 0.02 KCS on winning! Be careful, a coin has two sides!<br><i>(Pot Limit : 0.02 KCS)</i></div>
-	</div></a>
-	<a href="jackpot_1.html"><div class="tile ot">
-		<div style="font-size:2em;color:"><i>2-player Jackpot,<b> Doubles your KCS!</b></i></div>
-		<div style="font-size:1.25em;color:">Bet against a friend or a random online player, one-on-one, for a chance to beat your opponent and Double your bet! <br><i>(Pot Limit : 0.11 KCS)</i></div>
-	</div></a>
-	<a href="instalotto.html"><div class="tile et">
-		<div style="font-size:2em;color:"><i>The instaLOTTO, <b>on-demand winners!</b></i></div>
-		<div style="font-size:1.25em;color:">A competetive game of Lotto where any number of players can buy unlimited tickets for just 0.01 KCS. Winning ticket is drawn on-demand: totally permissionless, and the winner takes home the entire Raise!
-		<br><i>(Pot Limit : Unlimited)</i></div>
-	</div></a>
-	<a href="21hrlotto.html"><div class="tile ot">
-		<div style="font-size:2em;color:"><i>21-hour Lotto, <b>Win KCS everyday!</b></i></div>
-		<div style="font-size:1.25em;color:">This special Daily can be contested by purchaing an entry ticket for 0.01 KCS. Winning ticket can be drawn only after a minimum of 21hrs being elapsesd after the first entry. Permissionles, decentralized and even smart contracts can play it as a yield strategy!
-		<br><i>(Pot Limit: 777 KCS)</i></div>
-	</div></a>-->
-	<br>
-	<div>
-		<div class="oc">
-			<div class="container">
-				<div class="card" onclick="window.location='https://ftm.guru/coinflip_1.html'">
-    				<h3 class="title">FTM Coin-Flip</h3>
-    				<div class="bar">
-      					<div class="emptybar"></div>
-      					<div class="filledbar"></div>
-    				</div>
-    				<div>
-      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      					<circle class="stroke" cx="20" cy="20" r="10"/>
-    					</svg>
-    					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">.1 FTM</span><br><br>
-    					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">.2 FTM</span>
-    					<br><br><br>
-    				</div>
-  				</div>
-				<div class="card" onclick="window.location='https://ftm.guru/degam.html'">
-    				<h3 class="title">Mini Jackpot</h3>
-    				<div class="bar">
-      					<div class="emptybar"></div>
-      					<div class="filledbar"></div>
-    				</div>
-    				<div>
-      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      					<circle class="stroke" cx="20" cy="20" r="10"/>
-    					</svg>
-    					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">1.337 FTM</span><br><br>
-    					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">4.011 FTM</span>
-    					<br><br><br>
-    				</div>
-  				</div>
-				<div class="card" onclick="window.location='https://ftm.guru/coinflip_1.html'">
-    				<h3 class="title">Micro Jackpot</h3>
-    				<div class="bar">
-      					<div class="emptybar"></div>
-      					<div class="filledbar"></div>
-    				</div>
-    				<div>
-      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      					<circle class="stroke" cx="20" cy="20" r="10"/>
-    					</svg>
-    					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">.1337 FTM</span><br><br>
-    					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">.4011 FTM</span>
-    					<br><br><br>
-    				</div>
-  				</div>
-				<div class="card" onclick="window.location='https://kcc.guru/jackpot_1.html'">
-    				<h3 class="title">PvP Jackpot</h3>
-    				<div class="bar">
-      					<div class="emptybar"></div>
-      					<div class="filledbar"></div>
-    				</div>
-    				<div>
-      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      					<circle class="stroke" cx="20" cy="20" r="10"/>
-    					</svg>
-    					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">.01 KCS</span><br><br>
-    					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">.02 KCS</span>
-    					<br><br><br>
-    				</div>
-  				</div>
-  				<div class="card" onclick="window.location='https://kcc.guru/instalotto.html'">
-    				<h3 class="title">instaLOTTO</h3>
-    				<div class="bar">
-      					<div class="emptybar"></div>
-      					<div class="filledbar"></div>
-    				</div>
-    				<div>
-      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      					<circle class="stroke" cx="20" cy="20" r="10"/>
-    					</svg>
-    					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">.01 KCS</span><br><br>
-    					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">∞x KCS*</span>
-    					<br><i>*No Limits</i><br><br>
-    				</div>
-  				</div>
-  				<div class="card" onclick="window.location='https://kcc.guru/casino'">
-    				<h3 class="title">21-hour Lotto</h3>
-    				<div class="bar">
-      					<div class="emptybar"></div>
-      					<div class="filledbar"></div>
-    				</div>
-    				<div>
-      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      					<circle class="stroke" cx="20" cy="20" r="10"/>
-    					</svg>
-    					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">.01 KCS</span><br><br>
-    					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">∞x KCS*</span>
-    					<br><i>*No Limits</i><br><br>
-    				</div>
-  				</div>
-  				<div class="card" onclick="window.location='https://kcc.guru/cointoss_1.html'">
-    				<h3 class="title">KCS Coin-Flip</h3>
-    				<div class="bar">
-      					<div class="emptybar"></div>
-      					<div class="filledbar"></div>
-    				</div>
-    				<div>
-      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      					<circle class="stroke" cx="20" cy="20" r="10"/>
-    					</svg>
-    					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">.01 KCS</span><br>
-    					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">.02 KCS</span>
-    					<br><br><br>
-    				</div>
-  				</div>
-  				<div class="card" onclick="window.location='https://kcc.guru/cointoss_2.html'">
-    				<h3 class="title">1000 KUD Flipper</h3>
-    				<div class="bar">
-      					<div class="emptybar"></div>
-      					<div class="filledbar"></div>
-    				</div>
-    				<div>
-      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      					<circle class="stroke" cx="20" cy="20" r="10"/>
-    					</svg>
-    					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">1000 KUD</span><br>
-    					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">2000 KUD</span>
-    					<br><br><br>
-    				</div>
-  				</div>
-  				<div class="card" onclick="window.location='https://kcc.guru/cointoss_3.html'">
-    				<h3 class="title">The TIKU-Toss</h3>
-    				<div class="bar">
-      					<div class="emptybar"></div>
-      					<div class="filledbar"></div>
-    				</div>
-    				<div>
-      					<svg class="circle" version="1.1" xmlns="http://www.w3.org/2000/svg">
-      					<circle class="stroke" cx="20" cy="20" r="10"/>
-    					</svg>
-    					<span style="font-size:">BET</span><br>
-    					<span style="font-size:1.5em">3000 TIKU</span><br>
-    					<span style="font-size:">EARN</span><br>
-    					<span style="font-size:1.5em">6000 TIKU</span>
-    					<br><br><br>
-    				</div>
-  				</div>
-			</div>
-		</div>
-		<div class="maincards">
-			<a href="cointoss_1.html">
-				<div class="maincard">
-				<span style="font-size:1.5em"><span class="gmul">2x</span> FTM Coin-Flip</span>
-				<hr>
-				<i>Classic Heads or Tails: Win 2x!<br>
-				Single-player & non-stop.<br>
-				Min. bet = o.1 FTM</i>
-				</div>
-			</a>
-			<a href="degam.html">
-				<div class="maincard">
-				<span style="font-size:1.5em"><span class="gmul">3x</span> Mini Jackpot</span>
-				<hr>
-				<i>Enter Jackpot, win 4 FTM!<br>
-				Played against 2 opponents.<br>
-				Min. bet = 1.337 FTM</i>
-				</div>
-			</a>
-			<a href="degam.html">
-				<div class="maincard">
-				<span style="font-size:1.5em"><span class="gmul">3x</span> Micro Jackpot</span>
-				<hr>
-				<i>Enter Jackpot, win .4 FTM!<br>
-				Played against 2 opponents.<br>
-				Min. bet = o.1337 FTM</i>
-				</div>
-			</a>
-		</div>
-	</div>
-	<br>
-	<div class="mte uo" align="center">
-	<br>
-	<i>More Games under active development!</i>
-	<br>
-	<br>
-	<div style="font-size:1.25em"><a href="https://kcc.guru/casino.html">Explore all titles ↗</a></div>
-	<br>
-	</div>
-</div>
-<br>
-<br>
 
-
-<div align="center" class="partners" style="">
-	<h2>Associates and Partners</h2>
-	<div>
-		<img src="img/zoo.png">
-		<img src="img/elk.svg">
-		<img src="img/spooky.sq.svg">
-		<img src="img/shiba.sq.svg">
-		<img src="img/nips.svg">
-	</div>
-	<h3>Official Listing Partners</h3>
-	<br><br>
-	<div>
-		<img src="img/fe.png">
-		<!--<img src="img/ck">-->
-	</div>
-	<h3>Official Charting Partners</h3>
-	<br><br>
-	<div>
-		<img src="img/nips.svg">
-		<!--<img src="img/wraith">-->
-	</div>
-	<h3>Official Farming Partners</h3>
-	<br><br>
-	<div>
-		<img src="img/band.svg">
-	</div>
-	<h3>Official Oracle Solution</h3>
-	<br><br>
-	<div>
-		<a href="https://fmc.guru" target="_blank"><img src="img/FMC.svg"></a>
-		<a href="https://coinmarketcap.com/currencies/elite-1337" target="_blank"><img src="img/cmc.svg"></a>
-		<a href="https://www.coingecko.com/en/coins/elite-1337" target="_blank"><img src="img/gecko.svg"></a>
-	</div>
-	<h3>Official Public Data</h3>
-	<br><br>
-</div>
-
-
-<br>
-<br>
-<div class="mainpanel" style="font-style:italic"" >You are viewing the legacy version of ftm.guru website. Band Protocol powered FTM/USD Binary Options Platform is soon going to be accesible only on the IPFS version after v1.0 due to jurisdictional regulations and restrictions. The DeGam Casino & Kucino Casino will be available over IPFS soon and later over ETH-DNS as well. Some other tools such as Liquidity Finder, x3 and EA are available on the newer version.  	A word of advice: ftm.guru is a complex project spanning dozens of smart-contracts and DApps. Please reach out on Twitter or Telegram [@FTM1337] for queries and latest information. Our community will be elated to provide assistance.</div>
-<br>
-<br>
 <div align="center" class="advert">
 <pre>Get $ELITE Tokens
 0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
@@ -731,7 +511,7 @@ svg {
 <hr><br><br>
 <div  class="topbar">
 	<div align="center">
-			<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><!--
+			<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br><!--
 			<a href="farmlands.html">LITE Farmlands👽</a>
 			<a href="index.html">FTM-Gems</a>
 			<a href="pair.html">DEX-Explorer</a>
@@ -744,9 +524,8 @@ svg {
 			<a href="apelist.html">Ape-List</a>
 			<a href="approver.html">Approver</a>
 			<a href="degam.html">CASINO✨</a>-->
-		<br><br>
 	<h3><a href="https://t.me/FTM1337">✈t.me/FTM1337<br>Come, Join us!</a></h3>
-	<i>Shoutout to ftmscan.com and rpc.ftm.tools for their benign Services!</i>
+	<i>Shoutout to vfat.tools, ftmscan & rpc.ftm.tools for their benign Services!</i>
 	</div>
 </div>
 <br><br>
@@ -765,7 +544,6 @@ svg {
 	</div>
 	<div class="lowercat">
 		<span><a href="https://kcc.guru/casino.html">Casino & Games</a></span><br>
-		<a href="https://kcc.guru/jackpot_1.html">2x KCS CoinToss</a><br>
 		<a href="https://kcc.guru/jackpot_1.html">2-player Jackpot</a><br>
 		<a href="https://kcc.guru/instalotto.html">instaLOTTO</a><br>
 		<a href="https://kcc.guru/21hrlotto.html">🎟 21-hour LOTTO</a>
@@ -778,8 +556,8 @@ svg {
 	</div>
 	<div align="left" class="lowercat">
 		<span>Our Dapps</span><br>
-		<a href="https://ftm.guru/casino.html">✨ FTM CASINO</a><br>
-		<a href="https://kcc.guru">🎰 KCS Kucino</a><br>
+		<a href="https://ftm.guru/degam.html">✨ FTM CASINO</a><br>
+		<a href="https://ftm.guru/degam.html">🎰 KCS Kucino</a><br>
 		<a href="https://ftm.guru/approver.html">✅ Approver</a><br>
 		<a href="https://ftm.guru/airdrop.html">Airdrop-Tool</a><br>
 	</div>
@@ -836,527 +614,115 @@ svg {
 	<div class="lowercat">
 	</div>
 </div>
-<script src="web3.min.js"></script>
+
+
 <script>
-k=0;
-ads=["0x1337","0xbabe","0xfeed","0xf00d","0xdead","0x70ad","0xb00b","0xfee1","0xac1d","0xdeca"];
-//console.log(ads);
-//for (i=0;i< ads.length;i++){fillmvg(i);}
-k=1;
-window.addEventListener('load',async function()
+trd=[];
+trd2=[];
+store=[];
+async function f1()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
-	else{web3 = new Web3("https://rpc.ftm.tools")}
-	MVG = new web3.eth.Contract(ab, scMVG);
-	EL = new web3.eth.Contract(ab1, scEL);
-	await MVG.methods.eliteView().call((e, r) =>{//ads=r;
-	//paintMVGs()
-	//fillmvg()
-	console.log(r)
-	fillmvg(r);
-	});
-}, false);
-ab1=
-[
-	{
-	"constant": true,
-	"inputs": [
-		{
-		"internalType": "address",
-		"name": "",
-		"type": "address"
-		},
-		{
-		"internalType": "address",
-		"name": "",
-		"type": "address"
-		}
-	],
-	"name": "allowance",
-	"outputs": [
-		{
-		"internalType": "uint256",
-		"name": "",
-		"type": "uint256"
-		}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": false,
-	"inputs": [
-		{
-		"internalType": "address",
-		"name": "spender",
-		"type": "address"
-		},
-		{
-		"internalType": "uint256",
-		"name": "value",
-		"type": "uint256"
-		}
-	],
-	"name": "approve",
-	"outputs": [
-		{
-		"internalType": "bool",
-		"name": "",
-		"type": "bool"
-		}
-	],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "guy",
-				"type": "address"
-			}
-		],
-		"name": "approve",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [
-		{
-		"internalType": "address",
-		"name": "",
-		"type": "address"
-		}
-	],
-	"name": "balanceOf",
-	"outputs": [
-		{
-		"internalType": "uint256",
-		"name": "",
-		"type": "uint256"
-		}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "decimals",
-	"outputs": [
-		{
-		"internalType": "uint8",
-		"name": "",
-		"type": "uint8"
-		}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "factory",
-	"outputs": [
-		{
-		"internalType": "address",
-		"name": "",
-		"type": "address"
-		}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "getReserves",
-	"outputs": [
-		{
-		"internalType": "uint112",
-		"name": "_reserve0",
-		"type": "uint112"
-		},
-		{
-		"internalType": "uint112",
-		"name": "_reserve1",
-		"type": "uint112"
-		},
-		{
-		"internalType": "uint32",
-		"name": "_blockTimestampLast",
-		"type": "uint32"
-		}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": false,
-	"inputs": [
-		{
-		"internalType": "address",
-		"name": "_token0",
-		"type": "address"
-		},
-		{
-		"internalType": "address",
-		"name": "_token1",
-		"type": "address"
-		}
-	],
-	"name": "initialize",
-	"outputs": [],
-	"payable": false,
-	"stateMutability": "nonpayable",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "symbol",
-	"outputs": [
-		{
-		"internalType": "string",
-		"name": "",
-		"type": "string"
-		}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-	"constant": true,
-	"inputs": [],
-	"name": "name",
-	"outputs": [
-		{
-		"internalType": "string",
-		"name": "",
-		"type": "string"
-		}
-	],
-	"payable": false,
-	"stateMutability": "view",
-	"type": "function"
-	},
-	{
-		"constant": true,
-		"inputs": [],
-		"name": "totalSupply",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"payable": false,
-		"stateMutability": "view",
-		"type": "function"
-	}
-];
-function prefind(ta)
-{
-	if(!(ta.length==42)){lo.innerHTML="Recheck address";return(0);}
-	if(!(Number(ta))){lo.innerHTML="Recheck address";return(0);}
-	window.open((window.location.toString()+"pair?p="+ta),"_self");
+	await fetch("https://ftm.guru/LF/tvl.json")
+		.then(dd=>{return dd.json()})
+		.then(dm=>{trd=dm;store=dm;f2(trd);})
 }
-async function cw()
+async function f2(d)
 {
-	if(!(Number(window.ethereum.chainId)==250)){$("mvgmsg").innerHTML="Wrong network detected.";return(0)}
-	await window.ethereum.enable();
-	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,6) +"..."+(window.ethereum.selectedAddress).substr(38) + " connected.";
-}
-async function mvgCV()
-{
-	await window.ethereum.enable();
-	var allowance = 0;
-	await EL.methods.allowance(window.ethereum.selectedAddress,scMVG).call((e,r)=>{allowance = r})
-	if (allowance < 1337e13)
+	$("gs_t_f").innerHTML=(trd[0][2]>1)?
+		`<span style="font-size:1.5em"> ${(trd[0][1]*trd[0][2]).toLocaleString()}</span>+ USD`:
+		`<span style="font-size:1.5em"> ${(trd[0][1]).toLocaleString()}</span>+ FTM`;
+	$("gs_p").innerHTML=Object.keys(trd[0][3]).length;
+	tf=trd[d.length-1][0];
+	ti=trd[0][0];
+	tl=ti-tf;
+	trd2=trd;
+	vmax=0;
+	for(i=0;i< store.length;i++)
 	{
-		await EL.methods.approve(scMVG).send({from:window.ethereum.selectedAddress},(e,r)=>{$("mvgmsg").innerHTML=("EliteGems: Approval Tx =",r);})
+		if(trd[i][1]>vmax){vmax=trd[i][1]}
+		if(trd[i][1]*trd[i][2]>vmax){vmax=trd[i][1]*trd[i][2]}
 	}
-	console.log("allowance of ",scMVG," at ",window.ethereum.selectedAddress," is ",allowance/1e18);
-	candi=$("mvgcandidate").value;
-	if(!(candi.length==42)){$("mvgmsg").innerHTML="Improper address length";return(0);}
-	if(!(Number(candi))){$("mvgmsg").innerHTML="Improper address digits";return(0);}
-	candi=web3.utils.toChecksumAddress(candi);
-	await MVG.methods.castVote(candi).send({from:window.ethereum.selectedAddress},(e,r)=>{console.log("scMVG Voting Tx:\nCandidate:",candi,"\nReturned:",r);$("mvgmsg").innerHTML="<br>Voted for" +candi+".<br>Please refresh the page after voting transaction is confirmed.<br>If this was the first time you voted, make sure you made two transactions:<br> 1. Approval & 2. Vote.<br>Once approved, you can vote as many times.<hr>Thank you for keeping the EliteGems Hotlist hot🔥"})
-}
-ab=[
+	for(i=0;i< store.length;i++)
 	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_E",
-				"type": "address"
-			},
-			{
-				"internalType": "uint256",
-				"name": "_B",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "constructor"
-	},
-	{
-		"inputs": [],
-		"name": "Elite",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "Guru",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "tokenAddress",
-				"type": "address"
-			}
-		],
-		"name": "castVote",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_a",
-				"type": "address"
-			}
-		],
-		"name": "checkPosition",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "_i",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "eliteBurn",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [],
-		"name": "eliteView",
-		"outputs": [
-			{
-				"internalType": "address[10]",
-				"name": "",
-				"type": "address[10]"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "_e",
-				"type": "address"
-			}
-		],
-		"name": "setElite",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "_a",
-				"type": "uint256"
-			}
-		],
-		"name": "setEliteBurn",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"name": "topElite",
-		"outputs": [
-			{
-				"internalType": "address",
-				"name": "",
-				"type": "address"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "src",
-				"type": "address"
-			},
-			{
-				"internalType": "address",
-				"name": "guy",
-				"type": "address"
-			}
-		],
-		"name": "allowance",
-		"outputs": [
-			{
-				"internalType": "uint256",
-				"name": "",
-				"type": "uint256"
-			}
-		],
-		"stateMutability": "view",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "guy",
-				"type": "address"
-			}
-		],
-		"name": "approve",
-		"outputs": [
-			{
-				"internalType": "bool",
-				"name": "",
-				"type": "bool"
-			}
-		],
-		"stateMutability": "nonpayable",
-		"type": "function"
+		trd2[i][0]=(trd[i][0]-tf)/tl*100;
+		trd2[i][1]=trd[i][1]/vmax*100;
+		trd2[i][2]=store[i][1]*store[i][2];
 	}
-];
-scEL="0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882";
-scMVG="0x17B0dC3bc9DE37B5137e1B0087B2EA2cfB16f0Dc";
-function $(_){return document.getElementById(_)}
-
-//default onload stuff
-
-async function fillmvg(aaa)
-{
-	ads=aaa;
-	for (i=0;i<10;i++){
-	var d=document.createElement('div');
-	var a=document.createElement('pre');
-	var n=document.createElement('b');
-	var s=document.createElement('b');
-	var e=document.createElement('a');
-	var t=document.createElement('a');
-	var ts=document.createElement('i');
-	var b=document.createElement('hr');
-	a.textContent=ads[i];
-	if(k)
+	var fline= document.getElementById('pl_t_f');
+	var uline= document.getElementById('pl_t_u');
+  	var fpoints = fline.getAttribute('points');
+  	var upoints = uline.getAttribute('points');
+	fpoints ="-1010 99,"
+	upoints ="-1010 99,"
+	for(i= trd.length-1;i>-1;i--)
 	{
-		C= new web3.eth.Contract(ab1,ads[i]);
-		N=await C.methods.name().call((e,r)=>{return(r)});
-		n.innerHTML = (i+1)+". "+N;
-		S=await C.methods.symbol().call((e,r)=>{return(r)});
-		s.innerHTML = " "+S+"<br>";
-		T=await C.methods.totalSupply().call((e,r)=>{return(r)});
-		try{
-			D=await C.methods.decimals().call((e,r)=>{return(r)});
-		}
-		catch(e)
-		{
-			D=0;
-		}
-		ts.innerHTML=fornum(T,D);
+		fpoints+=`${trd2[i][0]} ${100-trd2[i][1]},`;
+		upoints+=`${trd2[i][0]} ${100-trd2[i][2]},`;
 	}
-	else
-	{
-		n.textContent=(ads[i]).substr(0,18);
-		s.innerHTML="("+(ads[i]).substr(2,3)+")<br>";
-	}
-	e.innerHTML=`<a target="_blank" href="https://ftmscan.com/token/${ads[i]}"><button>Scan</button></a> `;
-	//c.innerHTML=`<a target="_blank" href="https://charts-spirit.zoocoin.cashswap.finance/#/swap?outputCurrency=${ads[i]}"><button>Chart</buttton></a>`;
-	t.innerHTML=ads[i]=="0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"?`<a target="_blank" href="https://app.sushi.com/#/swap?outputCurreny=0xf43cc235e686d7bc513f53fbffb61f760c3a1882"><button>Trade</buttton></a>`:`<a target="_blank" href="https://swap.spiritswap.finance/#/swap?outputCurrency=${ads[i]}"><button>Trade</buttton></a>`;
-	d.append(b);
-	d.append(n);
-	d.append(a);
-	d.append(ts);
-	d.append(s);
-	d.append(e);
-	d.append(t);
-	p=$("mvg");
-	p.append(d);
-	}
-}
-function fornum(n,d)
-{
-	_n=(Number(n)/10**Number(d));
-	n_=_n;
-	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Quintillion"}
-	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Quadrillion"}
-	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Trillion"}
-	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Billion"}
-	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
-	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
-	else if(_n>1){n_=(_n/1e0).toFixed(2)+""}
-	return(n_);
+	fpoints+="1010,101"
+	upoints+="1010,101"
+	fline.setAttribute('points', fpoints );
+	uline.setAttribute('points', upoints );
+	//da
+	$("pl_t_f_l").setAttribute('points',`0 ${100-trd2[0][1]}, 100 ${100-trd2[0][1]}`);
+	$("pl_t_u_l").setAttribute('points',`0 ${100-trd2[0][2]}, 100 ${100-trd2[0][2]}`);
+	//date
+	//dstr = (tm) => {dt0=new Date(tf+tl*tm); return ((Zdt0.getDate()+1)+"."+(dt0.getUTCMonth()+1)+"."+dt0.getUTCYear())}
+	$("ctl1").innerHTML = (new Date(tf+tl*.1)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl2").innerHTML = (new Date(tf+tl*.3)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl3").innerHTML = (new Date(tf+tl*.5)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl4").innerHTML = (new Date(tf+tl*.7)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctl5").innerHTML = (new Date(tf+tl*.9)).toDateString().substr(4).replace(" ","-").split(" ")[0];
+	$("ctv1").innerHTML = (vmax/1000*0.95).toFixed(0)+"k";
+	$("ctv2").innerHTML = (vmax/1000*0.80).toFixed(0)+"k";
+	$("ctv3").innerHTML = (vmax/1000*0.65).toFixed(0)+"k";
+	$("ctv4").innerHTML = (vmax/1000*0.50).toFixed(0)+"k";
+	$("ctv5").innerHTML = (vmax/1000*0.35).toFixed(0)+"k";
+	$("ctv6").innerHTML = (vmax/1000*0.20).toFixed(0)+"k";
+//	$("ctv7").innerHTML = (vmax/1000*0.05).toFixed(0)+"k";
 }
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
+f1()
+function sortit(n) {
+  var t, r, z, i, x, y, v, b, c = 0;
+  t = document.getElementById("maintable").getElementsByTagName("tbody")[0];
+  z = true;
+  b = "a";
+  while (z) {
+    z = false;
+    r = t.rows;
+    for (i = 0; i < (r.length - 1); i++) {
+      v = false;
+      x = (r[i].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
+      y = (r[i + 1].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(y)){y=Number(y)}else{y=y.toLowerCase()}
+      if (b == "a") {
+        if ((x) > (y)) {
+          v= true;
+          break;
+        }
+      } else if (b == "d") {
+        if ((x) < (y)) {
+          v = true;
+          break;
+        }
+      }
+    }
+    if (v) {
+      r[i].parentNode.insertBefore(r[i + 1], r[i]);
+      z = true;
+      c ++;
+    } else {
+      if (c == 0 && b == "a") {
+        b = "d";
+        z = true;
+      }
+    }
+  }
+    var t, r, z, i, x, y, v, b, c = 0;
+}
+function $(_) {return document.getElementById(_);}
+
 </script>
 </html>
