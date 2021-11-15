@@ -1,0 +1,1461 @@
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>ELITE : FTM.guru | FTM1337</title>
+<meta name="description" content="ELITE | FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting.">
+<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="shortcut icon" href="img/ftm1337.jpg" />
+<style>
+* {
+	color:#e3e9f2;
+	overflow-wrap:break-word;
+}
+a{text-decoration-line:none;padding:0 2px}
+*{text-shadow:10px 10px 5px black;color:#e3e9f2}
+html{background:radial-gradient(circle at center,#071430 ,#020611);color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;}
+.mainpanel,.mainstage{background: rgba(15,15,31,0.5);}
+*{text-shadow:6px 6px 5px black;color:#e3e9f2}
+input,button{border-radius:25px;background:black;text-align:center}
+button:hover{	box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
+pre{overflow-x:auto;max-width:80%}
+.mainpanels,.mainpanels2,.mainpanels3,.mainpanels4{display:grid}
+.mainpanel{padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;grid-template-columns:auto;}
+.mainpanel button{font-size: 1em}
+hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
+.lpapr{text-shadow: rgba(0,255,255,1) 0px 0px 10px;color:aqua;font-size:2em}
+.farmable{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25))}
+.gotofarm{display: grid;grid-template-columns: auto auto;
+	padding:0 0 0 5px;margin:2px -15px 2px -5px;
+	border-radius:15px;background:linear-gradient(to left, rgba(0,0,0,1) 10%, transparent 90%);
+	max-width:300px;}
+.gotofarm div:nth-child(2){font-weight:bolder;font-family: 'Courier New', "Lucida Console", Monaco,"FreeMono","Andale Mono", monospace;}
+.advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
+.lowercat {text-align: left;padding:10px}
+.lowercat a{text-decoration-line: none}
+.lowercat span{font-size: 1.25em; font-weight:bold}
+.lowerbar{display: grid;grid-template-columns: auto;text-align:center}
+
+.centerstage{overflow: auto}
+
+thead{line-height: }
+td a{text-decoration-line: none}
+tbody tr:hover{cursor:  zoom-in;background: rgba(0,255,255,0.25)}
+table td{padding: 0 5px;min-width:max-content;width:max-content;}
+table{width:max-content;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;margin:5%;border-radius: 15px;border:aqua 2px solid;text-align:center}
+td button{padding: 0;margin: 0;width: 20px;height: 20px}
+.liqdis .mainpanel{padding-bottom: 8px;padding-top: 8px;}
+.donut{width: 256px}
+.p1td{display: grid;grid-template-columns:auto}
+#consmark{margin: auto}
+.p1td div{margin:auto;width:90vw}
+@media(min-width:641px){
+	.mainpanels{grid-template-columns:auto auto auto}
+	.liqdis{grid-template-columns:auto auto}
+	.mainpanels2{grid-template-columns: auto auto auto auto}
+	.mainpanels3{grid-template-columns: auto 40% 40% auto}
+	.mainpanels4{grid-template-columns: auto auto auto}
+	.hhr{width:555px}
+	.lowerbar{display: grid;grid-template-columns: auto auto auto auto;text-align:center}
+	.p1td{grid-template-columns:auto auto;}
+	.p1td div{margin:auto;width:40vw}
+	.donut{width: 360px}
+}
+@media(min-width:800px){
+		.liqdis{grid-template-columns:auto auto auto !important;}
+}
+#c2a{
+	display: grid;
+	grid-template-columns: auto;
+}
+.c2a{
+	border: 2px solid ;
+	width:220px;
+	margin: auto;
+	padding:5px;
+	margin: 5px auto;
+	background: rgba(0,255,255,0.2);
+	border-radius: 10px;
+	cursor:  grab;
+}
+.c2a:hover{box-shadow: rgba(0,255,195,0.2) 0px 0px 10px 10px;}
+@media(min-width:641px){
+	#c2a{
+		display: grid;
+		grid-template-columns: auto 280px 280px auto;
+	}
+}
+ #consmark div{color:beige !important}
+.chart-text {
+  /*font: 16px/1.4em "Montserrat", Arial, sans-serif;*/
+  fill: #000;
+  -moz-transform: translateY(0.25em);
+  -ms-transform: translateY(0.25em);
+  -webkit-transform: translateY(0.25em);
+  transform: translateY(0.25em);
+}
+
+.chart-number {
+  font-size: 0.5em;
+  line-height: 1;
+  text-anchor: middle;
+  -moz-transform: translateY(-0.25em);
+  -ms-transform: translateY(-0.25em);
+  -webkit-transform: translateY(-0.25em);
+  transform: translateY(-0.25em);
+  fill:aqua;
+}
+
+.chart-label {
+  font-size: 0.2em;
+  text-transform: uppercase;
+  text-anchor: middle;
+  -moz-transform: translateY(0.7em);
+  -ms-transform: translateY(0.7em);
+  -webkit-transform: translateY(0.7em);
+  transform: translateY(0.7em);
+  fill:aqua;
+}
+
+</style>
+</head>
+<div class="topbar">
+	<div align="center">
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
+		<!--<a href="farmlands.html">Farmlands👽</a>
+		<a href="index.html">FTM-Gems</a>-->
+		<a href="LF/index.html">LITE Farmlands👽</a>
+		<a href="pair.html">DEX-Explorer</a>
+		<a href="fantomscan.html">FantomScan</a>
+		<a href="elite.html">ELITE</a>
+		<a href="fmc.html">FantomMarketCap</a>
+		<a href="yieldstate.html">YieldState</a>
+		<!--<a href="airdrop.html">Airdrop-Tool</a>-->
+		<a href="apelist.html">Ape-List</a>
+		<a href="approver.html">Approver</a>
+		<a href="casino.html">CASINO🎰</a>
+	</div>
+</div>
+<br>
+<hr class="hhr">
+<br>
+<br>
+<h2 align="center">ELITE Tokenomics</h2>
+<div class="mainpanel" align="center">
+	<br><h4>$ELITE</h4>
+	Elite Token offers holder's special privileges, access to exclusive content and voting rights on the TopElites smart contract showcased on the Front page of FTM.guru and its other mediums.<br><br>The Maximum Supply of Elite is Fixed at 1337.<br><br>
+	Supply is consistently decreasing due to a 1.337% transfer tax, which is burned to Death, facilitating an elite & authentic deflation.
+	<br><br>
+</div>
+<h4 align="center">LIVE MARKET DATA</h4>
+<div class="mainpanels" align="center">
+	<div class="mainpanel">
+		<h4>Average Price</h4>
+		$<span id="ap_u" style="font-size:2em">?</span><br>
+		<span id="ap">?</span> FTM
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Market Cap</h4>
+		$<span id="mc_u" style="font-size:2em">?</span><br>
+		<span id="mc">?</span> FTM
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Total Liquidity</h4>
+		$<span id="tl_u" style="font-size:2em">?</span><br>
+		<span id="tl">?</span> FTM
+		<br><br>
+	</div>
+</div>
+<br><br>
+<h4 align="center" onclick="mkpi3(allp.sort(function(a, b){return a-b}));">LIQUIDITY DISTRIBUTION</h4>
+<div align="center" class="p1td">
+	<div align="center" >
+		<svg class="donut" width="" height="" viewBox="0 0 42 42">
+  			<circle class="donut-hole" cx="21" cy="21" r="15.91549430918954" fill="transparent"></circle>
+  	  		<circle id="donut-segment-0" cx="21" cy="21" r="15.91549430918954" fill="transparent" stroke="#0ff" stroke-width="4" stroke-dasharray="0 100" stroke-dashoffset="25"></circle>
+  			<g id="dos"></g>
+  			<g class="chart-text">
+        		<text x="21" y="50%" class="chart-number" id="totalValue">
+          		?
+        		</text>
+        		<text x="21" y="50%" class="chart-label">ELITE Pooled</text>
+      		</g>
+		</svg>
+	</div>
+	<div id="consmark" align="center" >
+		<b>Constituent Markets</b><br><br>
+		<div style="overflow:auto">
+			<table id="maintable" class="centerstage">
+				<thead>
+					<tr>
+					<th onclick="sortit(0)">Base⇅</th>
+					<th onclick="sortit(1)">ELITEs⇅</th>
+					<th onclick="sortit(2)">DEX⇅</th>
+					<th onclick="sortit(2)">Links</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl1">0</td>
+						<td>Spooky</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl2">0</td>
+						<td>Sushi</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl3">0</td>
+						<td>Spirit</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl4">0</td>
+						<td>Zoo</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>ZOO</td>
+						<td id="p1tpl5">0</td>
+						<td>Zoo</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl6">0</td>
+						<td>Sushi</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl7">0</td>
+						<td>Spooky</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl8">0</td>
+						<td>Elk</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl9">0</td>
+						<td>Elk</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl10">0</td>
+						<td>Shiba</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl11">0</td>
+						<td>Shiba</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl12">0</td>
+						<td>NipdEx</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl13">0</td>
+						<td>Hyper</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl14">0</td>
+						<td>Cyber</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl15">0</td>
+						<td>Paint</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl16">0</td>
+						<td>Totem</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl17">0</td>
+						<td>Soul</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl18">0</td>
+						<td>Wraith</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>SUN</td>
+						<td id="p1tpl19">0</td>
+						<td>Spirit</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>WRA</td>
+						<td id="p1tpl20">0</td>
+						<td>Wraith</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl21">0</td>
+						<td>Empire</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl22">0</td>
+						<td>Spirit</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl23">0</td>
+						<td>Wraith</td>
+						<td><span><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl24">0</td>
+						<td>DMM</td>
+						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl25">0</td>
+						<td>DMM</td>
+						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl26">0</td>
+						<td>Dfyn</td>
+						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+<br><br>
+<!--
+<div class="centerstage" align="center">
+	<table id="maintable" class="centerstage" align="center">
+		<thead>
+			<tr>
+			<th onclick="sortit(0)">ELITEs⇅</th>
+			<th onclick="sortit(1)">Amount ⇅</th>
+			<th onclick="sortit(2)">Base ⇅</th>
+			<th onclick="sortit(3)">Platform ⇅</th>
+			<th onclick="sortit(4)">FTM TVL⇅</th>
+			<th onclick="sortit(5)">Links ⇅</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Spooky</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Sushi</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>ZooDEX</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">800</span></td>
+				<td>USDC</td>
+				<td>Spooky</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">800</span></td>
+				<td>USDC</td>
+				<td>Sushi</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">30000</span></td>
+				<td>ZOO</td>
+				<td>ZooDEX</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Elk</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">800</span></td>
+				<td>USDC</td>
+				<td>Elk</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Shiba</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">800</span></td>
+				<td>USDC</td>
+				<td>Shiba</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Cyber</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>Totem</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td><span id="">1</span></td>
+				<td><span id="">600</span></td>
+				<td>WFTM</td>
+				<td>NipdEx</td>
+				<td>1200</td>
+				<td>B P</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<br><br>
+<h4 align="center">MOST USED PAIRS</h4>-->
+<div class="mainpanels liqdis" align="center">
+	<div class="mainpanel farmable">
+		<b>Spooky:ELITE/WFTM</b><br><br>
+		<span id="p0a">?</span> ELITE<br>+
+		<span id="p0b">?</span> FTM<br><br>
+		1 ELITE = <b><span id="p0p">?</span></b> FTM
+		<a href="yieldstate.html"><div class="gotofarm">
+		<div><span class="lpapr" id="p0apr">? %</span></div>
+		<div><i>Boost with<br>YieldState</i></div>
+		</div></a>
+		24h Realized APY<br><br>
+		<a href="https://spookyswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://spookyswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://info.spookyswap.finance/#/pair/0xea035a13b64cb49d85e2f0a2736c9604cb21599c" target="_blank"><button>Detail</button></a>
+	</div>
+	<div class="mainpanel farmable">
+		<b>Sushi:ELITE/WFTM</b><br><br>
+		<span id="p1a">?</span> ELITE<br>+
+		<span id="p1b">?</span> FTM<br><br>
+		1 ELITE = <b><span id="p1p">?</span></b> FTM
+		<a href="yieldstate.html"><div class="gotofarm">
+		<div><span class="lpapr" id="p1apr">? %</span></div>
+		<div><i>Boost with<br>YieldState</i></div>
+		</div></a>
+		24h Realized APY<br><br>
+		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://analytics-ftm.sushi.com/pairs/0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0" target="_blank"><button>Detail</button></a>
+	</div>
+	<div class="mainpanel">
+		<b>Sushi:ELITE/USDC</b><br><br>
+		<span id="p5a">?</span> ELITE<br>+
+		<span id="p5b">?</span> USDC<br><br>
+		1 ELITE = <b><span id="p5p">?</span></b> USDC<br>
+		<span class="lpapr" id="p5apr">? %</span>
+		<br>24h Realized APY
+		<br><br>
+		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://analytics-ftm.sushi.com/pairs/0x1dfcddf675038ead27f1d75b435b5b05ba825e9a" target="_blank"><button>Detail</button></a>
+	</div><!--
+	<div class="mainpanel">
+		<b>Spooky:ELITE/USDC</b><br><br>
+		<span id="p6a">?</span> ELITE<br>+
+		<span id="p6b">?</span> USDC<br><br>
+		1 ELITE = <b><span id="p6p">?</span></b> USDC<br>
+		<span class="lpapr" id="p6apr">? %</span>
+		<br>24h Realized APY
+		<br><br>
+		<a href="https://app.sushi.com/#/add/ETH/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://app.sushi.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://analytics-ftm.sushi.com/pairs/0x1dfcddf675038ead27f1d75b435b5b05ba825e9a" target="_blank"><button>Detail</button></a>
+	</div>-->
+	<div class="mainpanel">
+		<b>Spirit:ELITE/WFTM</b><br><br>
+		<span id="p2a">?</span> ELITE<br>+
+		<span id="p2b">?</span> FTM<br><br>
+		1 ELITE = <b><span id="p2p">?</span></b> FTM<br>
+		<span class="lpapr" id="p2apr">? %</span>
+		<br>24h Realized APY
+		<br><br>
+		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://swap.spiritswap.finance/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Swap</button></a>
+		<a href="https://info.spiritswap.finance/#/pair/0x7c8f47d2d151cedfdb847ab3c5b67d05daf3539b" target="_blank"><button>Detail</button></a>
+	</div>
+	<div class="mainpanel">
+		<b>ZDEX:ELITE/WFTM</b><br><br>
+		<span id="p3a">?</span> ELITE<br>+
+		<span id="p3b">?</span> FTM<br><br>
+		1 ELITE = <b><span id="p3p">?</span></b> FTM<br>
+		<span class="lpapr" id="p3apr">? %</span>
+		<br>24h Realized APY
+		<br><br>
+		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>Swap</button></a>
+		<a href="https://info.zoocoin.cash/#/pair/0xad28B6C529714954AE2B6d390c8eaD874ddc4970" target="_blank"><button>Detail</button></a>
+	</div>
+	<div class="mainpanel">
+		<b>ZDEX:ZOO/ELITE</b><br><br>
+		<span id="p4a">?</span> ELITE<br>+
+		<span id="p4b">?</span> ZOO<br><br>
+		1 ELITE = <b><span id="p4p">?</span></b> ZOO<br>
+		<span class="lpapr" id="p4apr">? %</span>
+		<br>24h Realized APY
+		<br><br>
+		<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Pool</button></a>
+		<a href="https://dex.zoocoin.cash/orders/market?outputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&inputCurrency=FTM" target="_blank"><button>Swap</button></a>
+		<a href="https://info.zoocoin.cash/#/pair/0x7618793c51e0dc954ba1dd2eeeb3dfa08f777d0a" target="_blank"><button>Detail</button></a>
+	</div>
+</div>
+</div>
+<br><br>
+<h4 align="center">SPECIAL NUMBERS</h4>
+<div class="mainpanels3" align="center">
+	<div></div>
+	<div class="mainpanel">
+		<h4>Anti-Whale Limits</h4>
+		<span class="numpal" id="aw">?</span> ELITE
+		<br><br>
+		<ul style="text-align:left;">
+		<li>Each address can hold no more than this number of ELITE.</li>
+		<li>The limit applies on transfers as well.</li>
+		<li>It increases gradually to 1.337% of Total Supply, which is about 17.29 ELITE.</li>
+		</ul>
+	</div>
+	<div class="mainpanel">
+		<h4>Permanent Liquidity</h4>
+		<span id="PBa">?</span> ELITE<br>+<br>
+		<span id="PBb">?</span> FTM<br><br>
+		These are the current amounts locked into Liquidity permanently that cannot be removed. It was burned to <a href="https://ftmscan.com/address/0x00000000000000000000000000000000dead1337#balances" target="_blank">0x1337DEAD</a> on Genesis Day.<br><br>
+	</div>
+	<div></div>
+</div>
+<br><br>
+<h3 align="center">E.L.I.T.E. D.A.O.</h3>
+<h4 align="center">Liquid Reserves Of Treasury</h4>
+<div align="center"><pre>0x167d87a906da361a10061fe42bbe89451c2ee584</pre></div>
+<div class="mainpanels2" align="center">
+	<div></div>
+	<div class="mainpanel">
+		<h4>Taxation</h4>
+		<span id="daot">?</span> ELITE
+		<br><br>
+	</div>
+	<div class="mainpanel">
+		<h4>Revenues</h4>
+		<span id="daor">?</span> FTM
+		<br><br>
+	</div>
+	<div></div><!--
+	<div class="mainpanel">
+		<h4>TVL/MC ratio</h4>
+		<span id="rtm">?</span> %
+		<br><br>
+	</div>-->
+</div>
+<br><br>
+<h3 align="center">Genesis LPT Burn.</h3>
+<div class="mainpanel" align="center">
+	<br><br>The Elite Devs burnt 267.4 ELITE worth <span id="lwt">?</span> FTM today to bootstrap the Fantom Opera # 1337.<br><br>
+	<a href="https://ftmscan.com/tx/0xa4130f0738277cca77ff7a0a790c8d73cebb2e581784b30ae89dfc65d5a2899b" target="_blank"><b>Proof of Burn (Spooky LP)↗</b><br>
+	Current Worth: <span id="lw0">?</span> FTM<br><br></a>
+	<a href="https://ftmscan.com/tx/0x9912832af64e1ff0db71934770a3c924ac550c3448979428cfe6c789f831c781" target="_blank"><b>Proof of Burn (Sushi LP)↗</b><br>
+	Current Worth: <span id="lw1">?</span> FTM<br><br><br></a>
+	These serve as a Source of Guarantee to the Elites that instill trust in this Fraternity and it's endeavours.<br>
+</div>
+<br><br>
+<h3 align="center">Farming with ELITE</h3>
+<div align="center">There are multiple projects on Fantom Opera that offer rewards for contributing liquidity to ELITE pairs.</div>
+<div class="centerstage" align="center">
+	<table id="maintable" class="centerstage" align="center">
+		<thead>
+			<tr>
+			<th onclick="sortit(0)">Pledged Tokens ⇅</th>
+			<th onclick="sortit(1)">Rewards ⇅</th>
+			<th onclick="sortit(2)">Farm ⇅</th>
+			<th onclick="sortit(3)">DEX ⇅</th>
+			<th onclick="sortit(3)">Fees ⇅</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="" id="" onclick="">
+				<td>ELITE-WFTM LP</td>
+				<td>ELITE</td>
+				<td><a target="_blank" href="https://app.sushi.com/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882">Sushi.com</a></td>
+				<td><b><a target="_blank" href="https://ftm.guru/YS/1">YieldState</a></b></td>
+				<td>0%</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td>ELITE-WFTM LP</td>
+				<td>ELITE</td>
+				<td><a target="_blank" href="https://spookyswap.finance/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882">Spookyswap</a></td>
+				<td><b><a target="_blank" href="https://ftm.guru/YS/2">YieldState 2</a></b></td>
+				<td>0%</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td>ELITE-WFTM LP</td>
+				<td>BOOB</td>
+				<td><a target="_blank" href="https://exchange.nipplelabs.finance/#/add/FTM/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882">NipdEx</a></td>
+				<td><b><a target="_blank" href="https://nipplelabs.finance">Nipple Labs</a></b></td>
+				<td>4%</td>
+			</tr>
+			<tr class="" id="" onclick="">
+				<td>ELITE-WRA LP</td>
+				<td>WRA</td>
+				<td><a target="_blank" href="https://wraithswap.finance/add/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882/FTM">Wraithswap</a></td>
+				<td><b><a target="_blank" href="https://wraithswap.finance">SyFin's Wraith</a></b></td>
+				<td>?%</td>
+			</tr>
+			<tr class="advert" id="" onclick="">
+				<td>ELITE</td>
+				<td>ELITE</td>
+				<td><a target="_blank" href="https://ftm.guru/xelite">XELITE</a></td>
+				<td><b><a target="_blank" href="https://ftm.guru/xelite">ftm.guru</a></b></td>
+				<td>1.337%</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<br>
+<br>
+<h3 align="center">Supply Distribution</h3>
+<div align="center">
+	<div class="mainpanels4" align="center">
+		<div class="mainpanel">
+			<h4>Circulating Supply</h4>
+			<span id="cs">?</span> ELITE
+			<br><br>
+		</div>
+		<div class="mainpanel">
+			<h4>Burnt Supply</h4>
+			<span id="bs">?</span> ELITE
+			<br><br>
+		</div>
+		<div class="mainpanel">
+			<h4>Staked as XELITE</h4>
+			<span id="xs">?</span> ELITE
+			<br><br>
+		</div>
+	</div>
+</div>
+	<!--
+	<div class="mainpanel">
+		<h4>TVL/MC ratio</h4>
+		<span id="rtm">?</span> %
+		<br><br>
+	</div>
+
+
+	//sushi		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//spooky	ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//zoo		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//zoo		zoo		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//spirit	usdc	0x2221b4ed9d5f2a706f6bf4fcd40ee36da88d2476
+	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F
+	//shiba		ftm		0x0652Dec650566439CFFEB4BEb201F062fc13243F		3.18
+	//elk		ftm		0xf25417182FbfdEbf1a92142b31A1B32135f1Fd60		3.28
+	//spooky	usdc	0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9		3.25
+	//nipdex	ftm		0x736c1462feEc9D936dF0B99F4BE5eD019118534a		1.03
+	//cyber		ftm		0x2668141243eCbFEb1b7556D5F08c11Bd94d9b6db		0.35
+	//elk		usdc	0xDeC1a7eF080B22fEe247aCD033a8Aca8666bDdcb		0.34
+	//shiba		usdc	0xe2121F534316CD3fc91E70a39AAa25785e1c20C1		0.34
+	//hyper		ftm		0xdc79C700EeDc83bE8d19Ad2d245717c7539DFA1c		0.03
+	//paint		ftm		0xF33c436E3C1f0AD9EcB400aA28183910585eFe21		0.15
+	//sushi		usdc	0x1DFcDdF675038EAd27F1D75B435B5B05BA825E9A		0.035
+	//--------------------------------------------------------------- +12.00
+
+
+
+	-->
+<br>
+<br>
+<div align="center" class="advert">
+<pre>Get $ELITE Tokens
+0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882</pre>
+<div id="c2a">
+	<div class="">
+	</div>
+	<div class="c2a" id="a2m">
+		🦊 Add ELITE to MetaMask
+	</div>
+	<div class="c2a" id="ibe" onclick="c1()">
+		Insta-Buy 15 FTM of ELITE
+	</div>
+	<div class="">
+	</div>
+</div>
+<br>
+<a href="https://ftmscan.com/token/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>ftmScan</button></a>
+<a href="https://app.sushi.com/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Sushi</button></a>
+<a href="https://spookyswap.finance/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spooky</button></a>
+<a href="https://swap.spiritswap.finance/#/add/FTM/0xf43cc235e686d7bc513f53fbffb61f760c3a1882" target="_blank"><button>Spirit</button></a>
+<a href="https://dex.zoocoin.cash/orders/market?inputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882&outputCurrency=FTM" target="_blank"><button>ZDEX</button></a><br><br>
+<a href="https://t.me/Sam4x" target="_blank">To Advertise Here, Contact @Sam4x✈</a>
+</div>
+<hr><br><br>
+<div  class="topbar">
+	<div align="center">
+			<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br><!--
+			<a href="farmlands.html">LITE Farmlands👽</a>
+			<a href="index.html">FTM-Gems</a>
+			<a href="pair.html">DEX-Explorer</a>
+			<a href="fantomscan.html">FantomScan</a>
+			<a href="elite.html">ELITE</a>
+			<a href="fmc" target="_blank">FantomMarketCap</a>
+			<a href="yieldstate.html">YieldState</a>
+			<a href="vfat.tools/fantom/guru">vfat</a>
+			<a href="airdrop.html">Airdrop-Tool</a>
+			<a href="apelist.html">Ape-List</a>
+			<a href="approver.html">Approver</a>
+			<a href="degam.html">CASINO✨</a>-->
+	<h3><a href="https://t.me/FTM1337">✈t.me/FTM1337<br>Come, Join us!</a></h3>
+	<i>Shoutout to vfat.tools, ftmscan & rpc.ftm.tools for their benign Services!</i>
+	</div>
+</div>
+<br><br>
+<div class="lowerbar" align="center">
+	<div align="left" class="lowercat">
+		<span>Ecosystem</span><br>
+		<a href="https://fmc.guru" target="_blank">FantomMarketCap</a><br>
+		<a href="https://ftm.guru" target="_blank">FTM1337</a><br>
+		<a href="https://kcc.guru" target="_blank">Kucino Casino</a><br>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Farming</span><br>
+		<a href="https://ftm.guru/yieldstate.html">🔱 YieldState</a><br>
+		<a href="https://ftm.guru/LF">👽 LITE Farmlands</a><br>
+		<a href="https://vfat.tools/fantom/guru">🧑‍🌾 vfat.tools</a>
+	</div>
+	<div class="lowercat">
+		<span><a href="https://kcc.guru/casino.html">Casino & Games</a></span><br>
+		<a href="https://kcc.guru/jackpot_1.html">2-player Jackpot</a><br>
+		<a href="https://kcc.guru/instalotto.html">instaLOTTO</a><br>
+		<a href="https://kcc.guru/21hrlotto.html">🎟 21-hour LOTTO</a>
+	</div>
+	<div class="lowercat">
+		<span><a href="https://kcc.guru/dashboard.html">Dashboard</a></span><br>
+		<a href="https://kcc.guru/claimkcs.html">Claim KCS Earnings</a><br>
+		<a href="https://kcc.guru/markets.html">Market Statistics</a><br>
+		<a href="https://kcc.guru/balancesheet.html">Balance Sheet</a><br>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Our Dapps</span><br>
+		<a href="https://ftm.guru/degam.html">✨ FTM CASINO</a><br>
+		<a href="https://ftm.guru/degam.html">🎰 KCS Kucino</a><br>
+		<a href="https://ftm.guru/approver.html">✅ Approver</a><br>
+		<a href="https://ftm.guru/airdrop.html">Airdrop-Tool</a><br>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Chain Tools</span><br>
+		<a href="https://ftm.guru/pair.html">DEX-Explorer</a><br>
+		<a href="https://ftm.guru/fantomscan.html">🔍 FantomScan</a><br>
+		<a href="https://kcc.guru/kscan" target="_blank">🔎 kscan</a><br>
+		<a href="https://ftm.guru/apelist.html">Ape-List</a><br>
+	</div>
+	<div align="left" class="lowercat">
+		<span>Opera Utilities</span><br>
+		<a href="https://ftm.guru/elite.html">ELITE Analytics</a><br>
+		<a href="https://t.me/FTM1337/12497" target="_blank">🤖 GambleBot Telegram</a><br>
+		<a href="https://ftm.guru/index.html">🗳 Elite-Gems Voting</a>
+	</div>
+	<div class="lowercat">
+		<span>$KUCINO</span><br>
+		<a target="_blank" href="https://swap.kudex.finance/#/swap?outputCurrency=0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">Trade at Kudex</a><br>
+		<a target="_blank" href="https://explorer.kcc.io/token/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7">KCC Explorer</a><br>
+		<a target="_blank" href="https://t.me/kccguru">Chart at Poocoin</a><br>
+		<a target="_blank" href="https://testnet.bscscan.com/address/0x4c9fa6297d3413fbbe7ba935e14022d0e5a39dc7#code">View Source</a>
+	</div>
+	<div class="lowercat">
+		<span>Resources</span><br>
+		<a target="_blank" href="https://kcc.guru/roadmap">Kucino Roadmap</a><br>
+		<a target="_blank" href="https://kcc.guru/roadmap">KUCINO Tokenimcs</a><br>
+		<a target="_blank" href="https://ftmscan.com/address/0x74bfb7e94bef5767f5f6ace2d0df73a224adb689">385 ELITE ETL</a><br>
+		<a target="_blank" href="https://kudex.finance/locker">KCS Liquidity Lock</a><br>
+		<a target="_blank" href="https://kudex.finance/locker">70% KUCINO ETL</a><br>
+		<a target="_blank" href="docs">📚 Documentation</a><br>
+	</div>
+	<div class="lowercat">
+		<span>Telegrams</span><br>
+		<a target="_blank" href="https://t.me/ftm1337">FantomOpera#1337</a><br>
+		<a target="_blank" href="https://t.me/ftmguru">Announcements</a><br>
+		<a target="_blank" href="https://t.me/kucino">Kucino Group</a><br>
+		<a target="_blank" href="https://t.me/kccguru">KCC.guru Channel</a><br>
+		<a target="_blank" href="https://t.me/kccguru">FMC New Listings</a><br>
+	</div>
+	<div class="lowercat">
+		<span>Social & Media</span><br>
+		<a target="_blank" href="https://medium.com/@ftm1337">Medium Journal</a><br>
+		<a target="_blank" href="https://discord.gg/QpyfMarNrV">Discord Server</a><br>
+		<a target="_blank" href="https://twitter.com/kccGuru">Kucino Twitter</a><br>
+		<a target="_blank" href="mailto:ftm1337@protonmail.com">Official Mail</a><br>
+		<a target="_blank" href="https://twitter.com/FTM1337">FTM1337 Twitter</a><br>
+	</div>
+	<div class="lowercat">
+		<a href="https://ftm.guru/index.html"><b style="font-size:2em"><code>FTM.guru</code></b></a><br>
+		<a href="https://fmc.guru/index.html"><b style="font-size:2em"><code>FMC.guru</code></b></a><br>
+		<a href="https://kcc.guru/index.html"><b style="font-size:2em"><code>KCC.guru</code></b></a>
+	</div>
+	<div class="lowercat">
+	</div>
+</div>
+
+<script src="web3.min.js"></script>
+<script>
+window.addEventListener('load',function()
+{
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
+	else{web3 = new Web3("https://rpc.ftm.tools")}
+	fetch("https://api.coingecko.com/api/v3/simple/price?ids=fantom%2Celite-1337&vs_currencies=usd").then(d => d.json()).then(d2 =>{PFU=d2["fantom"].usd;APU=d2["elite-1337"].usd})
+	allpp();
+	basics();
+	lpapr();
+	dfun();
+}, false);
+function $(_) {return document.getElementById(_);}
+CS = 250; //HARDCODED
+APU = 0;
+PFU = 0;
+document.getElementsByClassName("donut")[0].style.width=Math.min(window.innerWidth,window.innerHeight)*0.8;
+ab1=[
+	{
+		"constant": true,
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "balanceOf",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "decimals",
+		"outputs": [
+			{
+				"internalType": "uint8",
+				"name": "",
+				"type": "uint8"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "getReserves",
+		"outputs": [
+			{
+				"internalType": "uint112",
+				"name": "_reserve0",
+				"type": "uint112"
+			},
+			{
+				"internalType": "uint112",
+				"name": "_reserve1",
+				"type": "uint112"
+			},
+			{
+				"internalType": "uint32",
+				"name": "_blockTimestampLast",
+				"type": "uint32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "circulatingSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "limit",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"constant": true,
+		"inputs": [],
+		"name": "totalSupply",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+];
+
+var val_1D = document.getElementById('donut-segment-0')
+val_1D.style.transition = "stroke-dasharray 15s ease-in-out, stroke-dashoffset 10s ease-in-out";
+val_1D.style.strokeDasharray = "100 0";
+	allp=[]
+async function basics()
+{
+
+	EC=new web3.eth.Contract(ab1,"0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882");
+	S_0 = await EC.methods.balanceOf("0x0000000000000000000000000000000000000000").call((e,r)=>{return(Number(r))});
+	EC.methods.balanceOf("0x167D87A906dA361A10061fe42bbe89451c2EE584").call((e,r)=>{$("daot").innerHTML=(Number(r)/1e18).toFixed(5)});
+	web3.eth.getBalance("0x167D87A906dA361A10061fe42bbe89451c2EE584").then((r)=>{$("daor").innerHTML=(Number(r)/1e18).toFixed(5)});
+	$("bs").innerHTML=(S_0/1e18).toFixed(5);
+	S_C = await EC.methods.balanceOf("0x5C146cd18fa53914580573C9b9604588529406Ca").call((e,r)=>{return(Number(r))});
+	S_D = await EC.methods.balanceOf("0xbab9645d1B78425A7e4e9e78E8DD32aAbd800a16").call((e,r)=>{return(Number(r))});
+	S_T = await EC.methods.balanceOf("0x74BFb7E94bEf5767F5F6Ace2D0df73a224ADB689").call((e,r)=>{return(Number(r))});
+	//S_X = await
+				EC.methods.balanceOf("0x1BE23c78038B6057172848534AcD62667fA2620d").call((e,r)=>{$("xs").innerHTML=(Number(r)/1e18).toFixed(5)});
+	CS=(1337e18-S_0-S_C-S_D-S_T)/1e18;
+	$("cs").innerHTML = CS.toFixed(5);
+	AWL = EC.methods.limit().call((e,r)=>{AWL=(Number(r));$("aw").innerHTML=(AWL/1e18).toFixed(5)});
+	P0=new web3.eth.Contract(ab1,"0xea035a13b64cb49d85e2f0a2736c9604cb21599c");
+	RP0=await P0.methods.getReserves().call((e,r)=>{return(r)});
+	RP0=[Number(RP0[1]),Number(RP0[0])];
+	allp.push(RP0[0]/1e18);
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl1").innerHTML=(RP0[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl1").innerHTML;
+	$("p0a").innerHTML=(RP0[0]/1e18).toFixed(5);
+	$("p0b").innerHTML=(RP0[1]/1e18).toFixed(5);
+	$("p0p").innerHTML=(RP0[1]/RP0[0]).toFixed(5);
+	P0T=await P0.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P0B=await P0.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P1=new web3.eth.Contract(ab1,"0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0");
+	RP1=await P1.methods.getReserves().call((e,r)=>{return(r)});
+	RP1=[Number(RP1[1]),Number(RP1[0])];
+	allp.push(RP1[0]/1e18);
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl2").innerHTML=(RP1[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl2").innerHTML;
+	$("p1a").innerHTML=(RP1[0]/1e18).toFixed(5);
+	$("p1b").innerHTML=(RP1[1]/1e18).toFixed(5);
+	$("p1p").innerHTML=(RP1[1]/RP1[0]).toFixed(5);
+	P1T=await P1.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P1B=await P1.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P2=new web3.eth.Contract(ab1,"0x7c8f47d2d151cedfdb847ab3c5b67d05daf3539b");
+	RP2=await P2.methods.getReserves().call((e,r)=>{return(r)});
+	RP2=[Number(RP2[1]),Number(RP2[0])];
+	allp.push(RP2[0]/1e18);
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl3").innerHTML=(RP2[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl3").innerHTML;
+	$("p2a").innerHTML=(RP2[0]/1e18).toFixed(5);
+	$("p2b").innerHTML=(RP2[1]/1e18).toFixed(5);
+	$("p2p").innerHTML=(RP2[1]/RP2[0]).toFixed(5);
+	P2T=await P2.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P2B=await P2.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P3=new web3.eth.Contract(ab1,"0xad28B6C529714954AE2B6d390c8eaD874ddc4970");
+	RP3=await P3.methods.getReserves().call((e,r)=>{return(r)});
+	RP3=[Number(RP3[1]),Number(RP3[0])];
+	allp.push(RP3[0]/1e18);
+
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl4").innerHTML=(RP3[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl4").innerHTML;
+	$("p3a").innerHTML=(RP3[0]/1e18).toFixed(5);
+	$("p3b").innerHTML=(RP3[1]/1e18).toFixed(5);
+	$("p3p").innerHTML=(RP3[1]/RP3[0]).toFixed(5);
+	P3T=await P3.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P3B=await P3.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P4=new web3.eth.Contract(ab1,"0x7618793c51e0dc954ba1dd2eeeb3dfa08f777d0a");
+	RP4=await P4.methods.getReserves().call((e,r)=>{return(r)});
+	RP4=[Number(RP4[1]),Number(RP4[0])*1e18];
+	allp.push(RP4[0]/1e18);
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl5").innerHTML=(RP4[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl5").innerHTML;
+	$("p4a").innerHTML=(RP4[0]/1e18).toFixed(5);
+	$("p4b").innerHTML=(RP4[1]/1e18).toFixed(5);
+	$("p4p").innerHTML=(RP4[1]/RP4[0]).toFixed(5);
+	P4T=await P4.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P4B=await P4.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	P5=new web3.eth.Contract(ab1,"0x1dfcddf675038ead27f1d75b435b5b05ba825e9a");
+	RP5=await P5.methods.getReserves().call((e,r)=>{return(r)});
+	RP5=[Number(RP5[1]),Number(RP5[0])*1e12];
+	allp.push(RP5[0]/1e18);
+	mkpi3(allp.sort(function(a, b){return a-b}));
+	$("p1tpl6").innerHTML=(RP5[0]/1e18).toFixed(5).padStart(8,"+")+$("p1tpl6").innerHTML;
+	$("p5a").innerHTML=(RP5[0]/1e18).toFixed(5);
+	$("p5b").innerHTML=(RP5[1]/1e18).toFixed(5);
+	$("p5p").innerHTML=(RP5[1]/RP5[0]).toFixed(5);
+	P5T=await P5.methods.totalSupply().call((e,r)=>{return(Number(r))});
+	P5B=await P5.methods.balanceOf("0x00000000000000000000000000000000dead1337").call((e,r)=>{return(Number(r))});
+	$("PBa").innerHTML=(P0B/P0T*RP0[0]/1e18+P1B/P1T*RP1[0]/1e18).toFixed(5);
+	$("PBb").innerHTML=(P0B/P0T*RP0[1]/1e18+P1B/P1T*RP1[1]/1e18).toFixed(5);
+	AP=(RP0[1]+RP1[1]+RP2[1]+RP3[1])/(RP0[0]+RP1[0]+RP2[0]+RP3[0]);
+	TL=(2*AP*(RP0[0]+RP1[0]+RP2[0]+RP3[0]+RP4[0]+RP5[0])/1e18)
+	//$("tl").innerHTML=TL.toLocaleString();
+	$("mc").innerHTML=(AP*CS).toLocaleString();
+	$("ap").innerHTML=((AP)).toLocaleString();
+	//$("rtm").innerHTML=(100*TL/(AP*cs)).toLocaleString();
+	$("lwt").innerHTML=(267.4*AP).toLocaleString();
+	$("lw0").innerHTML=(133.7*2*RP0[1]/RP0[0]).toLocaleString();;
+	$("lw1").innerHTML=(133.7*2*RP1[1]/RP1[0]).toLocaleString();
+		//console.log("ap",AP,"cs",cs,RP0,RP1,RP2,RP3);
+		//console.log(RP4);
+		//console.log(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18);
+		//mkpi1(RP0[0]/1e18,RP1[0]/1e18,RP2[0]/1e18,RP3[0]/1e18,RP4[0]/1e18,RP5[0]/1e18,14);
+		/*
+		fetch("https://api.coingecko.com/api/v3/simple/price?ids=fantom%2Celite-1337&vs_currencies=usd").then(d => d.json()).then(d2 =>
+		{
+			$("tl_u").innerHTML=Number((TL*d2["fantom"].usd).toFixed(0)).toLocaleString();
+			$("mc_u").innerHTML=Number((AP*CS*d2["fantom"].usd).toFixed(0)).toLocaleString();
+			$("ap_u").innerHTML=Number(((AP*d2["fantom"].usd)).toFixed(0)).toLocaleString();
+		})
+		*/
+}
+function gof(vv,ii,tt)
+{
+	T=0
+	for(j=0;j< ii;j++){T+=vv[j]/tt*100}
+	return(100-T+25)
+}
+function mkpi3(v)
+{
+	var svgns = "http://www.w3.org/2000/svg";
+	var container = $("dos")
+	container.innerHTML=""
+	t = 0;
+	for(i=0;i < v.length; i++)
+	{
+		t+=v[i]
+		var circle = document.createElementNS(svgns, 'circle');
+		circle.setAttributeNS(null, 'stroke', `rgba(${(255*Math.random()).toFixed(0)},${(255*Math.random()).toFixed(0)},${(255*Math.random()).toFixed(0)},1)`);
+		circle.setAttributeNS(null, 'fill', 'transparent');
+		circle.setAttributeNS(null, 'stroke-width', 3);
+		circle.setAttributeNS(null, 'id', "mc_"+i);
+		circle.setAttributeNS(null, 'cx', 21);
+		circle.setAttributeNS(null, 'cy', 21);
+		circle.setAttributeNS(null, 'r', 15.91);
+		circle.setAttributeNS(null, 'style', 'transition:stroke-dasharray 2s ease-in-out, stroke-dashoffset 2s ease-in-out');
+		container.appendChild(circle);
+	};
+	console.log("total",t)
+	$('totalValue').innerHTML = t.toLocaleString();
+	$("tl").innerHTML = (t*(APU/PFU)*2).toLocaleString();
+	$("tl_u").innerHTML=Number((t*APU*2).toFixed(0)).toLocaleString();
+	$("mc_u").innerHTML=Number((APU*CS).toFixed(0)).toLocaleString();
+	$("ap_u").innerHTML=Number(((APU)).toFixed(0)).toLocaleString();
+	console.log("checks:",t,APU,PFU,CS)
+
+
+	sortit(1);sortit(1);
+	setTimeout(function(){for(i= v.length -1; i>=0; i--)
+	{
+		circle=$("mc_"+i);
+		circle.setAttributeNS(null, 'stroke-dasharray',`${v[i]/(t)*100}, ${100-(v[i]/(t)*100)}`);
+		circle.setAttributeNS(null, 'stroke-dashoffset', gof(v,i,t) );
+		//$('totalValue').innerHTML = ((v.reduce((a,b)=>{return a+b},0)).toFixed(3))
+		//console.log("new circle::",i)
+		//console.log("da:",`${v[i]/t*100} ${100-(v[i]/t*100)}`)
+		//console.log("do:",gof(v,i,t))
+	}},100);
+}
+function allpp()
+{
+	EC=new web3.eth.Contract(ab1,"0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882");
+	EC.methods.balanceOf("0x20DD18EcA4Bd91B4d23534603D836174Fd5123c9").call((e,r)=>
+	{
+		$("p1tpl7").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl7").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xf25417182FbfdEbf1a92142b31A1B32135f1Fd60").call((e,r)=>
+	{
+		$("p1tpl8").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl8").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xDeC1a7eF080B22fEe247aCD033a8Aca8666bDdcb").call((e,r)=>
+	{
+		$("p1tpl9").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl9").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x0652Dec650566439CFFEB4BEb201F062fc13243F").call((e,r)=>
+	{
+		$("p1tpl10").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl10").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xe2121F534316CD3fc91E70a39AAa25785e1c20C1").call((e,r)=>
+	{
+		$("p1tpl11").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl11").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x736c1462feEc9D936dF0B99F4BE5eD019118534a").call((e,r)=>
+	{
+		$("p1tpl12").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl12").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+		$("")
+	})
+	EC.methods.balanceOf("0xdc79C700EeDc83bE8d19Ad2d245717c7539DFA1c").call((e,r)=>
+	{
+		$("p1tpl13").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl13").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x2668141243eCbFEb1b7556D5F08c11Bd94d9b6db").call((e,r)=>
+	{
+		$("p1tpl14").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl14").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xF33c436E3C1f0AD9EcB400aA28183910585eFe21").call((e,r)=>
+	{
+		$("p1tpl15").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl15").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x6511D0222D90A1135A755c9AC643b862824c79F6").call((e,r)=>
+	{
+		$("p1tpl16").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl16").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xE03a36ceC8E6A5cdE1Dae1dd10A5131683F53C3A").call((e,r)=>
+	{
+		$("p1tpl17").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl17").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x5817Edb6378B58Bcc9405C864191EB869F7CEc66").call((e,r)=>
+	{
+		$("p1tpl18").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl18").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xf91c58d3b908831461b462D341271959e0Aec34D").call((e,r)=>
+	{
+		$("p1tpl19").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl19").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x0Ec3f086C8be2efc1bE8C1480C6d48E9b42b816a").call((e,r)=>
+	{
+		$("p1tpl20").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl20").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x1218a2F1CE880c01D174C6b1AEb7f2115A152Fa1").call((e,r)=>
+	{
+		$("p1tpl21").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl21").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x2221b4ed9d5f2a706f6bf4fcd40ee36da88d2476").call((e,r)=>
+	{
+		$("p1tpl22").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl22").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x7808640c1127B31764d549c7Cf0d0bCbA599f7B4").call((e,r)=>
+	{
+		$("p1tpl23").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl23").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xba293BeBB30CB8Aa144CB6246ed0cDC1232e12fF").call((e,r)=>
+	{
+		$("p1tpl24").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl24").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x2AFb5E33Dd34C6dA03d64444721251B7D17D15BE").call((e,r)=>
+	{
+		$("p1tpl25").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl25").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x8E6f0C6c4D3Ad3606001b1C918e8C45Ffbb8678D").call((e,r)=>
+	{
+		$("p1tpl26").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl26").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+
+}
+
+function lpapr_sus(pi,n)
+{
+	hi=Date.now();hi=(hi-hi%36e5)/36e5;
+	Q_pn_c=`{
+`
+	for(ih=0;ih< 24;ih++)
+	{Q_pn_c+=`h${ih}: pairHourData(id:"${pi}-${hi-ih}"){
+    ...c
+  }
+`;}
+	Q_pn_c+=`}
+fragment c on PairHourData {
+  volumeUSD
+  reserveUSD
+}`
+	gr1=new XMLHttpRequest();
+	gr1.open("POST","https://api.thegraph.com/subgraphs/name/sushiswap/fantom-exchange",true);
+	gr1.onload=function()
+	{
+		aap=0;
+		d=JSON.parse(this.response).data;
+		Object.keys(d).forEach(D=>
+		{
+			if(d[D]!=null)
+			{
+				aap+=Number(d[D].volumeUSD)*0.25/100/Number(d[D].reserveUSD)
+			}
+		});
+		$("p"+n+"apr").innerHTML=(aap*365e2).toLocaleString()+"%"
+	}
+	gr1.send(JSON.stringify({query:Q_pn_c}))
+}
+function lpapr_spi(pi,n)
+{
+	hi=Date.now();hi=(hi-hi%36e5)/36e5;
+	Q_pn_c=`{
+`
+	for(ih=0;ih< 24;ih++)
+	{Q_pn_c+=`h${ih}: pairHourData(id:"${pi}-${hi-ih}"){
+    ...c
+  }
+`;}
+	Q_pn_c+=`}
+fragment c on PairHourData {
+  hourlyVolumeUSD
+  reserveUSD
+}`
+	gr1=new XMLHttpRequest();
+	gr1.open("POST","https://api.thegraph.com/subgraphs/name/evele/spirit-swap-subgraph-dev-v2",true);
+	gr1.onload=function()
+	{
+		aap=0;
+		d=JSON.parse(this.response).data;console.log(d)
+		Object.keys(d).forEach(D=>
+		{
+			if(!(d[D]==null))
+			{
+				aap+=Number(d[D].hourlyVolumeUSD)*0.25/100/Number(d[D].reserveUSD)
+			}
+		});
+		$("p"+n+"apr").innerHTML=(aap*365e2).toLocaleString()+"%"
+	}
+	gr1.send(JSON.stringify({query:Q_pn_c}))
+}
+function lpapr_spo(pi,n)
+{
+	hi=Date.now();hi=(hi-hi%36e5)/36e5;
+	Q_pn_c=`{
+`
+	for(ih=0;ih< 24;ih++)
+	{Q_pn_c+=`h${ih}: pairHourData(id:"${pi}-${hi-ih}"){
+    ...c
+  }
+`;}
+	Q_pn_c+=`}
+fragment c on PairHourData {
+  hourlyVolumeUSD
+  reserveUSD
+}`
+	gr1=new XMLHttpRequest();
+	gr1.open("POST","https://api.thegraph.com/subgraphs/name/eerieeight/spooky-swap-exchange",true);
+	gr1.onload=function()
+	{
+		aap=0;
+		d=JSON.parse(this.response).data;console.log(d)
+		Object.keys(d).forEach(D=>
+		{
+			if(!(d[D]==null))
+			{
+				aap+=Number(d[D].hourlyVolumeUSD)*0.25/100/Number(d[D].reserveUSD)
+			}
+		});
+		$("p"+n+"apr").innerHTML=(aap*365e2).toLocaleString()+"%"
+	}
+	gr1.send(JSON.stringify({query:Q_pn_c}))
+}
+function lpapr_zoo(pi,n)
+{
+	hi=Date.now();hi=(hi-hi%36e5)/36e5;
+	Q_pn_c=`{
+`
+	for(ih=0;ih< 24;ih++)
+	{Q_pn_c+=`h${ih}: pairHourData(id:"${pi}-${hi-ih}"){
+    ...c
+  }
+`;}
+	Q_pn_c+=`}
+fragment c on PairHourData {
+  hourlyVolumeUSD
+  reserveUSD
+}`
+	gr1=new XMLHttpRequest();
+	gr1.open("POST","https://api.thegraph.com/subgraphs/name/ruvlol/graph-n",true);
+	gr1.onload=function()
+	{
+		aap=0;
+		d=JSON.parse(this.response).data;console.log(d)
+		Object.keys(d).forEach(D=>
+		{
+			if(!(d[D]==null))
+			{
+				aap+=Number(d[D].hourlyVolumeUSD)*0.25/100/Number(d[D].reserveUSD)
+			}
+		});
+		$("p"+n+"apr").innerHTML=(aap*365e2).toLocaleString()+"%"
+	}
+	gr1.send(JSON.stringify({query:Q_pn_c}))
+}
+function lpapr()
+{
+	lpapr_sus("0x50576ed9d94cf934bc32abf76e08ec6ddcd54bf0",1)
+	lpapr_sus("0x1dfcddf675038ead27f1d75b435b5b05ba825e9a",5)
+	lpapr_spi("0x7c8f47d2d151cedfdb847ab3c5b67d05daf3539b",2)
+	lpapr_spo("0xea035a13b64cb49d85e2f0a2736c9604cb21599c",0)
+	lpapr_zoo("0x7618793c51e0dc954ba1dd2eeeb3dfa08f777d0a",3)
+	lpapr_zoo("0x1dfcddf675038ead27f1d75b435b5b05ba825e9a",4)
+}
+function dfun()
+{
+	$("dao")
+}
+async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
+function sortit(n) {
+  var t, r, z, i, x, y, v, b, c = 0;
+  t = document.getElementById("maintable").getElementsByTagName("tbody")[0];
+  z = true;
+  b = "a";
+  while (z) {
+    z = false;
+    r = t.rows;
+    for (i = 0; i < (r.length - 1); i++) {
+      v = false;
+      x = (r[i].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
+      y = (r[i + 1].getElementsByTagName("TD")[n].textContent)//.replace(/,| |\.|\$|%/g,'');
+      if(isFinite(y)){y=Number(y)}else{y=y.toLowerCase()}
+      if (b == "a") {
+        if ((x) > (y)) {
+          v= true;
+          break;
+        }
+      } else if (b == "d") {
+        if ((x) < (y)) {
+          v = true;
+          break;
+        }
+      }
+    }
+    if (v) {
+      r[i].parentNode.insertBefore(r[i + 1], r[i]);
+      z = true;
+      c ++;
+    } else {
+      if (c == 0 && b == "a") {
+        b = "d";
+        z = true;
+      }
+    }
+  }
+    var t, r, z, i, x, y, v, b, c = 0;
+}
+</script>
+</html>
