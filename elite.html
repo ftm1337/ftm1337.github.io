@@ -352,7 +352,13 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>FTM</td>
 						<td id="p1tpl26">0</td>
 						<td>Dfyn</td>
-						<td><span><a href="https://dmm.exchange/#/swap" target="_blank">💱</a><a href="https://dmm.exchange" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+						<td><span><a href="https://dfyn.network/#/swap" target="_blank">💱</a><a href="https://dfyn.network" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl27">0</td>
+						<td>Morpheus</td>
+						<td><span><a href="https://swap.morpheusswap.app/#/swap/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882/0x04068DA6C83AFCFA0e13ba15A6696662335D5B75" target="_blank">💱</a><a href="https://swap.morpheusswap.app/add/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882/0x04068DA6C83AFCFA0e13ba15A6696662335D5B75" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
 				</tbody>
 			</table>
@@ -1270,6 +1276,12 @@ function allpp()
 	EC.methods.balanceOf("0x8E6f0C6c4D3Ad3606001b1C918e8C45Ffbb8678D").call((e,r)=>
 	{
 		$("p1tpl26").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl26").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x0068ecb52df9ca8D9e25f38A7370F54B9F413a48").call((e,r)=>
+	{
+		$("p1tpl27").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl27").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
