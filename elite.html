@@ -360,6 +360,18 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>Morpheus</td>
 						<td><span><a href="https://swap.morpheusswap.app/#/swap/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882/0x04068DA6C83AFCFA0e13ba15A6696662335D5B75" target="_blank">💱</a><a href="https://swap.morpheusswap.app/add/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882/0x04068DA6C83AFCFA0e13ba15A6696662335D5B75" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>DAI</td>
+						<td id="p1tpl28">0</td>
+						<td>Spooky</td>
+						<td><span><a href="https://spookyswap.finance" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>ETH</td>
+						<td id="p1tpl29">0</td>
+						<td>Spooky</td>
+						<td><span><a href="https://spookyswap.finance" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -1282,6 +1294,18 @@ function allpp()
 	EC.methods.balanceOf("0x0068ecb52df9ca8D9e25f38A7370F54B9F413a48").call((e,r)=>
 	{
 		$("p1tpl27").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl27").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x6B3AF21Cb0aED1C9C91b48a5afb60D412468811a").call((e,r)=>
+	{
+		$("p1tpl28").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl28").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xB70c24D275caC060f357C0AEf163B99B6dee24F5").call((e,r)=>
+	{
+		$("p1tpl29").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl29").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
