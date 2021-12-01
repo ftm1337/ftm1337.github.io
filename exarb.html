@@ -1,0 +1,109 @@
+<html>
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>exArb - FTM1337 (ftm.guru)</title>
+<meta name="description" content="exArb - FTM.guru : Fantom Opera blockchain tools, DEX pair Explorer, Fantom Scan, Top FTM Tokens on-chain voting, D.I.Y. Farm lands">
+<meta name="keywords" content="Fantom Opera, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="shortcut icon" href="../img/ftm1337.jpg" />
+<style>
+span {
+ font-family: mono;
+ text-align:right
+}
+</style>
+<span id="fe"></span><br>
+<span id="xf"></span><br>
+<br><br>
+f-e-x-f<input onchange="f1(this.value)" type="number"><br>
+<span id="f1"></span><br><br>
+f-x-e-f<input onchange="f2(this.value)" type="number"><br>
+<span id="f1"></span><br>
+<script src="web3.min.js">
+</script>
+<script>
+web3 = new Web3("https://rpc.ftm.tools");
+function $(_) {return document.getElementById(_);}
+// to calculate arbitrage between AMM pairs and xWrapping
+function swap(r,b,i,t){
+	i*=t
+	if(b) { return r[1]-(r[0]*r[1])/(r[0]+i) }
+	else { return r[0]-(r[0]*r[1])/(r[1]+i) }
+}
+function cex (r,b,i,t){
+	i*=t
+  return b? r*i : i/r;
+}
+
+pa = [{
+		"constant": true,
+		"inputs": [],
+		"name": "getReserves",
+		"outputs": [
+			{
+				"internalType": "uint112",
+				"name": "_reserve0",
+				"type": "uint112"
+			},
+			{
+				"internalType": "uint112",
+				"name": "_reserve1",
+				"type": "uint112"
+			},
+			{
+				"internalType": "uint32",
+				"name": "_blockTimestampLast",
+				"type": "uint32"
+			}
+		],
+		"payable": false,
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+// Example
+//@import web3.min.js
+FE=new web3.eth.Contract(pa,"0xEA035A13B64cB49D85E2f0a2736c9604CB21599C")
+fe = FE.methods.getReserves().call().then(r=>{return([Number(r[0]),Number(r[1])])})
+XF=new web3.eth.Contract(pa,"0xf97Cd673358086383BFfCd5bC3763F8c450D4810")
+xf = XF.methods.getReserves().call().then(r=>{return([Number(r[0]),Number(r[1])])})
+Promise.all([fe,xf]).then(pr=>{
+		fe = pr[0];
+		xf = pr[1];
+
+	$("fe").innerHTML =
+		(fe[0]/1e18).toFixed(18) + " wFTM <br>" +
+		(fe[1]/1e18).toFixed(18) + " ELITE <br>" +
+		(fe[0]/fe[1]).toFixed(18) + " FTM/ELITE <br>" +
+		(1/133e6*fe[0]/fe[1]).toFixed(18) + " FTM/XELITE <br>";
+	$("xf").innerHTML =
+		(xf[0]/1e18).toFixed(18) + " XELITE <br>" +
+		(xf[1]/1e18).toFixed(18) + " wFTM <br>" +
+		(xf[1]/xf[0]).toFixed(18) + " FTM/XELITE <br>";
+})
+function f1(inp){
+	Promise.all([fe,xf]).then(pr=>{
+		fe = pr[0];
+		xf = pr[1];
+		inp = inp*1e18
+		s1 = swap(fe,true,inp,0.985)
+		s2=cex(1337e5,true,s1,0.986)
+		s3=swap(xf,true,s2,0.985)
+		$("f1").innerHTML=(inp/1e18+"\n"+s1/1e18+"\n"+s2/1e18+"\n"+s3/1e18+"\n"+(s3-inp)/1e18);
+	})
+}
+function f2(inp){
+	Promise.all([fe,xf]).then(pr=>{
+		fe = pr[0];
+		xf = pr[1];
+		inp = inp*1e18
+		s1 = swap(xf,false,inp,0.985)
+		s2=cex(1337e5,false,s1,0.986)
+		s3=swap(fe,false,s2,0.985)
+		$("f2").innerHTML=(inp/1e18+"\n"+s1/1e18+"\n"+s2/1e18+"\n"+s3/1e18+"\n"+(s3-inp)/1e18);
+	})
+}
+</script>
+</html>
