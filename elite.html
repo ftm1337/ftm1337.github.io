@@ -372,6 +372,18 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>Spooky</td>
 						<td><span><a href="https://spookyswap.finance" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>UST</td>
+						<td id="p1tpl30">0</td>
+						<td>Spooky</td>
+						<td><span><a href="https://spookyswap.finance" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>SPIRIT</td>
+						<td id="p1tpl31">0</td>
+						<td>Spirit</td>
+						<td><span><a href="https://spiritswap.finance" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -1306,6 +1318,18 @@ function allpp()
 	EC.methods.balanceOf("0xB70c24D275caC060f357C0AEf163B99B6dee24F5").call((e,r)=>
 	{
 		$("p1tpl29").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl29").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xad70c7cbc8f856681b4ebdd37aeac58cf7100736").call((e,r)=>
+	{
+		$("p1tpl30").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl30").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xB70c24D275caC060f357C0AEf163B99B6dee24F5").call((e,r)=>
+	{
+		$("p1tpl31").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl31").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
