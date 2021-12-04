@@ -1321,13 +1321,13 @@ function allpp()
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
-	EC.methods.balanceOf("0xad70c7cbc8f856681b4ebdd37aeac58cf7100736").call((e,r)=>
+	EC.methods.balanceOf("0x6906976bf20102611D723379d4E83e2b985fb823").call((e,r)=>
 	{
 		$("p1tpl30").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl30").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
-	EC.methods.balanceOf("0xB70c24D275caC060f357C0AEf163B99B6dee24F5").call((e,r)=>
+	EC.methods.balanceOf("0xad70c7cbc8f856681b4ebdd37aeac58cf7100736").call((e,r)=>
 	{
 		$("p1tpl31").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl31").innerHTML;
 		allp.push(Number(r)/1e18);
