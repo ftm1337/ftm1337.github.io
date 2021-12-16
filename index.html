@@ -1317,13 +1317,14 @@ async function fillmvg(aaa)
 		n.innerHTML = (i+1)+". "+N;
 		S=await C.methods.symbol().call((e,r)=>{return(r)});
 		s.innerHTML = " "+S+"<br>";
-		T=await C.methods.totalSupply().call((e,r)=>{return(r)});
 		try{
+			T=await C.methods.totalSupply().call((e,r)=>{return(r)});
 			D=await C.methods.decimals().call((e,r)=>{return(r)});
 		}
 		catch(e)
 		{
-			D=0;
+			T=0;D=0;
+			console.log(e+" : caught erroR")
 		}
 		ts.innerHTML=fornum(T,D);
 	}
