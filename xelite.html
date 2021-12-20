@@ -255,6 +255,24 @@ table{width:max-content;padding:15px;box-shadow: rgba(0,255,255,0.2) 0px 0px 10p
 						<td>Beethoven</td>
 						<td><span onclick="window.location='https://app.beets.fi/#/pool/0xe402555efa3b232ee8bc4c79a446b47b38b93ebf00010000000000000000007e'"><a href="https://" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>XELITE</td>
+						<td id="p1tpl3">0</td>
+						<td>Wraith</td>
+						<td><span><a href="https://fantom-exchange.jetswap.finance/#/swap" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>XELITE</td>
+						<td id="p1tpl4">0</td>
+						<td>Spooky</td>
+						<td><span><a href="https://spookyswap.finance" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>XELITE</td>
+						<td id="p1tpl5">0</td>
+						<td>Zoo</td>
+						<td><span><a href="https://dex.zoocoin.cash/pool/add?inputCurrency=0x1BE23c78038B6057172848534AcD62667fA2620d&outputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -908,6 +926,24 @@ function allpp()
 	EC.methods.balanceOf("0x20dd72Ed959b6147912C2e529F0a0C651c33c9ce").call((e,r)=>
 	{
 		$("p1tpl2").innerHTML=fornum(Number(r),18);
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x170907a29CC9a99559891eC39960D9D21e898720").call((e,r)=>
+	{
+		$("p1tpl3").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl3").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x3B137f51b769698194B6926B42dC8c8cD5056Ae4").call((e,r)=>
+	{
+		$("p1tpl4").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl4").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x053EC442610C88f6263dB99f0548CDc1EEDdCE03").call((e,r)=>
+	{
+		$("p1tpl5").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl5").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
