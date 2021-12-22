@@ -925,7 +925,7 @@ window.addEventListener('load',function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
-	fetch("https://api.coingecko.com/api/v3/simple/price?ids=fantom%2Cftm-guru&vs_currencies=usd").then(d => d.json()).then(d2 =>{PFU=d2["fantom"].usd;APU=d2["elite-1337"].usd})
+	fetch("https://api.coingecko.com/api/v3/simple/price?ids=fantom%2Cftm-guru&vs_currencies=usd").then(d => d.json()).then(d2 =>{PFU=d2["fantom"].usd;APU=d2["ftm-guru"].usd})
 	allpp();
 	basics();
 	lpapr();
