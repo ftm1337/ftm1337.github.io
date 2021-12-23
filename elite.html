@@ -408,6 +408,30 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>Zoo</td>
 						<td><span><a href="https://dex.zoocoin.cash/pool/add?inputCurrency=0x1BE23c78038B6057172848534AcD62667fA2620d&outputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>XELITE</td>
+						<td id="p1tpl36">0</td>
+						<td>Knight</td>
+						<td><span><a href="https://darkdex.knight.financial/pool/add?inputCurrency=0x1BE23c78038B6057172848534AcD62667fA2620d&outputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>NIPS</td>
+						<td id="p1tpl37">0</td>
+						<td>NipdEx</td>
+						<td><span><a href="https://exchange.nipplelabs.finance/#/add/0x3a6a2f68F2d556446348028Bc215d2F17Cb5cc49/0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl38">0</td>
+						<td>Defy</td>
+						<td><span><a href="https://dex.zoocoin.cash/pool/add?inputCurrency=0x1BE23c78038B6057172848534AcD62667fA2620d&outputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl39">0</td>
+						<td>Knight</td>
+						<td><span><a href="https://darkdex.knight.financial/pool/add?inputCurrency=0x1BE23c78038B6057172848534AcD62667fA2620d&outputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -1381,7 +1405,30 @@ function allpp()
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
-
+	EC.methods.balanceOf("0xd4C8ff9e3Fe7927A0ce55CD5C4FB9A51a247F8bb").call((e,r)=>
+	{
+		$("p1tpl36").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl36").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x274Cab1b69D98A56Cc0346ba0D9b99b901B1A38C").call((e,r)=>
+	{
+		$("p1tpl37").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl37").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xF265336f428b2F0004926E22DcAf0bF275C700Bf").call((e,r)=>
+	{
+		$("p1tpl38").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl38").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xA2195A0e36036A180072FA5e631EabCE761BED22").call((e,r)=>
+	{
+		$("p1tpl39").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl39").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
 }
 
 function lpapr_sus(pi,n)
