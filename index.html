@@ -193,7 +193,7 @@ svg {
   transition: 0.6s ease-out;
 }
 .hovli li:hover{font-size:1.125em;background:rgba(0,255,255,0.5);}
-.partners img, .partners svg{height:128px;border-radius: 0}
+.partners img, .partners svg{height:120px;width:120px;border-radius: 0}
 @media(min-width:639px){
   .container,.mainstages{grid-template-columns: auto  auto}
 }
@@ -232,11 +232,11 @@ svg {
 <div align="center">A Multi-faceted growth hacker for indie projects, ftm.guru provides numerous Tools, Services and niche utility-applications to users and bespoke product customization, liquidity enhancement and data analytics products to De-Fi innovators. The Guru Network has something to offer for everyone:</div>
 <br><br>
 <div class="mainstages" align="center">
-	<div class="mainstage">
-		<a href="bo/index.html"><div><b><span style="font-size:1.3em">FTMUSD Binary Options</span></b><br><br>
-		<b>B.O.</b> is the First Binary Options platform on Fantom Opera.<br><br>A perpetual Prediction Market enabled by Band Protocol. Current Markets include FTM/USD with contract expiries of 13hrs.37mins.<br><br>Another FTMUSD and an ETHBTC market with a 75hr expiry is releasing this November.<br><br>
-		Currently in pre-alpha! (v0.3.3) <br><br>
-		<button class="c2a">Go Long/Short on FTM</button></div></a>
+	<div class="mainstage advert">
+		<a href="LF/index.html"><div><b><span style="font-size:1.3em">👽Farmlands</span></b><br><br>
+		<b>[LITE] Farmlands</b> enable any user to start their own farms and set their own conditions, including the Farmed asset, the Reward asset, the Duration and the Annual Percentage Returns. Active since June of 2021, our platform has amassed hundereds of thousands $ in TVL! Join our Farm-Maker program today to create your own Field on our Farmland!<br><br>
+		<!--<i>The upcoming version will make this process permissionless and be integrated with our IPFS-based user-interface.</i>-->
+		<button class="c2a">Explore Yield platforms</button></div></a>
 	</div>
 	<div class="mainstage advert">
 		<a href="https://fmc.guru" target="_blank"><div><b><span style="font-size:1.3em">FantomMarketCap</span></b><br><br>
@@ -274,12 +274,6 @@ svg {
 		<b>The Airdropper</b> tool can help you to distribute Tokens effortlessly and within 2-seconds, thanks to the Faassst speed of Fantom Opera.<br><br>All tokens are supported, including fee-on-Transfer, reflective, rebasing, baby, auto-LP, etc. other exotic De-Fi tokenomic assets.<br><br>
 		<button class="c2a">Airdropper</button></div></a>
 	</div>
-	<div class="mainstage advert">
-		<a href="LF/index.html"><div><b><span style="font-size:1.3em">👽Farmlands</span></b><br><br>
-		<b>[LITE] Farmlands</b> enable any user to start their own farms and set their own conditions, including the Farmed asset, the Reward asset, the Duration and the Annual Percentage Returns. Active since June of 2021, our platform has amassed hundereds of thousands $ in TVL! Join our Farm-Maker program today to create your own Field on our Farmland!<br><br>
-		<!--<i>The upcoming version will make this process permissionless and be integrated with our IPFS-based user-interface.</i>-->
-		<button class="c2a">Explore Yield platforms</button></div></a>
-	</div>
 	<div class="mainstage">
 		<a href="approver"><div><b><span style="font-size:1.3em">The Approver</span></b><br><br>
 		<b>The Approver</b> tool enables everyone to create allowance, edit or modify spending limits, grant infinite permissions or Revoke any of these easily.<br><br>Two intuitive functions, "Soft Approve" and "Hard Approve" make editing allowances on Smart Contracts a lot quicker and comfortable, even for Mobile users.<br><br>
@@ -300,6 +294,17 @@ svg {
 		<a href="nftdrop"><div><b><span style="font-size:1.3em">NFT Airdrop Tool</span></b><br><br>
 		Want to send NFTs as an airdrop to your loyal supporters or simply distribute your creative Non-Fungible tokens to a wider audience? Bulk send ERC-721 NFT tokens to multiple addresses in a single transaction with the ELITE Distributor. Say Goodbye to the hassle of manually sending NFTs one by one. Upload <u>upto 150 Fantom Opera addresses</u> at a time and spread NFTs by custom TokenIDs to your patrons!<br><br>
 		<button class="c2a">Send NFTs</button></div></a>
+	</div>
+	<div class="mainstage">
+		<a href="rawdata/tvl"><div><b><span style="font-size:1.3em">Universal TVL Finder</span></b><br><br>
+		We have deployed a Smart Contract that calculates instantaneous TVL (via on-chain calls) & per-block TVL (via web3 calls) of any Decentralized Finance platform. The ftm.guru platform, taking in consideration its huge collection of on-chain Stores of Value, uses this Smart Contract across its products.<br><br>The Universal TVL Finder can work with any Protocol, Project or EVM-like blockchain.<br><br>
+		<button class="c2a">Fork Contract</button></div></a>
+	</div>
+	<div class="mainstage">
+		<a href="bo/index.html"><div><b><span style="font-size:1.3em">FTMUSD Binary Options</span></b><br><br>
+		<b>B.O.</b> is the First Binary Options platform on Fantom Opera.<br><br>A perpetual Prediction Market enabled by Band Protocol. Current Markets include FTM/USD with contract expiries of 13hrs.37mins.<br><br>Another FTMUSD and an ETHBTC market with a 75hr expiry is releasing this November.<br><br>
+		Currently in pre-alpha! (v0.3.3) <br><br>
+		<button class="c2a">Go Long/Short on FTM</button></div></a>
 	</div>
 	<!--<div class="mainstage">
 		<a href="delite.html"><div><h3>dELITE : Dark ELITE</h3>
@@ -663,41 +668,45 @@ svg {
 
 
 <div align="center" class="partners" style="">
-	<h2>Associates and Partners</h2>
-	<div>
-		<img src="img/zoo.png">
-		<img src="img/elk.svg">
-		<img src="img/spooky.sq.svg">
-		<img src="img/shiba.sq.svg">
-		<img src="img/nips.svg">
-	</div>
-	<h3>Official Listing Partners</h3>
-	<br><br>
-	<div>
-		<img src="img/fe.png">
-		<!--<img src="img/ck">-->
-		<a href="https://kek.tools/t/elite" target="_blank"><img src="https://kek.mypinata.cloud/ipfs/QmZNLMP993irvYwh5SKTuZgaQDvqwLJV7KV2zTe3bAuqXP"></a>
-	</div>
-	<h3>Official Charting Partners</h3>
-	<br><br>
-	<div>
-		<img src="img/nips.svg">
-		<!--<img src="img/wraith">-->
-	</div>
-	<h3>Official Farming Partners</h3>
-	<br><br>
-	<div>
-		<img src="img/band.svg">
-	</div>
-	<h3>Official Oracle Solution</h3>
-	<br><br>
 	<div>
 		<a href="https://fmc.guru" target="_blank"><img src="img/FMC.svg"></a>
 		<a href="https://coinmarketcap.com/currencies/elite-1337" target="_blank"><img src="img/cmc.svg"></a>
 		<a href="https://www.coingecko.com/en/coins/elite-1337" target="_blank"><img src="img/gecko.svg"></a>
 		<a href="https://nomics.com/assets/elite2-ftmguru" target="_blank"><img src="img/nomics.svg"></a>
 	</div>
-	<h3>Official Public Data</h3>
+	<h2>Official Public Data</h2>
+	<br><br>
+	<div>
+		<img src="img/band.svg">
+	</div>
+	Band Protocol powers our <b><a href="bo/index.html">Binary Options Plarform "BO".</a></b>
+	<h2>Official Oracle Solution</h2>
+	<br><br>
+	<div>
+		<img src="img/zoo.png">
+		<img src="img/elk.svg">
+		<img src="img/spooky.sq.svg">
+		<img src="img/shiba.sq.svg">
+		<img src="img/nips.svg">
+		<img src="img/wraith.svg">
+		<img src="img/kyber.svg">
+		<img src="img/jetfuel.svg">
+	</div>
+	DEXes that have officially recognized our Tokens in thier official tokenlist.
+	<h2>Official DEX Partners</h2>
+	<br><br>
+	<div>
+		<img src="img/fe.png">
+		<!--<img src="img/ck">-->
+		<a href="https://kek.tools/t/elite" target="_blank"><img src="https://kek.mypinata.cloud/ipfs/QmZNLMP993irvYwh5SKTuZgaQDvqwLJV7KV2zTe3bAuqXP"></a>
+	</div>
+	<h2>Official Charting Partners</h2>
+	<br><br>
+	<div>
+		<img src="img/nips.svg">
+		<!--<img src="img/wraith">-->
+	</div>
+	<h2>Official Farming Partners</h2>
 	<br><br>
 </div>
 
