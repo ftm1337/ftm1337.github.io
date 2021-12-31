@@ -274,14 +274,10 @@ async function polls()
 	{
 		w=new Web3(rpcs[i]);
 		d=Date.now();
-		var n = await w.eth.getBlockNumber()//.then(n=>{
+		var n = await w.eth.getBlockNumber()
 		$("r"+(i+1)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>${n}</td><td>${(Date.now()-d)/1e3+"s"}</td>`
-		//})
-	}
 		sortit(1);sortit(1);
-
-
-
+	}
 }
 function sortit(n) {
   var t, r, z, i, x, y, v, b, c = 0;
@@ -291,7 +287,7 @@ function sortit(n) {
   while (z) {
     z = false;
     r = t.rows;
-    for (i = 1; i < (r.length - 1); i++) {
+    for (i = 0; i < (r.length - 1); i++) {
       v = false;
       x = (r[i].getElementsByTagName("TD")[n].innerHTML).replace(/,| |\.|\$|%/g,'');
       if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
