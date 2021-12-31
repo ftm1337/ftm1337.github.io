@@ -64,6 +64,8 @@ thead tr::before{
   counter-increment: (rowNumber+1);
   content: "№";
 }
+tr{cursor: copy}
+tr:hover td,tr:hover td b{background: aqua;color:navy;}
 @media(min-width:641px){
 	#c2a{
 		display: grid;
@@ -90,6 +92,8 @@ thead tr::before{
 </div>
 <br>
 <hr class="hhr">
+<br>
+<br>
 <h2 align="center">Fantom Opera<br>RPC URL List</h2>
 <div class="mainpanel uo" align="center">
 	<h4>Tap to Copy RPC URL</h4>
@@ -104,11 +108,11 @@ thead tr::before{
 			</tr>
 		</thead>
 		<tbody id="rtb">
-			<tr id="r1"><td></td><td></td><td></td></tr>
-			<tr id="r2"><td></td><td></td><td></td></tr>
-			<tr id="r3"><td></td><td></td><td></td></tr>
-			<tr id="r4"><td></td><td></td><td></td></tr>
-			<tr id="r5"><td></td><td></td><td></td></tr>
+			<tr id="r1" onclick='copsc(this)'><td></td><td></td><td></td></tr>
+			<tr id="r2" onclick='copsc(this)'><td></td><td></td><td></td></tr>
+			<tr id="r3" onclick='copsc(this)'><td></td><td></td><td></td></tr>
+			<tr id="r4" onclick='copsc(this)'><td></td><td></td><td></td></tr>
+			<tr id="r5" onclick='copsc(this)'><td></td><td></td><td></td></tr>
 		</tbody>
 	</table>
 	</div>
@@ -252,32 +256,46 @@ thead tr::before{
 <script>
 window.addEventListener('load',function()
 {
-	polls();pollall();
+
+	for(i=0;i< rpcs.length;i++){w[i]=new Web3(rpcs[i]);}
+	polls();
+	pollall();
 }, false);
 function $(_) {return document.getElementById(_);}
-
 function pollall() {
-	var x=setInterval(polls,10000)
+	var x=setInterval(polls,13370)
 }
+const w=[];
+rpcs=
+[
+	"https://rpc.ftm.tools",
+	"https://rpc.fantom.network",
+	"https://rpc2.fantom.network",
+	"https://rpc3.fantom.network",
+	"https://rpcapi.fantom.network",
+	"https://rpc.neist.io",
+	"https://rpc.ankr.com/fantom"
+]
 async function polls()
 {
-	rpcs=
-	[
-		"https://rpc.ftm.tools",
-		"https://rpc.fantom.network",
-		"https://rpc2.fantom.network",
-		"https://rpc3.fantom.network",
-		"https://rpcapi.fantom.network"
-	]
 
 	for(i=0;i< rpcs.length;i++)
 	{
-		w=new Web3(rpcs[i]);
+		//w=new Web3(rpcs[i]);
 		d=Date.now();
-		var n = await w.eth.getBlockNumber()
-		$("r"+(i+1)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>${n}</td><td>${((Date.now()-d)/1e3).toFixed(3)+"s"}</td>`
+		var N = await w[i].eth.getBlockNumber();n=String(N);
+		$("r"+(i+1)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>${n.substring(0,n.length-3)+"<b>"+n.substr(-3)+"</b>"}</td><td>${((Date.now()-d)/1e3).toFixed(3)+"s"}</td>`
 		sortit(1);sortit(1);
 	}
+}
+function copsc(el)
+{
+	var inp = document.createElement('input');
+	document.body.appendChild(inp)
+	inp.value = "https://" + el.getElementsByTagName("td")[0].innerHTML
+	inp.select();
+	document.execCommand('copy',false);
+	inp.remove();
 }
 function sortit(n) {
   var t, r, z, i, x, y, v, b, c = 0;
