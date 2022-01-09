@@ -1,0 +1,243 @@
+<!doctype html>
+<html>
+<meta charset="UTF-8">
+<head>
+<meta name="description" content="All Granaries - FTM.guru : Kompound Protocol">
+<meta name="keywords" content="Granary, Finance, Compound, Vault, Interest, Decentralized Finance, defi, yield farming, Guru Network, Fantom Opera, FTM">
+<title>All Granaries - FTM.guru</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="https://ftm.guru/img/64.png"/>
+<style>*{
+scroll-behavior: smooth !important;
+}
+body {
+  background:#17082f;
+  color: white;
+  margin:auto;
+  font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif;
+}
+.body{
+  margin: 8%
+}
+.topbar {
+  padding:5px;
+  background: #6f42c1;
+  width: calc(100%-10px);
+  display:flex;
+  flex-wrap: wrap;
+}
+.topbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bolder;
+  margin: auto
+}
+.topbar a:first-child{font-size: 2em}
+h1{font-size: 3em}
+h2{}
+h1,h2,h3{color:#32fbe2;}
+
+.lowerbar{
+  font-size: 1.25em;
+  font-weight: bolder;
+}
+.lowerbar a{
+  font-size: 0.75em;
+  font-weight: lighter;
+  padding: 10px 10px 10px 0px;
+  color:#32fbe2;
+  text-decoration: none
+}
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+}
+.card{
+  margin:10px 20px 10px 0px;
+  min-width: 220px;
+  padding: 20px;
+  border: 2px solid #1f5;
+  border-radius: 5px;
+  background:rgba(16,240,80,0.2)
+}
+.card hr{color: #1f5;border:solid 2px}
+.card sub{font-size: 1em}
+.card sup{font-size: 1.5em}
+.card:hover{
+  transform: translate(5px,-5px);
+  box-shadow: -5px 5px 5px rgba(16,240,80,0.75);
+  transition: 0.25s;
+  background: rgba(16,240,80,0.1);
+  cursor:pointer;
+}
+.ki img {
+  position: relative;
+  right:0;
+  left: 8px;
+  border-radius: 50%;
+  width: 48px;
+  box-shadow: 0 0 2px 2px rgba(16,240,80,1);
+}
+.ki img:first-child{left: 16px}
+.fn{max-height: 28px;position: relative;top: -5px}
+.fn img {
+  position: relative;
+  top:10px;
+  margin-right: 8px;
+  border-radius: 50%;
+  width: 32px;
+  box-shadow: 0 0 2px 2px rgba(16,180,240,0.5);
+}
+.cardapr{display:grid;grid-template-columns:auto auto;font-weight: bolder;font-size:1.2em}
+.bigapr{font-size: 3em}
+strike{color: pink;font-style: italic;font-weight: lighter;font-size:1.2em}
+ul{color: #d1c4ff;font-size:1.1em}
+ul i{font-size:0.85em;}
+/*some*/
+.ddb {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: aqua;
+  border: none;
+  color: #000;
+  text-align: center;
+  font-size: 1.25em;
+  padding: 10px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.ddb span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.ddb span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.ddb:hover span {
+  padding-right: 25px;
+}
+
+.ddb:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+	<a href="">🌾Granaries🌾</a>
+	<a href="">FTM.guru</a>
+	<a href="">Create a Farm</a>
+	<a href="">Services & Tools</a>
+	<!--
+	<a href="">FMC.guru</a>
+	<a href="">Others</a>
+	<a href="">Kompound</a>
+	<a href="">T</a>
+	<a href="">T</a>
+	<a href="">D</a>
+	-->
+</div>
+<div class="body">
+<br>
+<h1>Kompound Protocol</h1>
+<h3>Compounding Service for Fantom's Yield Farms</h3>
+<i>Earn 1% of each harvest, just for paying the gas! Earn compound interest even on those rewards!</i><br><br>
+<details><summary><button class="ddb" onclick='window.location="#all"'><span>Get Started</span></button></summary></details>
+<details><summary><button class="ddb"  id="ddb" onclick="dive()"><span>Learn More</span></button></summary>
+<ul>
+<li>Jump into any vault with FTM, in <u>a single transaction</u>.
+	<br><i>Say Goodbye to that dreadful dozen of transaction fatigue, token allowances, liquidity additions, farm approvals, all that blah blah.</i></li><br>
+<li>Make contracts work Smarter, not just harder, <b>The Elite way!</b>
+	<br><i>Cherry-picked yield generating protocols and tailor-made strategies to suit your taste.</i></li><br>
+<li>Earn it when you yearn it! Gain exposure to the Best of DeFi.
+	<br><i>Earn your favorite tokens <u>without any investments</u>, just by being a good actor.</i></li></br>
+<li>Security First. But are we the first?
+	<br><i><strike>All</strike> Most of the other, although famous, vaults can steal all users funds by switching to a fake strategy owned by their "admin/owner" whenever they want. All granaries use <u>unchangeable strategies</u> and have <b>no admin privileges</b> that can touch user funds, ever. All Kompound Protocol contracts, inlcuding the Granaries, have all their publicly callable functions guarded against re-entrant attacks.</i></br>
+</ul>
+</details>
+
+
+<br><br>
+Zero* deposit fees & Zero withdrawal fees.
+<br><span style="font-size:0.8em">0.1% Deposit fees, No fees if holding 0.01 ELITE.</span>
+
+<br><br><br><br><br><br>
+
+
+<h2 id="all">Available Granaries (1)</h2>
+Invest any asset to get the most out of it with our tailor-made strategies.
+<br><br>
+
+
+
+<div class="cards">
+
+	<div class="card" onclick="window.location='2201.html'">
+		<span class="cardapr">
+			<span>wFTM-USDC<br><strike>103.6%</strike></span>
+			<span class="ki"><img src="../img/ftm.svg"><img src="../img/usdc.svg"></span>
+		</span>
+		<span class="bigapr">189.4%</span>
+		<hr>
+		<div class="fn" ><img src="../img/knight.svg">knightSwap Farms</div>
+	</div>
+
+
+</div>
+
+
+<div class="">
+</div>
+
+
+<div class="">
+</div>
+
+
+
+
+<br><br><br><br><br><br>
+
+<div class="lowerbar">Powered by Guru Network.
+<br>
+	<a href="https://kcc.guru" target="_blank">KCC.guru</a>
+	<a href="https://ftm.guru" target="_blank">FTM.guru</a>
+	<a href="https://fmc.guru" target="_blank">FMC.guru</a>
+	<a style="font-size:1.2em" href="https://discord.com/invite/QpyfMarNrV" target="_blank">🎮</a>
+</div>
+</div>
+
+</div>
+</body>
+<script>
+function $(_) {return document.getElementById(_);}
+function dive()
+{
+	if($("ddb").parentElement.parentElement.getAttribute("open")==null)
+	{
+		$("ddb").parentElement.parentElement.setAttribute("open","");
+		$("ddb").children[0].innerHTML="Deeper Dive"
+	}
+	else
+	{
+		$("ddb").parentElement.parentElement.removeAttribute("open")
+		$("ddb").children[0].innerHTML="Dive Deeper"
+	}
+
+}
+</script>
+</html>
