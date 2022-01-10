@@ -678,7 +678,7 @@ function farm_1_f_approve()
 		theCon = new web3.eth.Contract(abbrove, pairadd);
 		theCon.methods.approve(f_1_add,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){$("er").innerHTML=e;}
+	catch(e){console.log(e);}
 }
 
 async function farm_1_f_chappro()
