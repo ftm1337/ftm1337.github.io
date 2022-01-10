@@ -200,7 +200,7 @@ This strategy takes in DarkKnight LP of USDC+FTM as collateral deposits for issu
 		<br>
 		<span id="c_ts">0.000</span>
 		<hr>
-		Total Supply
+		Total GRAINs (Supply)
 	</div>
 	<div class="card" onclick="window.location=''">
 		<br>
@@ -677,7 +677,7 @@ function farm_1_f_approve()
 		theCon = new web3.eth.Contract(abbrove, pairadd);
 		theCon.methods.approve(f_1_add,"999999999999999999999999999999").send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){console.log(e);}
+	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
 
 async function farm_1_f_chappro()
@@ -707,7 +707,7 @@ async function farm_1_f_chappro()
 			}
 		})
 	}
-	catch(e){console.log(e)}
+	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
 
 function deposit()
@@ -719,11 +719,12 @@ function deposit()
 		m=($("inp-da").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
 		theCon.methods.deposit(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){console.log(e)}
+	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
-function gs(){console.log("gs lol");
-gubs()
-DrefreshFarm()
+function gs(){
+	console.log("gs lol");
+	gubs()
+	DrefreshFarm()
 }
 
 function doHardWork()
@@ -734,7 +735,7 @@ function doHardWork()
 		theCon = new web3.eth.Contract(farabi, conAdd);
 		theCon.methods.doHardWork().send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){console.log(e)}
+	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
 
 function withdraw()
@@ -746,7 +747,7 @@ function withdraw()
 		m=($("inp-wa").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
 		theCon.methods.withdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){console.log(e)}
+	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
 
 async function enter()
@@ -758,7 +759,7 @@ async function enter()
 		var m = await theLPT.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{return(r)});
 		theCon.methods.deposit(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){console.log(e)}
+	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
 
 async function exit()
@@ -770,7 +771,7 @@ async function exit()
 		var m = await theCon.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{return(r)});
 		theCon.methods.withdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
-	catch(e){console.log(e)}
+	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
 
 async function gubs()
@@ -788,7 +789,7 @@ async function gubs()
 			$("dep-ab").innerHTML=(s[1]/1e18);
 		})
 	}
-	catch(e){console.log(e);}
+	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
 
 async function DrefreshFarm()
@@ -800,26 +801,19 @@ async function DrefreshFarm()
 			target="_blank"
 			>${f_1_add.substr(0,6)+"―"+f_1_add.substr(38)}</a>
 		`;
-		con = new web3.eth.Contract(farabi, f_1_add);
-		lpt = new web3.eth.Contract(ab1, pairadd);
-		ts = con.methods.totalSupply().call()
-		lpts = lpt.methods.totalSupply().call()
-		lpgr = lpt.methods.getReserves().call()
-		//mc = con.methods.info().call()
-		await Promise.all([ts,lpts,lpgr]).then(d=>{
-			kpts = (Number(d[0])/1e18);
-			$("c_ts").innerHTML = fornum(kpts,0);
-			plp = Number(d[2][1])/1e18 * 2 / (Number(d[1])/1e18);
-			//mcd = d[3][0][0];
-			//mcp = d[3][0][1]
-			//$("c_nr").innerHTML = fornum(mcd/kpts,0) + " x";
-			//tim = ((Date.now()/1e3 - GEN) / (365*86400));
-			//$("c_aa").innerHTML =  fornum((((mcd/kpts-1)*100)/tim),0)+" %";
-			//$("c_pu").innerHTML =  "$ " + fornum((plp*mcd/kpts),0);
-			//$("c_mc").innerHTML =  "$ " + fornum((plp*mcd,0);
+
+		g = new web3.eth.Contract(farabi, f_1_add);
+		ts = g.methods.totalSupply().call();
+		vl = g.methods.tvl().call();
+		//info = g.methods.info().call();
+		await Promise.all([ts,vl]).then(d=>{
+			console.log(d);
+			$("c_ts").innerHTML = (Number(d[0])/1e18).toFixed(10);
+			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
+			$("c_pu").innerHTML = "$ "+fornum(Number(d[1])/Number(d[0]),0);
 		})
 	}
-	catch(e){console.log(e);}
+	catch(e){console.log(e);$("cw_m").innerHTML=e;}
 }
 
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
