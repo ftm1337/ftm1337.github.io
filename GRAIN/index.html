@@ -7,7 +7,8 @@
 <title>All Granaries - FTM.guru</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="https://ftm.guru/img/64.png"/>
-<style>*{
+<style>
+*{
 scroll-behavior: smooth !important;
 }
 body {
@@ -49,6 +50,12 @@ h1,h2,h3{color:#32fbe2;}
   color:#32fbe2;
   text-decoration: none
 }
+.hr1{
+  color: transparent;
+  border-top: 16px dotted #ea39b8;
+  max-width: 50%
+}
+.fore{color: gold !important;font-weight:400;font-size:1.337em}
 .cards{
   display: flex;
   flex-wrap: wrap;
@@ -57,18 +64,18 @@ h1,h2,h3{color:#32fbe2;}
   margin:10px 20px 10px 0px;
   width: 180px;
   padding: 20px;
-  border: 2px solid #1f5;
+  border: 2px solid #1ea;
   border-radius: 5px;
-  background:rgba(16,240,80,0.2);
+  background:rgba(16,240,80,0.15);
 }
-.card hr{color: #1f5;border:solid 2px}
+.card hr{color: #1ea;border:solid 2px}
 .card sub{font-size: 1em}
 .card sup{font-size: 1.5em}
 .card:hover{
   transform: translate(5px,-5px);
   box-shadow: -5px 5px 5px rgba(16,240,80,0.75);
   transition: 0.25s;
-  background: rgba(16,240,80,0.1);
+  background: rgba(16,140,180,0.25);
   cursor:pointer;
 }
 .ki img {
@@ -149,6 +156,8 @@ ul i{font-size:0.85em;}
   right: 0;
 }
 
+.card2{background: #222;color: grey;border:black;cursor:no-drop !important;}
+.card2:hover{transform: none;box-shadow: none}
 </style>
 </head>
 <body>
@@ -192,38 +201,60 @@ Zero* deposit fees & Zero withdrawal fees.
 
 <br><br><br><br><br><br>
 
+	<!--
+		<div class="card" onclick="window.location='2201.html'">
+			<span class="cardapr">
+				<span>wFTM-USDC<br><strike>93.6%</strike></span>
+				<span class="ki"><img src="../img/ftm.svg"><img src="../img/usdc.svg"></span>
+			</span>
+			<span class="bigapr">111.4%</span>
+			<hr>
+			<div class="fn" ><img src="../img/knight.svg">knightSwap Farms</div>
+		</div>
+	-->
 
 <h2 id="all">Available Granaries (1)</h2>
 Invest any asset to get the most out of it with our tailor-made strategies.
+<br><br><br>
+
+<details open><summary class="fore">DarkKnight Farm (1)</summary><br>
+	<div class="cards">
+		<div class="card" onclick="window.location='2201.html'">
+			<span class="cardapr">
+				<span>GRAIN<br>#2201</span>
+				<span class="ki"><img src="../img/ftm.svg"><img src="../img/usdc.svg"><img class="ib" src="../img/knight.svg"></span>
+			</span><br>
+			<span class="bigapr">wFTM-USDC Knight LP</span>
+			<hr>
+			<div class="fn" ><img src="../img/knight.svg">darkKnight Farm</div>
+		</div>
+		<div class="card card2" onclick="window.location='2202.html'">
+			<span class="cardapr">
+				<span>GRAIN<br>#2202</span>
+				<span class="ki"><img src="../img/ftm.svg"><img src="../img/dai.svg"><img class="ib" src="../img/knight.svg"></span>
+			</span><br>
+			<span class="bigapr">wFTM-DAI Knight LP</span>
+			<hr>
+			<div class="fn" ><img src="../img/knight.svg">darkKnight Farm</div>
+		</div>
+	</div>
+</details>
+
 <br><br>
 
-
-
-<div class="cards">
-<!--
-	<div class="card" onclick="window.location='2201.html'">
-		<span class="cardapr">
-			<span>wFTM-USDC<br><strike>93.6%</strike></span>
-			<span class="ki"><img src="../img/ftm.svg"><img src="../img/usdc.svg"></span>
-		</span>
-		<span class="bigapr">111.4%</span>
-		<hr>
-		<div class="fn" ><img src="../img/knight.svg">knightSwap Farms</div>
+<details open><summary class="fore">Wraith Yield Fields (1)</summary><br>
+	<div class="cards">
+		<div class="card card2" onclick="window.location='2301.html'">
+			<span class="cardapr">
+				<span>GRAIN<br>#2301</span>
+				<span class="ki"><img src="../img/ftm.svg"><img src="../img/usdc.svg"><img class="ib" src="../img/wraith.svg"></span>
+			</span><br>
+			<span class="bigapr">wFTM-USDC Wraith LP</span>
+			<hr>
+			<div class="fn" ><img src="../img/wraith.svg">Wraith Yield Fields</div>
+		</div>
 	</div>
--->
-	<div class="card" onclick="window.location='2201.html'">
-		<span class="cardapr">
-			<span>GRAIN<br>#2201</span>
-			<span class="ki"><img src="../img/ftm.svg"><img src="../img/usdc.svg"><img class="ib" src="../img/knight.svg"></span>
-		</span><br>
-		<span class="bigapr">wFTM-USDC Knight LP</span>
-		<hr>
-		<div class="fn" ><img src="../img/knight.svg">darkKnight Farm</div>
-	</div>
-
-
-</div>
-
+</details>
 
 <div class="">
 </div>
@@ -236,14 +267,19 @@ Invest any asset to get the most out of it with our tailor-made strategies.
 
 
 <br><br><br><br><br><br>
+<hr class="hr1">
+<br><br><br><br><br><br>
+
 
 <div class="lowerbar">Powered by Guru Network.
 <br>
-	<a href="https://kcc.guru" target="_blank">KCC.guru</a>
-	<a href="https://ftm.guru" target="_blank">FTM.guru</a>
-	<a href="https://fmc.guru" target="_blank">FMC.guru</a>
-	<a style="font-size:1.2em" href="https://discord.com/invite/QpyfMarNrV" target="_blank">🎮</a>
-</div>
+	<a target="_blank" href="https://kcc.guru">KCC.guru</a>
+	<a target="_blank" href="https://ftm.guru">FTM.guru</a>
+	<a target="_blank" href="https://fmc.guru">FMC.guru</a>
+	<br><br>
+	<a target="_blank" href="https://twitter.com/ftm1337">T</a>
+	<a target="_blank" href="https://t.me/kucino">T</a>
+	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV">D</a>
 </div>
 
 </div>
