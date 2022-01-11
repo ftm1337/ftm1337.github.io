@@ -55,11 +55,11 @@ h1,h2,h3{color:#32fbe2;}
 }
 .card{
   margin:10px 20px 10px 0px;
-  min-width: 220px;
+  width: 180px;
   padding: 20px;
   border: 2px solid #1f5;
   border-radius: 5px;
-  background:rgba(16,240,80,0.2)
+  background:rgba(16,240,80,0.2);
 }
 .card hr{color: #1f5;border:solid 2px}
 .card sub{font-size: 1em}
@@ -79,8 +79,15 @@ h1,h2,h3{color:#32fbe2;}
   width: 48px;
   box-shadow: 0 0 2px 2px rgba(16,240,80,1);
 }
+.cardapr span:first-child{font-size: 1em}
 .ki img:first-child{left: 16px}
-.fn{max-height: 28px;position: relative;top: -5px}
+.ki{text-align: right}
+.fn{
+  max-height: 28px;
+  position: relative;
+  top: -5px;
+  font-size:1em;
+}
 .fn img {
   position: relative;
   top:10px;
@@ -89,8 +96,15 @@ h1,h2,h3{color:#32fbe2;}
   width: 32px;
   box-shadow: 0 0 2px 2px rgba(16,180,240,0.5);
 }
+.ib {
+  position: relative;
+  top:-24px !important;
+  left:8px !important;
+  width: 22px !important;
+  height:22px !important;
+}
 .cardapr{display:grid;grid-template-columns:auto auto;font-weight: bolder;font-size:1.2em}
-.bigapr{font-size: 3em}
+.bigapr{font-size: 1em;font-weight:bolder}
 strike{color: pink;font-style: italic;font-weight: lighter;font-size:1.2em}
 ul{color: #d1c4ff;font-size:1.1em}
 ul i{font-size:0.85em;}
@@ -134,6 +148,7 @@ ul i{font-size:0.85em;}
   opacity: 1;
   right: 0;
 }
+
 </style>
 </head>
 <body>
@@ -185,15 +200,25 @@ Invest any asset to get the most out of it with our tailor-made strategies.
 
 
 <div class="cards">
-
+<!--
 	<div class="card" onclick="window.location='2201.html'">
 		<span class="cardapr">
-			<span>wFTM-USDC<br><strike>103.6%</strike></span>
+			<span>wFTM-USDC<br><strike>93.6%</strike></span>
 			<span class="ki"><img src="../img/ftm.svg"><img src="../img/usdc.svg"></span>
 		</span>
-		<span class="bigapr">189.4%</span>
+		<span class="bigapr">111.4%</span>
 		<hr>
 		<div class="fn" ><img src="../img/knight.svg">knightSwap Farms</div>
+	</div>
+-->
+	<div class="card" onclick="window.location='2201.html'">
+		<span class="cardapr">
+			<span>GRAIN<br>#2201</span>
+			<span class="ki"><img src="../img/ftm.svg"><img src="../img/usdc.svg"><img class="ib" src="../img/knight.svg"></span>
+		</span><br>
+		<span class="bigapr">wFTM-USDC Knight LP</span>
+		<hr>
+		<div class="fn" ><img src="../img/knight.svg">darkKnight Farm</div>
 	</div>
 
 
