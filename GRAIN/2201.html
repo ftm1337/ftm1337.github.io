@@ -342,9 +342,9 @@ Upon each deposit, including worker payouts, the Kompounder (Granary) issues spe
 
 </div></body>
 
-
-
-<script src="../web3.min.js"></script>
+https://ftmscan.com/assets/js/custom/web3-eth.min.js?v=21.12.2.0
+https://ftmscan.com/assets/js/custom/web3-eth.min.js?v=21.12.2.0
+<script src="../web3-1.6.min.js"></script>
 <script>
 function $(_) {return document.getElementById(_);}
 
@@ -809,12 +809,25 @@ async function DrefreshFarm()
 		g = new web3.eth.Contract(farabi, f_1_add);
 		ts = g.methods.totalSupply().call();
 		vl = g.methods.tvl().call();
-		//info = g.methods.info().call();
-		await Promise.all([ts,vl]).then(d=>{
+		/////////////////////////////////
+		/*	NOT WORKING!!!!!!!!!!!!!!!
+		 *io = g.methods.info().call();
+		 *******************************
+		 *******************************/
+
+		url="https://rpc.ftm.tools";
+		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
+		let io = (await fetch(url, { method: 'POST', body: JSON.stringify(data) })).json();
+
+		await Promise.all([ts,vl,io]).then(d=>{
 			console.log(d);
 			$("c_ts").innerHTML = (Number(d[0])/1e18).toFixed(10);
 			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
 			$("c_pu").innerHTML = "$ "+fornum(Number(d[1])/Number(d[0]),0);
+			oi=[];for(i=0;i<9;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
+			console.log("oi",oi);
+			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
+			$("c_nr").innerHTML = fornum(100*(Number(oi[1])-1e18),18)+"x"
 		})
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e;}
