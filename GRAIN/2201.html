@@ -827,7 +827,7 @@ async function DrefreshFarm()
 			oi=[];for(i=0;i<9;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
 			console.log("oi",oi);
 			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
-			$("c_nr").innerHTML = fornum(100*(Number(oi[1])-1e18),18)+"x"
+			$("c_nr").innerHTML = fornum(Number(oi[1]),18)+"x"
 		})
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e;}
