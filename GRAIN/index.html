@@ -50,6 +50,7 @@ h1,h2,h3{color:#32fbe2;}
   color:#32fbe2;
   text-decoration: none
 }
+.lowerbar img{width:24px}
 .hr1{
   color: transparent;
   border-top: 16px dotted #ea39b8;
@@ -270,21 +271,53 @@ Invest any asset to get the most out of it with our tailor-made strategies.
 <hr class="hr1">
 <br><br><br><br><br><br>
 
-
+<div onclick="pantvl()">
+	<span style="font-size:2.5em;font-weight:bold" id="pantvl" class="fore"></span><sup style="font-size:1.2em;position:relative;top: -14px;">⟳</sup><br>
+	(Total Value Locked Pan-platform)
+</div>
+<br><br>
 <div class="lowerbar">Powered by Guru Network.
 <br>
 	<a target="_blank" href="https://kcc.guru">KCC.guru</a>
 	<a target="_blank" href="https://ftm.guru">FTM.guru</a>
 	<a target="_blank" href="https://fmc.guru">FMC.guru</a>
 	<br><br>
-	<a target="_blank" href="https://twitter.com/ftm1337">T</a>
-	<a target="_blank" href="https://t.me/kucino">T</a>
-	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV">D</a>
+	<a target="_blank" href="https://twitter.com/ftm1337"><img src="../img/twitter.svg"></a>
+	<a target="_blank" href="https://t.me/ftm1337"><img src="../img/telegram.svg"></a>
+	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="../img/discord.svg"></a>
+	<a target="_blank" href="https://medium.com/@ftm1337"><img src="../img/medium.svg"></a>
+	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="../img/gecko.svg"></a>
+	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="../img/cmc.svg"></a>
 </div>
 
 </div>
 </body>
+<script src="../web3.min.js"></script>
 <script>
+window.addEventListener('load',async function()
+{
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
+	else{web3 = new Web3("https://rpc.ftm.tools");}
+	pantvl()
+}, false);
+function pantvl()
+{
+	pt=new web3.eth.Contract([{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}],"0x3f0458FfB6D106d2F5CdeC9CEdc9054A69275489")
+	pt.methods.tvl().call((e,r)=>{$("pantvl").innerHTML = "$"+(Number(r)/1e18).toLocaleString()});
+}
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+"Qt"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+"Qd"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+"Tn"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+"Bn"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+"Mn"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+"Th"}
+	else if(_n>0){n_=(_n/1e0).toFixed(5)+""}
+	return(n_);
+}
 function $(_) {return document.getElementById(_);}
 function dive()
 {
