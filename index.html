@@ -675,6 +675,18 @@ svg {
 </div>
 <br>
 <br>
+<br>
+<br>
+<div align="center" onclick="pantvl()">
+	<span style="font-size:13.37vw;font-weight:bold;color:aqua;text-shadow:2px 2px 5px gold" id="pantvl" class="fore"></span><sup style="font-size:1.2em;position:relative;top: -14px;">⟳</sup><br>
+	Total Value Locked Pan-platform
+</div>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<br>
 
 
 <div align="center" class="partners" style="">
@@ -876,7 +888,13 @@ window.addEventListener('load',async function()
 	console.log(r)
 	fillmvg(r);
 	});
+	pantvl()
 }, false);
+function pantvl()
+{
+	pt=new web3.eth.Contract([{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}],"0x3f0458FfB6D106d2F5CdeC9CEdc9054A69275489")
+	pt.methods.tvl().call((e,r)=>{$("pantvl").innerHTML = "$"+(Number(r)/1e18).toLocaleString()});
+}
 ab1=
 [
 	{
