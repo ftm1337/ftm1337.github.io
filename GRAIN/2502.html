@@ -252,7 +252,7 @@ This strategy takes in BOO (Spookyswap's official token) as collateral deposits 
 
 		<div id="ivst">
 			<h4>Deposits</h4>
-			Available: <span id="dep-ab">0.------</span> LP<br>
+			Available: <span id="dep-ab">0.------</span> BOO<br>
 			<button id="btn-d-all" onclick="enter()">Deposit All</button>
 			<br><br>
 			<input id="inp-da" placeholder="LP Amount">
@@ -260,7 +260,7 @@ This strategy takes in BOO (Spookyswap's official token) as collateral deposits 
 
 			<br><br>
 			<h4>Withdrawals</h4>
-			Available: <span id="wd-ab">0.------</span> KP<br>
+			Available: <span id="wd-ab">0.------</span> GRAIN<br>
 			<button id="btn-w-all" onclick="exit()">Withdraw All</button>
 			<br><br>
 			<input id="inp-wa" placeholder="KP Amount">
@@ -283,7 +283,7 @@ This strategy takes in BOO (Spookyswap's official token) as collateral deposits 
 		<h3>For Workers</h3>
 		<h4>Rough Estimations</h4>
 		Cost of Work: <span id="est-cost">0.------</span> FTM<br>
-		Harvest Size: <span id="est-hvst">0.------</span> HTZ<br>
+		Harvest Size: <span id="est-hvst">0.------</span> TUSD<br>
 		Potential Gain: <span id="est-gain">0.------</span> GRAIN<br>
 		<br>
 		<button class="btn-work" onclick="doHardWork()">Start Working</button>
@@ -302,8 +302,8 @@ This strategy takes in BOO (Spookyswap's official token) as collateral deposits 
 <br><br><br>
 
 <h2>General Information</h2><br>
-<h4>Get BOO from SpookySwap DEX</h4>
-<a class="fore" href="https://spookyswap.finance" target="_blank">Add FUSD with wFTM to liquidity at CyberSwap Dex.</a>
+<h4>Get BOO</h4>
+<a class="fore" href="https://spookyswap.finance" target="_blank">Purchase BOO from SpookySwap DEX.</a>
 <br><br>
 <h4>Advantages of Kompounders (Granaries)</h4>
 Compounding yield requires transaction fees to be paid to the blockchain. This can add up quickly to be expensive and cut into returns. As we batch your transaction with many other depositor's transactions, it brings about a cumulatively lower cost and higher return to earn yield using the Kompounder (Granary).
@@ -836,10 +836,11 @@ async function DrefreshFarm()
 			$("c_ts").innerHTML = (Number(d[0])/1e18).toFixed(10);
 			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
 			$("c_pu").innerHTML = "$ "+fornum(Number(d[1])/Number(d[0]),0);
-			oi=[];for(i=0;i<9;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
+			oi=[];for(i=0;i< (d[2].result.length-2)/64;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
 			console.log("oi",oi);
 			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
 			$("c_nr").innerHTML = fornum(Number(oi[1]),18)+"x"
+			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[3]),18)+"</b>"
 		})
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e;}
