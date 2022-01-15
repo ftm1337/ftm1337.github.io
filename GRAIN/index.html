@@ -188,7 +188,11 @@ ul i{font-size:0.85em;}
 <div class="body">
 <br>
 <h1>Kompound Protocol</h1>
-<h3>Compounding Service for Fantom's Yield Farms</h3>
+<h3>Compounding Service for Yield Farms on
+<select onchange="switchchain(this.value)">
+<option value="250" selected> Fantom Opera</option>
+<option value="321"> Kucoin C-Chain</option>
+</select></h3>
 <i>Earn 1% of each harvest, just for paying the gas! Earn compound interest even on those rewards!</i><br><br>
 <details><summary><button class="ddb" onclick='window.location="#all"'><span>Get Started</span></button></summary></details>
 <details><summary><button class="ddb"  id="ddb" onclick="dive()"><span>Learn More</span></button></summary>
@@ -482,6 +486,11 @@ function fornum(n,d)
 }
 function $(_) {return document.getElementById(_);}
 function cw(){}
+function switchchain(v)
+{
+	if(v=="250"){window.location="https://ftm.guru/GRAIN"}
+	if(v=="321"){window.location="https://kcc.guru/kompound"}
+}
 function dive()
 {
 	if($("ddb").parentElement.parentElement.getAttribute("open")==null)
