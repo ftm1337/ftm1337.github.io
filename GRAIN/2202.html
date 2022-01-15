@@ -185,37 +185,37 @@ This strategy takes in DarkKnight LP of DAI+FTM as collateral deposits for issui
 
 <div class="cards">
 
-	<div class="card" onclick="window.location=''">
+	<div class="card">
 		<br>
 		<span id="c_aa">0.000 %</span>
 		<hr>
 		Average A.P.Y.
 	</div>
-	<div class="card" onclick="window.location=''">
+	<div class="card">
 		<br>
 		<span id="c_mc">$ 0.000</span>
 		<hr>
 		Market Cap (TVL)
 	</div>
-	<div class="card" onclick="window.location=''">
+	<div class="card">
 		<br>
 		<span id="c_ts">0.000</span>
 		<hr>
 		Total GRAINs (Supply)
 	</div>
-	<div class="card" onclick="window.location=''">
+	<div class="card">
 		<br>
 		<span id="c_pu">$ 0.000</span>
 		<hr>
 		Price (in USD)
 	</div>
-	<div class="card" onclick="window.location=''">
+	<div class="card">
 		<br>
 		<span id="c_nr">1.000 x</span>
 		<hr>
 		Net Returns
 	</div>
-	<div class="card" onclick="window.location=''">
+	<div class="card">
 		<br>
 		<span id="c_sc">0x0000-0000</span>
 		<hr>
@@ -370,12 +370,12 @@ function fornum(n,d)
 {
 	_n=(Number(n)/10**Number(d));
 	n_=_n;
-	if(_n>1e18){n_=(_n/1e18).toFixed(2)+"Qt"}
-	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+"Qd"}
-	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+"Tn"}
-	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+"Bn"}
-	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+"Mn"}
-	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+"Th"}
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Qt."}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Qd."}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Tn."}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Bn."}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Mn."}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Th."}
 	else if(_n>0){n_=(_n/1e0).toFixed(5)+""}
 	return(n_);
 }
@@ -616,7 +616,7 @@ function fornum2(n,d)
 	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Billion"}
 	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
 	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
-	else if(_n>1){n_=(_n/1e0).toFixed(2)+""}
+	else if(_n>1){n_=(_n/1e0).toFixed(10)+""}
 	return(n_);
 }
 function arf(){	var xfr = setInterval(function()
@@ -833,7 +833,7 @@ async function DrefreshFarm()
 
 		await Promise.all([ts,vl,io]).then(d=>{
 			console.log(d);
-			$("c_ts").innerHTML = (Number(d[0])/1e18).toFixed(10);
+			$("c_ts").innerHTML = fornum(Number(d[0]),18);
 			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
 			$("c_pu").innerHTML = "$ "+fornum(Number(d[1])/Number(d[0]),0);
 			oi=[];for(i=0;i<9;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
