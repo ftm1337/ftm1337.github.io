@@ -227,11 +227,28 @@ Zero* deposit fees & Zero withdrawal fees.
 		</div>
 	-->
 
-<h2 id="all">Available Granaries (6/31)</h2>
+<h2 id="all">Available Granaries (5/33)</h2>
 Invest any asset to get the most out of it with our tailor-made strategies.
 <br><br>
 <i style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" checked onchange="togcar()"> Hide inactive? </i>
 <br><br><br>
+<details><summary class="fore"><span class="fn" ><img src="../img/knight.svg"></span> ftm.guru YieldState (0/1)</summary><br>
+	<div class="cards">
+		<div class="card" onclick="window.location='2101.html'">
+			<span class="cardapr">
+				<span>GRAIN<br>#2101</span>
+				<span class="ki"><img src="../img/ftm.svg"><img src="../img/64.png"><img class="ib" src="../img/spooky.sq.svg"></span>
+			</span><br>
+			<span class="bigapr">wFTM-ELITE Spooky LP</span>
+			<hr>
+			<div class="fn" ><img src="../img/64.png">The YieldState</div>
+		</div>
+	</div>
+</details>
+<br>
+
+
+
 <details><summary class="fore"><span class="fn" ><img src="../img/knight.svg"></span> DarkKnight Farm (1/2)</summary><br>
 	<div class="cards">
 		<div class="card" onclick="window.location='2201.html'">
@@ -554,7 +571,7 @@ bDANI-BOMB
 			</span><br>
 			<span class="bigapr">wFTM-Shiba ShibaLP</span>
 			<hr>
-			<div class="fn" ><img src="../img/dmd.svg">Shibaswap Farms</div>
+			<div class="fn" ><img src="../img/shiba.sq.svg">Shibaswap Bones</div>
 		</div>
 		<div class="card card2 cardhide" onclick="window.location='2802.html'">
 			<span class="cardapr">
@@ -563,7 +580,7 @@ bDANI-BOMB
 			</span><br>
 			<span class="bigapr">wFTM-BONE ShibaLP</span>
 			<hr>
-			<div class="fn" ><img src="../img/dmd.svg">Shibaswap Farms</div>
+			<div class="fn" ><img src="../img/shiba.sq.svg">Shibaswap Bones</div>
 		</div>
 		<div class="card card2 cardhide" onclick="window.location='2803.html'">
 			<span class="cardapr">
@@ -572,7 +589,7 @@ bDANI-BOMB
 			</span><br>
 			<span class="bigapr">wFTM-gBONE ShibaLP</span>
 			<hr>
-			<div class="fn" ><img src="../img/shiba.sq.svg">Shibaswap Farms</div>
+			<div class="fn" ><img src="../img/shiba.sq.svg">Shibaswap Bones</div>
 		</div>
 	</div>
 </details>
@@ -580,9 +597,32 @@ bDANI-BOMB
 
 
 
+<details><summary class="fore"><span class="fn" ><img src="../img/nips.svg"></span> Nipple Labs (0/2)</summary><br>
+	<div class="cards">
+		<div class="card card2 cardhide" onclick="window.location='2401.html'">
+			<span class="cardapr">
+				<span>GRAIN<br>#2901</span>
+				<span class="ki"><img src="../img/ftm.svg"><img src="../img/64.png"><img class="ib" src="../img/nips.svg"></span>
+			</span><br>
+			<span class="bigapr">wFTM-ELITE NipdEx LP</span>
+			<hr>
+			<div class="fn" ><img src="../img/nips.svg">Nipple Labs</div>
+		</div>
+		<div class="card card2 cardhide" onclick="window.location='2401.html'">
+			<span class="cardapr">
+				<span>GRAIN<br>#2902</span>
+				<span class="ki"><img src="../img/ftm.svg"><img src="../img/usdc.svg"><img class="ib" src="../img/nips.svg"></span>
+			</span><br>
+			<span class="bigapr">wFTM-USDC NipdEx LP</span>
+			<hr>
+			<div class="fn" ><img src="../img/nips.svg">Nipple Labs</div>
+		</div>
+	</div>
+</details>
+<br>
 
 
-<!--SHIBA/FTM GBONE/FTM and BONE/FTM-->
+
 <div class="">
 </div>
 
@@ -631,7 +671,7 @@ window.addEventListener('load',async function()
 }, false);
 function pantvl()
 {
-	pt=new web3.eth.Contract([{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}],"0x3f0458FfB6D106d2F5CdeC9CEdc9054A69275489")
+	pt=new web3.eth.Contract([{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}],"0x0786c3a78f5133F08C1c70953B8B10376bC6dCad")
 	pt.methods.tvl().call((e,r)=>{$("pantvl").innerHTML = "$"+(Number(r)/1e18).toLocaleString()});
 }
 function fornum(n,d)
