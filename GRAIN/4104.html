@@ -835,7 +835,7 @@ async function DrefreshFarm()
 			console.log(d);
 			$("c_ts").innerHTML = fornum(Number(d[0]),6);
 			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
-			$("c_pu").innerHTML = "$ "+fornum(Number(d[1])/Number(d[0]),0);
+			$("c_pu").innerHTML = "$ "+fornum(Number(d[1])/Number(d[0]),12);
 			oi=[];for(i=0;i< (d[2].result.length-2)/64;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
 			console.log("oi",oi);
 			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
