@@ -732,7 +732,7 @@ function deposit()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		m=($("inp-da").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
+		m=($("inp-da").value);m*=1e6;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
 		theCon.methods.deposit(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
@@ -760,7 +760,7 @@ function withdraw()
 	{
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
-		m=($("inp-wa").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
+		m=($("inp-wa").value);m*=1e6;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
 		theCon.methods.withdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
@@ -801,8 +801,8 @@ async function gubs()
 		var p = theCon.methods.balanceOf(window.ethereum.selectedAddress).call();
 		var q = theLPT.methods.balanceOf(window.ethereum.selectedAddress).call();
 		await Promise.all([p,q]).then(s=>{
-			$("wd-ab").innerHTML=(s[0]/1e18);
-			$("dep-ab").innerHTML=(s[1]/1e18);
+			$("wd-ab").innerHTML=(s[0]/1e6);
+			$("dep-ab").innerHTML=(s[1]/1e6);
 		})
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
@@ -833,14 +833,14 @@ async function DrefreshFarm()
 
 		await Promise.all([ts,vl,io]).then(d=>{
 			console.log(d);
-			$("c_ts").innerHTML = fornum(Number(d[0]),18);
+			$("c_ts").innerHTML = fornum(Number(d[0]),6);
 			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
 			$("c_pu").innerHTML = "$ "+fornum(Number(d[1])/Number(d[0]),0);
 			oi=[];for(i=0;i< (d[2].result.length-2)/64;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
 			console.log("oi",oi);
 			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
 			$("c_nr").innerHTML = fornum(Number(oi[1]),18)+"x"
-			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1]),18)+"</b>"
+			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1]),6)+"</b>"
 		})
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e;}
