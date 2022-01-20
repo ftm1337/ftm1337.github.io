@@ -856,7 +856,7 @@ async function DrefreshFarm()
 			console.log("oi",oi);
 			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
 			$("c_nr").innerHTML = fornum(Number(oi[1]),18)+"x"
-			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1])*0.01,6)+"</b>"
+			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1])*0.01,18)+"</b>"
 		})
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e;}
