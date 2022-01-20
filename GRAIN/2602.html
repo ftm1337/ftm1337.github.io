@@ -189,7 +189,7 @@ This strategy takes in BombLP of BOMB+FTM as collateral deposits for issuing the
 		<br>
 		<span id="c_aa">0.000 %</span>
 		<hr>
-		Average A.P.Y.
+		Realized A.P.Y.
 	</div>
 	<div class="card">
 		<br>
@@ -282,9 +282,11 @@ This strategy takes in BombLP of BOMB+FTM as collateral deposits for issuing the
 	<div class="">
 		<h3>For Workers</h3>
 		<h4>Rough Estimations</h4>
-		Cost of Work: <span id="est-cost">0.------</span> FTM<br>
+		<!--Cost of Work: <span id="est-cost">0.------</span> FTM<br>
 		Harvest Size: <span id="est-hvst">0.------</span> SHRAP<br>
-		Potential Gain: <span id="est-gain">0.------</span> GRAIN<br>
+		Potential Gain: <span id="est-gain">0.------</span> GRAIN<br>-->
+		Current Worker Reward <br>
+		<span style="font-size:1.25em" id="est-gain">0.------</span> SHRAP<br>
 		<br>
 		<button class="btn-work" onclick="doHardWork()">Start Working</button>
 		<br><br><br>
@@ -365,7 +367,7 @@ function pantvl()
 {
 	pt=new web3.eth.Contract([{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}],"0x3f0458FfB6D106d2F5CdeC9CEdc9054A69275489")
 	pt.methods.tvl().call((e,r)=>{$("pantvl").innerHTML = "$"+(Number(r)/1e18).toLocaleString()});
-}
+}/*
 function fornum(n,d)
 {
 	_n=(Number(n)/10**Number(d));
@@ -376,6 +378,20 @@ function fornum(n,d)
 	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Bn."}
 	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Mn."}
 	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Th."}
+	else if(_n>0){n_=(_n/1e0).toFixed(5)+""}
+	return(n_);
+}
+*/
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(3)+"Qt"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(3)+"Qd"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(3)+"T"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(3)+"B"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(3)+"M"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(3)+"K"}
 	else if(_n>0){n_=(_n/1e0).toFixed(5)+""}
 	return(n_);
 }
@@ -840,7 +856,7 @@ async function DrefreshFarm()
 			console.log("oi",oi);
 			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
 			$("c_nr").innerHTML = fornum(Number(oi[1]),18)+"x"
-			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1]),18)+"</b>"
+			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1])*0.01,18)+"</b>"
 		})
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e;}
