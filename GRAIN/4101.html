@@ -273,8 +273,9 @@ This strategy takes in Wrapped FTM as collateral deposits for issuing the GRAIN#
 		<div>
 			<br><br>
 			<h4>Withdrawals</h4>
-			Available:<br> <span id="wd-ab">0.------</span> GRAIN<br>
-			Redeem: <span id="redemp">0.------</span> WFTM<br>
+			Available to Redeem: <br>
+			<span id="wd-ab">0.------</span> GRAIN<br>
+			= <span id="redemp">0.------</span> WFTM<br>
 			<button id="btn-w-all" onclick="exit()">Withdraw All</button>
 			<br><br>
 			<input id="inp-wa" placeholder="KP Amount">
@@ -824,7 +825,7 @@ async function gubs()
 		await Promise.all([p,q,info]).then(s=>{
 			$("wd-ab").innerHTML=(s[0]/1e18);
 			$("dep-ab").innerHTML=(s[1]/1e18);
-			$("redemp").innerHTML=(s[0] * s[2][0] / 1e36).toFixed(18);
+			$("redemp").innerHTML=(s[0] * s[2][1] / 1e36).toFixed(18);
 		})
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
