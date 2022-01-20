@@ -258,13 +258,6 @@ This strategy takes in Wrapped FTM as collateral deposits for issuing the GRAIN#
 			<input id="inp-da" placeholder="LP Amount">
 			<button id="btn-d-amt" onclick="deposit()">Deposit</button><br>
 
-			<br><br>
-			<h4>Withdrawals</h4>
-			Available: <span id="wd-ab">0.------</span> KP<br>
-			<button id="btn-w-all" onclick="exit()">Withdraw All</button>
-			<br><br>
-			<input id="inp-wa" placeholder="KP Amount">
-			<button id="btn-w-amt" onclick="withdraw()">Withdraw</button><br>
 		</div>
 
 		<div id="appr">
@@ -275,6 +268,17 @@ This strategy takes in Wrapped FTM as collateral deposits for issuing the GRAIN#
 			<!--<br><br>
 			Allowances have been granted.
 			<button id="btn-revoke">Revoke?</button>--><br>
+		</div>
+
+		<div>
+			<br><br>
+			<h4>Withdrawals</h4>
+			Available:<br> <span id="wd-ab">0.------</span> GRAIN<br>
+			Redeem: <span id="redemp">0.------</span> WFTM<br>
+			<button id="btn-w-all" onclick="exit()">Withdraw All</button>
+			<br><br>
+			<input id="inp-wa" placeholder="KP Amount">
+			<button id="btn-w-amt" onclick="withdraw()">Withdraw</button><br>
 		</div>
 
 	</div>
@@ -816,9 +820,11 @@ async function gubs()
 		theLPT = new web3.eth.Contract(farabi, pairadd);
 		var p = theCon.methods.balanceOf(window.ethereum.selectedAddress).call();
 		var q = theLPT.methods.balanceOf(window.ethereum.selectedAddress).call();
-		await Promise.all([p,q]).then(s=>{
+		var info = theCon.methods.info().call();
+		await Promise.all([p,q,info]).then(s=>{
 			$("wd-ab").innerHTML=(s[0]/1e18);
 			$("dep-ab").innerHTML=(s[1]/1e18);
+			$("redemp").innerHTML=(s[0] * s[2][0] / 1e36).toFixed(18);
 		})
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
