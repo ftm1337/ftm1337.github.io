@@ -820,6 +820,7 @@ async function gubs()
 		var q = theLPT.methods.balanceOf(window.ethereum.selectedAddress).call();
 		var info = theCon.methods.info().call();
 		await Promise.all([p,q,info]).then(s=>{
+		//DECIMALDEPENDENT : 1e18 => 1e6 , 1e18 => 1e12
 			$("wd-ab").innerHTML=(s[0]/1e18);
 			$("dep-ab").innerHTML=(s[1]/1e18);
 			$("redemp").innerHTML=(s[0] * s[2][1] / 1e36).toFixed(18);
