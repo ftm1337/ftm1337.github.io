@@ -249,24 +249,14 @@ This strategy takes in SpookyLP of USDC+FTM as collateral deposits for issuing t
 <div class="panels">
 	<div class="">
 		<h3>For Investors</h3>
-
 		<div id="ivst">
 			<h4>Deposits</h4>
 			Available: <span id="dep-ab">0.------</span> LP<br>
-			<button id="btn-d-all" onclick="enter()">Deposit All</button>
 			<br><br>
 			<input id="inp-da" placeholder="LP Amount">
-			<button id="btn-d-amt" onclick="deposit()">Deposit</button><br>
-
-			<br><br>
-			<h4>Withdrawals</h4>
-			Available: <span id="wd-ab">0.------</span> KP<br>
-			<button id="btn-w-all" onclick="exit()">Withdraw All</button>
-			<br><br>
-			<input id="inp-wa" placeholder="KP Amount">
-			<button id="btn-w-amt" onclick="withdraw()">Withdraw</button><br>
+			<button id="btn-d-amt" onclick="deposit()">Deposit</button>
+			<button id="btn-d-all" onclick="enter()">Deposit All</button><br>
 		</div>
-
 		<div id="appr">
 			<br><br>
 			<h4>Approvals</h4>
@@ -276,9 +266,17 @@ This strategy takes in SpookyLP of USDC+FTM as collateral deposits for issuing t
 			Allowances have been granted.
 			<button id="btn-revoke">Revoke?</button>--><br>
 		</div>
-
+		<div id="wdpane">
+			<br><br>
+			<h4>Withdrawals</h4>
+			Available to Redeem: <br>
+			🌾 <span id="wd-ab" style="font-weight:bold">0.------</span> GRAIN<br>
+			<img src="../img/lpt.svg" width="16px"> <span id="redemp" style="font-weight:bold">0.------</span> LP Tokens<br><br>
+			<input id="inp-wa" placeholder="KP Amount">
+			<button id="btn-w-amt" onclick="withdraw()">Withdraw</button>
+			<button id="btn-w-all" onclick="exit()">Withdraw All</button><br>
+		</div>
 	</div>
-
 	<div class="">
 		<h3>For Workers</h3>
 		<h4>Rough Estimations</h4>
@@ -317,11 +315,14 @@ Kompounders (Granaries) free our users from this burden of manually sending doze
 <h4>Frequency of Compounding</h4>
 Farms are compounded either on deposits or on withdrawals made into the Kompounder (Granary). Compounding also occurs when a user ("Worker") does work by pressing the "Start Working" button and successfully completing the resulting transaction. It is as important to not compound too early as it is to compound too late.
 <br><br>
+<h4 id="eliteness">What is Eliteness?</h4>
+Holding ELITE tokens on Fantom Opera Blockchain determines the <i><b>Eliteness Level</b></i> of an address. For example, holding 0.1 ELITE grants the user an Eliteness level of 0.1, which changes with their ELITE holdings. A certain minimum amount of Eliteness is required to gain special privileges or advantages while using some of our Dapps. Eliteness is measured at the run-time of blockchain and fellow Smart Contracts that build atop ftm.guru require the same Eliteness Level as normal users.
+<br><br>
 <h4>Wages for the Workers (Incentives)</h4>
 Compounding transactions are complex smart contract functions which cost the worker a small amount of KCS or FTM as a "gas fee". To compensate the workers for their hardwork, we reward them with a share in the AUM of the Kompounder (Granary), equivalent to 1% of the value harvested from the underlying farm. This share grows inside the Kompounder (Granary) in value on its own if left unattended by the Worker.
 <br><br>
 <h4>Fees and taxes</h4>
-There is No deposit fee. There is No withdrawal fee. 1% from the harvest is paid to the workers and 1% from the harvest is added to the ELITE DAO treasury for the upkeep of this platform. These 2% are charged on gains only and not on principal investments.
+There is No withdrawal fee at all. There is No deposit fee if your Eliteness Level is above 0.1, otherwise there is a 0.1% tax. 1% from the harvest is paid to the workers and 1% from the harvest is added to the E.L.I.T.E. D.A.O. treasury for promotional programs & the upkeep of this platform. These 2% are charged only on gains harvested and not on principal amount of investments.
 <br><br>
 <h4>KP & GRAINS - Protocol Receipt tokens</h4>
 Upon each deposit, including worker payouts, the Kompounder (Granary) issues special tokens called KP (GRAIN) tokens that represent a user's share in the AUM of the specific Kompounder (Granary). These are standard ERC20 compliant tokens that can be used freely elsewhere on the blockchains. Withdrawing funds without possesing them is not possible. Please dont give these to strangers.
@@ -816,12 +817,14 @@ async function gubs()
 		theLPT = new web3.eth.Contract(farabi, pairadd);
 		var p = theCon.methods.balanceOf(window.ethereum.selectedAddress).call();
 		var q = theLPT.methods.balanceOf(window.ethereum.selectedAddress).call();
-		await Promise.all([p,q]).then(s=>{
+		var info = theCon.methods.info().call();
+		await Promise.all([p,q,info]).then(s=>{
 			$("wd-ab").innerHTML=(s[0]/1e18);
 			$("dep-ab").innerHTML=(s[1]/1e18);
+			$("redemp").innerHTML=(s[0] * s[2][1] / 1e36).toFixed(18);
 		})
 	}
-	catch(e){console.log(e);$("cw_m").innerHTML=e}
+	catch(e){console.log(e);/*$("cw_m").innerHTML=e*/}
 }
 
 async function DrefreshFarm()
@@ -859,7 +862,7 @@ async function DrefreshFarm()
 			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1])*0.01,18)+"</b>"
 		})
 	}
-	catch(e){console.log(e);$("cw_m").innerHTML=e;}
+	catch(e){console.log(e);$("cw_m").innerHTML="RPC Timed out! Please clear cache & hard refresh (Ctrl+Shift+R / Cmd+Shift+R)<br>"+e;}
 }
 
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
