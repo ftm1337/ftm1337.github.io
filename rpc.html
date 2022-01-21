@@ -108,14 +108,6 @@ tr:hover td,tr:hover td b{background: aqua;color:navy;}
 			</tr>
 		</thead>
 		<tbody id="rtb">
-			<tr id="r1" onclick='copsc(this)'><td></td><td></td><td></td></tr>
-			<tr id="r2" onclick='copsc(this)'><td></td><td></td><td></td></tr>
-			<tr id="r3" onclick='copsc(this)'><td></td><td></td><td></td></tr>
-			<tr id="r4" onclick='copsc(this)'><td></td><td></td><td></td></tr>
-			<tr id="r5" onclick='copsc(this)'><td></td><td></td><td></td></tr>
-			<tr id="r6" onclick='copsc(this)'><td></td><td></td><td></td></tr>
-			<tr id="r7" onclick='copsc(this)'><td></td><td></td><td></td></tr>
-			<!--<tr id="r8" onclick='copsc(this)'><td></td><td></td><td></td></tr>-->
 		</tbody>
 	</table>
 	</div>
@@ -262,7 +254,11 @@ window.addEventListener('load',function()
 
 	for(i=0;i< rpcs.length;i++)
 	{
-		$("r"+(i+1)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>0ffline</td><td>1nfinite</td>`
+		rw = document.createElement("tr");
+		rw.setAttribute("id","r"+i)
+		rw.setAttribute("onclick",'copsc(this)')
+		$("rtb").append(rw)
+		$("r"+(i)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>0ffline</td><td>1nfinite</td>`
 	}
 	for(i=0;i< rpcs.length;i++){w[i]=new Web3(rpcs[i]);}
 	polls();
@@ -282,7 +278,8 @@ rpcs=
 	"https://rpcapi.fantom.network",
 	"https://rpc.neist.io",
 	"https://rpc.ankr.com/fantom",
-	//"https://rpcapi-tracing.fantom.network"
+	//"https://rpcapi-tracing.fantom.network",
+	"https://ftmrpc.ultimatenodes.io"
 ]
 async function polls()
 {
@@ -294,7 +291,7 @@ async function polls()
 		try
 		{
 			var N = await w[i].eth.getBlockNumber();n=String(N);
-			$("r"+(i+1)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>${n.substring(0,n.length-3)+"<b>"+n.substr(-3)+"</b>"}</td><td>${((Date.now()-d)/1e3).toFixed(3)+"s"}</td>`
+			$("r"+(i)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>${n.substring(0,n.length-3)+"<b>"+n.substr(-3)+"</b>"}</td><td>${((Date.now()-d)/1e3).toFixed(3)+"s"}</td>`
 		sortit(1);sortit(1);
 		}
 		catch(e){//console.log("err: ",e)
