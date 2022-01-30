@@ -12,8 +12,8 @@ a{text-decoration-line:none;padding:0 2px}
 *{text-shadow:6px 6px 5px black;color:#e3e9f2}
 html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
 img{border-radius: 50%}
-input,button{border-radius:25px;background:black;text-align:center}
-button:hover{  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
+input,button:not(.cybr-btn){border-radius:25px;background:black;text-align:center}
+button:hover:not(.cybr-btn){  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
 pre{overflow-x:auto;max-width:80%}
 #votingmvg{background:#040b22;border-radius:20px;border: #aaa solid 1px}
 .topbar{display:grid;grid-template-columns: auto;}
@@ -194,6 +194,190 @@ svg {
 }
 .hovli li:hover{font-size:1.125em;background:rgba(0,255,255,0.5);}
 .partners img, .partners svg{height:120px;width:120px;border-radius: 0}
+#tek{height:75vh;width:80%}
+@font-face {
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body .cybr-btn + .cybr-btn {
+  margin-top: 2rem;
+}
+
+.cybr-btn {
+  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 1%));
+  --shadow-primary: hsl(var(--shadow-primary-hue), 90%, 50%);
+  --primary-hue: 0;
+  --primary-lightness: 50;
+  --color: hsl(0, 0%, 100%);
+  --font-size: 16px;
+  --shadow-primary-hue: 180;
+  --label-size: 10px;
+  --shadow-secondary-hue: 60;
+  --shadow-secondary: hsl(var(--shadow-secondary-hue), 90%, 60%);
+  --clip: polygon(0 0, 100% 0, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 70%);
+  --border: 4px;
+  --shimmy-distance: 5;
+  --clip-one: polygon(0 2%, 100% 2%, 100% 95%, 95% 95%, 95% 90%, 85% 90%, 85% 95%, 8% 95%, 0 70%);
+  --clip-two: polygon(0 78%, 100% 78%, 100% 100%, 95% 100%, 95% 90%, 85% 90%, 85% 100%, 8% 100%, 0 78%);
+  --clip-three: polygon(0 44%, 100% 44%, 100% 54%, 95% 54%, 95% 54%, 85% 54%, 85% 54%, 8% 54%, 0 54%);
+  --clip-four: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-five: polygon(0 0, 100% 0, 100% 0, 95% 0, 95% 0, 85% 0, 85% 0, 8% 0, 0 0);
+  --clip-six: polygon(0 40%, 100% 40%, 100% 85%, 95% 85%, 95% 85%, 85% 85%, 85% 85%, 8% 85%, 0 70%);
+  --clip-seven: polygon(0 63%, 100% 63%, 100% 80%, 95% 80%, 95% 80%, 85% 80%, 85% 80%, 8% 80%, 0 70%);
+  font-family: 'Cyber', sans-serif;
+  color: var(--color);
+  cursor: pointer;
+  background: transparent;
+  text-transform: uppercase;
+  font-size: var(--font-size);
+  outline: transparent;
+  letter-spacing: 2px;
+  position: relative;
+  font-weight: 700;
+  border: 0;
+  max-width: 260px;
+  height: 50px;
+  line-height: 50px;
+  transition: background 0.2s;
+}
+
+.cybr-btn:hover {
+  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.8%));
+}
+.cybr-btn:active {
+  --primary: hsl(var(--primary-hue), 85%, calc(var(--primary-lightness, 50) * 0.6%));
+}
+
+.cybr-btn:after,
+.cybr-btn:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  clip-path: var(--clip);
+  z-index: -1;
+}
+
+.cybr-btn:before {
+  background: var(--shadow-primary);
+  transform: translate(var(--border), 0);
+}
+
+.cybr-btn:after {
+  background: var(--primary);
+}
+
+.cybr-btn__tag {
+  position: absolute;
+  padding: 1px 4px;
+  letter-spacing: 1px;
+  line-height: 1;
+  top: 5%;
+  left: 2%;
+  font-weight: normal;
+  color: #0f0;
+  font-size: var(--label-size);
+}
+
+.cybr-btn__glitch {
+  position: absolute;
+  top: calc(var(--border) * -1);
+  left: calc(var(--border) * -1);
+  right: calc(var(--border) * -1);
+  bottom: calc(var(--border) * -1);
+  background: var(--shadow-primary);
+  text-shadow: 2px 2px var(--shadow-primary), -2px -2px var(--shadow-secondary);
+  clip-path: var(--clip);
+  animation: glitch 2s infinite;
+  display: none;
+}
+
+.cybr-btn:hover .cybr-btn__glitch {
+  display: block;
+}
+
+.cybr-btn__glitch:before {
+  content: '';
+  position: absolute;
+  top: calc(var(--border) * 1);
+  right: calc(var(--border) * 1);
+  bottom: calc(var(--border) * 1);
+  left: calc(var(--border) * 1);
+  clip-path: var(--clip);
+  background: var(--primary);
+  z-index: -1;
+}
+
+@keyframes glitch {
+  0% {
+    clip-path: var(--clip-one);
+  }
+  2%, 8% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  6% {
+    clip-path: var(--clip-two);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  9% {
+    clip-path: var(--clip-two);
+    transform: translate(0, 0);
+  }
+  10% {
+    clip-path: var(--clip-three);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  13% {
+    clip-path: var(--clip-three);
+    transform: translate(0, 0);
+  }
+  14%, 21% {
+    clip-path: var(--clip-four);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  25% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  30% {
+    clip-path: var(--clip-five);
+    transform: translate(calc(var(--shimmy-distance) * -1%), 0);
+  }
+  35%, 45% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * -1%));
+  }
+  40% {
+    clip-path: var(--clip-six);
+    transform: translate(calc(var(--shimmy-distance) * 1%));
+  }
+  50% {
+    clip-path: var(--clip-six);
+    transform: translate(0, 0);
+  }
+  55% {
+    clip-path: var(--clip-seven);
+    transform: translate(calc(var(--shimmy-distance) * 1%), 0);
+  }
+  60% {
+    clip-path: var(--clip-seven);
+    transform: translate(0, 0);
+  }
+  31%, 61%, 100% {
+    clip-path: var(--clip-four);
+  }
+}
+
+.cybr-btn:nth-of-type(1) {
+  --primary-hue: 260;
+}
 @media(min-width:639px){
   .container,.mainstages{grid-template-columns: auto  auto}
 }
@@ -229,7 +413,16 @@ svg {
 <br>
 <br>
 <h3 align="center">Discover GURU Network</h3>
-<div align="center">A Multi-faceted growth hacker for indie projects, ftm.guru provides numerous Tools, Services and niche utility-applications to users and bespoke product customization, liquidity enhancement and data analytics products to De-Fi innovators. The Guru Network has something to offer for everyone:</div>
+<div align="center">A Multi-faceted growth hacker for indie projects, ftm.guru provides numerous Tools, Services and niche utility-applications to users and bespoke product customization, liquidity enhancement and data analytics products to De-Fi innovators. The Guru Network has something to offer for everyone.
+<br><br>
+
+<button class="cybr-btn">
+  <span aria-hidden> R34D M4N1F3570</span>
+  <span aria-hidden class="cybr-btn__glitch">Read Manifesto</span>
+  <span aria-hidden class="cybr-btn__tag">1337</span>
+</button>
+
+</div>
 <br><br>
 <div class="mainstages" align="center">
 	<div class="mainstage advert">
@@ -685,9 +878,24 @@ svg {
 <br>
 <hr>
 <br>
-<br>
-<br>
+<!--
+<div align="center">
+ <h2>Trade ELITE with Aggregator</h2>
+ Select "Fantom" & Connect Wallet
 
+<br>
+<br><style>css-zkfaav{display: none !important;}</style>
+
+<iframe id="tek" class="mainstage" src="https://kyberswap.com/#/swap?outputCurrency=0xf43cc235e686d7bc513f53fbffb61f760c3a1882&exactAmount=100&exactField=input&theme=dark" style="margin: 0 auto; display: block; border-radius: 20px;">
+</iframe>
+<br>
+<br>
+</div>
+<hr>
+<br>
+<br>
+<br>
+-->
 
 <div align="center" class="partners" style="">
 	<div>
@@ -725,19 +933,19 @@ svg {
 		<a href="https://kek.tools/t/elite" target="_blank"><img src="https://kek.mypinata.cloud/ipfs/QmZNLMP993irvYwh5SKTuZgaQDvqwLJV7KV2zTe3bAuqXP"></a>
 	</div>
 	<h2>Official Charting Partners</h2>
-	<br><br>
+	<br><br><!--
 	<div>
 		<img src="img/nips.svg">
-		<!--<img src="img/wraith">-->
+		<img src="img/wraith.svg">
 	</div>
 	<h2>Official Farming Partners</h2>
-	<br><br>
+	<br><br>-->
 </div>
 
 
 <br>
 <br>
-<div class="mainpanel" style="font-style:italic"" >You are viewing the legacy version of ftm.guru website. Band Protocol powered FTM/USD Binary Options Platform is soon going to be accesible only on the IPFS version after v1.0 due to jurisdictional regulations and restrictions. The DeGam Casino & Kucino Casino will be available over IPFS soon and later over ETH-DNS as well. Some other tools such as Liquidity Finder, x3 and EA are available on the newer version.  	A word of advice: ftm.guru is a complex project spanning dozens of smart-contracts and DApps. Please reach out on Twitter or Telegram [@FTM1337] for queries and latest information. Our community will be elated to provide assistance.</div>
+<div class="mainpanel" style="font-style:italic"" >You are viewing the legacy version of ftm.guru website. Band Protocol powered FTM/USD Binary Options Platform is soon going to be accesible only on the IPFS version after v1.0 due to jurisdictional regulations and restrictions. The DeGam Casino & Kucino Casino will be available over IPFS soon and later over ETH-DNS as well. Some other tools such as Liquidity Finder, x3 and EA are available on the newer version.  	A word of advice: ftm.guru is a complex project spanning dozens of smart-contracts and DApps. Please reach out on Discord, Twitter or Telegram [@FTM1337] for queries and latest information. Our community will be elated to provide assistance.</div>
 <br>
 <br>
 <div align="center" class="advert">
