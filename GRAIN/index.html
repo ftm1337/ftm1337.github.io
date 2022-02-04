@@ -1165,7 +1165,8 @@ Overview of your investments and other performance statistics for all the Granar
 <br><br><br><br><br><br><br><br>
 <div align="center">
 	<span id="pfd">💰<span id="pf">0.000</span></span>
-	<br>Portfolio Valuation (USD)
+	<br>Portfolio Valuation (USD)<br>
+	<button onclick="cw()" id="btn-connect">Connect a Wallet?</button>
 </div>
 <br><br><br><br>
 <div style="overflow:auto;text-align:center">
@@ -1333,7 +1334,9 @@ function ggs(g)
 	let gtvl = G.methods.tvl().call()
 	let tsup = G.methods.tvl().call()
 	let gugb = 0;
-	if(!(window.ethereum.selectedAddress==null)){gugb = G.methods.balanceOf(window.ethereum.selectedAddress).call()} else {gugb = 0}
+	if(!(window.ethereum==undefined||window.ethereum.selectedAddress==null))
+		{gugb = G.methods.balanceOf(window.ethereum.selectedAddress).call();$("btn-connect").style.display="none";addCSS("td:nth-child(2){display:block}");}
+	else {gugb = 0;addCSS("td:nth-child(2){display:none}");}
 	Promise.all([info,gtvl,tsup,gugb]).then(gd=>{
 		console.log(gd	)
 		gtr = document.createElement("tr");
@@ -1391,6 +1394,19 @@ function sortit(n) {
       }
     }
   }
+}
+const addCSS = s => document.head.appendChild(document.createElement("style")).innerHTML=s;
+async function cw()
+{
+	if(!(window.ethereum)){console.log("Metamask not detected!");return(0)}
+	if(!(Number(window.ethereum.chainId)==250)){console.log("Wrong network detected!");return(0)}
+	await window.ethereum.enable();
+	$("btn-connect").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
+	$("btn-connect").style.display="none";
+	var sheet = document.createElement('style');
+	$("btn-connect").style.display="none";
+	addCSS("td:nth-child(2){display:block}");
+	for(i=0;i< grains.length;i++){ggs(grains[i])}
 }
 </script>
 </html>
