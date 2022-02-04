@@ -1332,10 +1332,8 @@ function ggs(g)
 	let info = fetch(url, { method: 'POST', body: JSON.stringify(data) }).then(r=>r.json()).then(r=>r.result);
 	let gtvl = G.methods.tvl().call()
 	let tsup = G.methods.tvl().call()
-	let gugb = G.methods.balanceOf(
-		//window.ethereum.selectedAddress
-		"0x167d87a906da361a10061fe42bbe89451c2ee584"
-	).call()
+	let gugb = 0;
+	if(!(window.ethereum.selectedAddress==null)){gugb = G.methods.balanceOf(window.ethereum.selectedAddress).call()} else {gugb = 0}
 	Promise.all([info,gtvl,tsup,gugb]).then(gd=>{
 		console.log(gd	)
 		gtr = document.createElement("tr");
