@@ -204,7 +204,6 @@ td:first-child, thead tr td{font-family:inherit !important}
 	-->
 </div>
 <div class="body">
-<br>
 <h1>Kompound Protocol</h1>
 <h3>Compounding Service for Yield Farms on
 <select onchange="switchchain(this.value)">
@@ -213,6 +212,7 @@ td:first-child, thead tr td{font-family:inherit !important}
 </select></h3>
 <i>Earn 1% of each harvest, just for paying the gas! Earn compound interest even on those rewards!</i><br><br>
 <details><summary><button class="ddb" onclick='window.location="#all"'><span>Get Started</span></button></summary></details>
+<details><summary><button class="ddb" onclick='window.location="#dash"'><span>Dashboard</span></button></summary></details>
 <details><summary><button class="ddb"  id="ddb" onclick="dive()"><span>Learn More</span></button></summary>
 <ul>
 <li>Jump into any vault with FTM, in <u>a single transaction</u>.
@@ -1165,7 +1165,7 @@ smart-shrap		o
 
 <br><br><br><br><br><br>
 
-<h2 id="">Granary Dashboard</h2>
+<h2 id="dash">Granary Dashboard</h2>
 Overview of your investments and other performance statistics for all the Granaries.
 <br><br>
 <i class="toggs" style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" onchange=""> Hide Zero-balance? </i>
@@ -1354,9 +1354,15 @@ function ggs(g)
 	let gtvl = G.methods.tvl().call()
 	let tsup = G.methods.tvl().call()
 	let gugb = 0;
+	let sit = 3;
 	if(!(window.ethereum==undefined||window.ethereum.selectedAddress==null))
-		{gugb = G.methods.balanceOf(window.ethereum.selectedAddress).call();$("btn-connect").style.display="none";addCSS("td:nth-child(2){display:block}");}
-	else {gugb = 0;addCSS("td:nth-child(2){display:none}");}
+	{
+		gugb = G.methods.balanceOf(window.ethereum.selectedAddress).call();
+		$("btn-connect").style.display="none";
+		addCSS("td:nth-child(2){display:block}");
+		sit = 1
+	}
+	else {gugb = 0;addCSS("td:nth-child(2){display:none}");sit=3}
 	Promise.all([info,gtvl,tsup,gugb]).then(gd=>{
 		console.log(gd	)
 		gtr = document.createElement("tr");
@@ -1372,7 +1378,7 @@ function ggs(g)
 		pfv += (Number(gd[3])/Number(gd[2])*Number(gd[1]));
 		$("pf").innerHTML = fornumstd(pfv,18);
 		$("mainstage").append(gtr);
-		sortit(1);sortit(1);
+		sortit(sit);sortit(sit);
 	})
 }
 function fornumstd(n,d){return Number((Number(n)/10**d).toFixed(2)).toLocaleString()}
