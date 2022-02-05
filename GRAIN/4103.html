@@ -174,6 +174,8 @@ button:active {
 Zero* deposit fees & Zero withdrawal fees.
 <br><span style="font-size:0.8em">0.1% Deposit fees, No fees if holding 0.01 ELITE.</span>
 
+<br><br><br><br>
+<h2 class="fore" align="center" style="border:5px dashed white;max-width:max-content;margin:auto;padding:10px">⚠ This Granary has been retired!</h2>
 <br><br><br><br><br>
 
 <h2>veDAO Farms</h2>
@@ -189,7 +191,7 @@ This strategy takes in YFI as collateral deposits for issuing the GRAIN#4103 tok
 		<br>
 		<span id="c_aa">0.000 %</span>
 		<hr>
-		Realized A.P.Y.
+		Realized A.P.R.
 	</div>
 	<div class="card">
 		<br>
@@ -254,14 +256,14 @@ This strategy takes in YFI as collateral deposits for issuing the GRAIN#4103 tok
 			Available: <span id="dep-ab">0.------</span> YFI<br>
 			<br><br>
 			<input id="inp-da" placeholder="LP Amount">
-			<button id="btn-d-amt" onclick="deposit()">Deposit</button>
-			<button id="btn-d-all" onclick="enter()">Deposit All</button><br>
+			<button id="btn-d-amt" onclick="deposit()" disabled>Deposit</button>
+			<button id="btn-d-all" onclick="enter()" disabled>Deposit All</button><br>
 		</div>
 		<div id="appr">
 			<br><br>
 			<h4>Approvals</h4>
 			Please approve token for deposit into the Kompounder (Granary).<br><br>
-			<button onclick="farm_1_f_approve()" id="btn-approve">Approve</button>
+			<button onclick="farm_1_f_approve()" id="btn-approve" disabled>Approve</button>
 			<!--<br><br>
 			Allowances have been granted.
 			<button id="btn-revoke">Revoke?</button>--><br>
@@ -348,8 +350,9 @@ Upon each deposit, including worker payouts, the Kompounder (Granary) issues spe
 	<a target="_blank" href="https://t.me/ftm1337"><img src="../img/telegram.svg"></a>
 	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="../img/discord.svg"></a>
 	<a target="_blank" href="https://medium.com/@ftm1337"><img src="../img/medium.svg"></a>
-	<a target="_blank" href="https://www.coingecko.com/coins/YFI-1337"><img src="../img/gecko.svg"></a>
-	<a target="_blank" href="https://coinmarketcap.com/currencies/YFI-1337"><img src="../img/cmc.svg"></a>
+	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="../img/gecko.svg"></a>
+	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="../img/cmc.svg"></a>
+	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="../img/defillama.svg"></a>
 </div>
 
 </div>
@@ -780,7 +783,7 @@ function withdraw()
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
 		m=($("inp-wa").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
-		theCon.methods.withdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.emergencyWithdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
@@ -804,7 +807,7 @@ async function exit()
 		var conAdd = f_1_add;
 		theCon = new web3.eth.Contract(farabi, conAdd);
 		var m = await theCon.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{return(r)});
-		theCon.methods.withdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon.methods.emergencyWithdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }

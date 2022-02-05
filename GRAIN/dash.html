@@ -1225,7 +1225,6 @@ Overview of your investments and other performance statistics for all the Granar
 	<a target="_blank" href="https://medium.com/@ftm1337"><img src="../img/medium.svg"></a>
 	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="../img/gecko.svg"></a>
 	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="../img/cmc.svg"></a>
-	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="../img/defillama.svg"></a>
 </div>
 
 </div>
@@ -1341,7 +1340,6 @@ grains = [
 	["4303",	"0x6812e3b614f3dE965821aa1f7A8CA1714cB09a66"],	//	slurp-dfy	4303
 	["4401",	"0x565468cFeDE97E7E936B7B0deD53A5DC60623709"],	//	elk-wftm	4401
 	["4402",	"0xb781e75605d0F74cfBd65E8BF48a9FF57E5bDe78"],	//	elk-usdc	4402
-	["4501",	"0xafee7a332989261893b11544a2b4622d77dc8404"],	//	dai-mai
 ]
 pfv=0
 function ggs(g)
@@ -1426,6 +1424,7 @@ async function cw()
 	var sheet = document.createElement('style');
 	$("btn-connect").style.display="none";
 	addCSS("td:nth-child(2){display:block}");
+	for(i=0;i< grains.length;i++){ggs(grains[i])}
 }
 </script>
 </html>
