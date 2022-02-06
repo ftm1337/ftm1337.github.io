@@ -1235,7 +1235,7 @@ Overview of your investments and other performance statistics for all the Granar
 window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-	else{web3 = new Web3("https://rpc.ftm.tools");}
+	else{web3 = new Web3("https://rpcapi.fantom.network");}
 	pantvl()
 	for(i=0;i< grains.length;i++){ggs(grains[i])}
 }, false);
@@ -1352,7 +1352,7 @@ function ggs(g)
 	data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":g[1]},"latest"]}
 	let info = fetch(url, { method: 'POST', body: JSON.stringify(data) }).then(r=>r.json()).then(r=>r.result);
 	let gtvl = G.methods.tvl().call()
-	let tsup = G.methods.tvl().call()
+	let tsup = G.methods.totalSupply().call()
 	let gugb = 0;
 	let sit = 3;
 	if(!(window.ethereum==undefined||window.ethereum.selectedAddress==null))
@@ -1364,18 +1364,23 @@ function ggs(g)
 	}
 	else {gugb = 0;addCSS("td:nth-child(2){display:none}");sit=3}
 	Promise.all([info,gtvl,tsup,gugb]).then(gd=>{
-		console.log(gd	)
+		//console.log(gd	)
 		gtr = document.createElement("tr");
 		oi=[];for(i=0;i< (gd[0].length-2)/64;i++){oi.push(Number("0x"+gd[0].substr(2+64*i,64)))}
-		console.log("oi:",oi)
+		//console.log("oi:",oi)
+		console.log(
+			"i:",i," - ",g[0],
+			"\n$: ",((Number(gd[3])/Number(gd[2]))*Number(gd[1])/1e18).toLocaleString(undefined,{minimumFractionDigits: 4, maximumFractionDigits: 4})
+			,"\ngd123: ",gd[1],gd[2],gd[3]
+		)
 		gtr.innerHTML = `
 			<td><a href="${g[0]}.html" target="_blank">🌾#${g[0]}</a></td>
-			<td>$${(Number(gd[3])/Number(gd[2])*Number(gd[1])/1e18).toLocaleString(undefined,{minimumFractionDigits: 4, maximumFractionDigits: 4})}</td>
+			<td>$${((Number(gd[3])/Number(gd[2]))*Number(gd[1])/1e18).toLocaleString(undefined,{minimumFractionDigits: 4, maximumFractionDigits: 4})}</td>
 			<td>${(oi[2]/1e18).toFixed(1)}%</td>
 			<td>$${(Number(gd[1])/1e18).toLocaleString(undefined,{minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
 			<td>${fornumstd(Number(gd[3]),18)}🌾</td>
 		`;
-		pfv += (Number(gd[3])/Number(gd[2])*Number(gd[1]));
+		pfv += ((Number(gd[3])/Number(gd[2]))*Number(gd[1]));
 		$("pf").innerHTML = fornumstd(pfv,18);
 		$("mainstage").append(gtr);
 		sortit(sit);sortit(sit);
