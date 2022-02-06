@@ -813,7 +813,7 @@ async function enter()
 		theCon = new ethers.Contract(f_1_add, farabi, provider);
 		theLPT = new ethers.Contract(pairadd, farabi, provider);
 		var m = await theLPT.balanceOf(window.ethereum.selectedAddress)
-		txr = await theCon.methods.deposit(m)//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		txr = await theCon.deposit(m)//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 		console.log("deposit all: amount=",m,"txhash:",txr)
 		gubs()
 	}
