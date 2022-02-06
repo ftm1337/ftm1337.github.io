@@ -252,9 +252,9 @@ async function cw()
 {
 	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
 	if(!(Number(window.ethereum.chainId)==250)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
-	await window.ethereum.enable();
-	const checkadd = await web3.eth.getAccounts();
-	if (!(checkadd[0] == window.ethereum.selectedAddress)){console.log("both are same")} else{console.log("both are different");window.location.reload(true)}
+	window.ethereum.request({ method: 'eth_requestAccounts' })
+	const accounts = await ethereum.request({ method: 'eth_accounts' });
+	if (!(accounts[0] == window.ethereum.selectedAddress)){console.log("both are same")} else{console.log("both are different");window.location.reload(true)}
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
 	$("cw_m").innerHTML=""
 	$("connect").style.display="none";
