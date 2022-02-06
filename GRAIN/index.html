@@ -1353,14 +1353,15 @@ async function ggs(g)
 	let sit = 3;
 	if(!(window.ethereum==undefined||window.ethereum.selectedAddress==null))
 	{
-		gugb = G.methods.balanceOf(window.ethereum.selectedAddress).call();
+		gugb = await G.methods.balanceOf(window.ethereum.selectedAddress).call();
 		$("btn-connect").style.display="none";
 		addCSS("td:nth-child(2){display:block}");
 		sit = 1
 	}
 	else {gugb = 0;addCSS("td:nth-child(2){display:none}");sit=3}
-	let gd = await Promise.all([info,gtvl,tsup,gugb])
-	//.then(gd=>{
+	//let gd = await
+	Promise.all([info,gtvl,tsup,gugb])
+	.then(gd=>{
 		//console.log(gd)
 		gtr = document.createElement("tr");
 		if(gd[1]==0){gd[1]=1}
@@ -1372,7 +1373,7 @@ async function ggs(g)
 			"i:",i," - ",g[0],
 			"\n$: ",((Number(gd[3])/Number(gd[2]))*Number(gd[1])/1e18).toLocaleString(undefined,{minimumFractionDigits: 4, maximumFractionDigits: 4})
 			,"\ngd123: ",gd[1],gd[2],gd[3]
-		)*/
+		)
 		console.log(g[0],gd)
 		gtr.innerHTML = `
 			<td><a href="${g[0]}.html" target="_blank">🌾#${g[0]}</a></td>
