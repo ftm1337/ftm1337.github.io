@@ -1363,8 +1363,9 @@ async function ggs(g)
 	//.then(gd=>{
 		//console.log(gd)
 		gtr = document.createElement("tr");
+		if(gd[1]==0){gd[1]=1}
 		oi=[];
-		if(gd[0]==undefined){oi=[1e18,1e18,1e18]}
+		if(gd[0]==undefined){oi=[1,1,1]}
 		else{for(i=0;i< (gd[0].length-2)/64;i++){oi.push(Number("0x"+gd[0].substr(2+64*i,64)))}}
 		//console.log("oi:",oi)
 		/*console.log(
