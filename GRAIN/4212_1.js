@@ -1,4 +1,13 @@
 
+window.addEventListener('load',async function()
+{
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(window.ethereum);if(!(window.ethereum.selectedAddress==null)){cw()}}
+	else{web3 = new Web3("https://rpc.ftm.tools");}
+	DrefreshFarm()
+	pantvl()
+	arf()
+}, false);
+
 function $(_) {return document.getElementById(_);}
 
 function pantvl()
@@ -252,8 +261,7 @@ async function cw()
 {
 	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
 	if(!(Number(window.ethereum.chainId)==250)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
-	window.ethereum.request({ method: 'eth_requestAccounts' })
-	const accounts = await ethereum.request({ method: 'eth_accounts' });
+	const accounts = await window.ethereum.request({ method: 'eth_accounts' });
 	if ((accounts[0] == window.ethereum.selectedAddress)){console.log("both are same")} else{console.log("both are different");window.location.reload(true)}
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
 	$("cw_m").innerHTML=""
