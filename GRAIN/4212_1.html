@@ -360,7 +360,7 @@ Upon each deposit, including worker payouts, the Kompounder (Granary) issues spe
 <script>
 window.addEventListener('load',async function()
 {
-	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
+	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(window.ethereum);if(!(window.ethereum.selectedAddress==null)){cw()}}
 	else{web3 = new Web3("https://rpc.ftm.tools");}
 	DrefreshFarm()
 	pantvl()
