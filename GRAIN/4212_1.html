@@ -620,7 +620,7 @@ async function cw()
 	if(!(Number(window.ethereum.chainId)==250)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	await window.ethereum.enable();
 	let checkadd = await web3.eth.getAccounts();
-	if (checkadd != window.ethereum.selectedAddress){window.location.reload(true)}
+	if (checkadd[0] != window.ethereum.selectedAddress){window.location.reload(true)}
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
 	$("cw_m").innerHTML=""
 	$("connect").style.display="none";
