@@ -551,44 +551,7 @@ bDANI-BOMB
 			<span class="cardapr">
 				<span>GRAIN<br>#2616</span>
 				<span class="ki"><img src="../img/shrap.png"><img src="../img/coffin.png"><img class="ib" src="../img/bomb.svg"></span>
-			</span><br>function sortit(n) {
-  var t, r, z, i, x, y, v, b, c = 0;
-  t = document.getElementById("maintable");
-  z = true;
-  b = "a";
-  while (z) {
-    z = false;
-    r = t.rows;
-    for (i = 1; i < (r.length - 1); i++) {
-      v = false;
-      x = (r[i].getElementsByTagName("TD")[n].innerHTML).replaceAll(/,| |\.|\$|%/g,'');
-      if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
-      y = (r[i + 1].getElementsByTagName("TD")[n].innerHTML).replaceAll(/,| |\.|\$|%/g,'');
-      if(isFinite(y)){y=Number(y)}else{y=y.toLowerCase()}
-      if (b == "a") {
-        if ((x) > (y)) {
-          v= true;
-          break;
-        }
-      } else if (b == "d") {
-        if ((x) < (y)) {
-          v = true;
-          break;
-        }
-      }
-    }
-    if (v) {
-      r[i].parentNode.insertBefore(r[i + 1], r[i]);
-      z = true;
-      c ++;
-    } else {
-      if (c == 0 && b == "a") {
-        b = "d";
-        z = true;
-      }
-    }
-  }
-}
+			</span><br>
 			<span class="bigapr">COFFIN-SHRAP Bomb LP</span>
 			<hr>
 			<div class="fn" ><img src="../img/bomb.svg">Bombing Range</div>
@@ -605,27 +568,6 @@ bDANI-BOMB
 	</div>
 </details>
 <br>
-
-
-<!--
-mim-ftm			i
-bomb-ftm		i
-shrap-ftm		o
-bdani-bomb		o
-bbomb-bomb		o
-bomb-shrap		o
-nova-ftm		i
-usdc-ftm		i
-wbtc-ftm		i
-weth-ftm		i
-shrap-kek		o
-shrap-wmemo		o
-shrap-sspell	o
-slurp-shrap		o
-shrap-nice		o
-shrap-coffin	o
-smart-shrap		o
--->
 
 
 
@@ -1235,7 +1177,7 @@ Overview of your investments and other performance statistics for all the Granar
 window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-	else{web3 = new Web3("https://rpcapi.fantom.network");}
+	else{web3 = new Web3("https://rpc.ftm.tools");}
 	pantvl()
 	for(i=0;i< grains.length;i++){ggs(grains[i])}
 }, false);
@@ -1285,9 +1227,63 @@ function togcar()
 		ac2[i].style.display=ac2[i].style.display=="block"?"none":"block"
 	}
 }
-
-
-grains = [
+grains=[
+	["2201",	"0x50e66D1232f272B481F349F01b5C6019896A23e3"],
+	["2301",	"0xd15d6434aC56007BA85ce89377481964eBDf532a"],
+	["2303",	"0xFe80Ecb1B879f24B08E3Caa74246D4Ae17fbA53B"],
+	["2401",	"0x50e66D1232f272B481F349F01b5C6019896A23e3"],
+	["2501",	"0xE2c82fd8EE829B7309122d1ae63468D0fC323F45"],
+	["2501",	"0xE2c82fd8EE829B7309122d1ae63468D0fC323F45"],
+	["2502",	"0xf29C310D60e87bf54DC973DF73D64a339bb944Cb"],
+	["2503",	"0xBc68f64879b26cf34be397fB8b8f0209FEaBbF91"],
+	["2504",	"0x80aE633a3B909F31BD1beF990b6C642Ca639c7eC"],
+	["2505",	"0x390505AA41aC3BdF31b36ab72EbBA36CFe6C8c6B"],
+	["2506",	"0x2Dcc87751ffF3E250a4dd0037991653472bFfA64"],
+	["2507",	"0xc340b2A90A3BDc0Ad2086E3256A7E9026D03C448"],
+	["2508",	"0xff383254B2070FD335f51c0CA81a10764a713f64"],
+	["2509",	"0xE3A6400c6505BCe5B14C47dE4A9f967C638802dd"],
+	["2510",	"0xc52a37D46a8a4B10355068f34dE71d5fE791f245"],
+	["2601",	"0x6eC2Cb84422403e06935ac55910Fa3609F55BCce"],
+	["2602",	"0x00bedBdD440ff2eFEC3A6a42230e8D3Bfac63d63"],
+	["2603",	"0x977541676bA8eF35e8116566Bca29FD6C72BA159"],
+	["2606",	"0x7266dd2fe1D6447E57924BD41450a613a779Da3f"],
+	["2607",	"0xC7d89a0aA32eb496222f88fA1193566C761b7681"],
+	["2608",	"0xD42C91A330425858BFD78e291365E1b41f56a2Ff"],
+	["2609",	"0x15FcCE81d8f5B4847e0F65243BFDA85972c98474"],
+	["2610",	"0x2b5005f9F08f8A899c7186BD90071da4a131dD46"],
+	["2611",	"0x329AAcBe71666692354272384e38Cb03Df69a71b"],
+	["2612",	"0xE03a39e693695e4405214525FdFB00A51CF454AC"],
+	["2613",	"0x576Be556eeA4F6eD4E6EF248c163BA58340c3091"],
+	["2614",	"0xC95786f122926400da2A261eE5a8424019e7D416"],
+	["2615",	"0x462740150DDAb5816f6007ed179C8013fB7f1e17"],
+	["2616",	"0x4FfD42099576Bda1F3aC508E6192E4BD89125bed"],
+	["2617",	"0x0E02D360784234716a8BDeE721018ae699C1F524"],
+	["2701",	"0x5E62e97A73258947e1745071Ba342C6169A25E80"],
+	["2901",	"0xfD5d0aB5404dd472975922501f670d194732577B"],
+	["4101",	"0xD7627edF607C49F525212fC09d650A91a9B222e1"],
+	["4102",	"0x1b70E038f9eC9A8f979B4e6D8CD0Dc85df677CB2"],
+	["4103",	"0x48B628AC7F6Fa84298c6b3198130C2068073AB01"],
+	["4104",	"0xd072046b0928b9Eb6B2Afa9D80cbDFE759Ef3A8B"],
+	["4105",	"0x69B83634B6E7C2bfFAb8B1ae3B8498d2dab6D51f"],
+	["4106",	"0x2938F27687Ae2ad54db2B91B4B836B6ADD15AC8f"],
+	["4107",	"0xe125C9c6560c17f4dF8774dB6B9e5d2b3BF9947f"],
+	["4108",	"0xE880A7F6C9C326477A7D98e736E1524A7F8D4394"],
+	["4201",	"0xA2B1f90A6CF0FD5451E0fE7ED67331EC15Bd1aAB"],
+	["4202",	"0x27881D9Ee5F4769AdE8762E93c503D3a7C59769e"],
+	["4203",	"0xC255FCEFf6967B30E1A467FA4e97560ae5fE54bA"],
+	["4204",	"0x27DaBA6E82A23C5f9C264257b417D3b99435469d"],
+	["4205",	"0x8885dAa97a0A6590740B6139FD81613D5A543C20"],
+	["4206",	"0xa638Fe74968c9B95E2E3868f9487390087Ef80aC"],
+	["4209",	"0x2E24ABF15ECdA2D58E9840456D397CfbA30c9895"],
+	["4212",	"0x4b7bfaF14a961D0033a2f65d07523b8321D7e477"],
+	["4301",	"0xD41835b49e90A6438C363e4A3613F4A0E5656c55"],
+	["4302",	"0xe46DE1EbD9760975841B7B3Af0DF8612b7566B58"],
+	["4303",	"0x6812e3b614f3dE965821aa1f7A8CA1714cB09a66"],
+	["4401",	"0x565468cFeDE97E7E936B7B0deD53A5DC60623709"],
+	["4402",	"0xb781e75605d0F74cfBd65E8BF48a9FF57E5bDe78"],
+	["4501",	"0xAFEE7A332989261893b11544A2b4622d77Dc8404"]
+];
+oldgrains = [
 	["2201",	"0x50e66D1232f272B481F349F01b5C6019896A23e3"],
 	["2301",	"0xd15d6434aC56007BA85ce89377481964eBDf532a"],
 	["2303",	"0xFe80Ecb1B879f24B08E3Caa74246D4Ae17fbA53B"],
@@ -1344,13 +1340,13 @@ grains = [
 	["4501",	"0xafee7a332989261893b11544a2b4622d77dc8404"],	//	dai-mai
 ]
 pfv=0
-function ggs(g)
+async function ggs(g)
 {
 	G = new web3.eth.Contract(grabi,g[1]);
 	//let info = G.methods.info().call()
-	url="https://rpc.ftm.tools";
+	url="https://ftmrpc.ultimatenodes.io";
 	data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":g[1]},"latest"]}
-	let info = fetch(url, { method: 'POST', body: JSON.stringify(data) }).then(r=>r.json()).then(r=>r.result);
+	let info = fetch(url, { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'application/json'} }).then(r=>r.json()).then(r=>r.result);
 	let gtvl = G.methods.tvl().call()
 	let tsup = G.methods.totalSupply().call()
 	let gugb = 0;
@@ -1363,16 +1359,20 @@ function ggs(g)
 		sit = 1
 	}
 	else {gugb = 0;addCSS("td:nth-child(2){display:none}");sit=3}
-	Promise.all([info,gtvl,tsup,gugb]).then(gd=>{
-		//console.log(gd	)
+	let gd = await Promise.all([info,gtvl,tsup,gugb])
+	//.then(gd=>{
+		//console.log(gd)
 		gtr = document.createElement("tr");
-		oi=[];for(i=0;i< (gd[0].length-2)/64;i++){oi.push(Number("0x"+gd[0].substr(2+64*i,64)))}
+		oi=[];
+		if(gd[0]==undefined){oi=[1e18,1e18,1e18]}
+		else{for(i=0;i< (gd[0].length-2)/64;i++){oi.push(Number("0x"+gd[0].substr(2+64*i,64)))}}
 		//console.log("oi:",oi)
-		console.log(
+		/*console.log(
 			"i:",i," - ",g[0],
 			"\n$: ",((Number(gd[3])/Number(gd[2]))*Number(gd[1])/1e18).toLocaleString(undefined,{minimumFractionDigits: 4, maximumFractionDigits: 4})
 			,"\ngd123: ",gd[1],gd[2],gd[3]
-		)
+		)*/
+		console.log(g[0],gd)
 		gtr.innerHTML = `
 			<td><a href="${g[0]}.html" target="_blank">🌾#${g[0]}</a></td>
 			<td>$${((Number(gd[3])/Number(gd[2]))*Number(gd[1])/1e18).toLocaleString(undefined,{minimumFractionDigits: 4, maximumFractionDigits: 4})}</td>
@@ -1384,7 +1384,7 @@ function ggs(g)
 		$("pf").innerHTML = fornumstd(pfv,18);
 		$("mainstage").append(gtr);
 		sortit(sit);sortit(sit);
-	})
+	//})
 }
 function fornumstd(n,d){return Number((Number(n)/10**d).toFixed(2)).toLocaleString()}
 grabi=[{"inputs":[{"internalType":"address","name":"_w","type":"address"},{"internalType":"address","name":"_m","type":"address"},{"internalType":"address","name":"_e","type":"address"},{"internalType":"uint8","name":"_p","type":"uint8"},{"internalType":"address","name":"_R","type":"address"},{"internalType":"address[]","name":"_rA","type":"address[]"},{"internalType":"address[]","name":"_rB","type":"address[]"},{"internalType":"string","name":"_id","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"src","type":"address"},{"indexed":true,"internalType":"address","name":"guy","type":"address"},{"indexed":false,"internalType":"uint256","name":"wad","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Compounded","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Staked","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"src","type":"address"},{"indexed":true,"internalType":"address","name":"dst","type":"address"},{"indexed":false,"internalType":"uint256","name":"wad","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Withdrawn","type":"event"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"Eliteness","outputs":[{"internalType":"address","name":"ELITE","type":"address"},{"internalType":"uint256","name":"ELITES","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"allnums","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"guy","type":"address"},{"internalType":"uint256","name":"wad","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"guy","type":"address"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_mw","type":"uint256"},{"internalType":"uint256","name":"_wi","type":"uint256"},{"internalType":"uint256","name":"_pf","type":"uint256"},{"internalType":"address","name":"_t","type":"address"},{"internalType":"uint256","name":"_df","type":"uint256"}],"name":"config","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"dao","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"pure","type":"function"},{"inputs":[],"name":"declareEmergency","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"deposit","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"doHardWork","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"earn","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"u","type":"address"}],"name":"eliteness","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"emergency","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"emergencyWithdraw","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"id","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"info","outputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"mc","outputs":[{"internalType":"contract IMasterchef","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"n","type":"uint256"}],"name":"pullElite","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"elite","type":"address"},{"internalType":"uint256","name":"elites","type":"uint256"}],"name":"pushElite","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"tokenAddress","type":"address"},{"internalType":"uint256","name":"tokens","type":"uint256"}],"name":"rescue","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"revokeEmergency","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"routeA","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"routeB","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"router","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"salvage","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"dst","type":"address"},{"internalType":"uint256","name":"wad","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"src","type":"address"},{"internalType":"address","name":"dst","type":"address"},{"internalType":"uint256","name":"wad","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"treasury","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"tvl","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"utvl","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"want","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}]
