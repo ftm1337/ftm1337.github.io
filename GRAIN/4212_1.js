@@ -1,14 +1,6 @@
 
 function $(_) {return document.getElementById(_);}
 
-window.addEventListener('load',async function()
-{
-	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-	else{web3 = new Web3("https://rpc.ftm.tools");}
-	DrefreshFarm()
-	pantvl()
-	arf()
-}, false);
 function pantvl()
 {
 	pt=new web3.eth.Contract([{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}],"0x3f0458FfB6D106d2F5CdeC9CEdc9054A69275489")
