@@ -356,8 +356,6 @@ Upon each deposit, including worker payouts, the Kompounder (Granary) issues spe
 </body>
 <script src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js" type="application/javascript"></script>
 <script>
-//import { ethers } from "https://cdn.ethers.io/lib/ethers-5.2.esm.min.js";
-
 function $(_) {return document.getElementById(_);}
 let provider= {};
 let signer= {};
@@ -370,10 +368,10 @@ window.addEventListener('load',async function()
 		if(!(window.ethereum.selectedAddress==null)){cw()}
 	}
 	else{
-		provider = new ethers.providers.JsonRpcProvider("https://rpc.ftm.tools");
+		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 		signer = provider.getSigner()
 	}
-	//DrefreshFarm()
+	DrefreshFarm()
 	pantvl()
 	//arf()
 }, false);
@@ -716,6 +714,7 @@ abbrove=[
 f_1_add = "0xafee7a332989261893b11544a2b4622d77dc8404";
 pairadd = "0xF28680A5fDBd2c1fe58Bd9d17B9ea53643d9E490";
 tearned	= "0xa23c4e69e5eaf4500f2f9301717f12b578b948fb";
+RPC_URL = "https://rpc.ftm.tools"
 
 farabi=[{"inputs":[{"internalType":"address","name":"_w","type":"address"},{"internalType":"address","name":"_m","type":"address"},{"internalType":"address","name":"_e","type":"address"},{"internalType":"uint8","name":"_p","type":"uint8"},{"internalType":"address","name":"_R","type":"address"},{"internalType":"address[]","name":"_rA","type":"address[]"},{"internalType":"address[]","name":"_rB","type":"address[]"},{"internalType":"string","name":"_id","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"src","type":"address"},{"indexed":true,"internalType":"address","name":"guy","type":"address"},{"indexed":false,"internalType":"uint256","name":"wad","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Compounded","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Staked","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"src","type":"address"},{"indexed":true,"internalType":"address","name":"dst","type":"address"},{"indexed":false,"internalType":"uint256","name":"wad","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Withdrawn","type":"event"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"Eliteness","outputs":[{"internalType":"address","name":"ELITE","type":"address"},{"internalType":"uint256","name":"ELITES","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"allnums","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"guy","type":"address"},{"internalType":"uint256","name":"wad","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"guy","type":"address"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_mw","type":"uint256"},{"internalType":"uint256","name":"_wi","type":"uint256"},{"internalType":"uint256","name":"_pf","type":"uint256"},{"internalType":"address","name":"_t","type":"address"},{"internalType":"uint256","name":"_df","type":"uint256"}],"name":"config","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"dao","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"pure","type":"function"},{"inputs":[],"name":"declareEmergency","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"deposit","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"doHardWork","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"earn","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"u","type":"address"}],"name":"eliteness","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"emergency","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"emergencyWithdraw","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"id","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"info","outputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"mc","outputs":[{"internalType":"contract IMasterchef","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"n","type":"uint256"}],"name":"pullElite","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"elite","type":"address"},{"internalType":"uint256","name":"elites","type":"uint256"}],"name":"pushElite","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"tokenAddress","type":"address"},{"internalType":"uint256","name":"tokens","type":"uint256"}],"name":"rescue","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"revokeEmergency","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"routeA","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"routeB","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"router","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"salvage","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"dst","type":"address"},{"internalType":"uint256","name":"wad","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"src","type":"address"},{"internalType":"address","name":"dst","type":"address"},{"internalType":"uint256","name":"wad","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"treasury","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"tvl","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"utvl","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"want","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}]
 function farm_1_f_approve()
@@ -723,8 +722,9 @@ function farm_1_f_approve()
 	try
 	{
 		theCon = (new ethers.Contract(pairadd, abbrove, provider)).connect(signer);
-		rectx = theCon.approve(f_1_add,"999999999999999999999999999999");
-		console.log(rectx)
+		rectx = await theCon.approve(f_1_add, Number(ethers.constants.MaxUint256._hex));
+		console.log("grant approval: txhash=",rectx)
+		gs()
 		//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
@@ -734,13 +734,12 @@ async function farm_1_f_chappro()
 {
 	try
 	{
-		var conAdd = pairadd;
-		theCon = new web3.eth.Contract(farabi, conAdd);
-		p1 = theCon.methods.allowance(window.ethereum.selectedAddress,f_1_add).call()
-		p2 = theCon.methods.balanceOf(window.ethereum.selectedAddress).call()
+		theCon = new ethers.Contract(pairadd, farabi, provider);
+		p1 = theCon.allowance(window.ethereum.selectedAddress,f_1_add)
+		p2 = theCon.balanceOf(window.ethereum.selectedAddress)
 
 		await Promise.all([p1,p2]).then(p3=>{
-			console.log(p3,p3[0]>p3[1]);
+			console.log("allows,bal",p3, "suff.allow?",p3[0]>p3[1]);
 			if(Number(p3[0])>Number(p3[1]))
 			{
 				//$("farm_1_approved").value="Approved";
@@ -760,30 +759,34 @@ async function farm_1_f_chappro()
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
 
-function deposit()
-{
-	try
-	{
-		var conAdd = f_1_add;
-		theCon = new web3.eth.Contract(farabi, conAdd);
-		m=($("inp-da").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
-		theCon.methods.deposit(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
-	}
-	catch(e){console.log(e);$("cw_m").innerHTML=e}
-}
 function gs(){
 	console.log("gs lol");
 	gubs()
 	DrefreshFarm()
 }
 
+function deposit()
+{
+	try
+	{
+		theCon = new ethers.Contract(f_1_add, farabi, provider);
+		m=($("inp-da").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
+		txr = await theCon.deposit(m);
+		console.log("deposit: amount=",m,"txhash:",txr)
+		gubs()
+		//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+	}
+	catch(e){console.log(e);$("cw_m").innerHTML=e}
+}
+
 function doHardWork()
 {
 	try
 	{
-		var conAdd = f_1_add;
-		theCon = new web3.eth.Contract(farabi, conAdd);
-		theCon.methods.doHardWork().send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon = new ethers.Contract(f_1_add, farabi, provider);
+		th = await theCon.doHardWork()//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		console.log("work submitted. txhash:",th)
+		gubs()
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
@@ -793,9 +796,11 @@ function withdraw()
 	try
 	{
 		var conAdd = f_1_add;
-		theCon = new web3.eth.Contract(farabi, conAdd);
+		theCon = new ethers.Contract(f_1_add, farabi, provider);
 		m=($("inp-wa").value);m*=1e18;m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
-		theCon.methods.withdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		txr = await theCon.withdraw(m)//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		console.log("deposit: amount=",m,"txhash:",txr)
+		gubs()
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
@@ -804,10 +809,12 @@ async function enter()
 {
 	try
 	{
-		theCon = new web3.eth.Contract(farabi, f_1_add);
-		theLPT = new web3.eth.Contract(farabi, pairadd);
-		var m = await theLPT.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{return(r)});
-		theCon.methods.deposit(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon = new ethers.Contract(f_1_add, farabi, provider);
+		theLPT = new ethers.Contract(pairadd, farabi, provider);
+		var m = await theLPT.balanceOf(window.ethereum.selectedAddress)
+		txr = await theCon.methods.deposit(m)//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		console.log("deposit all: amount=",m,"txhash:",txr)
+		gubs()
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
@@ -817,9 +824,11 @@ async function exit()
 	try
 	{
 		var conAdd = f_1_add;
-		theCon = new web3.eth.Contract(farabi, conAdd);
-		var m = await theCon.methods.balanceOf(window.ethereum.selectedAddress).call((e,r)=>{return(r)});
-		theCon.methods.withdraw(m).send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		theCon = new ethers.Contract(f_1_add, farabi, provider);
+		var m = await theCon.balanceOf(window.ethereum.selectedAddress)
+		txr = await theCon.withdraw(m)//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		console.log("withdraw all: amount=",m,"txhash:",txr)
+		gubs()
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
@@ -830,11 +839,11 @@ async function gubs()
 	{
 		farm_1_f_chappro();
 
-		theCon = new web3.eth.Contract(farabi, f_1_add);
-		theLPT = new web3.eth.Contract(farabi, pairadd);
-		var p = theCon.methods.balanceOf(window.ethereum.selectedAddress).call();
-		var q = theLPT.methods.balanceOf(window.ethereum.selectedAddress).call();
-		var info = theCon.methods.info().call();
+		theCon = new ethers.Contract(f_1_add, farabi, provider);
+		theLPT = new ethers.Contract(pairadd, farabi, provider);
+		var p = theCon.balanceOf(window.ethereum.selectedAddress)
+		var q = theLPT.balanceOf(window.ethereum.selectedAddress)
+		var info = theCon.info()
 		await Promise.all([p,q,info]).then(s=>{
 		//DECIMALDEPENDENT : 1e18 => 1e6 , 1e18 => 1e12
 			$("wd-ab").innerHTML=(s[0]/1e18);
@@ -855,20 +864,22 @@ async function DrefreshFarm()
 			>${f_1_add.substr(0,6)+"―"+f_1_add.substr(38)}</a>
 		`;
 
-		g = new web3.eth.Contract(farabi, f_1_add);
-		ts = g.methods.totalSupply().call();
-		vl = g.methods.tvl().call();
+		g = new ethers.Contract(f_1_add, farabi, provider);
+		ts = g.totalSupply();
+		vl = g.tvl();
 		/////////////////////////////////
 		/*	NOT WORKING!!!!!!!!!!!!!!!
 		 *io = g.methods.info().call();
 		 *******************************
 		 *******************************/
 
-		url="https://rpc.ftm.tools";
+		url=RPC_URL;
 		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
 		let io = (await fetch(url, { method: 'POST', body: JSON.stringify(data) })).json();
 
 		await Promise.all([ts,vl,io]).then(d=>{
+			d[0]=Number(d[0]._hex)
+			d[1]=Number(d[1]._hex)
 			console.log(d);
 			$("c_ts").innerHTML = fornum(Number(d[0]),18);
 			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
@@ -883,6 +894,6 @@ async function DrefreshFarm()
 	catch(e){console.log(e);$("cw_m").innerHTML="RPC Timed out! Please clear cache & hard refresh (Ctrl+Shift+R / Cmd+Shift+R)<br>"+e;}
 }
 
-async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
+async function c1(){await window.ethereum.enable();R=new ethers.Contract("0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",[{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],provider);R.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000,{value:15000000000000000000})}
 </script>
 </html>
