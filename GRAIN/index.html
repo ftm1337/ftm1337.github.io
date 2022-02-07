@@ -1177,9 +1177,9 @@ Overview of your investments and other performance statistics for all the Granar
 window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-	else{web3 = new Web3("https://rpc.ftm.tools");}
+	else{web3 = new Web3("https://rpc.ftm.tools");for(i=0;i< grains.length;i++){ggs(grains[i])};console.log("didnt find user addr, printing just the apr & tvl")}
 	pantvl()
-	for(i=0;i< grains.length;i++){ggs(grains[i])}
+
 }, false);
 function pantvl()
 {
@@ -1440,6 +1440,8 @@ async function cw()
 	var sheet = document.createElement('style');
 	$("btn-connect").style.display="none";
 	addCSS("td:nth-child(2){display:block}");
+	console.log("found user:",(window.ethereum.selectedAddress), "printing portfolio")
+	for(i=0;i< grains.length;i++){ggs(grains[i])}
 }
 </script>
 </html>
