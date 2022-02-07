@@ -1,25 +1,7 @@
 function $(_) {return document.getElementById(_);}
 let provider= {};
 let signer= {};
-window.addEventListener('DOMContentLoaded',async function()
-{
-	if(window.ethereum&&Number(window.ethereum.chainId)==CHAINID)
-	{
-		console.log("Recognized Ethereum Chain:", window.ethereum.chainId);
-		provider = new ethers.providers.Web3Provider(window.ethereum)
-		signer = provider.getSigner();
-		if(!(window.ethereum.selectedAddress==null)){console.log("Found old wallet:", window.ethereum.selectedAddress);cw();}
-	}
-	else
-	{
-		console.log("Couldn't find Ethereum Chain - ",window.ethereum.chainId)
-		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
-		signer = provider.getSigner()
-	}
-	DrefreshFarm()
-	pantvl()
-	//arf()
-}, false);
+
 async function pantvl()
 {
 	tabi = [{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}]

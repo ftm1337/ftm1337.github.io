@@ -364,5 +364,26 @@ decEARN = 18;
 </script>
 <script src="../ethers-5.2.umd.min.js" type="application/javascript" defer="true"></script>
 <script src="g.js" type="application/javascript" defer="true"></script>
+<script>
+window.addEventListener('DOMContentLoaded',async function()
+{
+	if(Number(window.ethereum.chainId)==CHAINID)
+	{
+		console.log("Recognized Ethereum Chain:", window.ethereum.chainId);
+		provider = new ethers.providers.Web3Provider(window.ethereum)
+		signer = provider.getSigner();
+		if(!(window.ethereum.selectedAddress==null)){console.log("Found old wallet:", window.ethereum.selectedAddress);cw();}
+	}
+	else
+	{
+		console.log("Couldn't find Ethereum Chain - ",window.ethereum.chainId)
+		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+		signer = provider.getSigner()
+	}
+	DrefreshFarm()
+	pantvl()
+	//arf()
+}, false);
+</script>
 </body>
 </html>
