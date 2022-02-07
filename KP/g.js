@@ -3,14 +3,17 @@ let provider= {};
 let signer= {};
 window.addEventListener('load',async function()
 {
-	if(Number(window.ethereum.chainId)==CHAINID)
+
+//if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
+
+	if(typeOf window.ethereum == Object &&Number(window.ethereum.chainId)Number(window.ethereum.chainId)==CHAINID)
 	{
 		console.log("Recognized Ethereum Chain:", window.ethereum.chainId,CHAINID);
 		provider = new ethers.providers.Web3Provider(window.ethereum)
 		signer = provider.getSigner();
 		if(!(window.ethereum.selectedAddress==null)){console.log("Found old wallet:", window.ethereum.selectedAddress);cw();}
 	}
-	else
+	else if(Number(window.ethereum.chainId)==CHAINID)
 	{
 		console.log("Couldn't find Ethereum Provider - ",CHAINID,window.ethereum.chainId)
 		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
@@ -319,6 +322,7 @@ async function cw2()
     //002
     //try{await provider.send("eth_requestAccounts", []);console.log("CWE:",e);}//await window.ethereum.enable();
 	//catch(e){console.log("CWE:",e);window.location.reload(true)}
+	console.log("doing the paints")
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
 	$("cw_m").innerHTML=""
 	$("connect").style.display="none";
