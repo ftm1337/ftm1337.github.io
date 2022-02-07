@@ -303,10 +303,11 @@ async function cw2()
 	else{console.log("005: Failure", accounts)}
 
 
-	//006
+	/*006
 	const en6 = await window.ethereum.enable()
 	if(Number(en6[0]) > 0){console.log("006 - Success",en6)}
 	else{console.log("006 - Failure", en6)}
+	*/
 
 
 	/*003
