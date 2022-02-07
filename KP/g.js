@@ -273,10 +273,13 @@ async function cw()
 	//if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
 	//if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 
+	//005
+	const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+
 	//004
 	window.ethereum
 	.request({ method: 'eth_requestAccounts' })
-	.then(console.log)
+	.then(r=>{console.log("successfully connected:",r)})
 	.catch((error) => {
     	if (error.code === 4001) {
     	// EIP-1193 userRejectedRequest error
@@ -285,6 +288,11 @@ async function cw()
     	console.error(error);
     	}
 	});
+
+	if(!
+		(isFinite(Number(accounts[0])))
+		|| (isFinite(Number(window.ethereum.selectedAddress)))
+	){console.log("NAAAAAAAAAAAAAAAAA");window.location.reload(true);}
 
 	/*003
 	try {
