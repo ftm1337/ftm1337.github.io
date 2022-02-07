@@ -269,14 +269,16 @@ ab1=
 ];
 async function cw()
 {
+	await window.ethereum.enable()
 	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
 	if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
 	try {
+      console.log("attempting cw()")
       const addresses = await provider.request({ method: "eth_requestAccounts" });
-      console.log(addresses)
+      console.log("addresses:",addresses)
     } catch (e) {
       console.log("error in request", e);
-      window.location.reload();
+      window.location.reload(true);
     }
     //try{await provider.send("eth_requestAccounts", []);console.log("CWE:",e);}//await window.ethereum.enable();
 	//catch(e){console.log("CWE:",e);window.location.reload(true)}
