@@ -12,9 +12,10 @@ window.addEventListener('load',async function()
 	}
 	else
 	{
-		console.log("Couldn't find Ethereum Chain - ",CHAINID,window.ethereum.chainId)
+		console.log("Couldn't find Ethereum Provider - ",CHAINID,window.ethereum.chainId)
 		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 		signer = provider.getSigner()
+		$("connect").innerHTML=`Wallet not found.<br><br><button onclick="window.location.reload()" id="btn-connect">Retry?</button>`;
 	}
 	DrefreshFarm()
 	pantvl()
@@ -272,6 +273,10 @@ ab1=
 ];
 async function cw()
 {
+	setTimeout(() => {  cw2(); }, 2000);
+}
+async function cw2()
+{
 	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected! Trying a refresh";window.location.reload();return(0)}
 	if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected! Please switch to chain ID", CHAINID, "and refresh this page.";return(0)}
 	/*
@@ -280,11 +285,6 @@ async function cw()
 		|| (isFinite(Number(window.ethereum.selectedAddress)))
 	){console.log("NAAAAAAAAAAAAAAAAA");window.location.reload();}
 	*/
-
-	//006
-	const en6 = await window.ethereum.enable()
-	if(Number(en6[0]) > 0){console.log("006 - Success",en6)}
-	else{console.log("006 - Failure", en6)}
 
 	//004
 	window.ethereum
@@ -297,6 +297,13 @@ async function cw()
 	const accounts = await window.ethereum.request({ method: 'eth_accounts' });
 	if(Number(accounts[0])>0){console.log("005: Success - ", accounts)}
 	else{console.log("005: Failure", accounts)}
+
+
+	//006
+	const en6 = await window.ethereum.enable()
+	if(Number(en6[0]) > 0){console.log("006 - Success",en6)}
+	else{console.log("006 - Failure", en6)}
+
 
 	/*003
 	try {
