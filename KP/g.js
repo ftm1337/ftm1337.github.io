@@ -271,8 +271,15 @@ async function cw()
 {
 	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
 	if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
-	try{await provider.send("eth_requestAccounts", []);}//await window.ethereum.enable();
-	catch(e){console.log("CWE:",e);window.location.reload(true)}
+	try {
+      const addresses = await provider.request({ method: "eth_requestAccounts" });
+      console.log(addresses)
+    } catch (e) {
+      console.log("error in request", e);
+      window.location.reload();
+    }
+    //try{await provider.send("eth_requestAccounts", []);console.log("CWE:",e);}//await window.ethereum.enable();
+	//catch(e){console.log("CWE:",e);window.location.reload(true)}
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
 	$("cw_m").innerHTML=""
 	$("connect").style.display="none";
