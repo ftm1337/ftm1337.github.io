@@ -272,9 +272,8 @@ ab1=
 ];
 async function cw()
 {
-	//await window.ethereum.enable()
-	//if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
-	//if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
+	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected! Trying a refresh";window.location.reload();return(0)}
+	if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected! Please switch to chain ID", CHAINID, "and refresh this page.";return(0)}
 	/*
 	if(!
 		(isFinite(Number(accounts[0])))
