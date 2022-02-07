@@ -281,8 +281,9 @@ async function cw()
 }
 async function cw2()
 {
-	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected! Trying a refresh";window.location.reload();return(0)}
+	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected! Trying a refresh";console.log("Metamask not found!");window.location.reload();return(0)}
 	if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected! Please switch to chain ID", CHAINID, "and refresh this page.";return(0)}
+	if(typeof provider == "undefined"){$("cw_m").innerHTML="Provider not detected! Trying a refresh";console.log("Provider not found!");window.location.reload();return(0)}
 	/*
 	if(!
 		(isFinite(Number(accounts[0])))
