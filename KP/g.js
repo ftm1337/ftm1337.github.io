@@ -1,7 +1,7 @@
 function $(_) {return document.getElementById(_);}
 let provider= {};
 let signer= {};
-window.addEventListener('load',async function()
+window.addEventListener('DOMContentLoaded',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==CHAINID)
 	{
@@ -282,18 +282,19 @@ async function cw()
 	//006
 	const en6 = await window.ethereum.enable()
 	if(Number(en6[0]) > 0){console.log("006 - Success",en6)}
+	else{console.log("006 - Failure", en6)}
 
 	//004
 	window.ethereum
 	.request({ method: 'eth_requestAccounts' })
-	.then(r=>{console.log("successfully connected:",r)})
-	.catch((error) => {	console.error("004 - Failure", error); });
+	.then(r=>{console.log("004: Success:",r)})
+	.catch((error) => {	console.error("004 - Failure", r, error); });
 
 
 	//005
 	const accounts = await window.ethereum.request({ method: 'eth_accounts' });
 	if(Number(accounts[0])>0){console.log("005: Success - ", accounts)}
-	else{console.log("005: Failure")}
+	else{console.log("005: Failure", accounts)}
 
 	/*003
 	try {
