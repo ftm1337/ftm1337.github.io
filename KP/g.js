@@ -18,7 +18,7 @@ window.addEventListener('load',async function()
 	}
 	DrefreshFarm()
 	pantvl()
-	//arf()
+	arf()
 }, false);
 async function pantvl()
 {
