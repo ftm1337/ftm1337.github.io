@@ -277,7 +277,8 @@ ab1=
 ];
 async function cw()
 {
-	console.log("waitin for 3 secs..")
+	console.log("waitin for 3 secs..");
+	$("cw_m").innerHTML = "Connecting.. Please wait."
 	setTimeout(async () => { let cs = await cw2(); cs?console.log("Good to Transact"):cw2() }, 3000);
 }
 async function cw2()
