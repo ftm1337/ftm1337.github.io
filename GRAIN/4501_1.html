@@ -723,7 +723,7 @@ async function farm_1_f_approve()
 	try
 	{
 		theCon = new ethers.Contract(pairadd, abbrove, signer);
-		rectx = await theCon.approve(f_1_add, Number(ethers.constants.MaxUint256._hex));
+		rectx = await theCon.approve(f_1_add,"999999999999999999999999999999999999");
 		console.log("grant approval: txhash=",rectx)
 		gs()
 		//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
