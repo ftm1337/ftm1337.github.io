@@ -292,7 +292,7 @@ async function cw()
 
 	//005
 	const accounts = await window.ethereum.request({ method: 'eth_accounts' });
-	if(Number(accounts[0])>0){console.log("005: Success - ", accounts)
+	if(Number(accounts[0])>0){console.log("005: Success - ", accounts)}
 	else{console.log("005: Failure")}
 
 	/*003
