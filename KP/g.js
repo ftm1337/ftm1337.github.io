@@ -269,9 +269,24 @@ ab1=
 ];
 async function cw()
 {
-	await window.ethereum.enable()
-	if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
-	if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
+	//await window.ethereum.enable()
+	//if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
+	//if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
+
+	//004
+	window.ethereum
+	.request({ method: 'eth_requestAccounts' })
+	.then(console.log)
+	.catch((error) => {
+    	if (error.code === 4001) {
+    	// EIP-1193 userRejectedRequest error
+    	console.log('Please connect to MetaMask.');
+    	} else {
+    	console.error(error);
+    	}
+	});
+
+	/*003
 	try {
       console.log("attempting cw()")
       const addresses = await provider.request({ method: "eth_requestAccounts" });
@@ -280,6 +295,9 @@ async function cw()
       console.log("error in request", e);
       window.location.reload(true);
     }
+    */
+
+    //002
     //try{await provider.send("eth_requestAccounts", []);console.log("CWE:",e);}//await window.ethereum.enable();
 	//catch(e){console.log("CWE:",e);window.location.reload(true)}
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
