@@ -277,7 +277,8 @@ ab1=
 ];
 async function cw()
 {
-	setTimeout(() => {  cw2(); }, 2000);
+	console.log("waitin for 3 secs..")
+	setTimeout(() => { let cs = await cw2(); cs?retun(0):cw2() }, 3000);
 }
 async function cw2()
 {
@@ -294,7 +295,7 @@ async function cw2()
 	//004
 	window.ethereum
 	.request({ method: 'eth_requestAccounts' })
-	.then(r=>{console.log("004: Success:",r);cw()})	//re-curse to end curse, maybe..
+	.then(r=>{console.log("004: Success:",r);})	//re-curse to end curse, maybe..
 	.catch((error) => {	console.error("004 - Failure", r, error); });
 
 
@@ -332,6 +333,7 @@ async function cw2()
 	$("switch").style.display="block";
 	farm_1_f_chappro()
 	gubs();
+	return(1);
 }
 function fornum2(n,d)
 {
