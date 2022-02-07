@@ -272,27 +272,27 @@ async function cw()
 	//await window.ethereum.enable()
 	//if(!(window.ethereum)){$("cw_m").innerHTML="Metamask not detected!";return(0)}
 	//if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML="Wrong network detected!";return(0)}
+	/*
+	if(!
+		(isFinite(Number(accounts[0])))
+		|| (isFinite(Number(window.ethereum.selectedAddress)))
+	){console.log("NAAAAAAAAAAAAAAAAA");window.location.reload();}
+	*/
 
-	//005
-	const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+	//006
+	const en6 = await window.ethereum.enable()
+	if(Number(en6[0]) > 0){console.log("006 - Success",en6)}
 
 	//004
 	window.ethereum
 	.request({ method: 'eth_requestAccounts' })
 	.then(r=>{console.log("successfully connected:",r)})
-	.catch((error) => {
-    	if (error.code === 4001) {
-    	// EIP-1193 userRejectedRequest error
-    	console.log('Please connect to MetaMask.');
-    	} else {
-    	console.error(error);
-    	}
-	});
+	.catch((error) => {	console.error("004 - Failure", error); });
 
-	if(!
-		(isFinite(Number(accounts[0])))
-		|| (isFinite(Number(window.ethereum.selectedAddress)))
-	){console.log("NAAAAAAAAAAAAAAAAA");window.location.reload(true);}
+
+	//005
+	const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+	console.log((Number(accounts[0])>0)?"005: Success - ", accounts : "005: Failure")
 
 	/*003
 	try {
