@@ -5,11 +5,14 @@ window.addEventListener('DOMContentLoaded',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==CHAINID)
 	{
+		console.log("Recognized Ethereum Chain:", window.ethereum.chainId);
 		provider = new ethers.providers.Web3Provider(window.ethereum)
 		signer = provider.getSigner();
-		if(!(window.ethereum.selectedAddress==null)){cw()}
+		if(!(window.ethereum.selectedAddress==null)){console.log("Found old wallet:", window.ethereum.selectedAddress);cw();}
 	}
-	else{
+	else
+	{
+		console.log("Couldn't find Ethereum Chain - ",window.ethereum.chainId)
 		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 		signer = provider.getSigner()
 	}
