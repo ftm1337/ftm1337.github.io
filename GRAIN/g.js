@@ -504,11 +504,11 @@ async function enter()
 {
 	try
 	{
-		theCon = new ethers.Contract(f_1_add, farabi, provider);
+		theCon = new ethers.Contract(f_1_add, farabi, signer);
 		theLPT = new ethers.Contract(pairadd, farabi, provider);
 		var m = await theLPT.balanceOf(window.ethereum.selectedAddress)
 		txr = await theCon.deposit(m)//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
-		console.log("deposit all: amount=",m,"txhash:",txr)
+		console.log("deposited all: amount=",m,"txhash:",txr)
 		gubs()
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
