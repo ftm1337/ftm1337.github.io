@@ -17,7 +17,7 @@ window.addEventListener('load',async function()
 	else //if(Number(window.ethereum.chainId)==CHAINID)
 	{
 		console.log("Couldn't find Ethereum Provider - ",CHAINID,window.ethereum.chainId)
-		if(!(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML = "Wrong network! Switch from",window.ethereum.chainId," to ",CHAINID}
+		if((typeof Number(window.ethereum.chainId) == "number") && !(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML = "Wrong network! Switch from", Number(window.ethereum.chainId)," to ",CHAINID}
 		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 		signer = provider.getSigner()
 		$("connect").innerHTML=`Wallet not found.<br><br><button onclick="window.location.reload()" id="btn-connect">Retry?</button>`;
