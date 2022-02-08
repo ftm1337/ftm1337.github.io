@@ -1344,7 +1344,7 @@ async function ggs(g)
 {
 	G = new web3.eth.Contract(grabi,g[1]);
 	//let info = G.methods.info().call()
-	url="https://ftmrpc.ultimatenodes.io";
+	url="https://rpc.ftm.tools";
 	data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":g[1]},"latest"]}
 	let info = fetch(url, { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'application/json'} }).then(r=>r.json()).then(r=>r.result);
 	let gtvl = G.methods.tvl().call()
