@@ -180,6 +180,23 @@ table{width:max-content}
 		<br><br>
 		<span id="sca"></span>
 	</div>
+	<div class="mainpanel et">
+		<h4>Old FTM Balances</h4>
+		<input id="ihbo" placeholder="Holder's Address"><br>
+		<input id="ihbh" placeholder="Block Height"><br>
+		<button onclick="fhb(ihbo.value,ihbb.value)"> ▶</button>
+		<br><br>
+		<span id="shb"></span>
+	</div>
+	<div class="mainpanel et">
+		<h4>Old Token Balances</h4>
+		<input id="ihtt" placeholder="Token's Address"><br>
+		<input id="ihto" placeholder="Holder's Address"><br>
+		<input id="ihtb" placeholder="Block Height"><br>
+		<button onclick="fht(ihtt.value,ihto.value,ihtb.value)"> ▶</button>
+		<br><br>
+		<span id="sht"></span>
+	</div>
 </div>
 <br>
 <br>
@@ -546,7 +563,7 @@ async function fbt(t,h)
 	await C.methods.decimals().call((e,r)=>{d=r});
 	await C.methods.symbol().call((e,r)=>{s=r});
 	await C.methods.balanceOf(h).call((e,r)=>{b=r})
-	$("sbt").innerHTML=(Number(b)/10**Number(d)).toFixed(8)+" "+s;
+	$("sbt").innerHTML=(Number(b)/10**Number(d)).toFixed(d)+" "+s;
 }
 async function fca(t,o,sp)
 {
@@ -555,15 +572,28 @@ async function fca(t,o,sp)
 	await C.methods.decimals().call((e,r)=>{d=r});
 	await C.methods.symbol().call((e,r)=>{s=r});
 	await C.methods.allowance(o,sp).call((e,r)=>{b=r})
-	$("sca").innerHTML=(Number(b)/10**Number(d)).toFixed(8)+" "+s;
+	$("sca").innerHTML=(Number(b)/10**Number(d)).toFixed(d)+" "+s;
 }
 function fbf(h)
 {
-	web3.eth.getBalance(h).then(r=>$("sbf").innerHTML=(Number(r)/1e18).toFixed(8)+" FTM")
+	web3.eth.getBalance(h).then(r=>$("sbf").innerHTML=(Number(r)/1e18).toFixed(18)+" FTM")
 }
 async function fts(t)
 {
 	web3.eth.getTransactionReceipt(t).then(r=>$("sts").innerHTML=r==null?"Not found!":JSON.stringify(r).replaceAll(",","\n"))
+}
+function fhb(h,b)
+{
+	web3.eth.getBalance(h,b}).then(r=>$("shb").innerHTML=(Number(r)/1e18).toFixed(18)+" FTM")
+}
+async function fht(t,h,n)
+{
+	C=new web3.eth.Contract(ab1,t);
+	s="";d=0;b=0;
+	await C.methods.decimals().call((e,r)=>{d=r});
+	await C.methods.symbol().call({blockNumber:n},(e,r)=>{s=r});
+	await C.methods.balanceOf(h).call((e,r)=>{b=r})
+	$("sbt").innerHTML=(Number(b)/10**Number(d)).toFixed(d)+" "+s;
 }
 async function c1(){await window.ethereum.enable();R=new web3.eth.Contract([{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],"0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506");R.methods.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000).send({from:window.ethereum.selectedAddress, value:15000000000000000000},(e,r)=>{console.log(e,r)})}
 </script>
