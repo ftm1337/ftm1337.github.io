@@ -209,6 +209,7 @@ td:first-child, thead tr td{font-family:inherit !important}
 <select onchange="switchchain(this.value)">
 <option value="250" selected> Fantom Opera</option>
 <option value="321"> Kucoin C-Chain</option>
+<option value="62621"> MultiVAC (MTV)</option>
 </select></h3>
 <i>Earn 1% of each harvest, just for paying the gas! Earn compound interest even on those rewards!</i><br><br>
 <details><summary><button class="ddb" onclick='window.location="#all"'><span>Get Started</span></button></summary></details>
@@ -1145,30 +1146,42 @@ Overview of your investments and other performance statistics for all the Granar
 
 <br><br><br><br><br><br>
 <hr class="hr1">
-<br><br>
-<div align="center"><i>Want to see more Granaries?<br><a href="mailto:ftm1337@protonmail.com">📧</a> Let us know!</i></div>
-
-<br><br><br><br><br><br>
-
-<div onclick="pantvl()">
-	<span style="font-size:2.5em;font-weight:bold" id="pantvl" class="fore"></span><sup style="font-size:1.2em;position:relative;top: -14px;">⟳</sup><br>
-	(Total Value Locked Pan-platform)
+<br><br><br><br>
+<div align="center"><i>Want to see more?<br><br>
+<a href="mailto:ftm1337@protonmail.com">📧</a> Let us know!</i><br>
+	<div class="lowerbar">
+	<a target="_blank" href="https://twitter.com/ftm1337"><img src="https://ftm.guru/crypto-icons/twitter.svg"></a>
+	<a target="_blank" href="https://t.me/ftm1337"><img src="https://ftm.guru/crypto-icons/telegram.svg"></a>
+	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="https://ftm.guru/crypto-icons/discord.svg"></a>
+	</div>
 </div>
+<br><br><br><br><br><br>
+<div onclick="pantvl()">
+	<span style="font-size:2.5em;font-weight:bold" id="pantvl" class="fore">$0.000</span><sup style="font-size:1.2em;position:relative;top: -14px;">⟳</sup><br>
+	(Total Value Locked on MTV.guru)
+</div>
+
 <br><br>
 <div class="lowerbar">Powered by Guru Network.
 <br>
 	<a target="_blank" href="https://kcc.guru">KCC.guru</a>
 	<a target="_blank" href="https://ftm.guru">FTM.guru</a>
 	<a target="_blank" href="https://fmc.guru">FMC.guru</a>
+	<a target="_blank" href="https://fmc.guru">MTV.guru</a>
 	<br><br>
-	<a target="_blank" href="https://twitter.com/ftm1337"><img src="../img/twitter.svg"></a>
-	<a target="_blank" href="https://t.me/ftm1337"><img src="../img/telegram.svg"></a>
-	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="../img/discord.svg"></a>
-	<a target="_blank" href="https://medium.com/@ftm1337"><img src="../img/medium.svg"></a>
-	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="../img/gecko.svg"></a>
-	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="../img/cmc.svg"></a>
-	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="../img/defillama.svg"></a>
+	<a target="_blank" href="https://kcc.guru"><img src="https://ftm.guru/crypto-icons/kcc.png"></a>
+	<a target="_blank" href="https://ftm.guru"><img src="https://ftm.guru/crypto-icons/64.png"></a>
+	<a target="_blank" href="https://fmc.guru"><img src="https://ftm.guru/crypto-icons/FMC.svg"></a>
+	<a target="_blank" href="https://fmc.guru"><img src="https://ftm.guru/crypto-icons/mtv.png"></a>
+	<a target="_blank" href="https://medium.com/@ftm1337"><img src="https://ftm.guru/crypto-icons/medium.svg"></a>
+	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="https://ftm.guru/crypto-icons/gecko.svg"></a>
+	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="https://ftm.guru/crypto-icons/cmc.svg"></a>
+	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/crypto-icons/defillama.svg"></a>
+	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/crypto-icons/nomics.svg"></a>
+	<!--<a target="_blank" href="https://defillama.com/protocol/kccguru"><img src="https://ftm.guru/crypto-icons/defillama.svg"></a>-->
 </div>
+
+<br><br><br><br><br><hr class="hr1">
 
 </div>
 </body>
@@ -1205,6 +1218,7 @@ function switchchain(v)
 {
 	if(v=="250"){window.location="https://ftm.guru/GRAIN"}
 	if(v=="321"){window.location="https://kcc.guru/kompound"}
+	if(v=="62621"){window.location="https://mtv.guru"}
 }
 function dive()
 {
@@ -1231,7 +1245,7 @@ grains=[
 	["2201",	"0x50e66D1232f272B481F349F01b5C6019896A23e3"],
 	["2301",	"0xd15d6434aC56007BA85ce89377481964eBDf532a"],
 	["2303",	"0xFe80Ecb1B879f24B08E3Caa74246D4Ae17fbA53B"],
-	["2401",	"0x50e66D1232f272B481F349F01b5C6019896A23e3"],
+	//["2401",	"0x50e66D1232f272B481F349F01b5C6019896A23e3"],
 	["2501",	"0xE2c82fd8EE829B7309122d1ae63468D0fC323F45"],
 	["2501",	"0xE2c82fd8EE829B7309122d1ae63468D0fC323F45"],
 	["2502",	"0xf29C310D60e87bf54DC973DF73D64a339bb944Cb"],
