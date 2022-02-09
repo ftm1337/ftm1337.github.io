@@ -4,6 +4,13 @@ let signer= {};
 window.addEventListener('load',async function()
 {
 
+	console.log("waitin for 3 secs..");
+	$("cw_m").innerHTML = "Connecting.. Please wait."
+	setTimeout(async () => { basetrip(); }, 3000);
+}, false);
+
+async function basetrip()
+{
 //if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 
 	if(//typeOf window.ethereum == Object &&Number(window.ethereum.chainId)
@@ -17,7 +24,7 @@ window.addEventListener('load',async function()
 	else //if(Number(window.ethereum.chainId)==CHAINID)
 	{
 		console.log("Couldn't find Ethereum Provider - ",CHAINID,window.ethereum.chainId)
-		if((typeof Number(window.ethereum.chainId) == "number") && !(Number(window.ethereum.chainId)==CHAINID)){$("cw_m").innerHTML = "Wrong network! Switch from", Number(window.ethereum.chainId)," to ",CHAINID}
+		if((typeof Number(window.ethereum.chainId) == "number")){$("cw_m").innerHTML = "Wrong network! Switch from" + Number(window.ethereum.chainId)+" to "+CHAINID}
 		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 		signer = provider.getSigner()
 		$("connect").innerHTML=`Wallet not found.<br><br><button onclick="window.location.reload()" id="btn-connect">Retry?</button>`;
@@ -25,7 +32,7 @@ window.addEventListener('load',async function()
 	DrefreshFarm()
 	pantvl()
 	arf()
-}, false);
+}
 async function pantvl()
 {
 	tabi = [{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}]
@@ -278,9 +285,7 @@ ab1=
 ];
 async function cw()
 {
-	console.log("waitin for 3 secs..");
-	$("cw_m").innerHTML = "Connecting.. Please wait."
-	setTimeout(async () => { let cs = await cw2(); cs?console.log("Good to Transact"):cw2() }, 3000);
+	let cs = await cw2(); cs?console.log("Good to Transact"):cw2()
 }
 async function cw2()
 {
