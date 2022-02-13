@@ -11,20 +11,18 @@ window.addEventListener('load',async function()
 
 async function basetrip()
 {
-//if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
-
-	if(//typeOf window.ethereum == Object &&Number(window.ethereum.chainId)
-		Number(window.ethereum.chainId)==CHAINID)
+	if( (typeof (window.ethereum) == Object) )
 	{
 		console.log("Recognized Ethereum Chain:", window.ethereum.chainId,CHAINID);
+		if((typeof Number(window.ethereum.chainId) == "number") && (!(Number(window.ethereum.chainId)==CHAINID)) )
+		{$("cw_m").innerHTML = "Wrong network! Switch from" + Number(window.ethereum.chainId)+" to "+CHAINID}
 		provider = new ethers.providers.Web3Provider(window.ethereum)
 		signer = provider.getSigner();
 		if(!(window.ethereum.selectedAddress==null)){console.log("Found old wallet:", window.ethereum.selectedAddress);cw();}
 	}
-	else //if(Number(window.ethereum.chainId)==CHAINID)
+	else
 	{
-		console.log("Couldn't find Ethereum Provider - ",CHAINID,window.ethereum.chainId)
-		if((typeof Number(window.ethereum.chainId) == "number")){$("cw_m").innerHTML = "Wrong network! Switch from" + Number(window.ethereum.chainId)+" to "+CHAINID}
+		console.log("Couldn't find Ethereum Provider - ",CHAINID)
 		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 		signer = provider.getSigner()
 		$("connect").innerHTML=`Wallet not found.<br><br><button onclick="window.location.reload()" id="btn-connect">Retry?</button>`;
@@ -346,13 +344,14 @@ function fornum2(n,d)
 {
 	_n=(Number(n)/10**Number(d));
 	n_=_n;
-	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Quintillion"}
-	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Quadrillion"}
-	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Trillion"}
-	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Billion"}
-	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
-	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
-	else if(_n>1){n_=(_n/1e0).toFixed(8)+""}
+	if(_n>1e18){n_=(_n/1e18).toFixed(3)+"Qt"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(3)+"Qd"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(3)+"T"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(3)+"B"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(3)+"M"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(3)+"K"}
+	else if(_n>1e1){n_=(_n/1e0).toFixed(5)+""}
+	else if(_n>0.0){n_=(_n/1e0).toFixed(8)+""}
 	return(n_);
 }
 function arf(){	var xfr = setInterval(function()
@@ -425,6 +424,7 @@ async function farm_1_f_approve()
 		rectx = await theCon.approve(f_1_add,"999999999999999999999999999999999999");
 		console.log("grant approval: txhash=",rectx)
 		gs()
+		farm_1_f_chappro()
 		//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
