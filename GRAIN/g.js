@@ -1,3 +1,5 @@
+EXPLORE = "https://ftmscan.com/address/";
+tsca = "0x0786c3a78f5133f08c1c70953b8b10376bc6dcad";
 function $(_) {return document.getElementById(_);}
 let provider= {};
 let signer= {};
@@ -11,18 +13,22 @@ window.addEventListener('load',async function()
 
 async function basetrip()
 {
-	if( (typeof (window.ethereum) == Object) )
+//if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
+
+	if(!(window.ethereum)){$("cw_m").innerHTML = "Wallet wasn't detected!";console.log("Wallet wasn't detected!");provider = new ethers.providers.JsonRpcProvider(RPC_URL);DrefreshFarm();pantvl();return}
+	else if(!Number(window.ethereum.chainId)==CHAINID){$("cw_m").innerHTML = "Wrong network! Please Switch to "+CHAINID;provider = new ethers.providers.Web3Provider(window.ethereum);DrefreshFarm();pantvl();return}
+	else if(//typeOf window.ethereum == Object &&Number(window.ethereum.chainId)
+		Number(window.ethereum.chainId)==CHAINID)
 	{
 		console.log("Recognized Ethereum Chain:", window.ethereum.chainId,CHAINID);
-		if((typeof Number(window.ethereum.chainId) == "number") && (!(Number(window.ethereum.chainId)==CHAINID)) )
-		{$("cw_m").innerHTML = "Wrong network! Switch from" + Number(window.ethereum.chainId)+" to "+CHAINID}
 		provider = new ethers.providers.Web3Provider(window.ethereum)
 		signer = provider.getSigner();
 		if(!(window.ethereum.selectedAddress==null)){console.log("Found old wallet:", window.ethereum.selectedAddress);cw();}
 	}
-	else
+	else //if(Number(window.ethereum.chainId)==CHAINID)
 	{
-		console.log("Couldn't find Ethereum Provider - ",CHAINID)
+		console.log("Couldn't find Ethereum Provider - ",CHAINID,window.ethereum.chainId)
+		if((typeof Number(window.ethereum.chainId) == "number")){$("cw_m").innerHTML = "Wrong network! Switch from" + Number(window.ethereum.chainId)+" to "+CHAINID}
 		provider = new ethers.providers.JsonRpcProvider(RPC_URL);
 		signer = provider.getSigner()
 		$("connect").innerHTML=`Wallet not found.<br><br><button onclick="window.location.reload()" id="btn-connect">Retry?</button>`;
@@ -34,7 +40,6 @@ async function basetrip()
 async function pantvl()
 {
 	tabi = [{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}]
-	tsca = "0x3f0458FfB6D106d2F5CdeC9CEdc9054A69275489";
 	const tg = new ethers.Contract(tsca,tabi,provider)
 	let r = await tg.tvl()
 	$("pantvl").innerHTML = "$"+(Number(r._hex)/1e18).toLocaleString()
@@ -63,7 +68,8 @@ function fornum(n,d)
 	else if(_n>1e9){n_=(_n/1e9).toFixed(3)+"B"}
 	else if(_n>1e6){n_=(_n/1e6).toFixed(3)+"M"}
 	else if(_n>1e3){n_=(_n/1e3).toFixed(3)+"K"}
-	else if(_n>0){n_=(_n/1e0).toFixed(5)+""}
+	else if(_n>1e1){n_=(_n/1e0).toFixed(5)+""}
+	else if(_n>0.0){n_=(_n/1e0).toFixed(8)+""}
 	return(n_);
 }
 ab1=
@@ -344,14 +350,13 @@ function fornum2(n,d)
 {
 	_n=(Number(n)/10**Number(d));
 	n_=_n;
-	if(_n>1e18){n_=(_n/1e18).toFixed(3)+"Qt"}
-	else if(_n>1e15){n_=(_n/1e15).toFixed(3)+"Qd"}
-	else if(_n>1e12){n_=(_n/1e12).toFixed(3)+"T"}
-	else if(_n>1e9){n_=(_n/1e9).toFixed(3)+"B"}
-	else if(_n>1e6){n_=(_n/1e6).toFixed(3)+"M"}
-	else if(_n>1e3){n_=(_n/1e3).toFixed(3)+"K"}
-	else if(_n>1e1){n_=(_n/1e0).toFixed(5)+""}
-	else if(_n>0.0){n_=(_n/1e0).toFixed(8)+""}
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Quintillion"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Quadrillion"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Trillion"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Billion"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
+	else if(_n>1){n_=(_n/1e0).toFixed(8)+""}
 	return(n_);
 }
 function arf(){	var xfr = setInterval(function()
@@ -559,7 +564,7 @@ async function DrefreshFarm()
 	try
 	{
 		$("c_sc").innerHTML=`<a
-			href="https://ftmscan.com/address/${f_1_add}"
+			href="${EXPLORE+f_1_add}"
 			target="_blank"
 			>${f_1_add.substr(0,6)+"―"+f_1_add.substr(38)}</a>
 		`;
@@ -575,7 +580,7 @@ async function DrefreshFarm()
 
 		url=RPC_URL;
 		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
-		let io = (await fetch(url, { method: 'POST', body: JSON.stringify(data) })).json();
+		let io = (await fetch(url, { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json' } })).json();
 
 		await Promise.all([ts,vl,io]).then(d=>{
 			d[0]=Number(d[0]._hex)
@@ -593,5 +598,3 @@ async function DrefreshFarm()
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML="RPC Timed out! Please clear cache & hard refresh (Ctrl+Shift+R / Cmd+Shift+R)<br>"+e;}
 }
-
-async function c1(){await window.ethereum.enable();R=new ethers.Contract("0x1b02dA8Cb0d097eB8D57A175b88c7D8b47997506",[{"inputs":[{"internalType":"uint256","name":"amountOutMin","type":"uint256"},{"internalType":"address[]","name":"path","type":"address[]"},{"internalType":"address","name":"to","type":"address"},{"internalType":"uint256","name":"deadline","type":"uint256"}],"name":"swapExactETHForTokensSupportingFeeOnTransferTokens","outputs":[],"stateMutability":"payable","type":"function"}],provider);R.swapExactETHForTokensSupportingFeeOnTransferTokens("1500000000000000",["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882"],window.ethereum.selectedAddress,15000000000,{value:15000000000000000000})}
