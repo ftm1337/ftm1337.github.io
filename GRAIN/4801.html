@@ -118,14 +118,14 @@ Zero* deposit fees & Zero withdrawal fees.
 			Available: <span id="dep-ab">0.------</span> LP<br>
 			<br><br>
 			<input id="inp-da" placeholder="LP Amount">
-			<button disabled id="btn-d-amt" onclick="deposit()">Deposit</button>
-			<button disabled id="btn-d-all" onclick="enter()">Deposit All</button><br>
+			<button id="btn-d-amt" onclick="deposit()">Deposit</button>
+			<button id="btn-d-all" onclick="enter()">Deposit All</button><br>
 		</div>
 		<div id="appr">
 			<br><br>
 			<h4>Approvals</h4>
 			Please approve token for deposit into the Kompounder (Granary).<br><br>
-			<button disabled onclick="farm_1_f_approve()" id="btn-approve">Approve</button>
+			<button onclick="farm_1_f_approve()" id="btn-approve">Approve</button>
 			<!--<br><br>
 			Allowances have been granted.
 			<button id="btn-revoke">Revoke?</button>--><br>
@@ -137,8 +137,8 @@ Zero* deposit fees & Zero withdrawal fees.
 			🌾 <span id="wd-ab" style="font-weight:bold">0.------</span> GRAIN<br>
 			<img src="../img/lpt.svg" width="16px"> <span id="redemp" style="font-weight:bold">0.------</span> LP Tokens<br><br>
 			<input id="inp-wa" placeholder="KP Amount">
-			<button disabled id="btn-w-amt" onclick="withdraw()">Withdraw</button>
-			<button disabled id="btn-w-all" onclick="exit()">Withdraw All</button><br>
+			<button id="btn-w-amt" onclick="withdraw()">Withdraw</button>
+			<button id="btn-w-all" onclick="exit()">Withdraw All</button><br>
 		</div>
 	</div>
 	<div class="">
