@@ -48,11 +48,12 @@ A strategic Kompounder which takes in RING-BLP, comprised of 20% USDC and 80% RI
 <br><br>
 This Granary issues the "GRAIN#4801", a standard yield-bearning token, proportionally to all the investors. Meaning that your LP tokens per grain consistently increases. From this you earn BEETS tokens. Simultaneously, it also taps the Gauge rewards, utilizing Beethoven's RING Rewarder for generating additional income.
 <br><br>
-The granary does all of the complicated work behind the scenes making frodos journey to mount doom look like a walk in the park, simplified they do the following: harvest BEETs from farm -> swaps for usdc -> purchases Ring with 80% of usdc ->harvests ring -> sells 20% for usdc.
+The granary does all of the complicated work behind the scenes making frodos journey to mount doom look like a walk in the park, simplified they do the following: harvest BEETs from farm -> swaps for usdc -> purchases Ring with 80% of usdc -> claims RING from gauge -> sells 20% for usdc.
 <br><br>
-Once the harvest is 80%ring and 20%usdc, it adds both sides as LP and adds to the granary.
+Once the harvest is 80% RING and 20% USDC, it adds both sides as LP and adds back to the Granary. Idle Ludwigs in the audience can enjoy the RING-USD Beethoven tokens from GRAIN faucet by paying the gas fee. (psst.. Kompetition.)
 <br><br>
 Enough LP tokens provided to the granary and smaug would blush in embarrassment with the amount of treasure you have amassed, so go have at it!
+<div align="right" style="margin-right:40px">―Welshy</div>
 </i>
 
 <br><br>
@@ -64,7 +65,7 @@ Enough LP tokens provided to the granary and smaug would blush in embarrassment 
 		<br>
 		<span id="c_aa">0.000 %</span>
 		<hr>
-		Realized A.P.Y.
+		Realized A.P.R.
 	</div>
 	<div class="card">
 		<br>
@@ -154,6 +155,7 @@ Enough LP tokens provided to the granary and smaug would blush in embarrassment 
 	</div>
 	<div class="">
 		<h3>For Workers</h3>
+		<i>(Requires <a href="#eliteness" style="color:#fff">Eliteness<sup>[?]</sup></a> over 0.01)</i><br>
 		<h4>Rough Estimations</h4>
 		<!--Cost of Work: <span id="est-cost">0.------</span> FTM<br>
 		Harvest Size: <span id="est-hvst">0.------</span> WIGO<br>
@@ -180,7 +182,7 @@ Enough LP tokens provided to the granary and smaug would blush in embarrassment 
 <h2>General Information</h2><br>
 <h4>Get RING-BLP</h4>
 <a class="fore" href="https://beets.fi" target="_blank">Add RING with USDC to liquidity at Beethoven-x Dex.</a>
-<br>Utilizes The Vaults of Lonely Mountain Pool: 20% USDC + 80% RING.
+<br><br>Utilizes The Vaults of Lonely Mountain Pool: 20% USDC + 80% RING.
 <br><br>
 <h4>Advantages of Kompounders (Granaries)</h4>
 Compounding yield requires transaction fees to be paid to the blockchain. This can add up quickly to be expensive and cut into returns. As we batch your transaction with many other depositor's transactions, it brings about a cumulatively lower cost and higher return to earn yield using the Kompounder (Granary).
@@ -240,6 +242,48 @@ DECIMAL = 18;
 decEARN = 18;
 </script>
 <script src="../ethers-5.2.umd.min.js" type="application/javascript" defer="true"></script>
-<script src="g.js" type="application/javascript" defer="true"></script>
+<script src="g.js" type="application/javascript" defer="true" override="true"></script>
+<script>
+async function DrefreshFarm()
+{
+	try
+	{
+		$("c_sc").innerHTML=`<a
+			href="${EXPLORE+f_1_add}"
+			target="_blank"
+			>${f_1_add.substr(0,6)+"―"+f_1_add.substr(38)}</a>
+		`;
+
+		g = new ethers.Contract(f_1_add, farabi, provider);
+		ts = g.totalSupply();
+		vl = g.tvl();
+		/////////////////////////////////
+		/*	NOT WORKING!!!!!!!!!!!!!!!
+		 *io = g.methods.info().call();
+		 *******************************
+		 *******************************/
+
+		url=RPC_URL;
+		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
+		let io = (await fetch(url, { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json' } })).json();
+
+		await Promise.all([ts,vl,io]).then(d=>{
+			d[0]=Number(d[0]._hex)
+			d[1]=Number(d[1]._hex)
+			console.log(d);
+			$("c_ts").innerHTML = fornum(Number(d[0]),DECIMAL);
+			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
+			$("c_pu").innerHTML = "$ "+fornum( (Number(d[1])/1e18) / (Number(d[0])/(10**DECIMAL)),0);
+			oi=[];for(i=0;i< (d[2].result.length-2)/64;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
+			console.log("oi",oi);
+			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
+			$("c_nr").innerHTML = fornum(Number(oi[1]),18)+"x"
+			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1])*0.01,decEARN)+"</b>"
+			$("est-hvst2").innerHTML = "<b>"+fornum(Number(oi[i-2])*0.01,decEARN)+"</b>"
+		})
+	}
+	catch(e){console.log(e);$("cw_m").innerHTML="RPC Timed out! Please clear cache & hard refresh (Ctrl+Shift+R / Cmd+Shift+R)<br>"+e;}
+}
+</script>
 </body>
 </html>
