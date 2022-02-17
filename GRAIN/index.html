@@ -184,8 +184,9 @@ td a{color: #fff;text-decoration:underline dotted #1ea;cursor: zoom-in}
 thead tr td{font-weight: bold;font-size: 1.2em;text-align: center;text-decoration:underline dotted gold;cursor: alias}
 .toggs{margin: 1%}
 details{font-size: 0.7em}
-td:last-child{display:none}
+td img{height:20px;width: 20px}
 td:first-child, thead tr td{font-family:inherit !important}
+td:nth-last-child(2){display:none}
 @media(min-width:641px){
   details{font-size: 1rem}
 }
@@ -663,7 +664,7 @@ bDANI-BOMB
 	<div class="cards">
 		<div class="card" onclick="window.location='4401.html'">
 			<span class="cardapr">
-				<span>GRAIN<br>#4301</span>
+				<span>GRAIN<br>#4401</span>
 				<span class="ki"><img src="../img/ftm.svg"><img src="../img/elk.svg"><img class="ib" src="../img/elk.svg"></span>
 			</span><br>
 			<span class="bigapr">wFTM-ELK ElkdexLP</span>
@@ -672,7 +673,7 @@ bDANI-BOMB
 		</div>
 		<div class="card" onclick="window.location='4402.html'">
 			<span class="cardapr">
-				<span>GRAIN<br>#4302</span>
+				<span>GRAIN<br>#4401</span>
 				<span class="ki"><img src="../img/usdc.svg"><img src="../img/elk.svg"><img class="ib" src="../img/elk.svg"></span>
 			</span><br>
 			<span class="bigapr">USDC-ELK ElkdexLP</span>
@@ -1175,9 +1176,12 @@ Overview of your investments and other performance statistics for all the Granar
 		<thead><tr>
 			<td onclick="sortit(0)">GRAIN#
 			<td onclick="sortit(1)">My Position</td>
-			<td onclick="sortit(2)">Realized APR</td>
-			<td onclick="sortit(3)">Value Locked</td>
-			<td onclick="sortit(4)">Balance</td>
+			<td onclick="sortit(2)">Buys</td>
+			<td onclick="sortit(3)">Realized APR</td>
+			<td onclick="sortit(4)">Sells</td>
+			<td onclick="sortit(5)">Value Locked</td>
+			<td onclick="sortit(6)">Balance</td>
+			<td onclick="sortit(7)">Uses</td>
 		</tr></thead>
 	</table>
 </div>
@@ -1281,64 +1285,62 @@ function togcar()
 		ac2[i].style.display=ac2[i].style.display=="block"?"none":"block"
 	}
 }
-grains=[
-	["2201",	"0x50e66D1232f272B481F349F01b5C6019896A23e3"],
-	["2301",	"0xd15d6434aC56007BA85ce89377481964eBDf532a"],
-	["2303",	"0xFe80Ecb1B879f24B08E3Caa74246D4Ae17fbA53B"],
-	//["2401",	"0x50e66D1232f272B481F349F01b5C6019896A23e3"],
-	["2501",	"0xE2c82fd8EE829B7309122d1ae63468D0fC323F45"],
-	["2501",	"0xE2c82fd8EE829B7309122d1ae63468D0fC323F45"],
-	["2502",	"0xf29C310D60e87bf54DC973DF73D64a339bb944Cb"],
-	["2503",	"0xBc68f64879b26cf34be397fB8b8f0209FEaBbF91"],
-	["2504",	"0x80aE633a3B909F31BD1beF990b6C642Ca639c7eC"],
-	["2505",	"0x390505AA41aC3BdF31b36ab72EbBA36CFe6C8c6B"],
-	["2506",	"0x2Dcc87751ffF3E250a4dd0037991653472bFfA64"],
-	["2507",	"0xc340b2A90A3BDc0Ad2086E3256A7E9026D03C448"],
-	["2508",	"0xff383254B2070FD335f51c0CA81a10764a713f64"],
-	["2509",	"0xE3A6400c6505BCe5B14C47dE4A9f967C638802dd"],
-	["2510",	"0xc52a37D46a8a4B10355068f34dE71d5fE791f245"],
-	["2601",	"0x6eC2Cb84422403e06935ac55910Fa3609F55BCce"],
-	["2602",	"0x00bedBdD440ff2eFEC3A6a42230e8D3Bfac63d63"],
-	["2603",	"0x977541676bA8eF35e8116566Bca29FD6C72BA159"],
-	["2606",	"0x7266dd2fe1D6447E57924BD41450a613a779Da3f"],
-	["2607",	"0xC7d89a0aA32eb496222f88fA1193566C761b7681"],
-	["2608",	"0xD42C91A330425858BFD78e291365E1b41f56a2Ff"],
-	["2609",	"0x15FcCE81d8f5B4847e0F65243BFDA85972c98474"],
-	["2610",	"0x2b5005f9F08f8A899c7186BD90071da4a131dD46"],
-	["2611",	"0x329AAcBe71666692354272384e38Cb03Df69a71b"],
-	["2612",	"0xE03a39e693695e4405214525FdFB00A51CF454AC"],
-	["2613",	"0x576Be556eeA4F6eD4E6EF248c163BA58340c3091"],
-	["2614",	"0xC95786f122926400da2A261eE5a8424019e7D416"],
-	["2615",	"0x462740150DDAb5816f6007ed179C8013fB7f1e17"],
-	["2616",	"0x4FfD42099576Bda1F3aC508E6192E4BD89125bed"],
-	["2617",	"0x0E02D360784234716a8BDeE721018ae699C1F524"],
-	["2701",	"0x5E62e97A73258947e1745071Ba342C6169A25E80"],
-	["2901",	"0xfD5d0aB5404dd472975922501f670d194732577B"],
-	["4101",	"0xD7627edF607C49F525212fC09d650A91a9B222e1"],
-	["4102",	"0x1b70E038f9eC9A8f979B4e6D8CD0Dc85df677CB2"],
-	["4103",	"0x48B628AC7F6Fa84298c6b3198130C2068073AB01"],
-	["4104",	"0xd072046b0928b9Eb6B2Afa9D80cbDFE759Ef3A8B"],
-	["4105",	"0x69B83634B6E7C2bfFAb8B1ae3B8498d2dab6D51f"],
-	["4106",	"0x2938F27687Ae2ad54db2B91B4B836B6ADD15AC8f"],
-	["4107",	"0xe125C9c6560c17f4dF8774dB6B9e5d2b3BF9947f"],
-	["4108",	"0xE880A7F6C9C326477A7D98e736E1524A7F8D4394"],
-	["4201",	"0xA2B1f90A6CF0FD5451E0fE7ED67331EC15Bd1aAB"],
-	["4202",	"0x27881D9Ee5F4769AdE8762E93c503D3a7C59769e"],
-	["4203",	"0xC255FCEFf6967B30E1A467FA4e97560ae5fE54bA"],
-	["4204",	"0x27DaBA6E82A23C5f9C264257b417D3b99435469d"],
-	["4205",	"0x8885dAa97a0A6590740B6139FD81613D5A543C20"],
-	["4206",	"0xa638Fe74968c9B95E2E3868f9487390087Ef80aC"],
-	["4209",	"0x2E24ABF15ECdA2D58E9840456D397CfbA30c9895"],
-	["4212",	"0x4b7bfaF14a961D0033a2f65d07523b8321D7e477"],
-	["4301",	"0xD41835b49e90A6438C363e4A3613F4A0E5656c55"],
-	["4302",	"0xe46DE1EbD9760975841B7B3Af0DF8612b7566B58"],
-	["4303",	"0x6812e3b614f3dE965821aa1f7A8CA1714cB09a66"],
-	["4401",	"0x565468cFeDE97E7E936B7B0deD53A5DC60623709"],
-	["4402",	"0xb781e75605d0F74cfBd65E8BF48a9FF57E5bDe78"],
-	["4501",	"0xAFEE7A332989261893b11544A2b4622d77Dc8404"],
-	["4501",	"0xafee7a332989261893b11544a2b4622d77dc8404"],	//	dai-mai
-	["4601",	"0x812C8e4744f40Ce5a01849154308509Abdb7c975"],	//	wigoDaiUsdc
-	["4801",	"0xEfAE80d23f623f5Adbb1324110b8105DbBd8f82c"],	//	BPT-ring
+grains=[//ID#						ADDRESS								BUYS				SELLS			USES
+	["2201",	"0x50e66D1232f272B481F349F01b5C6019896A23e3",	["usdc.svg","ftm.svg"],	["knight.svg"], ["knight.svg"]],
+	["2301",	"0xd15d6434aC56007BA85ce89377481964eBDf532a",	["usdc.svg","ftm.svg"],	["wraith.svg"], ["wraith.svg"]],
+	["2303",	"0xFe80Ecb1B879f24B08E3Caa74246D4Ae17fbA53B",	["syf.svg","ftm.svg"],	["wraith.svg"], ["wraith.svg"]],
+	//["2401",	"0x50e66D1232f272B481F349F01b5C6019896A23e3",	["fusd.svg","ftm.svg"],	["knight.svg"], ["knight.svg"]],
+	["2501",	"0xE2c82fd8EE829B7309122d1ae63468D0fC323F45",	["spooky.sq.svg"],		["ftm.svg"], 	["xboo.png"]],
+	["2502",	"0xf29C310D60e87bf54DC973DF73D64a339bb944Cb",	["spooky.sq.svg"],		["tusd.svg"], 	["xboo.png"]],
+	["2503",	"0xBc68f64879b26cf34be397fB8b8f0209FEaBbF91",	["spooky.sq.svg"],		["foo.png"], 	["xboo.png"]],
+	["2504",	"0x80aE633a3B909F31BD1beF990b6C642Ca639c7eC",	["spooky.sq.svg"],		["woo.png"], 	["xboo.png"]],
+	["2505",	"0x390505AA41aC3BdF31b36ab72EbBA36CFe6C8c6B",	["spooky.sq.svg"],		["treeb.png"], 	["xboo.png"]],
+	["2506",	"0x2Dcc87751ffF3E250a4dd0037991653472bFfA64",	["spooky.sq.svg"],		["font.png"], 	["xboo.png"]],
+	["2507",	"0xc340b2A90A3BDc0Ad2086E3256A7E9026D03C448",	["spooky.sq.svg"],		["lqdr.png"], 	["xboo.png"]],
+	["2508",	"0xff383254B2070FD335f51c0CA81a10764a713f64",	["spooky.sq.svg"],		["ooe.png"], 	["xboo.png"]],
+	["2509",	"0xE3A6400c6505BCe5B14C47dE4A9f967C638802dd",	["spooky.sq.svg"],		["hnd.png"], 	["xboo.png"]],
+	["2510",	"0xc52a37D46a8a4B10355068f34dE71d5fE791f245",	["spooky.sq.svg"],		["brush.png"], 	["xboo.png"]],
+	["2601",	"0x6eC2Cb84422403e06935ac55910Fa3609F55BCce",	["usdc.svg","mim.svg"],	["knight.svg"], ["bomb.svg"]],
+	["2602",	"0x00bedBdD440ff2eFEC3A6a42230e8D3Bfac63d63",	["bomb.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
+	["2603",	"0x977541676bA8eF35e8116566Bca29FD6C72BA159",	["shrap.png","ftm.svg"],["shrap.png"], ["bomb.svg"]],
+	["2606",	"0x7266dd2fe1D6447E57924BD41450a613a779Da3f",	["shrap.png","bomb.svg"],["shrap.png"], ["bomb.svg"]],
+	["2607",	"0xC7d89a0aA32eb496222f88fA1193566C761b7681",	["sst.png","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
+	["2608",	"0xD42C91A330425858BFD78e291365E1b41f56a2Ff",	["usdc.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
+	["2609",	"0x15FcCE81d8f5B4847e0F65243BFDA85972c98474",	["btc.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
+	["2610",	"0x2b5005f9F08f8A899c7186BD90071da4a131dD46",	["eth.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
+	["2611",	"0x329AAcBe71666692354272384e38Cb03Df69a71b",	["shrap.png","kek.png"],["shrap.png"], ["bomb.svg"]],
+	//["2612",	"0xE03a39e693695e4405214525FdFB00A51CF454AC",	["shrap.pnp","wmemo.png"],["shrap.png"], ["bomb.svg"]],
+	["2613",	"0x576Be556eeA4F6eD4E6EF248c163BA58340c3091",	["shrap.png","sspell.png"],	["shrap.png"], ["bomb.svg"]],
+	["2614",	"0xC95786f122926400da2A261eE5a8424019e7D416",	["shrap.png","slurp.png"],	["shrap.png"], ["bomb.svg"]],
+	["2615",	"0x462740150DDAb5816f6007ed179C8013fB7f1e17",	["shrap.png","nice.svg"],	["shrap.png"], ["bomb.svg"]],
+	["2616",	"0x4FfD42099576Bda1F3aC508E6192E4BD89125bed",	["shrap.png","coffin.svg"],	["shrap.png"], ["bomb.svg"]],
+	["2617",	"0x0E02D360784234716a8BDeE721018ae699C1F524",	["shrap.png","smart.svg"],	["shrap.png"], ["bomb.svg"]],
+	["2701",	"0x5E62e97A73258947e1745071Ba342C6169A25E80",	["usdc.svg","ftm.svg"],	["dmd.svg"],	["dmd.svg"]],
+	["2901",	"0xfD5d0aB5404dd472975922501f670d194732577B",	["ftm.svg","64.png"],	["nips.svg"], ["nips.svg"]],
+	["4101",	"0xD7627edF607C49F525212fC09d650A91a9B222e1",	["ftm.svg"],			["vedao.png"],	["vedao.png"]],
+	["4102",	"0x1b70E038f9eC9A8f979B4e6D8CD0Dc85df677CB2",	["eth.svg"],			["vedao.png"],	["vedao.png"]],
+	["4103",	"0x48B628AC7F6Fa84298c6b3198130C2068073AB01",	["yfi.svg"],			["vedao.png"],	["vedao.png"]],
+	["4104",	"0xd072046b0928b9Eb6B2Afa9D80cbDFE759Ef3A8B",	["usdc.svg"],			["vedao.png"],	["vedao.png"]],
+	["4105",	"0x69B83634B6E7C2bfFAb8B1ae3B8498d2dab6D51f",	["mim.svg"],			["vedao.png"],	["vedao.png"]],
+	["4106",	"0x2938F27687Ae2ad54db2B91B4B836B6ADD15AC8f",	["frax.svg"],			["vedao.png"],	["vedao.png"]],
+	["4107",	"0xe125C9c6560c17f4dF8774dB6B9e5d2b3BF9947f",	["usdc.svg","vedao.png"],["vedao.png"],	["vedao.png"]],
+	["4108",	"0xE880A7F6C9C326477A7D98e736E1524A7F8D4394",	["usdc.svg","vedao.png"],["vedao.png"],	["vedao.png"]],
+	["4201",	"0xA2B1f90A6CF0FD5451E0fE7ED67331EC15Bd1aAB",	["ftm.svg"],			["oxd.webp"],	["oxd.webp"]],
+	["4202",	"0x27881D9Ee5F4769AdE8762E93c503D3a7C59769e",	["eth.svg"],			["oxd.webp"],	["oxd.webp"]],
+	["4203",	"0xC255FCEFf6967B30E1A467FA4e97560ae5fE54bA",	["btc.svg"],			["oxd.webp"],	["oxd.webp"]],
+	["4204",	"0x27DaBA6E82A23C5f9C264257b417D3b99435469d",	["usdc.svg"],			["oxd.webp"],	["oxd.webp"]],
+	["4205",	"0x8885dAa97a0A6590740B6139FD81613D5A543C20",	["dai.svg"],			["oxd.webp"],	["oxd.webp"]],
+	["4206",	"0xa638Fe74968c9B95E2E3868f9487390087Ef80aC",	["mim.svg"],			["oxd.webp"],	["oxd.webp"]],
+	["4209",	"0x2E24ABF15ECdA2D58E9840456D397CfbA30c9895",	["lqdr.png"],			["oxd.webp"],	["oxd.webp"]],
+	["4212",	"0x4b7bfaF14a961D0033a2f65d07523b8321D7e477",	["tomb.png"],			["oxd.webp"],	["oxd.webp"]],
+	["4301",	"0xD41835b49e90A6438C363e4A3613F4A0E5656c55",	["defy.png","usdc.svg"],["defy.png"], 	["defy.png"]],
+	["4302",	"0xe46DE1EbD9760975841B7B3Af0DF8612b7566B58",	["defy.png","ftm.svg"],	["defy.png"],	 ["defy.png"]],
+	["4303",	"0x6812e3b614f3dE965821aa1f7A8CA1714cB09a66",	["defy.png","slurp.png"],["defy.png"],	 ["defy.png"]],
+	["4401",	"0x565468cFeDE97E7E936B7B0deD53A5DC60623709",	["elk.svg","ftm.svg"],	["elk.svg"], ["elk.svg"]],
+	["4402",	"0xb781e75605d0F74cfBd65E8BF48a9FF57E5bDe78",	["elk.svg","usdc.svg"],	["elk.svg"], ["elk.svg"]],
+	["4501",	"0xAFEE7A332989261893b11544A2b4622d77Dc8404",	["dai.svg","mai.svg"],	["protofi.png"], ["protofi.png"]],
+	["4601",	"0x812C8e4744f40Ce5a01849154308509Abdb7c975",	["dai.svg","usdc.svg"],	["wigo.svg"], ["wigo.svg"]],
+	["4801",	"0xEfAE80d23f623f5Adbb1324110b8105DbBd8f82c",	["ring.svg","usdc.svg"],["beets.png","ring.svg","usdc.svg"], ["beets.png"]],
 ];
 pfv=0
 async function ggs(g)
@@ -1359,7 +1361,11 @@ async function ggs(g)
 		addCSS("td:nth-child(2){display:block}");
 		sit = 1
 	}
-	else {gugb = 0;addCSS("td:nth-child(2){display:none}");sit=3}
+	else {
+		gugb = 0;
+		addCSS("td:nth-child(2){display:none}");
+		sit=5
+	}
 	//let gd = await
 	Promise.all([info,gtvl,tsup,gugb])
 	.then(gd=>{
@@ -1380,15 +1386,26 @@ async function ggs(g)
 		gtr.innerHTML = `
 			<td><a href="${g[0]}.html" target="_blank">🌾#${g[0]}</a></td>
 			<td>$${((Number(gd[3])/Number(gd[2]))*Number(gd[1])/1e18).toLocaleString(undefined,{minimumFractionDigits: 4, maximumFractionDigits: 4})}</td>
+			<td>${giu(g[2])}</td>
 			<td>${(oi[2]/1e18).toFixed(1)}%</td>
+			<td>${giu(g[3])}</td>
 			<td>$${(Number(gd[1])/1e18).toLocaleString(undefined,{minimumFractionDigits: 2, maximumFractionDigits: 2})}</td>
 			<td>${fornumstd(Number(gd[3]),18)}🌾</td>
+			<td>${giu(g[4])}</td>
 		`;
 		pfv += ((Number(gd[3])/Number(gd[2]))*Number(gd[1]));
 		$("pf").innerHTML = fornumstd(pfv,18);
 		$("mainstage").append(gtr);
 		sortit(sit);sortit(sit);
 	})
+}
+function giu(ari)
+{
+	rst = ""
+	console.log("ari is", ari)
+	for(i=0;i< ari.length;i++)
+	{rst+= (`<img src="../img/${ari[i]}">`)}
+	return rst
 }
 function fornumstd(n,d){return Number((Number(n)/10**d).toFixed(2)).toLocaleString()}
 grabi=[{"inputs":[{"internalType":"address","name":"_w","type":"address"},{"internalType":"address","name":"_m","type":"address"},{"internalType":"address","name":"_e","type":"address"},{"internalType":"uint8","name":"_p","type":"uint8"},{"internalType":"address","name":"_R","type":"address"},{"internalType":"address[]","name":"_rA","type":"address[]"},{"internalType":"address[]","name":"_rB","type":"address[]"},{"internalType":"string","name":"_id","type":"string"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"src","type":"address"},{"indexed":true,"internalType":"address","name":"guy","type":"address"},{"indexed":false,"internalType":"uint256","name":"wad","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Compounded","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Staked","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"src","type":"address"},{"indexed":true,"internalType":"address","name":"dst","type":"address"},{"indexed":false,"internalType":"uint256","name":"wad","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"user","type":"address"},{"indexed":false,"internalType":"uint256","name":"amount","type":"uint256"}],"name":"Withdrawn","type":"event"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"Eliteness","outputs":[{"internalType":"address","name":"ELITE","type":"address"},{"internalType":"uint256","name":"ELITES","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"allnums","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"},{"internalType":"address","name":"","type":"address"}],"name":"allowance","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"guy","type":"address"},{"internalType":"uint256","name":"wad","type":"uint256"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"guy","type":"address"}],"name":"approve","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_mw","type":"uint256"},{"internalType":"uint256","name":"_wi","type":"uint256"},{"internalType":"uint256","name":"_pf","type":"uint256"},{"internalType":"address","name":"_t","type":"address"},{"internalType":"uint256","name":"_df","type":"uint256"}],"name":"config","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"dao","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"pure","type":"function"},{"inputs":[],"name":"declareEmergency","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"deposit","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"doHardWork","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"earn","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"u","type":"address"}],"name":"eliteness","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"emergency","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"emergencyWithdraw","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"id","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"info","outputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"address","name":"","type":"address"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"mc","outputs":[{"internalType":"contract IMasterchef","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"n","type":"uint256"}],"name":"pullElite","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"elite","type":"address"},{"internalType":"uint256","name":"elites","type":"uint256"}],"name":"pushElite","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"tokenAddress","type":"address"},{"internalType":"uint256","name":"tokens","type":"uint256"}],"name":"rescue","outputs":[{"internalType":"bool","name":"success","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"revokeEmergency","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"routeA","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"routeB","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"router","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"salvage","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"dst","type":"address"},{"internalType":"uint256","name":"wad","type":"uint256"}],"name":"transfer","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"src","type":"address"},{"internalType":"address","name":"dst","type":"address"},{"internalType":"uint256","name":"wad","type":"uint256"}],"name":"transferFrom","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"treasury","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"tvl","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"utvl","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"want","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}]
