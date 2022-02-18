@@ -187,6 +187,7 @@ details{font-size: 0.7em}
 td img{height:20px;width: 20px}
 td:first-child, thead tr td{font-family:inherit !important}
 td:nth-last-child(2){display:none}
+td:nth-child(3),td:nth-child(5),td:nth-child(8){text-align: center}
 @media(min-width:641px){
   details{font-size: 1rem}
 }
@@ -1300,7 +1301,7 @@ grains=[//ID#						ADDRESS								BUYS				SELLS			USES
 	["2508",	"0xff383254B2070FD335f51c0CA81a10764a713f64",	["spooky.sq.svg"],		["ooe.png"], 	["xboo.png"]],
 	["2509",	"0xE3A6400c6505BCe5B14C47dE4A9f967C638802dd",	["spooky.sq.svg"],		["hnd.png"], 	["xboo.png"]],
 	["2510",	"0xc52a37D46a8a4B10355068f34dE71d5fE791f245",	["spooky.sq.svg"],		["brush.png"], 	["xboo.png"]],
-	["2601",	"0x6eC2Cb84422403e06935ac55910Fa3609F55BCce",	["usdc.svg","mim.svg"],	["knight.svg"], ["bomb.svg"]],
+	["2601",	"0x6eC2Cb84422403e06935ac55910Fa3609F55BCce",	["usdc.svg","mim.svg"],	["shrap.png"], ["bomb.svg"]],
 	["2602",	"0x00bedBdD440ff2eFEC3A6a42230e8D3Bfac63d63",	["bomb.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
 	["2603",	"0x977541676bA8eF35e8116566Bca29FD6C72BA159",	["shrap.png","ftm.svg"],["shrap.png"], ["bomb.svg"]],
 	["2606",	"0x7266dd2fe1D6447E57924BD41450a613a779Da3f",	["shrap.png","bomb.svg"],["shrap.png"], ["bomb.svg"]],
@@ -1459,6 +1460,7 @@ async function cw()
 	$("btn-connect").style.display="none";
 	addCSS("td:nth-child(2){display:block}");
 	console.log("found user:",(window.ethereum.selectedAddress), "printing portfolio")
+	$("mainstage").innerHTML = ""
 	for(i=0;i< grains.length;i++){ggs(grains[i])}
 }
 </script>
