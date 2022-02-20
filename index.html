@@ -391,7 +391,7 @@ body .cybr-btn + .cybr-btn {
 </head>
 <div class="topbar">
 	<div align="center">
-		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br>z<br>
+		<a href="index.html"><b style="font-size:2em">FTM.guru</b></a><br><br>
 		<!--<a href="farmlands.html">Farmlands👽</a>
 		<a href="index.html">FTM-Gems</a>-->
 		<a href="bo/index.html">B.O.</a>
@@ -410,7 +410,7 @@ body .cybr-btn + .cybr-btn {
 <br>
 <hr class="hhr">
 <br>
-Serving Fantom Users & Developers Since <span onload="this.innerHTML= ((Date.now()-1633700000)/86400).toFixed()"></span> Days.
+<div align="center">Serving Fantom Users & Developers Since <span id="since"></span> Months.</div>
 <br>
 <br>
 <br>
@@ -426,7 +426,7 @@ Serving Fantom Users & Developers Since <span onload="this.innerHTML= ((Date.now
 
 </div>
 <br><br>
-[This page is here for historial reasons. Switch to IPFS for modern version]
+<div align="center" onclick="alert('IPFS version unavailable right now. Please check back later')">[This page is here for historical reasons. Switch to IPFS for modern version]</div>
 <br><br>
 <div class="mainstages" align="center">
 	<div class="mainstage advert">
@@ -1092,6 +1092,7 @@ ads=["0x1337","0xbabe","0xfeed","0xf00d","0xdead","0x70ad","0xb00b","0xfee1","0x
 k=1;
 window.addEventListener('load',async function()
 {
+	$("since").innerHTML= ((Date.now()-1621051200000)/86400000/30 + 1).toFixed()
 	if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);}
 	else{web3 = new Web3("https://rpc.ftm.tools")}
 	MVG = new web3.eth.Contract(ab, scMVG);
