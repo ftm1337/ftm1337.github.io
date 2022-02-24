@@ -1,15 +1,21 @@
 <!doctype html>
 <html>
 <meta charset="UTF-8">
+<!--
+0x93321165acc35263edd18bda7c2437f2a758f2ec		moonswap	masterchef
+0xabcdc91b5f8746a6e5298c6ba04c72e29ebd2460		kucoin		hotwallet
+0x4c659709750567bd505db6fab163c107bea9f161		moonswap	xmoon
+
+-->
 <head>
-<meta name="description" content="All Granaries - FTM.guru : Kompound Protocol">
-<meta name="keywords" content="Granary, Finance, Compound, Vault, Interest, Decentralized Finance, defi, yield farming, Guru Network, Fantom Opera, FTM">
-<title>All Granaries - FTM.guru</title>
+<meta name="description" content="All Granaries - MTV.guru : Kompound Protocol">
+<meta name="keywords" content="Granary, Finance, Compound, Vault, Interest, Decentralized Finance, defi, yield farming, Guru Network, MultiVAC, MTV">
+<title>All Granaries - MTV.guru</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="shortcut icon" href="https://ftm.guru/img/64.png"/>
+<link rel="shortcut icon" href="https://ftm.guru/icons/64.png"/>
 <style>
 *{
-scroll-behavior: smooth !important;
+scroll-behavior: smooth !important;transition: 0.25s;
 }
 body {
   background:#17082f;
@@ -53,7 +59,8 @@ h1,h2,h3{color:#32fbe2;}
   color:#32fbe2;
   text-decoration: none
 }
-.lowerbar img{width:24px}
+.lowerbar img{width:24px;height:24px}
+.lowerbar .subimg{width:16px;height:16px;position: relative;right:9px;top:4px;margin-right:-11px}
 .hr1{
   color: transparent;
   border-top: 16px dotted #ea39b8;
@@ -185,6 +192,7 @@ thead tr td{font-weight: bold;font-size: 1.2em;text-align: center;text-decoratio
 .toggs{margin: 1%}
 details{font-size: 0.7em}
 td img{height:20px;width: 20px}
+
 td:first-child, thead tr td{font-family:inherit !important}
 td:nth-last-child(2){display:none}
 td:nth-child(3),td:nth-child(5),td:nth-child(8){text-align: center}
@@ -199,10 +207,16 @@ td:nth-child(3),td:nth-child(5),td:nth-child(8){text-align: center}
 </head>
 <body>
 <div class="topbar">
-	<a href="">🌾Granaries🌾</a>
-	<a href="../index.html">FTM.guru</a>
-	<a href="../LF/index.html">Create a Farm</a>
-	<a href="../index.html">Services & Tools</a>
+	<a href="">🌾Granaries🌾	</a>
+	<a href="../index.html">MTV.guru</a>
+	<a href="../mtvscan.html">MTVScan</a>
+	<a href="../airdropper.html">Airdrop Tool</a>
+	<a href="../cv.html">Verifier</a>
+	<div class="lowerbar" align="center">
+		<a target="_blank" href="https://fmc.guru"><img src="https://ftm.guru/icons/mtv.png"></a>
+		<a target="_blank" href="https://kcc.guru"><img src="https://ftm.guru/icons/kcc.png"></a>
+		<a target="_blank" href="https://ftm.guru"><img src="https://ftm.guru/icons/ftm.svg"></a>
+	</div>
 	<!--
 	<a href="">FMC.guru</a>
 	<a href="">Others</a>
@@ -214,25 +228,26 @@ td:nth-child(3),td:nth-child(5),td:nth-child(8){text-align: center}
 </div>
 <div class="body">
 <h1>Kompound Protocol</h1>
-<!--<span class="">
-	<a class="topchains selchain" target="_blank" href="https://ftm.guru/GRAIN"><img src="https://ftm.guru/icons/ftm.svg"></a>
+<span class="">
+	<a class="topchains" target="_blank" href="https://ftm.guru/GRAIN"><img src="https://ftm.guru/icons/ftm.svg"></a>
 	<a class="topchains" target="_blank" href="https://kcc.guru/kompound"><img src="https://ftm.guru/icons/kcc.png"></a>
-	<a class="topchains" target="_blank" href="https://mtv.guru/GRAIN"><img src="https://ftm.guru/icons/mtv.png"></a>
-</span>-->
-<h3>Compounding Service for Yield Farms for
+	<a class="topchains selchain" target="_blank" href="https://mtv.guru/GRAIN"><img src="https://ftm.guru/icons/mtv.png"></a>
+</span>
+<h3>Compounding Service for Yield Farms.
+<!-- on
 <select onchange="switchchain(this.value)">
 <option value="250" selected> Fantom Opera</option>
 <option value="321"> Kucoin C-Chain</option>
 <option value="62621"> MultiVAC (MTV)</option>
 </select>
-
+-->
 </h3>
 <i>Earn 1% of each harvest, just for paying the gas! Earn compound interest even on those rewards!</i><br><br>
 <details><summary><button class="ddb" onclick='window.location="#all"'><span>Get Started</span></button></summary></details>
 <details><summary><button class="ddb" onclick='window.location="#dash"'><span>Dashboard</span></button></summary></details>
 <details><summary><button class="ddb"  id="ddb" onclick="dive()"><span>Learn More</span></button></summary>
 <ul>
-<li>Jump into any vault with FTM, in <u>a single transaction</u>.
+<li>Jump into any vault with MTV, in <u>a single transaction</u>.
 	<br><i>Say Goodbye to that dreadful dozen of transaction fatigue, token allowances, liquidity additions, farm approvals, all that blah blah.</i></li><br>
 <li>Make contracts work Smarter, not just harder, <b>The Elite way!</b>
 	<br><i>Cherry-picked yield generating protocols and tailor-made strategies to suit your taste.</i></li><br>
@@ -252,24 +267,24 @@ td:nth-child(3),td:nth-child(5),td:nth-child(8){text-align: center}
 
 
 <br><br>
-Zero* deposit fees & Zero withdrawal fees.
-<br><span style="font-size:0.8em">0.1% Deposit fees, No fees if holding 0.01 ELITE.</span>
+0.1% deposit fees & Zero withdrawal fees.
+<br><span style="font-size:0.8em">Earn 1% Performace incentive, paid back instantly to Active Users.</span>
 
-<br id="all"><br><br><br><br><br>
+<br><br><br><br><br><br>
 
 	<!--
 		<div class="card" onclick="window.location='2201.html'">
 			<span class="cardapr">
 				<span>wFTM-USDC<br><strike>93.6%</strike></span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/usdc.svg"></span>
+				<span class="ki"><img src="../img/ftm.svg"><img src="../img/usdc.svg"></span>
 			</span>
 			<span class="bigapr">111.4%</span>
 			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/knight.svg">knightSwap Farms</div>
+			<div class="fn" ><img src="../img/knight.svg">knightSwap Farms</div>
 		</div>
 	-->
 
-<h2>Available Granaries (55)</h2>
+<h2 id="all">Available Granaries (3)</h2>
 Invest any asset to get the most out of it with our tailor-made strategies.
 <br><br>
 <i class="toggs" style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" checked onchange="togcar()"> Hide inactive? </i>
@@ -279,18 +294,18 @@ Invest any asset to get the most out of it with our tailor-made strategies.
 
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/64.png"></span> ftm.guru YieldState  <span class="sum1num">(2)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/htz.png"></span> TheGreatReset.finance <span class="sum1num">(0)</span><br>
 	<div class="summore"><span class="summnum">2</span> YieldStates stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
-		<div class="card card2" onclick="window.location='../YS/2.html'">
+		<div class="card card2 cardhide" onclick="wind ow.location='6201.html'">
 			<span class="cardapr">
-				<span>GRAIN<br>#2101</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/64.png"><img class="ib" src="https://ftm.guru/icons/spooky.sq.svg"></span>
+				<span>GRAIN<br>#6201</span>
+				<span class="ki"><img src="https://ftm.guru/icons/mtv.png"><img src="https://ftm.guru/icons/htz.png"><img class="ib" src="https://ftm.guru/icons/htz.png"></span>
 			</span><br>
-			<span class="bigapr">wFTM-ELITE Spooky LP</span>
+			<span class="bigapr">MTV-HTZ CyberLP</span>
 			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/64.png">The YieldState</div>
+			<div class="fn" ><img src="https://ftm.guru/icons/htz.png"> CyberSwap Farms</div>
 		</div>
 	</div>
 </details>
@@ -299,308 +314,54 @@ Invest any asset to get the most out of it with our tailor-made strategies.
 
 
 
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/beets.png"></span> Beethoven-x (Farm+Gauge) 🆕 <span class="sum1num">(1)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/moonswap.png"></span> MoonSwap Farms <span class="sum1num">(3)</span><br>
+	<div class="summore"><span class="summnum">2</span> YieldStates stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
-		<div class="card" onclick="window.location='4801.html'">
+		<div class="card" onclick="window.location='6101.html'">
 			<span class="cardapr">
-				<span>GRAIN<br>#4801</span>
-				<span class="ki"><img src="https://ftm.guru/icons/usdc.svg"><img src="https://ftm.guru/icons/ring.svg"><img class="ib" src="https://ftm.guru/icons/beets.png"></span>
+				<span>GRAIN<br>#6101</span>
+				<span class="ki"><img src="https://ftm.guru/icons/mtv.png"><img src="https://ftm.guru/icons/moon.png"><img class="ib" src="https://ftm.guru/icons/moonswap.png"></span>
 			</span><br>
-			The Vaults of the Lonely Mountain
-			<span class="bigapr">(BPT-RING)</span>
+			<span class="bigapr">MTV-MOON MoonLP</span>
 			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/beets.png"> Beethoven-x Gauge</div>
+			<div class="fn" ><img src="https://ftm.guru/icons/moonswap.png"> MoonSwap Farms</div>
 		</div>
-		<div class="card card2 cardhide" onclick="wind ow.location='4802.html'">
+		<div class="card" onclick="window.location='6102.html'">
 			<span class="cardapr">
-				<span>GRAIN<br>#4801</span>
-				<span class="ki"><img src="https://ftm.guru/icons/shrap.png"><img src="https://ftm.guru/icons/ftm.svg"><img class="ib" src="https://ftm.guru/icons/beets.png"></span>
+				<span>GRAIN<br>#6102</span>
+				<span class="ki"><img src="https://ftm.guru/icons/busd.svg"><img src="https://ftm.guru/icons/mtv.png"><img class="ib" src="https://ftm.guru/icons/moonswap.png"></span>
 			</span><br>
-			Exploding Shrapnel!
-			<span class="bigapr">(BPT-SHRAP)</span>
+			<span class="bigapr">BUSD-MTV MoonLP</span>
 			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/beets.png"> Beethoven-x Gauge</div>
+			<div class="fn" ><img src="https://ftm.guru/icons/moonswap.png"> MoonSwap Farms</div>
 		</div>
-	</div>
-</details>
-<br>
-
-
-
-<!--
-
-ANYFSN-FTM	464.48%		$55,301		40x
-BOMB-USDC	203.24%		$17,553		5x
-MIM-FTM		147.57%		$21,756		5x
-WETH-FTM	105.52%		$25,030		3x
-BOMB-FTM	105.12%		$324,823	50x
-WBTC-FTM	103.55%		$20,371		3x
-USDC-FTM	82.82%		$46,045		3x
-
-FTM-Bomb
-FTM-Shrap
-Shrap-BOMB
-bBOMB-BOMB
-bDANI-BOMB
--->
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/bomb.svg"></span> Bombing Range 🔥🔥🔥 🆕 <span class="sum1num">(15)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='2601.html'">
+		<div class="card" onclick="window.location='6103.html'">
 			<span class="cardapr">
-				<span>GRAIN<br>#2601</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/mim.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
+				<span>GRAIN<br>#6103</span>
+				<span class="ki"><img src="https://ftm.guru/icons/busd.svg"><img src="https://ftm.guru/icons/moon.png"><img class="ib" src="https://ftm.guru/icons/moonswap.png"></span>
 			</span><br>
-			<span class="bigapr">wFTM-MIM Bomb LP</span>
+			<span class="bigapr">BUSD-MOON MoonLP</span>
 			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2602.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2602</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/bomb.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-BOMB Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2603.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2603</span>
-				<span class="ki"><img src="https://ftm.guru/icons/shrap.png"><img src="https://ftm.guru/icons/ftm.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-SHRAP Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card card2" onclick="window.location='260 4.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2604</span>
-				<span class="ki"><img src="https://ftm.guru/icons/bomb.svg"><img src="https://ftm.guru/icons/bomb.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">bDANI-BOMB Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card card2" onclick="window.location='260 5.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2605</span>
-				<span class="ki"><img src="https://ftm.guru/icons/bomb.svg"><img src="https://ftm.guru/icons/bomb.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">bBOMB-BOMB Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2606.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2606</span>
-				<span class="ki"><img src="https://ftm.guru/icons/shrap.png"><img src="https://ftm.guru/icons/bomb.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">SHRAP-BOMB Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2607.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2607</span>
-				<span class="ki"><img src="https://ftm.guru/icons/sst.png"><img src="https://ftm.guru/icons/ftm.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">Nova-wFTM Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2608.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2608</span>
-				<span class="ki"><img src="https://ftm.guru/icons/usdc.svg"><img src="https://ftm.guru/icons/ftm.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">USDC-wFTM Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2609.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2609</span>
-				<span class="ki"><img src="https://ftm.guru/icons/btc.svg"><img src="https://ftm.guru/icons/ftm.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">BTC-wFTM Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2610.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2610</span>
-				<span class="ki"><img src="https://ftm.guru/icons/eth.svg"><img src="https://ftm.guru/icons/ftm.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">ETH-wFTM Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2611.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2611</span>
-				<span class="ki"><img src="https://ftm.guru/icons/shrap.png"><img src="https://ftm.guru/icons/kek.png"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">KEK-SHRAP Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card card2" onclic k="window.location='2612.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2612</span>
-				<span class="ki"><img src="https://ftm.guru/icons/shrap.png"><img src="https://ftm.guru/icons/wmemo.png"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">wMEMO-SHRAP bLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2613.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2613</span>
-				<span class="ki"><img src="https://ftm.guru/icons/shrap.png"><img src="https://ftm.guru/icons/sspell.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">sSPELL-SHRAP Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2614.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2614</span>
-				<span class="ki"><img src="https://ftm.guru/icons/shrap.png"><img src="https://ftm.guru/icons/slurp.png"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">SLURP-SHRAP Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2615.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2615</span>
-				<span class="ki"><img src="https://ftm.guru/icons/shrap.png"><img src="https://ftm.guru/icons/nice.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">nICE-SHRAP Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2616.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2616</span>
-				<span class="ki"><img src="https://ftm.guru/icons/shrap.png"><img src="https://ftm.guru/icons/coffin.png"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">COFFIN-SHRAP Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
-		</div>
-		<div class="card" onclick="window.location='2617.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2617</span>
-				<span class="ki"><img src="https://ftm.guru/icons/shrap.png"><img src="https://ftm.guru/icons/smart.svg"><img class="ib" src="https://ftm.guru/icons/bomb.svg"></span>
-			</span><br>
-			<span class="bigapr">SMART-SHRAP Bomb LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/bomb.svg">Bombing Range</div>
+			<div class="fn" ><img src="https://ftm.guru/icons/moonswap.png"> MoonSwap Farms</div>
 		</div>
 	</div>
 </details>
 <br>
 
 
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/vedao.png"></span> veDAO Farms 🔥🔥 🆕 <span class="sum1num">(8)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='4101.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4101</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/vedao.png">veDAO Farms</div>
-		</div>
-		<div class="card" onclick="window.location='4102.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4102</span>
-				<span class="ki"><img src="https://ftm.guru/icons/eth.svg"></span>
-			</span><br>
-			<span class="bigapr">ETH</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/vedao.png">veDAO Farms</div>
-		</div>
-		<div class="card" onclick="window.location='4103.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4103</span>
-				<span class="ki"><img src="https://ftm.guru/icons/yfi.svg"></span>
-			</span><br>
-			<span class="bigapr">YFI</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/vedao.png">veDAO Farms</div>
-		</div>
-		<div class="card" onclick="window.location='4104.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4104</span>
-				<span class="ki"><img src="https://ftm.guru/icons/usdc.svg"></span>
-			</span><br>
-			<span class="bigapr">USDC</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/vedao.png">veDAO Farms</div>
-		</div>
-		<div class="card" onclick="window.location='4105.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4105</span>
-				<span class="ki"><img src="https://ftm.guru/icons/mim.svg"></span>
-			</span><br>
-			<span class="bigapr">MIM</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/vedao.png">veDAO Farms</div>
-		</div>
-		<div class="card" onclick="window.location='4106.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4106</span>
-				<span class="ki"><img src="https://ftm.guru/icons/frax.svg"></span>
-			</span><br>
-			<span class="bigapr">FRAX</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/vedao.png">veDAO Farms</div>
-		</div>
-		<div class="card" onclick="window.location='4107.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4107</span>
-				<span class="ki"><img src="https://ftm.guru/icons/mim.svg"><img src="https://ftm.guru/icons/vedao.png"></span>
-			</span><br>
-			<span class="bigapr">WEVE-MIM Spirit LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/vedao.png">veDAO Farms</div>
-		</div>
-		<div class="card" onclick="window.location='4108.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4108</span>
-				<span class="ki"><img src="https://ftm.guru/icons/usdc.svg"><img src="https://ftm.guru/icons/vedao.png"></span>
-			</span><br>
-			<span class="bigapr">WEVE-USDC Spirit LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/vedao.png">veDAO Farms</div>
-		</div>
-	</div>
-</details>
-<br>
-
-<!--<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/64.png"></span> ftm.guru LITE Farmlands  <span class="sum1num">(19)</span><br>
+<!--<details><summary class="fore"><span class="fn" ><img src="../img/64.png"></span> ftm.guru LITE Farmlands  <span class="sum1num">(19)</span><br>
 	<div class="summore"><span class="summnum">19</span> LITE Farmlands stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
 		<div class="card" onclick="window.location='../YS/2.html'">
 			<span class="cardapr">
 				<span>GRAIN<br>#2101</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/64.png"><img class="ib" src="https://ftm.guru/icons/spooky.sq.svg"></span>
+				<span class="ki"><img src="../img/ftm.svg"><img src="../img/64.png"><img class="ib" src="../img/spooky.sq.svg"></span>
 			</span><br>
 			<span class="bigapr">wFTM-ELITE Spooky LP</span>
 			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/64.png">The YieldState</div>
+			<div class="fn" ><img src="../img/64.png">The YieldState</div>
 		</div>
 	</div>
 	<a href="../LF/index.html">Explore all Farms</a>
@@ -608,554 +369,6 @@ bDANI-BOMB
 <br>-->
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/wigo.svg"></span> WigoSwap Farm 🆕 <span class="sum1num">(1)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='4601.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4601</span>
-				<span class="ki"><img src="https://ftm.guru/icons/dai.svg"><img src="https://ftm.guru/icons/usdc.svg"><img class="ib" src="https://ftm.guru/icons/wigo.svg"></span>
-			</span><br>
-			<span class="bigapr">DAI-USDC WigoLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/wigo.svg">WigoSwap Farm</div>
-		</div>
-	</div>
-</details>
-<br>
-
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/protofi.jpg"></span> ProtoFi 🆕 <span class="sum1num">(1)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='4501.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4501</span>
-				<span class="ki"><img src="https://ftm.guru/icons/dai.svg"><img src="https://ftm.guru/icons/mai.svg"><img class="ib" src="https://ftm.guru/icons/protofi.jpg"></span>
-			</span><br>
-			<span class="bigapr">DAI-MAI Proto-LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/protofi.jpg"> ProtoFi</div>
-		</div>
-	</div>
-</details>
-<br>
-
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/defy.png"></span> Defyswap 🆕 <span class="sum1num">(3)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='4301.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4301</span>
-				<span class="ki"><img src="https://ftm.guru/icons/defy.png"><img src="https://ftm.guru/icons/usdc.svg"><img class="ib" src="https://ftm.guru/icons/defy.png"></span>
-			</span><br>
-			<span class="bigapr">DFY-USDC DefyLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/defy.png"> Defyswap</div>
-		</div>
-		<div class="card" onclick="window.location='4302.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4302</span>
-				<span class="ki"><img src="https://ftm.guru/icons/defy.png"><img src="https://ftm.guru/icons/ftm.svg"><img class="ib" src="https://ftm.guru/icons/defy.png"></span>
-			</span><br>
-			<span class="bigapr">DFY-wFTM DefyLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/defy.png"> Defyswap</div>
-		</div>
-		<div class="card" onclick="window.location='4303.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4303</span>
-				<span class="ki"><img src="https://ftm.guru/icons/defy.png"><img src="https://ftm.guru/icons/slurp.png"><img class="ib" src="https://ftm.guru/icons/defy.png"></span>
-			</span><br>
-			<span class="bigapr">DFY-SLURP DefyLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/defy.png"> Defyswap</div>
-		</div>
-	</div>
-</details>
-<br>
-
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/elk.svg"></span> ELK ILP+ Farms 🆕 <span class="sum1num">(2)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='4401.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4401</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/elk.svg"><img class="ib" src="https://ftm.guru/icons/elk.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-ELK ElkdexLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/elk.svg"> Elk ILP+ Farms</div>
-		</div>
-		<div class="card" onclick="window.location='4402.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4401</span>
-				<span class="ki"><img src="https://ftm.guru/icons/usdc.svg"><img src="https://ftm.guru/icons/elk.svg"><img class="ib" src="https://ftm.guru/icons/elk.svg"></span>
-			</span><br>
-			<span class="bigapr">USDC-ELK ElkdexLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/elk.svg"> Elk ILP+ Farms</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.locatio n='4403.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4303</span>
-				<span class="ki"><img src="https://ftm.guru/icons/elk.svg"></span>
-			</span><br>
-			<span class="bigapr">ELK</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/elk.svg"> Elk ILP+ Farms</div>
-		</div>
-	</div>
-</details>
-<br>
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/wraith.svg"></span> Wraith Yield Fields  <span class="sum1num">(2)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='2301.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2301</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/usdc.svg"><img class="ib" src="https://ftm.guru/icons/wraith.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-USDC Wraith LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/wraith.svg">Wraith Yield Fields</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.location='2302.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2302</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/wraith.svg"><img class="ib" src="https://ftm.guru/icons/wraith.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-WRA Wraith LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/wraith.svg">Wraith Yield Fields</div>
-		</div>
-		<div class="card" onclick="window.location='2303.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2303</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/syf.svg"><img class="ib" src="https://ftm.guru/icons/wraith.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-SYF Wraith LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/wraith.svg">Wraith Yield Fields</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.location='2304.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2304</span>
-				<span class="ki"><img src="https://ftm.guru/icons/usdc.svg"><img src="https://ftm.guru/icons/wraith.svg"><img class="ib" src="https://ftm.guru/icons/wraith.svg"></span>
-			</span><br>
-			<span class="bigapr">USDC-WRA Wraith LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/wraith.svg">Wraith Yield Fields</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.location='2305.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2305</span>
-				<span class="ki"><img src="https://ftm.guru/icons/usdc.svg"><img src="https://ftm.guru/icons/syf.svg"><img class="ib" src="https://ftm.guru/icons/wraith.svg"></span>
-			</span><br>
-			<span class="bigapr">USDC-SYF Wraith LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/wraith.svg">Wraith Yield Fields</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.location='2306.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2306</span>
-				<span class="ki"><img src="https://ftm.guru/icons/wraith.svg"><img src="https://ftm.guru/icons/syf.svg"><img class="ib" src="https://ftm.guru/icons/wraith.svg"></span>
-			</span><br>
-			<span class="bigapr">WRA-SYF Wraith LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/wraith.svg">Wraith Yield Fields</div>
-		</div>
-	</div>
-</details>
-<br>
-
-
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/knight.svg"></span> DarkKnight Farm  <span class="sum1num">(1)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='2201.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2201</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/usdc.svg"><img class="ib" src="https://ftm.guru/icons/knight.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-USDC Knight LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/knight.svg">darkKnight Farm</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.location='2202.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2202</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/dai.svg"><img class="ib" src="https://ftm.guru/icons/knight.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-DAI Knight LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/knight.svg">darkKnight Farm</div>
-		</div>
-	</div>
-</details>
-<br>
-
-
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/dmd.svg"></span> DarkMatterDefi  <span class="sum1num">(1)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='2701.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2701</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/usdc.svg"><img class="ib" src="https://ftm.guru/icons/spooky.sq.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-USDC SpookyLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/dmd.svg">DarkMatterDefi</div>
-		</div>
-	</div>
-</details>
-<br>
-
-
-<details>
-	<summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"></span> xBOO Pools 🔥  <span class="sum1num">(10)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='2501.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2501</span>
-				<span class="ki"><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="ib" src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">BOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="iib" src="https://ftm.guru/icons/ftm.svg"> xBOO Pools: wFTM</div>
-		</div>
-		<div class="card" onclick="window.location='2502.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2502</span>
-				<span class="ki"><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="ib" src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">BOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="iib" src="https://ftm.guru/icons/tusd.svg"> xBOO Pools: TUSD</div>
-		</div>
-		<div class="card" onclick="window.location='2503.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2503</span>
-				<span class="ki"><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="ib" src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">BOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="iib" src="https://ftm.guru/icons/foo.png"> xBOO Pools: FOO</div>
-		</div>
-		<div class="card" onclick="window.location='2504.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2504</span>
-				<span class="ki"><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="ib" src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">BOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="iib" src="https://ftm.guru/icons/woo.png"> xBOO Pools: WOO</div>
-		</div>
-		<div class="card" onclick="window.location='2505.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2505</span>
-				<span class="ki"><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="ib" src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">BOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="iib" src="https://ftm.guru/icons/treeb.png"> xBOO Pools: TREEB</div>
-		</div>
-		<div class="card" onclick="window.location='2506.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2506</span>
-				<span class="ki"><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="ib" src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">BOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="iib" src="https://ftm.guru/icons/font.png"> xBOO Pools: FONT</div>
-		</div>
-		<div class="card" onclick="window.location='2507.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2507</span>
-				<span class="ki"><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="ib" src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">BOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="iib" src="https://ftm.guru/icons/lqdr.png"> xBOO Pools: LQDR</div>
-		</div>
-		<div class="card" onclick="window.location='2508.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2508</span>
-				<span class="ki"><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="ib" src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">BOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="iib" src="https://ftm.guru/icons/ooe.png"> xBOO Pools: OOE</div>
-		</div>
-		<div class="card" onclick="window.location='2509.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2509</span>
-				<span class="ki"><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="ib" src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">BOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="iib" src="https://ftm.guru/icons/hnd.png"> xBOO Pools: HND</div>
-		</div>
-		<div class="card" onclick="window.location='2510.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2510</span>
-				<span class="ki"><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="ib" src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">BOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"><img class="iib" src="https://ftm.guru/icons/brush.png">xBOO Pools: BRUSH</div>
-		</div>
-	</div>
-</details>
-<br>
-
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/nips.svg"></span> Nipple Labs  <span class="sum1num">(1)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='2901.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2901</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/64.png"><img class="ib" src="https://ftm.guru/icons/nips.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-ELITE NipdEx LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/nips.svg">Nipple Labs</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.location='2902.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2902</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/usdc.svg"><img class="ib" src="https://ftm.guru/icons/nips.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-USDC NipdEx LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/nips.svg">Nipple Labs</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.location='2903.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2903</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/bnb.svg"><img class="ib" src="https://ftm.guru/icons/nips.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-BNB NipdEx LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/nips.svg">Nipple Labs</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.location='2904.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2902</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/usdc.svg"><img class="ib" src="https://ftm.guru/icons/nips.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-USDC NipdEx LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/nips.svg">Nipple Labs</div>
-		</div>
-	</div>
-</details>
-<br>
-
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/oxd.webp"></span> 0xDAO <span class="sum1num">(8)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card" onclick="window.location='4201.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4201</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card" onclick="window.location='4202.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4202</span>
-				<span class="ki"><img src="https://ftm.guru/icons/eth.svg"></span>
-			</span><br>
-			<span class="bigapr">ETH</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card" onclick="window.location='4203.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4203</span>
-				<span class="ki"><img src="https://ftm.guru/icons/btc.svg"></span>
-			</span><br>
-			<span class="bigapr">BTC</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card" onclick="window.location='4204.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4204</span>
-				<span class="ki"><img src="https://ftm.guru/icons/usdc.svg"></span>
-			</span><br>
-			<span class="bigapr">USDC</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card" onclick="window.location='4205.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4205</span>
-				<span class="ki"><img src="https://ftm.guru/icons/dai.svg"></span>
-			</span><br>
-			<span class="bigapr">DAI</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card" onclick="window.location='4206.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4206</span>
-				<span class="ki"><img src="https://ftm.guru/icons/mim.svg"></span>
-			</span><br>
-			<span class="bigapr">MIM</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card card2 cardhide" oncli ck="window.location='4207.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4207</span>
-				<span class="ki"><img src="https://ftm.guru/icons/xboo.png"></span>
-			</span><br>
-			<span class="bigapr">xBOO</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card card2 cardhide" oncli ck="window.location='4208.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4208</span>
-				<span class="ki"><img src="https://ftm.guru/icons/scream.png"></span>
-			</span><br>
-			<span class="bigapr">xSCREAM</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card" onclick="window.location='4209.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4209</span>
-				<span class="ki"><img src="https://ftm.guru/icons/lqdr.png"></span>
-			</span><br>
-			<span class="bigapr">LQDR</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card card2 cardhide" oncli ck="window.location='4210.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4210</span>
-				<span class="ki"><img src="https://ftm.guru/icons/credit.png"></span>
-			</span><br>
-			<span class="bigapr">xCREDIT</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card card2 cardhide" oncli ck="window.location='4211.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4211</span>
-				<span class="ki"><img src="https://ftm.guru/icons/tarot.png"></span>
-			</span><br>
-			<span class="bigapr">xTAROT</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card" onclick="window.location='4212.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4212</span>
-				<span class="ki"><img src="https://ftm.guru/icons/tomb.png"></span>
-			</span><br>
-			<span class="bigapr">TOMB</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card card2 cardhide" oncli ck="window.location='4213.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4213</span>
-				<span class="ki"><img src="https://ftm.guru/icons/beets.png"></span>
-			</span><br>
-			<span class="bigapr">fBEETS</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-		<div class="card card2 cardhide" oncli ck="window.location='4214.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#4214</span>
-				<span class="ki"><img src="https://ftm.guru/icons/oxd.webp"><img src="https://ftm.guru/icons/usdc.svg"><img class="ib" src="https://ftm.guru/icons/spooky.sq.svg"></span>
-			</span><br>
-			<span class="bigapr">OXD-USDC SpookyLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/oxd.webp"> 0xDAO</div>
-		</div>
-	</div>
-</details>
-<br>
-
-
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/htz.png"></span> Hertz Farms <span class="sum1num">(🔜)</span><br>
-	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
-	</summary><br>
-	<div class="cards">
-		<div class="card card2 cardhide" onclick="window.location='2401.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2401</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/fusd.svg"><img class="ib" src="https://ftm.guru/icons/wand.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-FUSD Cyber LP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/htz.png">Hertz Farms</div>
-		</div>
-	</div>
-</details>
-<br>
-
-
-<!--<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/shiba.sq.svg"></span> Shibaswap Farms (0/3)</summary><br>
-	<div class="cards">
-		<div class="card card2 cardhide" onclick="window.location='2801.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2801</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/shiba.sq.svg"><img class="ib" src="https://ftm.guru/icons/shiba.sq.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-Shiba ShibaLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/shiba.sq.svg">Shibaswap Bones</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.location='2802.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2802</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/shiba.sq.svg"><img class="ib" src="https://ftm.guru/icons/shiba.sq.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-BONE ShibaLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/shiba.sq.svg">Shibaswap Bones</div>
-		</div>
-		<div class="card card2 cardhide" onclick="window.location='2803.html'">
-			<span class="cardapr">
-				<span>GRAIN<br>#2803</span>
-				<span class="ki"><img src="https://ftm.guru/icons/ftm.svg"><img src="https://ftm.guru/icons/shiba.sq.svg"><img class="ib" src="https://ftm.guru/icons/shiba.sq.svg"></span>
-			</span><br>
-			<span class="bigapr">wFTM-gBONE ShibaLP</span>
-			<hr>
-			<div class="fn" ><img src="https://ftm.guru/icons/shiba.sq.svg">Shibaswap Bones</div>
-		</div>
-	</div>
-</details>
-<br>-->
-
 
 
 <div class="">
@@ -1169,9 +382,9 @@ bDANI-BOMB
 
 
 
-<br id="dash"><br><br><br><br><br>
+<br><br><br><br><br><br>
 
-<h2>Granary Dashboard</h2>
+<h2 id="dash">Granary Dashboard</h2>
 Overview of your investments and other performance statistics for all the Granaries.
 <br><br>
 <i class="toggs" style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" onchange=""> Hide Zero-balance? </i>
@@ -1217,15 +430,15 @@ Overview of your investments and other performance statistics for all the Granar
 <div align="center"><i>Want to see more?<br><br>
 <a href="mailto:ftm1337@protonmail.com">📧</a> Let us know!</i><br>
 	<div class="lowerbar">
-	<a target="_blank" href="https://twitter.com/ftm1337"><img src="https://ftm.guru/crypto-icons/twitter.svg"></a>
-	<a target="_blank" href="https://t.me/ftm1337"><img src="https://ftm.guru/crypto-icons/telegram.svg"></a>
-	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="https://ftm.guru/crypto-icons/discord.svg"></a>
+	<a target="_blank" href="https://twitter.com/ftm1337"><img src="https://ftm.guru/icons/twitter.svg"></a>
+	<a target="_blank" href="https://t.me/ftm1337"><img src="https://ftm.guru/icons/telegram.svg"></a>
+	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="https://ftm.guru/icons/discord.svg"></a>
 	</div>
 </div>
 <br><br><br><br><br><br>
 <div onclick="pantvl()">
 	<span style="font-size:2.5em;font-weight:bold" id="pantvl" class="fore">$0.000</span><sup style="font-size:1.2em;position:relative;top: -14px;">⟳</sup><br>
-	(Total Value Locked on FTM.guru)
+	(Total Value Locked on MTV.guru)
 </div>
 
 <br><br>
@@ -1236,16 +449,16 @@ Overview of your investments and other performance statistics for all the Granar
 	<a target="_blank" href="https://fmc.guru">FMC.guru</a>
 	<a target="_blank" href="https://fmc.guru">MTV.guru</a>
 	<br><br>
-	<a target="_blank" href="https://kcc.guru"><img src="https://ftm.guru/crypto-icons/kcc.png"></a>
-	<a target="_blank" href="https://ftm.guru"><img src="https://ftm.guru/crypto-icons/64.png"></a>
-	<a target="_blank" href="https://fmc.guru"><img src="https://ftm.guru/crypto-icons/FMC.svg"></a>
-	<a target="_blank" href="https://mtv.guru"><img src="https://ftm.guru/crypto-icons/mtv.png"></a>
-	<a target="_blank" href="https://medium.com/@ftm1337"><img src="https://ftm.guru/crypto-icons/medium.svg"></a>
-	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="https://ftm.guru/crypto-icons/gecko.svg"></a>
-	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="https://ftm.guru/crypto-icons/cmc.svg"></a>
-	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/crypto-icons/defillama.svg"></a>
-	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/crypto-icons/nomics.svg"></a>
-	<!--<a target="_blank" href="https://defillama.com/protocol/kccguru"><img src="https://ftm.guru/crypto-icons/defillama.svg"></a>-->
+	<a target="_blank" href="https://kcc.guru"><img src="https://ftm.guru/icons/kcc.png"></a>
+	<a target="_blank" href="https://mtv.guru"><img src="https://ftm.guru/icons/mtv.png"></a>
+	<a target="_blank" href="https://projects.fantom.network/project-detail/6125a8b6800c225308858b02"><img src="https://ftm.guru/icons/ftm.svg"></a>
+	<a target="_blank" href="https://fmc.guru"><img src="https://ftm.guru/icons/FMC.svg"></a>
+	<a target="_blank" href="https://ftm.guru"><img src="https://ftm.guru/icons/64.png"></a>
+	<a target="_blank" href="https://kcc.guru/casino"><img src="https://ftm.guru/icons/kucino.svg"></a>
+	<a target="_blank" href="https://medium.com/@ftm1337"><img src="https://ftm.guru/icons/medium.svg"></a>
+	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="https://ftm.guru/icons/gecko.svg"></a>
+	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="https://ftm.guru/icons/cmc.svg"></a>
+	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/icons/defillama.svg"><img class="subimg" src="https://ftm.guru/icons/64.png"></a><a target="_blank" href="https://defillama.com/protocol/kccguru"><img src="https://ftm.guru/icons/defillama.svg"><img class="subimg" src="https://ftm.guru/icons/kucino.svg"></a><a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/icons/nomics.svg"></a>
 </div>
 
 <br><br><br><br><br><hr class="hr1">
@@ -1254,21 +467,29 @@ Overview of your investments and other performance statistics for all the Granar
 </body>
 <script src="../web3.min.js"></script>
 <script>
-window.addEventListener('load',async function()
-{
-	if(window.ethereum&&Number(window.ethereum.chainId)==250)
+CHAINID = 62621
+RPC_URL = "https://rpc.mtv.ac"
+window.addEventListener(
+	'load',
+	async function()
 	{
-		web3 = new Web3(web3.currentProvider);
-		if(await ethereum._metamask.isUnlocked() == false){for(i=0;i< grains.length;i++){ggs(grains[i])}}
-		if(!(window.ethereum.selectedAddress==null)){cw()}
-	}
-	else{web3 = new Web3("https://rpc.ftm.tools");for(i=0;i< grains.length;i++){ggs(grains[i])};console.log("didnt find user addr, printing just the apr & tvl")}
-	pantvl()
+		if(window.ethereum&&Number(window.ethereum.chainId)==CHAINID)
+		{web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
+		else
+		{
+			console.log("didnt find user addr, printing just the apr & tvl")
+			web3 = new Web3(RPC_URL);
+			$("mainstage").innerHTML="";
+			for(i=0;i< grains.length;i++){ggs(grains[i])};
+		}
+		pantvl()
+	},
+	false
+);
 
-}, false);
 function pantvl()
 {
-	pt=new web3.eth.Contract([{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}],"0x0786c3a78f5133F08C1c70953B8B10376bC6dCad")
+	pt=new web3.eth.Contract([{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}],"0xdf486980df72446a5eff76263efb2fa9391be136")
 	pt.methods.tvl().call((e,r)=>{$("pantvl").innerHTML = "$"+(Number(r)/1e18).toLocaleString()});
 }
 function fornum(n,d)
@@ -1313,69 +534,17 @@ function togcar()
 		ac2[i].style.display=ac2[i].style.display=="block"?"none":"block"
 	}
 }
-grains=[//ID#						ADDRESS								BUYS				SELLS			USES
-	["2201",	"0x50e66D1232f272B481F349F01b5C6019896A23e3",	["usdc.svg","ftm.svg"],	["knight.svg"], ["knight.svg"]],
-	["2301",	"0xd15d6434aC56007BA85ce89377481964eBDf532a",	["usdc.svg","ftm.svg"],	["wraith.svg"], ["wraith.svg"]],
-	["2303",	"0xFe80Ecb1B879f24B08E3Caa74246D4Ae17fbA53B",	["syf.svg","ftm.svg"],	["wraith.svg"], ["wraith.svg"]],
-	//["2401",	"0x50e66D1232f272B481F349F01b5C6019896A23e3",	["fusd.svg","ftm.svg"],	["knight.svg"], ["knight.svg"]],
-	["2501",	"0xE2c82fd8EE829B7309122d1ae63468D0fC323F45",	["spooky.sq.svg"],		["ftm.svg"], 	["xboo.png"]],
-	["2502",	"0xf29C310D60e87bf54DC973DF73D64a339bb944Cb",	["spooky.sq.svg"],		["tusd.svg"], 	["xboo.png"]],
-	["2503",	"0xBc68f64879b26cf34be397fB8b8f0209FEaBbF91",	["spooky.sq.svg"],		["foo.png"], 	["xboo.png"]],
-	["2504",	"0x80aE633a3B909F31BD1beF990b6C642Ca639c7eC",	["spooky.sq.svg"],		["woo.png"], 	["xboo.png"]],
-	["2505",	"0x390505AA41aC3BdF31b36ab72EbBA36CFe6C8c6B",	["spooky.sq.svg"],		["treeb.png"], 	["xboo.png"]],
-	["2506",	"0x2Dcc87751ffF3E250a4dd0037991653472bFfA64",	["spooky.sq.svg"],		["font.png"], 	["xboo.png"]],
-	["2507",	"0xc340b2A90A3BDc0Ad2086E3256A7E9026D03C448",	["spooky.sq.svg"],		["lqdr.png"], 	["xboo.png"]],
-	["2508",	"0xff383254B2070FD335f51c0CA81a10764a713f64",	["spooky.sq.svg"],		["ooe.png"], 	["xboo.png"]],
-	["2509",	"0xE3A6400c6505BCe5B14C47dE4A9f967C638802dd",	["spooky.sq.svg"],		["hnd.png"], 	["xboo.png"]],
-	["2510",	"0xc52a37D46a8a4B10355068f34dE71d5fE791f245",	["spooky.sq.svg"],		["brush.png"], 	["xboo.png"]],
-	["2601",	"0x6eC2Cb84422403e06935ac55910Fa3609F55BCce",	["usdc.svg","mim.svg"],	["shrap.png"], ["bomb.svg"]],
-	["2602",	"0x00bedBdD440ff2eFEC3A6a42230e8D3Bfac63d63",	["bomb.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
-	["2603",	"0x977541676bA8eF35e8116566Bca29FD6C72BA159",	["shrap.png","ftm.svg"],["shrap.png"], ["bomb.svg"]],
-	["2606",	"0x7266dd2fe1D6447E57924BD41450a613a779Da3f",	["shrap.png","bomb.svg"],["shrap.png"], ["bomb.svg"]],
-	["2607",	"0xC7d89a0aA32eb496222f88fA1193566C761b7681",	["sst.png","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
-	["2608",	"0xD42C91A330425858BFD78e291365E1b41f56a2Ff",	["usdc.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
-	["2609",	"0x15FcCE81d8f5B4847e0F65243BFDA85972c98474",	["btc.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
-	["2610",	"0x2b5005f9F08f8A899c7186BD90071da4a131dD46",	["eth.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"]],
-	["2611",	"0x329AAcBe71666692354272384e38Cb03Df69a71b",	["shrap.png","kek.png"],["shrap.png"], ["bomb.svg"]],
-	//["2612",	"0xE03a39e693695e4405214525FdFB00A51CF454AC",	["shrap.pnp","wmemo.png"],["shrap.png"], ["bomb.svg"]],
-	["2613",	"0x576Be556eeA4F6eD4E6EF248c163BA58340c3091",	["shrap.png","sspell.png"],	["shrap.png"], ["bomb.svg"]],
-	["2614",	"0xC95786f122926400da2A261eE5a8424019e7D416",	["shrap.png","slurp.png"],	["shrap.png"], ["bomb.svg"]],
-	["2615",	"0x462740150DDAb5816f6007ed179C8013fB7f1e17",	["shrap.png","nice.svg"],	["shrap.png"], ["bomb.svg"]],
-	["2616",	"0x4FfD42099576Bda1F3aC508E6192E4BD89125bed",	["shrap.png","coffin.png"],	["shrap.png"], ["bomb.svg"]],
-	["2617",	"0x0E02D360784234716a8BDeE721018ae699C1F524",	["shrap.png","smart.svg"],	["shrap.png"], ["bomb.svg"]],
-	["2701",	"0x5E62e97A73258947e1745071Ba342C6169A25E80",	["usdc.svg","ftm.svg"],	["dmd.svg"],	["dmd.svg"]],
-	["2901",	"0xfD5d0aB5404dd472975922501f670d194732577B",	["ftm.svg","64.png"],	["nips.svg"], ["nips.svg"]],
-	["4101",	"0xD7627edF607C49F525212fC09d650A91a9B222e1",	["ftm.svg"],			["vedao.png"],	["vedao.png"]],
-	["4102",	"0x1b70E038f9eC9A8f979B4e6D8CD0Dc85df677CB2",	["eth.svg"],			["vedao.png"],	["vedao.png"]],
-	["4103",	"0x48B628AC7F6Fa84298c6b3198130C2068073AB01",	["yfi.svg"],			["vedao.png"],	["vedao.png"]],
-	["4104",	"0xd072046b0928b9Eb6B2Afa9D80cbDFE759Ef3A8B",	["usdc.svg"],			["vedao.png"],	["vedao.png"]],
-	["4105",	"0x69B83634B6E7C2bfFAb8B1ae3B8498d2dab6D51f",	["mim.svg"],			["vedao.png"],	["vedao.png"]],
-	["4106",	"0x2938F27687Ae2ad54db2B91B4B836B6ADD15AC8f",	["frax.svg"],			["vedao.png"],	["vedao.png"]],
-	["4107",	"0xe125C9c6560c17f4dF8774dB6B9e5d2b3BF9947f",	["usdc.svg","vedao.png"],["vedao.png"],	["vedao.png"]],
-	["4108",	"0xE880A7F6C9C326477A7D98e736E1524A7F8D4394",	["usdc.svg","vedao.png"],["vedao.png"],	["vedao.png"]],
-	["4201",	"0xA2B1f90A6CF0FD5451E0fE7ED67331EC15Bd1aAB",	["ftm.svg"],			["oxd.webp"],	["oxd.webp"]],
-	["4202",	"0x27881D9Ee5F4769AdE8762E93c503D3a7C59769e",	["eth.svg"],			["oxd.webp"],	["oxd.webp"]],
-	["4203",	"0xC255FCEFf6967B30E1A467FA4e97560ae5fE54bA",	["btc.svg"],			["oxd.webp"],	["oxd.webp"]],
-	["4204",	"0x27DaBA6E82A23C5f9C264257b417D3b99435469d",	["usdc.svg"],			["oxd.webp"],	["oxd.webp"]],
-	["4205",	"0x8885dAa97a0A6590740B6139FD81613D5A543C20",	["dai.svg"],			["oxd.webp"],	["oxd.webp"]],
-	["4206",	"0xa638Fe74968c9B95E2E3868f9487390087Ef80aC",	["mim.svg"],			["oxd.webp"],	["oxd.webp"]],
-	["4209",	"0x2E24ABF15ECdA2D58E9840456D397CfbA30c9895",	["lqdr.png"],			["oxd.webp"],	["oxd.webp"]],
-	["4212",	"0x4b7bfaF14a961D0033a2f65d07523b8321D7e477",	["tomb.png"],			["oxd.webp"],	["oxd.webp"]],
-	["4301",	"0xD41835b49e90A6438C363e4A3613F4A0E5656c55",	["defy.png","usdc.svg"],["defy.png"], 	["defy.png"]],
-	["4302",	"0xe46DE1EbD9760975841B7B3Af0DF8612b7566B58",	["defy.png","ftm.svg"],	["defy.png"],	 ["defy.png"]],
-	["4303",	"0x6812e3b614f3dE965821aa1f7A8CA1714cB09a66",	["defy.png","slurp.png"],["defy.png"],	 ["defy.png"]],
-	["4401",	"0x565468cFeDE97E7E936B7B0deD53A5DC60623709",	["elk.svg","ftm.svg"],	["elk.svg"], ["elk.svg"]],
-	["4402",	"0xb781e75605d0F74cfBd65E8BF48a9FF57E5bDe78",	["elk.svg","usdc.svg"],	["elk.svg"], ["elk.svg"]],
-	["4501",	"0xAFEE7A332989261893b11544A2b4622d77Dc8404",	["dai.svg","mai.svg"],	["protofi.png"], ["protofi.png"]],
-	["4601",	"0x812C8e4744f40Ce5a01849154308509Abdb7c975",	["dai.svg","usdc.svg"],	["wigo.svg"], ["wigo.svg"]],
-	["4801",	"0xEfAE80d23f623f5Adbb1324110b8105DbBd8f82c",	["ring.svg","usdc.svg"],["beets.png","ring.svg","usdc.svg"], ["beets.png"]],
-];
+grains=[
+	["6101",	"0xc295f619afc2b8543d91c8970ea4c0726f197250",	["moon.png","mtv.png"],	["moon.png"],	["moonswap.png"]],	//	mtv-moon
+	["6102",	"0x9d9682577CA889c882412056669bd936894663fd",	["mtv.png","busd.svg"],	["moon.png"],	["moonswap.png"]],	//	mtv-busd
+	["6103",	"0x2696f94f11dfF0d77875E2652FCdB537274B9CE7",	["moon.png","busd.svg"],	["moon.png"],	["moonswap.png"]],	//	moon-busd
+]
 pfv=0
 async function ggs(g)
 {
 	G = new web3.eth.Contract(grabi,g[1]);
 	//let info = G.methods.info().call()
-	url="https://rpc.ftm.tools";
+	url="https://rpc.mtv.ac";
 	data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":g[1]},"latest"]}
 	let info = fetch(url, { method: 'POST', body: JSON.stringify(data), headers: { 'Content-Type': 'application/json'} }).then(r=>r.json()).then(r=>r.result);
 	let gtvl = G.methods.tvl().call()
@@ -1479,7 +648,7 @@ const addCSS = s => document.head.appendChild(document.createElement("style")).i
 async function cw()
 {
 	if(!(window.ethereum)){console.log("Metamask not detected!");return(0)}
-	if(!(Number(window.ethereum.chainId)==250)){console.log("Wrong network detected!");return(0)}
+	if(!(Number(window.ethereum.chainId)==CHAINID)){console.log("Wrong network detected!");return(0)}
 	await window.ethereum.enable();
 	$("btn-connect").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
 	$("btn-connect").style.display="none";
