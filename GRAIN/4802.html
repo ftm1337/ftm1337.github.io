@@ -40,7 +40,7 @@ Zero* deposit fees & Zero withdrawal fees.
 
 <br><br><br><br><br>
 
-<h2>Beethoven-x (Farm + Gauge Twin Rewards)</h2>
+<h2>Beethoven-x Farm</h2>
 <h3 class="fore">SHRAP-wFTM BLP Token Maximizer</h3>
 <i id="iid">
 This strategic Kompounder takes in SHRAP-BLP, comprised of 20% wFTM and 80% SHRAP as input collateral via deposits. This Granary issues the "GRAIN#4802", a standard yield-bearning token, proportionally to all the investors that visit it. All of the collateral rasied is continuously staked at the Beethoven-x Farm to earn BEETS tokens. When at work, it first harvests all BEETS from the Beethoven-x Farm, which it converts for wFTM at Symphony № 10 Opus 138 of the Beethoven Orchestra. Next it visits BombSwap, and market-buys SHRAP with exact 80% of its Circle USD wallet balance. Then, it safely rounds up the wallet full of wFTM tokens & precious SHRAPs, and heads out to Join The Exploding Shrapnels!, and soon is rewarded with more SHRAP-BLP, a.k.a. the Beethoven Liquidity Provider Tokens. Finally, the Granary dispatches its earnings of the day back into the musical Farm with our friend, MasterChef Ludwig! In the morning, the GRAIN tokens are worth more BLP than the previous morning, thanks to the magic workers of Kompounding!
@@ -166,19 +166,6 @@ This strategic Kompounder takes in SHRAP-BLP, comprised of 20% wFTM and 80% SHRA
 
 <br><br><br><br><br>
 <hr class="hr1">
-<div align="right" style="margin-right:40px">― President Claude</div>`
-:
-`A strategic Kompounder which takes in SHRAP-BLP, comprised of 20% wFTM and 80% SHRAP as input collateral via deposits. One yield to rule them all and in the vaults bind them.
-<br><br>
-This Granary issues the "GRAIN#4802", a standard yield-bearning token, proportionally to all the investors. Meaning that your LP tokens per grain consistently increases. From this you earn BEETS tokens. Simultaneously, it also taps the Gauge rewards, utilizing Beethoven's SHRAP Rewarder for generating additional income.
-<br><br>
-The granary does all of the complicated work behind the scenes making frodos journey to mount doom look like a walk in the park, simplified they do the following: harvest BEETs from farm -> swaps for wFTM -> purchases SHRAP with 80% of wFTM -> claims SHRAP from gauge -> sells 20% for wFTM.
-<br><br>
-Once the harvest is 80% SHRAP and 20% wFTM, it adds both sides as LP and adds back to the Granary. Idle Ludwigs in the audience can enjoy the SHRAP-USD Beethoven tokens from GRAIN faucet by paying the gas fee. (psst.. Kompetition.)
-<br><br>
-Enough LP tokens provided to the granary and smaug would blush in embarrassment with the amount of treasure you have amassed, so go have at it!
-<div align="right" style="margin-right:40px">―Welshy</div>`
-</script>
 <br><br><br>
 
 <h2>General Information</h2><br>
@@ -235,7 +222,7 @@ Upon each deposit, including worker payouts, the Kompounder (Granary) issues spe
 
 </div>
 <script>
-f_1_add = "0x1C54bc901405A5048684530B828e3034f49f3D65";
+f_1_add = "0xaE51E9697F72937b8E4D25f87123f1ccF0C217CF";
 pairadd = "0x2ba4953c75860e70cd70f15a2d5fe07de832bcd1";
 tearned	= "0xf24bcf4d1e507740041c9cfd2dddb29585adce1e";
 RPC_URL = "https://rpc.ftm.tools"
@@ -245,47 +232,5 @@ decEARN = 18;
 </script>
 <script src="../ethers-5.2.umd.min.js" type="application/javascript" defer="true"></script>
 <script src="g.js" type="application/javascript" defer="true" override="true"></script>
-<script>
-async function DrefreshFarm()
-{
-	try
-	{
-		$("c_sc").innerHTML=`<a
-			href="${EXPLORE+f_1_add}"
-			target="_blank"
-			>${f_1_add.substr(0,6)+"―"+f_1_add.substr(38)}</a>
-		`;
-
-		g = new ethers.Contract(f_1_add, farabi, provider);
-		ts = g.totalSupply();
-		vl = g.tvl();
-		/////////////////////////////////
-		/*	NOT WORKING!!!!!!!!!!!!!!!
-		 *io = g.methods.info().call();
-		 *******************************
-		 *******************************/
-
-		url=RPC_URL;
-		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
-		let io = (await fetch(url, { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json' } })).json();
-
-		await Promise.all([ts,vl,io]).then(d=>{
-			d[0]=Number(d[0]._hex)
-			d[1]=Number(d[1]._hex)
-			console.log(d);
-			$("c_ts").innerHTML = fornum(Number(d[0]),DECIMAL);
-			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
-			$("c_pu").innerHTML = "$ "+fornum( (Number(d[1])/1e18) / (Number(d[0])/(10**DECIMAL)),0);
-			oi=[];for(i=0;i< (d[2].result.length-2)/64;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
-			console.log("oi",oi);
-			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
-			$("c_nr").innerHTML = fornum(Number(oi[1]),18)+"x"
-			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1])*0.01,decEARN)+"</b>"
-			$("est-hvst2").innerHTML = "<b>"+fornum(Number(oi[i-2])*0.01,decEARN)+"</b>"
-		})
-	}
-	catch(e){console.log(e);$("cw_m").innerHTML="RPC Timed out! Please clear cache & hard refresh (Ctrl+Shift+R / Cmd+Shift+R)<br>"+e;}
-}
-</script>
 </body>
 </html>
