@@ -432,6 +432,24 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>Knight</td>
 						<td><span><a href="https://darkdex.knight.financial/pool/add?inputCurrency=0x1BE23c78038B6057172848534AcD62667fA2620d&outputCurrency=0xf43Cc235E686d7BC513F53Fbffb61F760c3a1882" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl40">0</td>
+						<td>Solidly</td>
+						<td><span><a href="https://solidly.exchange" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>USDC</td>
+						<td id="p1tpl41">0</td>
+						<td>Solidly</td>
+						<td><span><a href="https://solidly.exchange" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>BEETS</td>
+						<td id="p1tpl42">0</td>
+						<td>Solidly</td>
+						<td><span><a href="https://solidly.exchange" target="_blank">💱</a><a href="https://" target="_blank">🌐</a><a href="https://" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -1426,6 +1444,24 @@ function allpp()
 	EC.methods.balanceOf("0xA2195A0e36036A180072FA5e631EabCE761BED22").call((e,r)=>
 	{
 		$("p1tpl39").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl39").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xb0D9B878edEce2019D4c57bD34c6f8c169c860F2").call((e,r)=>
+	{
+		$("p1tpl40").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl40").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xeb30fc283d1ceb163ca848d13b06261784945395").call((e,r)=>
+	{
+		$("p1tpl41").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl41").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x3DfbA1b3d4885b23321c853E04979e723d9Ea29E").call((e,r)=>
+	{
+		$("p1tpl42").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl42").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
