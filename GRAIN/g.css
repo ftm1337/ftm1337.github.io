@@ -120,6 +120,7 @@ button:active {
 }
 .hr1{
   color: transparent;
+  border: none;
   border-top: 16px dotted #ea39b8;
   max-width: 50%
 }
