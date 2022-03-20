@@ -272,7 +272,7 @@ Zero* deposit fees & Zero withdrawal fees.
 		</div>
 	-->
 
-<h2>Available Granaries (55)</h2>
+<h2>Available Granaries (<span id="totgra">55</span>)</h2>
 Invest any asset to get the most out of it with our tailor-made strategies.
 <br><br>
 <i class="toggs" style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" checked onchange="togcar()"> Hide inactive? </i>
@@ -1322,6 +1322,7 @@ bDANI-BOMB
 <h2>Granary Dashboard</h2>
 Overview of your investments and other performance statistics for all the Granaries.
 <br><br>
+<i class="toggs" style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" onchange="toginacg()"> Hide inactive? </i>
 <i class="toggs" style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" onchange=""> Hide Zero-balance? </i>
 <i class="toggs" style="border:1px dashed gold;border-radius:8px"> Sort by:
 	<select onchange="sortit(this.value);sortit(this.value)">
@@ -1334,17 +1335,13 @@ Overview of your investments and other performance statistics for all the Granar
 <br><br><i>Tap the <span style="text-decoration:2px underline dotted gold;cursor: alias">headings</span> to flip direction of sorting.</i>
 <br><br><i>Select the <span style="text-decoration:2px underline dotted #1ea;cursor: zoom-in">GRAIN# ID</span> to visit a Granary.</i>
 
-<br><br><br><br><br><br><br><br>
+<br><br><br><br>
 <div align="center">
 	<span id="pfd">💰<span id="pf">0.000</span></span>
 	<br>Portfolio Valuation (USD)<br>
 	<button onclick="cw()" id="btn-connect">Connect a Wallet?</button>
 </div>
-<br><br><br><br>
-<div style="text-align:right">
-	<div style="">🌾# Active Granary</div>
-	<div style="" class="inacg">🌾# Inactive Granary</div>
-</div>
+<br><br>
 <div style="overflow:auto;text-align:center">
 	<table align="center">
 		<thead>
@@ -1365,6 +1362,10 @@ Overview of your investments and other performance statistics for all the Granar
 </div>
 
 
+<div style="text-align:right">
+	<div style="">🌾# Active Granary</div>
+	<div style="" class="inacg">🌾# Inactive Granary</div>
+</div>
 
 <br><br><br><br><br><br>
 <hr class="hr1">
@@ -1468,6 +1469,14 @@ function togcar()
 		ac2[i].style.display=ac2[i].style.display=="block"?"none":"block"
 	}
 }
+function toginacg()
+{
+	ac2 = document.getElementsByClassName("inacg");
+	for(i=0;i< ac2.length;i++)
+	{
+		ac2[i].style.display=ac2[i].style.display=="block"?"none":"block"
+	}
+}
 grains=[//ID#						ADDRESS								BUYS				SELLS			USES							ACTIVE
 	["2201",	"0x50e66D1232f272B481F349F01b5C6019896A23e3",	["usdc.svg","ftm.svg"],	["knight.svg"], ["knight.svg"],						true],
 	["2301",	"0xd15d6434aC56007BA85ce89377481964eBDf532a",	["usdc.svg","ftm.svg"],	["wraith.svg"], ["wraith.svg"],						true],
@@ -1525,8 +1534,9 @@ grains=[//ID#						ADDRESS								BUYS				SELLS			USES							ACTIVE
 	["4601",	"0x812C8e4744f40Ce5a01849154308509Abdb7c975",	["dai.svg","usdc.svg"],	["wigo.svg"], ["wigo.svg"],							true],
 	["4801",	"0xEfAE80d23f623f5Adbb1324110b8105DbBd8f82c",	["ring.svg","usdc.svg"],["beets.png","ring.svg","usdc.svg"], ["beets.png"],	true],
 	["4802",	"0xaE51E9697F72937b8E4D25f87123f1ccF0C217CF",	["shrap.png","ftm.svg"],["beets.png"], ["beets.png"],						true],
-	["5201",	"0x9997408b7735DB87747A055a51ea39607591885f",	["64.png","usdc.svg"],	["solidly.svg","solidex.svg"], ["solidex.svg"],		true],
+	["5201",	"0x9997408b7735DB87747A055a51ea39607591885f",	["64.png","usdc.svg"],	["solidly.svg","sex.png"], ["solidex.svg"],		true],
 ];
+	$("totgra").innerHTML = grains.length
 pfv=0
 async function ggs(g)
 {
