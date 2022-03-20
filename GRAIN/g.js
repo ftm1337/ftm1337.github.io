@@ -479,7 +479,7 @@ async function deposit()
 	{
 		theCon = new ethers.Contract(f_1_add, farabi, signer);
 		m=($("inp-da").value);m*=(10**DECIMAL);m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
-		txr = await theCon.deposit(m,{gasLimit: 2500000});
+		txr = await theCon.deposit(m);
 		console.log("deposit: amount=",m,"txhash:",txr)
 		await txr.wait()
 		console.log("deposit succeeded:  amount=",m,"txhash:",txr);
@@ -510,7 +510,7 @@ async function withdraw()
 		var conAdd = f_1_add;
 		theCon = new ethers.Contract(f_1_add, farabi, signer);
 		m=($("inp-wa").value);m*=(10**DECIMAL);m-=m%1;m=m.toLocaleString("fullwide",{useGrouping:false})
-		txr = await theCon.withdraw(m,{gasLimit: 2500000})//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		txr = await theCon.withdraw(m)//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 		console.log("withdraw attempted: amount=",m,"txhash:",txr)
 		await txr.wait()
 		console.log("withdrawal completed: amount=",m,"txhash:",txr)
@@ -526,7 +526,7 @@ async function enter()
 		theCon = new ethers.Contract(f_1_add, farabi, signer);
 		theLPT = new ethers.Contract(pairadd, farabi, provider);
 		var m = await theLPT.balanceOf(window.ethereum.selectedAddress)
-		txr = await theCon.deposit(m,{gasLimit: 2500000})//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		txr = await theCon.deposit(m)//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 		console.log("deposited all: amount=",m,"txhash:",txr)
 		await txr.wait()
 		console.log("deposit succeeded:  amount=",m,"txhash:",txr);
