@@ -93,6 +93,20 @@ button:active {
   box-shadow: 0 0 2px 2px rgba(16,240,80,1);
 }
 .ki img:first-child{left: 8px}
+.ib {
+  position: relative;
+  top:-24px !important;
+  left:8px !important;
+  width: 22px !important;
+  height:22px !important;
+}
+.iib {
+  position: relative;
+  top:-6px !important;
+  left:-12px !important;
+  width: 22px !important;
+  height:22px !important;
+}
 .panels{
   display: grid;
   grid-template-columns: auto;
@@ -126,6 +140,7 @@ button:active {
 }
 .fore{color: gold !important;font-weight:400}
 #cw_m{color: #f23;font-weight: bold;text-shadow: 1px 1px 5px rgba(255,127,127,0.5)}
+.inacg td,.inacg td a{color: grey;-webkit-filter: grayscale(100%);filter: grayscale(100%);background: #17082f !important;}
 
 
 @media(min-width:641px){
