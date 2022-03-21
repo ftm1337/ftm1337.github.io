@@ -258,6 +258,57 @@ table thead tr td,table tbody tr td{min-width:max-content;min-width: -moz-max-co
 Zero* deposit fees & Zero withdrawal fees.
 <br><span style="font-size:0.8em">0.1% Deposit fees, No fees if holding 0.01 ELITE.</span>
 
+<br id="dash"><br><br><br><br><br>
+
+<h2>Granary Dashboard</h2>
+Overview of your investments and other performance statistics for all the Granaries.
+<br><br>
+<i class="toggs" style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" onchange="toginacg()"> Hide inactive? </i>
+<i class="toggs" style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" onchange=""> Hide Zero-balance? </i>
+<i class="toggs" style="border:1px dashed gold;border-radius:8px"> Sort by:
+	<select onchange="sortit(this.value);sortit(this.value)">
+		<option value="0">Granary</option>
+		<option value="2">R. APR</option>
+		<option value="3">T.V.L.</option>
+		<option value="1" selected>Balance</option>
+	</select>
+</i>
+<br><br><i>Tap the <span style="text-decoration:2px underline dotted gold;cursor: alias">headings</span> to flip direction of sorting.</i>
+<br><br><i>Select the <span style="text-decoration:2px underline dotted #1ea;cursor: zoom-in">GRAIN# ID</span> to visit a Granary.</i>
+
+<br><br><br><br>
+<div align="center">
+	<span id="pfd">💰<span id="pf">0.000</span></span>
+	<br>Portfolio Valuation (USD)<br>
+	<button onclick="cw()" id="btn-connect">Connect a Wallet?</button>
+</div>
+<br><br>
+<div style="overflow:auto;text-align:center">
+	<table align="center">
+		<thead>
+			<tr>
+				<td onclick="sortit(0)">GRAIN#
+				<td onclick="sortit(1)">My Position</td>
+				<td onclick="sortit(2)">Buys</td>
+				<td onclick="sortit(3)">Realized APR</td>
+				<td onclick="sortit(4)">Sells</td>
+				<td onclick="sortit(5)">Value Locked</td>
+				<td onclick="sortit(6)">Balance</td>
+				<td onclick="sortit(7)">Uses</td>
+				<td onclick="sortit(8)">Status</td>
+			</tr>
+		</thead>
+		<tbody id="mainstage"></tbody>
+	</table>
+</div>
+
+<!--
+<div style="text-align:right">
+	<div style="">🌾# Active Granary</div>
+	<div style="" class="inacg">🌾# Inactive Granary</div>
+</div>
+-->
+
 <br id="all"><br><br><br><br><br>
 
 	<!--
@@ -282,7 +333,7 @@ Invest any asset to get the most out of it with our tailor-made strategies.
 
 
 <!--
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/64.png"></span> ftm.guru YieldState  <span class="sum1num">(2)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/64.png"></span> ftm.guru YieldState  <span class="sum1num">(2)</span><br>
 	<div class="summore"><span class="summnum">2</span> YieldStates stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -406,7 +457,7 @@ Invest any asset to get the most out of it with our tailor-made strategies.
 
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/spirit.png"></span> SpiritSwap Gauges 🆕 <span class="sum1num">(1)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/spirit.png"></span> SpiritSwap Gauges 🆕 <span class="sum1num">(1)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -427,7 +478,7 @@ Invest any asset to get the most out of it with our tailor-made strategies.
 
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"></span> SpookySwap Farms 🆕 <span class="sum1num">(1)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/spooky.sq.svg"></span> SpookySwap Farms 🆕 <span class="sum1num">(1)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -448,7 +499,7 @@ Invest any asset to get the most out of it with our tailor-made strategies.
 
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/beets.png"></span> Beethoven-x (Farm+Gauge) 🆕 <span class="sum1num">(1)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/beets.png"></span> Beethoven-x (Farm+Gauge) 🆕 <span class="sum1num">(1)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -494,7 +545,7 @@ Shrap-BOMB
 bBOMB-BOMB
 bDANI-BOMB
 -->
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/bomb.svg"></span> Bombing Range 🔥🔥🔥 🆕 <span class="sum1num">(15)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/bomb.svg"></span> Bombing Range 🔥🔥🔥 🆕 <span class="sum1num">(15)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -657,7 +708,7 @@ bDANI-BOMB
 
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/vedao.png"></span> veDAO Farms 🔥🔥 🆕 <span class="sum1num">(8)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/vedao.png"></span> veDAO Farms 🔥🔥 🆕 <span class="sum1num">(8)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -737,7 +788,7 @@ bDANI-BOMB
 </details>
 <br>
 
-<!--<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/64.png"></span> ftm.guru LITE Farmlands  <span class="sum1num">(19)</span><br>
+<!--<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/64.png"></span> ftm.guru LITE Farmlands  <span class="sum1num">(19)</span><br>
 	<div class="summore"><span class="summnum">19</span> LITE Farmlands stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -756,7 +807,7 @@ bDANI-BOMB
 <br>-->
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/wigo.svg"></span> WigoSwap Farm 🆕 <span class="sum1num">(1)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/wigo.svg"></span> WigoSwap Farm 🆕 <span class="sum1num">(1)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -774,7 +825,7 @@ bDANI-BOMB
 <br>
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/protofi.jpg"></span> ProtoFi 🆕 <span class="sum1num">(1)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/protofi.jpg"></span> ProtoFi 🆕 <span class="sum1num">(1)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -792,7 +843,7 @@ bDANI-BOMB
 <br>
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/defy.png"></span> Defyswap 🆕 <span class="sum1num">(3)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/defy.png"></span> Defyswap 🆕 <span class="sum1num">(3)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -828,7 +879,7 @@ bDANI-BOMB
 <br>
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/elk.svg"></span> ELK ILP+ Farms 🆕 <span class="sum1num">(2)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/elk.svg"></span> ELK ILP+ Farms 🆕 <span class="sum1num">(2)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -863,7 +914,7 @@ bDANI-BOMB
 </details>
 <br>
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/wraith.svg"></span> Wraith Yield Fields  <span class="sum1num">(2)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/wraith.svg"></span> Wraith Yield Fields  <span class="sum1num">(2)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -927,7 +978,7 @@ bDANI-BOMB
 
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/knight.svg"></span> DarkKnight Farm  <span class="sum1num">(1)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/knight.svg"></span> DarkKnight Farm  <span class="sum1num">(1)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -955,7 +1006,7 @@ bDANI-BOMB
 
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/dmd.svg"></span> DarkMatterDefi  <span class="sum1num">(1)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/dmd.svg"></span> DarkMatterDefi  <span class="sum1num">(1)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -1082,7 +1133,7 @@ bDANI-BOMB
 <br>
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/nips.svg"></span> Nipple Labs  <span class="sum1num">(1)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/nips.svg"></span> Nipple Labs  <span class="sum1num">(1)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -1127,7 +1178,7 @@ bDANI-BOMB
 <br>
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/oxd.webp"></span> 0xDAO <span class="sum1num">(8)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/oxd.webp"></span> 0xDAO <span class="sum1num">(8)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -1262,7 +1313,7 @@ bDANI-BOMB
 <br>
 
 
-<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/htz.png"></span> Hertz Farms <span class="sum1num">(🔜)</span><br>
+<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/htz.png"></span> Hertz Farms <span class="sum1num">(🔜)</span><br>
 	<div class="summore"><span class="summnum">10</span> Granaries stashed with <span class="summtvl">$123,456.789</span></div>
 	</summary><br>
 	<div class="cards">
@@ -1280,7 +1331,7 @@ bDANI-BOMB
 <br>
 
 
-<!--<details><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/shiba.sq.svg"></span> Shibaswap Farms (0/3)</summary><br>
+<!--<details open><summary class="fore"><span class="fn" ><img src="https://ftm.guru/icons/shiba.sq.svg"></span> Shibaswap Farms (0/3)</summary><br>
 	<div class="cards">
 		<div class="card card2 cardhide" onclick="window.location='2801.html'">
 			<span class="cardapr">
@@ -1323,59 +1374,6 @@ bDANI-BOMB
 </div>
 
 
-
-
-
-<br id="dash"><br><br><br><br><br>
-
-<h2>Granary Dashboard</h2>
-Overview of your investments and other performance statistics for all the Granaries.
-<br><br>
-<i class="toggs" style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" onchange="toginacg()"> Hide inactive? </i>
-<i class="toggs" style="border:1px dashed gold;border-radius:8px"> <input type="checkbox" onchange=""> Hide Zero-balance? </i>
-<i class="toggs" style="border:1px dashed gold;border-radius:8px"> Sort by:
-	<select onchange="sortit(this.value);sortit(this.value)">
-		<option value="0">Granary</option>
-		<option value="2">R. APR</option>
-		<option value="3">T.V.L.</option>
-		<option value="1" selected>Balance</option>
-	</select>
-</i>
-<br><br><i>Tap the <span style="text-decoration:2px underline dotted gold;cursor: alias">headings</span> to flip direction of sorting.</i>
-<br><br><i>Select the <span style="text-decoration:2px underline dotted #1ea;cursor: zoom-in">GRAIN# ID</span> to visit a Granary.</i>
-
-<br><br><br><br>
-<div align="center">
-	<span id="pfd">💰<span id="pf">0.000</span></span>
-	<br>Portfolio Valuation (USD)<br>
-	<button onclick="cw()" id="btn-connect">Connect a Wallet?</button>
-</div>
-<br><br>
-<div style="overflow:auto;text-align:center">
-	<table align="center">
-		<thead>
-			<tr>
-				<td onclick="sortit(0)">GRAIN#
-				<td onclick="sortit(1)">My Position</td>
-				<td onclick="sortit(2)">Buys</td>
-				<td onclick="sortit(3)">Realized APR</td>
-				<td onclick="sortit(4)">Sells</td>
-				<td onclick="sortit(5)">Value Locked</td>
-				<td onclick="sortit(6)">Balance</td>
-				<td onclick="sortit(7)">Uses</td>
-				<td onclick="sortit(8)">Status</td>
-			</tr>
-		</thead>
-		<tbody id="mainstage"></tbody>
-	</table>
-</div>
-
-<!--
-<div style="text-align:right">
-	<div style="">🌾# Active Granary</div>
-	<div style="" class="inacg">🌾# Inactive Granary</div>
-</div>
--->
 
 <br><br><br><br><br><br>
 <hr class="hr1">
@@ -1484,7 +1482,7 @@ function toginacg()
 	ac2 = document.getElementsByClassName("inacg");
 	for(i=0;i< ac2.length;i++)
 	{
-		ac2[i].style.display=(ac2[i].style.display==""||ac2[i].style.display=="block")?"none":"block"
+		ac2[i].style.display=(ac2[i].style.display==""||ac2[i].style.display=="contents")?"none":"contents"
 	}
 }
 grains=[//ID#						ADDRESS								BUYS				SELLS			USES							ACTIVE
