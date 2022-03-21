@@ -596,6 +596,7 @@ async function DrefreshFarm()
 		await Promise.all([ts,vl,io]).then(d=>{
 			d[0]=Number(d[0]._hex)
 			d[1]=Number(d[1]._hex)
+			console.log("hrllo");
 			console.log(d);
 			$("c_ts").innerHTML = fornum(Number(d[0]),DECIMAL);
 			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
@@ -604,10 +605,26 @@ async function DrefreshFarm()
 			console.log("oi",oi);
 			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
 			$("c_nr").innerHTML = fornum(Number(oi[1]),18)+"x"
-			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1])*0.01,decEARN)+"</b>"
-			if(!(typeof $("est-hvst2") == null || $("est-hvst2") == null))
-			{$("est-hvst2").innerHTML = "<b>"+fornum(Number(oi[i-2])*0.01,decEARN)+"</b>"}
+			if(typeof boo25xx == "undefined")
+			{
+				$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1])*0.01,decEARN)+"</b>"
+				if(!(typeof $("est-hvst2") == null || $("est-hvst2") == null))
+				{$("est-hvst2").innerHTML = "<b>"+fornum(Number(oi[i-2])*0.01,decEARN)+"</b>"}
+			}
+			else
+			{
+				mc = new ethers.Contract(boo25xx[0],[{"inputs":[{"internalType":"uint256","name":"_pid","type":"uint256"},{"internalType":"address","name":"_user","type":"address"}],"name":"pendingReward","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}],provider)
+				Promise.all([mc])
+				.then(mcp=>{
+					(mcp[0].pendingReward(boo25xx[1],f_1_add))
+					.then(pr=>{
+						$("est-hvst").innerHTML = "<b>"+fornum(Number(pr)*0.01,decEARN)+"</b>"
+					})
+				})
+			}
 		})
 	}
 	catch(e){console.log(e);$("cw_m").innerHTML="RPC Timed out! Please clear cache & hard refresh (Ctrl+Shift+R / Cmd+Shift+R)<br>"+e;}
 }
+
+hello=9991
