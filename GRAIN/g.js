@@ -494,7 +494,7 @@ async function doHardWork()
 	try
 	{
 		theCon = new ethers.Contract(f_1_add, farabi, signer);
-		txr = await theCon.doHardWork({gasLimit: 2500000})//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		txr = await theCon.doHardWork()//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
 		console.log("work submitted. txhash:",txr)
 		await txr.wait()
 		console.log("work done. txhash:",txr);
