@@ -8,7 +8,17 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="https://ftm.guru/img/64.png"/>
 <link rel="stylesheet" href="g.css">
-
+<style>
+body{
+  text-shadow: 1px 1px 1px black;
+  background-image:url('https://ftm.guru/icons/bg-ring.png');
+  background-attachment:fixed;
+  background-position: bottom right;
+  background-size:  contain;
+  background-repeat:  no-repeat;
+  background-blend-mode: hard-light;
+}
+</style>
 </head>
 <body>
 <div class="topbar">
@@ -248,47 +258,6 @@ decEARN = 18;
 </script>
 <script src="../ethers-5.2.umd.min.js" type="application/javascript" defer="true"></script>
 <script src="g.js" type="application/javascript" defer="true" override="true"></script>
-<script>
-async function DrefreshFarm()
-{
-	try
-	{
-		$("c_sc").innerHTML=`<a
-			href="${EXPLORE+f_1_add}"
-			target="_blank"
-			>${f_1_add.substr(0,6)+"―"+f_1_add.substr(38)}</a>
-		`;
 
-		g = new ethers.Contract(f_1_add, farabi, provider);
-		ts = g.totalSupply();
-		vl = g.tvl();
-		/////////////////////////////////
-		/*	NOT WORKING!!!!!!!!!!!!!!!
-		 *io = g.methods.info().call();
-		 *******************************
-		 *******************************/
-
-		url=RPC_URL;
-		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
-		let io = (await fetch(url, { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json' } })).json();
-
-		await Promise.all([ts,vl,io]).then(d=>{
-			d[0]=Number(d[0]._hex)
-			d[1]=Number(d[1]._hex)
-			console.log(d);
-			$("c_ts").innerHTML = fornum(Number(d[0]),DECIMAL);
-			$("c_mc").innerHTML = "$ "+fornum(Number(d[1]),18);
-			$("c_pu").innerHTML = "$ "+fornum( (Number(d[1])/1e18) / (Number(d[0])/(10**DECIMAL)),0);
-			oi=[];for(i=0;i< (d[2].result.length-2)/64;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
-			console.log("oi",oi);
-			$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
-			$("c_nr").innerHTML = fornum(Number(oi[1]),18)+"x"
-			$("est-hvst").innerHTML = "<b>"+fornum(Number(oi[i-1])*0.01,decEARN)+"</b>"
-			$("est-hvst2").innerHTML = "<b>"+fornum(Number(oi[i-2])*0.01,decEARN)+"</b>"
-		})
-	}
-	catch(e){console.log(e);$("cw_m").innerHTML="RPC Timed out! Please clear cache & hard refresh (Ctrl+Shift+R / Cmd+Shift+R)<br>"+e;}
-}
-</script>
 </body>
 </html>
