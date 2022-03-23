@@ -559,12 +559,19 @@ async function gubs()
 		theLPT = new ethers.Contract(pairadd, farabi, provider);
 		var p = theCon.balanceOf(window.ethereum.selectedAddress)
 		var q = theLPT.balanceOf(window.ethereum.selectedAddress)
+		/*
 		var info = theCon.info()
+		//ABI for info*() varies per grain
+		//Best to do a https-POST instead of json-RPC
+		*/
+		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
+		let info = (await fetch(RPC_URL, { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json' } })).json();
 		await Promise.all([p,q,info]).then(s=>{
+			aum = Number("0x" + (s[2].result).substr(66,64));
 		//DECIMALDEPENDENT : 1e18 => 1e6 , 1e18 => 1e12
 			$("wd-ab").innerHTML=(s[0]/(10**DECIMAL)).toFixed(DECIMAL);
 			$("dep-ab").innerHTML=(s[1]/(10**DECIMAL)).toFixed(DECIMAL);
-			$("redemp").innerHTML=(s[0] * s[2][1] / (10**(2*DECIMAL))).toFixed(DECIMAL);
+			$("redemp").innerHTML=(s[0] * aum / (10**(2*DECIMAL))).toFixed(DECIMAL);
 		})
 	}
 	catch(e){console.log(e);/*$("cw_m").innerHTML=e*/}
