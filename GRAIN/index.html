@@ -179,13 +179,15 @@ ul i{font-size:0.85em;}
 summary.fore:hover{cursor: cell}
 .sum1num{color: white;font-weight: /*bold*/}
 
-td{font-family:mono;text-align:right;padding:4px 16px;min-width:max-content;min-width: -moz-max-content;font-size:1.25em;}
+table{border-collapse: collapse}
+tr:hover td{background:rgba(127,127,255,0.5);}
+td{font-family:mono;text-align:right;padding:0 10px;min-width:max-content;min-width: -moz-max-content;font-size:1.25em;}
 td a{color: #fff;text-decoration:underline dotted #1ea;cursor: zoom-in}
 #pfd{font-size: 2.5em;font-weight: bold;}
-thead tr td{font-weight: bold;font-size: 1.2em;text-align: center;text-decoration:underline dotted gold;cursor: alias}
+thead tr td{font-size: 1.25em;text-align: center;text-decoration:underline dotted gold;cursor: alias}
 .toggs{margin: 1%}
 details{font-size: 0.7em}
-td img{height:20px;width: 20px}
+td img{height:32px;width: 32px}
 td:first-child, thead tr td{font-family:inherit !important}
 td:nth-child(7){display:none}
 td:nth-child(3),td:nth-child(5),td:nth-child(8),td:nth-child(9){text-align: center;font-family: inherit}
@@ -284,14 +286,15 @@ Overview of your investments and other performance statistics for all the Granar
 </div>
 <br><br>
 <div style="overflow:auto;text-align:center">
+	<br><br>
 	<table align="center">
 		<thead>
-			<tr>
+			<tr style="font-size:1.1em;position: relative;top: -15px;">
 				<td onclick="sortit(0)">GRAIN#
 				<td onclick="sortit(1)">My Position</td>
-				<td onclick="sortit(2)">Buys</td>
+				<td onclick="sortit(2)">Underlying</td>
 				<td onclick="sortit(3)">Realized APR</td>
-				<td onclick="sortit(4)">Sells</td>
+				<td onclick="sortit(4)">Instrument</td>
 				<td onclick="sortit(5)">Value Locked</td>
 				<td onclick="sortit(6)">Balance</td>
 				<td onclick="sortit(7)">Uses</td>
@@ -1486,10 +1489,10 @@ function toginacg()
 	}
 }
 grains=[//ID#						ADDRESS								BUYS				SELLS			USES							ACTIVE
-	["2201",	"0x50e66D1232f272B481F349F01b5C6019896A23e3",	["usdc.svg","ftm.svg"],	["knight.svg"], ["knight.svg"],						true],
-	["2301",	"0xd15d6434aC56007BA85ce89377481964eBDf532a",	["usdc.svg","ftm.svg"],	["wraith.svg"], ["wraith.svg"],						true],
+	["2201",	"0x50e66D1232f272B481F349F01b5C6019896A23e3",	["ftm.svg","usdc.svg"],	["knight.svg"], ["knight.svg"],						true],
+	["2301",	"0xd15d6434aC56007BA85ce89377481964eBDf532a",	["ftm.svg","usdc.svg"],	["wraith.svg"], ["wraith.svg"],						true],
 	["2303",	"0xFe80Ecb1B879f24B08E3Caa74246D4Ae17fbA53B",	["syf.svg","ftm.svg"],	["wraith.svg"], ["wraith.svg"],						true],
-	//["2401",	"0x50e66D1232f272B481F349F01b5C6019896A23e3",	["fusd.svg","ftm.svg"],	["knight.svg"], ["knight.svg"],						true],
+	//["2401",	"0x50e66D1232f272B481F349F01b5C6019896A23e3",	["ftm.svg","fusd.svg"],	["knight.svg"], ["knight.svg"],						true],
 	["2501",	"0xE2c82fd8EE829B7309122d1ae63468D0fC323F45",	["spooky.sq.svg"],		["ftm.svg"], 	["xboo.png"],						false],
 	["2502",	"0xf29C310D60e87bf54DC973DF73D64a339bb944Cb",	["spooky.sq.svg"],		["tusd.svg"], 	["xboo.png"],						true],
 	["2503",	"0xBc68f64879b26cf34be397fB8b8f0209FEaBbF91",	["spooky.sq.svg"],		["foo.png"], 	["xboo.png"],						false],
@@ -1501,14 +1504,14 @@ grains=[//ID#						ADDRESS								BUYS				SELLS			USES							ACTIVE
 	["2509",	"0xE3A6400c6505BCe5B14C47dE4A9f967C638802dd",	["spooky.sq.svg"],		["hnd.png"], 	["xboo.png"],						false],
 	["2510",	"0xc52a37D46a8a4B10355068f34dE71d5fE791f245",	["spooky.sq.svg"],		["brush.png"], 	["xboo.png"],						false],
 	["2512",	"0xd75034233f33e6f6a7660ff3362416783b95bf44",	["spooky.sq.svg"],		["ring.svg"], 	["xboo.png"],						true],
-	["2601",	"0x6eC2Cb84422403e06935ac55910Fa3609F55BCce",	["usdc.svg","mim.svg"],	["shrap.png"], ["bomb.svg"],						true],
+	["2601",	"0x6eC2Cb84422403e06935ac55910Fa3609F55BCce",	["ftm.svg","mim.svg"],	["shrap.png"], ["bomb.svg"],						true],
 	["2602",	"0x00bedBdD440ff2eFEC3A6a42230e8D3Bfac63d63",	["bomb.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"],						true],
 	["2603",	"0x977541676bA8eF35e8116566Bca29FD6C72BA159",	["shrap.png","ftm.svg"],["shrap.png"], ["bomb.svg"],						true],
 	["2606",	"0x7266dd2fe1D6447E57924BD41450a613a779Da3f",	["shrap.png","bomb.svg"],["shrap.png"], ["bomb.svg"],						true],
 	["2607",	"0xC7d89a0aA32eb496222f88fA1193566C761b7681",	["sst.png","ftm.svg"],	["shrap.png"], ["bomb.svg"],						true],
-	["2608",	"0xD42C91A330425858BFD78e291365E1b41f56a2Ff",	["usdc.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"],						true],
-	["2609",	"0x15FcCE81d8f5B4847e0F65243BFDA85972c98474",	["btc.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"],						true],
-	["2610",	"0x2b5005f9F08f8A899c7186BD90071da4a131dD46",	["eth.svg","ftm.svg"],	["shrap.png"], ["bomb.svg"],						true],
+	["2608",	"0xD42C91A330425858BFD78e291365E1b41f56a2Ff",	["ftm.svg","usdc.svg"],	["shrap.png"], ["bomb.svg"],						true],
+	["2609",	"0x15FcCE81d8f5B4847e0F65243BFDA85972c98474",	["ftm.svg","btc.svg"],	["shrap.png"], ["bomb.svg"],						true],
+	["2610",	"0x2b5005f9F08f8A899c7186BD90071da4a131dD46",	["ftm.svg","eth.svg"],	["shrap.png"], ["bomb.svg"],						true],
 	["2611",	"0x329AAcBe71666692354272384e38Cb03Df69a71b",	["shrap.png","kek.png"],["shrap.png"], ["bomb.svg"],						true],
 	//["2612",	"0xE03a39e693695e4405214525FdFB00A51CF454AC",	["shrap.pnp","wmemo.png"],["shrap.png"], ["bomb.svg"],						true],
 	["2613",	"0x576Be556eeA4F6eD4E6EF248c163BA58340c3091",	["shrap.png","sspell.png"],	["shrap.png"], ["bomb.svg"],					true],
@@ -1516,8 +1519,8 @@ grains=[//ID#						ADDRESS								BUYS				SELLS			USES							ACTIVE
 	["2615",	"0x462740150DDAb5816f6007ed179C8013fB7f1e17",	["shrap.png","nice.svg"],	["shrap.png"], ["bomb.svg"],					true],
 	["2616",	"0x4FfD42099576Bda1F3aC508E6192E4BD89125bed",	["shrap.png","coffin.png"],	["shrap.png"], ["bomb.svg"],					true],
 	["2617",	"0x0E02D360784234716a8BDeE721018ae699C1F524",	["shrap.png","smart.svg"],	["shrap.png"], ["bomb.svg"],					true],
-	["2701",	"0x5E62e97A73258947e1745071Ba342C6169A25E80",	["usdc.svg","ftm.svg"],	["dmd.svg"],	["dmd.svg"],						true],
-	["2901",	"0xfD5d0aB5404dd472975922501f670d194732577B",	["ftm.svg","64.png"],	["nips.svg"], ["nips.svg"],							true],
+	["2701",	"0x5E62e97A73258947e1745071Ba342C6169A25E80",	["ftm.svg","usdc.svg"],	["dmd.svg"],	["dmd.svg"],						true],
+	["2901",	"0xfD5d0aB5404dd472975922501f670d194732577B",	["64.png","ftm.svg"],	["nips.svg"], ["nips.svg"],							true],
 	["4101",	"0xD7627edF607C49F525212fC09d650A91a9B222e1",	["ftm.svg"],			["vedao.png"],	["vedao.png"],						false],
 	["4102",	"0x1b70E038f9eC9A8f979B4e6D8CD0Dc85df677CB2",	["eth.svg"],			["vedao.png"],	["vedao.png"],						false],
 	["4103",	"0x48B628AC7F6Fa84298c6b3198130C2068073AB01",	["yfi.svg"],			["vedao.png"],	["vedao.png"],						false],
@@ -1542,7 +1545,7 @@ grains=[//ID#						ADDRESS								BUYS				SELLS			USES							ACTIVE
 	["4501",	"0xAFEE7A332989261893b11544A2b4622d77Dc8404",	["dai.svg","mai.svg"],	["protofi.png"], ["protofi.png"],					true],
 	["4601",	"0x812C8e4744f40Ce5a01849154308509Abdb7c975",	["dai.svg","usdc.svg"],	["wigo.svg"], ["wigo.svg"],							true],
 	["4701",	"0x535f3d46Aa9D4334f8bA5493E688b568F2F20589",	["ring.svg","usdc.svg"],["spooky.sq.svg"], ["spooky.sq.svg"],				true],
-	["4801",	"0xEfAE80d23f623f5Adbb1324110b8105DbBd8f82c",	["ring.svg","usdc.svg"],["beets.png","ring.svg","usdc.svg"], ["beets.png"],	true],
+	["4801",	"0xEfAE80d23f623f5Adbb1324110b8105DbBd8f82c",	["ring.svg","usdc.svg"],["beets.png","ring.svg"], ["beets.png"],	true],
 	["4802",	"0xaE51E9697F72937b8E4D25f87123f1ccF0C217CF",	["shrap.png","ftm.svg"],["beets.png"], ["beets.png"],						true],
 	["5201",	"0x9997408b7735DB87747A055a51ea39607591885f",	["64.png","usdc.svg"],	["solidly.svg","sex.png"], ["solidex.svg"],			true],
 ];
@@ -1576,6 +1579,7 @@ async function ggs(g)
 	.then(gd=>{
 		//console.log(gd)
 		gtr = document.createElement("tr");
+		gtr.setAttribute("onclick","window.location="+g[0])
 		if(!g[5]){gtr.setAttribute("class","inacg")}
 		if(gd[1]==0){gd[1]=1}
 		if(gd[2]==0){gd[2]=1}
