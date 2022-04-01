@@ -2,7 +2,8 @@
 scroll-behavior: smooth !important;
 }
 body {
-  background:#17082f;
+  background: linear-gradient(90deg, #17082f 21px, transparent 1%) center, linear-gradient(#17082f 21px, transparent 1%) center, #a799cc;
+  background-size: 22px 22px;
   color: white;
   margin:auto;
   font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif;
@@ -32,13 +33,13 @@ h1{font-size: 3em}
 h2{}
 h1,h2,h3{color:#32fbe2;}
 button{
-  border:2px solid #1cf995;
-  background: #6f42c1;
+  border:2px solid #f0f;
+  background: #17082f;
   color: white;
   padding: 8px;
   font-size: 1em;
   border-radius: 10px;
-  box-shadow: -2px 1px 5px rgba(16,240,80,0.75);
+  box-shadow: 0px 0px 15px #f37;
   transition: 0.25s;
 }
 button:hover{
