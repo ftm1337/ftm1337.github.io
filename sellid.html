@@ -2,9 +2,9 @@
 <html>
 <meta charset="UTF-8">
 <head>
-<meta name="description" content="All Granaries - FTM.guru : Kompound Protocol">
-<meta name="keywords" content="Granary, Finance, Compound, Vault, Interest, Decentralized Finance, defi, yield farming, Guru Network, Fantom Opera, FTM">
-<title>All Granaries - FTM.guru</title>
+<meta name="description" content="Sellid: Sell SOLID Locked in your Solidly veNFT!">
+<meta name="keywords" content="Sellid, SOLID, veSOLID, veNFT, NFT, Financial NFT, fNFT, Finance, Compound, Vault, Interest, Decentralized Finance, defi, yield farming, Guru Network, Fantom Opera, FTM">
+<title>Sellid: Sell SOLID Locked in your veNFT - FTM.guru</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="https://ftm.guru/img/64.png"/>
 <style>*{
@@ -169,10 +169,11 @@ button:active {
 </head>
 <body>
 <div class="topbar">
-	<a href="">🌾Granaries🌾</a>
-	<a href="../index.html">FTM.guru</a>
-	<a href="../LF/index.html">Create a Farm</a>
-	<a href="../index.html">Services & Tools</a>
+	<a href="">🗳 Sellid</a>
+	<a href="index.html">FTM.guru</a>
+	<a href="GRAIN/index.html">Kompound</a>
+	<a href="LF/index.html">Create a Farm</a>
+	<a href="index.html">Index of Tools</a>
 	<!--
 	<a href="">FMC.guru</a>
 	<a href="">Others</a>
@@ -356,10 +357,10 @@ venfta=[{"inputs":[{"internalType":"address","name":"token_addr","type":"address
 
 async function gubs()
 {
-	bal = await venft.methods.balanceOf(window.ethereum.selectedAddress)
+	bal = await venft.methods.balanceOf(window.ethereum.selectedAddress).call()
 	nfts = []
 	for(i=0;i< Number(bal);i++){
-		nfts.push(await venft.methods.tokenOfOwnerByIndex(window.ethereum.selectedAddress,i))
+		nfts.push(await venft.methods.tokenOfOwnerByIndex(window.ethereum.selectedAddress,i).call())
 	}
 	vestat(nfts)
 }
