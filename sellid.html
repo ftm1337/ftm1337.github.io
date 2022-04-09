@@ -1,0 +1,408 @@
+<!doctype html>
+<html>
+<meta charset="UTF-8">
+<head>
+<meta name="description" content="All Granaries - FTM.guru : Kompound Protocol">
+<meta name="keywords" content="Granary, Finance, Compound, Vault, Interest, Decentralized Finance, defi, yield farming, Guru Network, Fantom Opera, FTM">
+<title>All Granaries - FTM.guru</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="https://ftm.guru/img/64.png"/>
+<style>*{
+scroll-behavior: smooth !important;
+}
+body {
+  background: linear-gradient(90deg, #17082f 21px, transparent 1%) center, linear-gradient(#17082f 21px, transparent 1%) center, #a799cc;
+  background-size: 22px 22px;
+  color: white;
+  margin:auto;
+  font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif;
+}
+.body{
+  margin: 8%
+}
+.topbar {
+  background: #6f42c1;
+  width: calc(100%-10px);
+  display:flex;
+  flex-wrap: wrap;
+  position:sticky;
+  top:0;
+  z-index: 1;
+  border-bottom: 8px ridge #17082f
+}
+.topbar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+  font-weight: bolder;
+  margin: auto
+}
+.topbar a:first-child{font-size: 2em}
+h1{font-size: 3em}
+h2{}
+h1,h2,h3{color:#32fbe2;}
+button{
+  border:2px solid #f0f;
+  background: #17082f;
+  color: white;
+  padding: 8px;
+  font-size: 1em;
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px #f37;
+  transition: 0.25s;
+}
+button:hover{
+  transform: translate(2px,-2px);
+  font-size: 1.1em;
+  transition: 0.25s;
+}
+button:active {
+  transform: translate(0px,10px);
+}
+.lowerbar{
+  font-size: 1.25em;
+  font-weight: bolder;
+}
+.lowerbar a{
+  font-size: 0.75em;
+  font-weight: lighter;
+  padding: 10px 10px 10px 0px;
+  color:#32fbe2;
+  text-decoration: none
+}
+.lowerbar img{width:24px}
+.cards{
+  display: flex;
+  flex-wrap: wrap;
+}
+.card{
+  margin:10px 20px 10px 0px;
+  min-width: 220px;
+  padding: 0px 10px 10px 10px;
+  border: 2px solid #1f5;
+  border-radius: 5px;
+  background:rgba(16,240,80,0.2)
+}
+.card hr{color: #1f5;border:solid 2px}
+.card sub{font-size: 1em}
+.card sup{font-size: 1.5em}
+.card:hover{
+  transform: translate(5px,-5px);
+  box-shadow: -5px 5px 5px rgba(16,240,80,0.75);
+  transition: 0.25s;
+  background: rgba(16,240,80,0.1);
+}
+.card span{font-size: 2em}
+.card a{text-decoration: none;color: inherit}
+.ki img {
+  position: relative;
+  top:8px;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  box-shadow: 0 0 2px 2px rgba(16,240,80,1);
+}
+.ki img:first-child{left: 8px}
+.ib {
+  position: relative;
+  top:-24px !important;
+  left:8px !important;
+  width: 22px !important;
+  height:22px !important;
+}
+.iib {
+  position: relative;
+  top:-6px !important;
+  left:-12px !important;
+  width: 22px !important;
+  height:22px !important;
+}
+.panels{
+  display: grid;
+  grid-template-columns: auto;
+}
+#ivst,#switch {
+  display:none;border:none
+  }
+.panels div:nth-child(1),.panels div:nth-child(2) {
+  border:4px dashed #ffc107;
+  padding: 0 5% 0;
+  padding: 25px;
+  background: #170229;
+  border-radius: 10px
+}
+.panels div:nth-child(1){
+  margin: 0 15px 15px 0;
+  border-right: none;
+  /*Just on the mobile view*/
+  margin-bottom: 0;
+  border-bottom: none
+}
+.panels div:nth-child(2){
+  margin: 0 0 15px 0;
+  border-left: none;
+}
+.hr1{
+  color: transparent;
+  border: none;
+  border-top: 16px dotted #ea39b8;
+  max-width: 50%
+}
+.fore{color: gold !important;font-weight:400}
+#cw_m{color: #f23;font-weight: bold;text-shadow: 1px 1px 5px rgba(255,127,127,0.5)}
+.inacg td,.inacg td a{color: grey;-webkit-filter: grayscale(100%);filter: grayscale(100%);background: #17082f !important;}
+
+
+@media(min-width:641px){
+  .panels{
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+  .panels div:nth-child(1){
+  /*Revert the mobile view*/
+  margin: 0 15px 15px 0;
+  border:4px dashed #ffc107;
+  border-right: none;
+  }
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+	<a href="">🌾Granaries🌾</a>
+	<a href="../index.html">FTM.guru</a>
+	<a href="../LF/index.html">Create a Farm</a>
+	<a href="../index.html">Services & Tools</a>
+	<!--
+	<a href="">FMC.guru</a>
+	<a href="">Others</a>
+	<a href="">Kompound</a>
+	<a href="">T</a>
+	<a href="">T</a>
+	<a href="">D</a>
+	-->
+</div>
+<div class="body">
+<h1>Sellid</h1>
+<!--<span class="">
+	<a class="topchains selchain" target="_blank" href="https://ftm.guru/GRAIN"><img src="https://ftm.guru/icons/ftm.svg"></a>
+	<a class="topchains" target="_blank" href="https://kcc.guru/kompound"><img src="https://ftm.guru/icons/kcc.png"></a>
+	<a class="topchains" target="_blank" href="https://mtv.guru/GRAIN"><img src="https://ftm.guru/icons/mtv.png"></a>
+</span>-->
+<h3>Sell SOLID Locked inside your veNFT</h3>
+
+<i>Get Quotes for your Solidly's veSOLID NFTs and access Instant Liquidity for timelocked SOLID!</i><br><br>
+
+
+
+
+<br><br><br><br>
+<div align="center">
+	<button onclick="cw()" class="btn" id="btn-connect">Connect a Wallet?</button>
+	<br><br><br>
+	<input onchange="gq(this.value)" type="number" step="1" id="input-nid" placeholder="Enter veNFT's ID"> <button class="btn" onclick="gq()"> Go</button>
+</div>
+<br><br><br><br><br><br>
+
+
+
+
+
+
+
+<div class="cards" id="cards">
+</div>
+
+
+<div class="">
+</div>
+
+
+
+<br><br><br><br><br><br>
+<hr class="hr1">
+<br><br><br><br>
+<div align="center"><i>Want to see more?<br><br>
+<a href="mailto:ftm1337@protonmail.com">📧</a> Let us know!</i><br>
+	<div class="lowerbar">
+	<a target="_blank" href="https://twitter.com/ftm1337"><img src="https://ftm.guru/crypto-icons/twitter.svg"></a>
+	<a target="_blank" href="https://t.me/ftm1337"><img src="https://ftm.guru/crypto-icons/telegram.svg"></a>
+	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="https://ftm.guru/crypto-icons/discord.svg"></a>
+	</div>
+</div>
+<br><br><br><br><br><br>
+<div onclick="pantvl()">
+	<span style="font-size:2.5em;font-weight:bold" id="pantvl" class="fore">$0.000</span><sup style="font-size:1.2em;position:relative;top: -14px;">⟳</sup><br>
+	(Total Value Locked on FTM.guru)
+</div>
+
+<br><br>
+<div class="lowerbar">Powered by Guru Network.
+<br>
+	<a target="_blank" href="https://kcc.guru">KCC.guru</a>
+	<a target="_blank" href="https://ftm.guru">FTM.guru</a>
+	<a target="_blank" href="https://fmc.guru">FMC.guru</a>
+	<a target="_blank" href="https://fmc.guru">MTV.guru</a>
+	<br><br>
+	<a target="_blank" href="https://kcc.guru"><img src="https://ftm.guru/crypto-icons/kcc.png"></a>
+	<a target="_blank" href="https://ftm.guru"><img src="https://ftm.guru/crypto-icons/64.png"></a>
+	<a target="_blank" href="https://fmc.guru"><img src="https://ftm.guru/crypto-icons/FMC.svg"></a>
+	<a target="_blank" href="https://mtv.guru"><img src="https://ftm.guru/crypto-icons/mtv.png"></a>
+	<a target="_blank" href="https://medium.com/@ftm1337"><img src="https://ftm.guru/crypto-icons/medium.svg"></a>
+	<a target="_blank" href="https://www.coingecko.com/coins/elite-1337"><img src="https://ftm.guru/crypto-icons/gecko.svg"></a>
+	<a target="_blank" href="https://coinmarketcap.com/currencies/elite-1337"><img src="https://ftm.guru/crypto-icons/cmc.svg"></a>
+	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/crypto-icons/defillama.svg"></a>
+	<a target="_blank" href="https://defillama.com/protocol/ftmguru"><img src="https://ftm.guru/crypto-icons/nomics.svg"></a>
+	<!--<a target="_blank" href="https://defillama.com/protocol/kccguru"><img src="https://ftm.guru/crypto-icons/defillama.svg"></a>-->
+</div>
+
+<br><br><br><br><br><hr class="hr1">
+
+</div>
+</body>
+<script src="https://ftm.guru/web3.min.js"></script>
+<script>
+window.addEventListener('load',async function()
+{
+	if(window.ethereum&&Number(window.ethereum.chainId)==250)
+	{
+		web3 = new Web3(web3.currentProvider);
+		if(await ethereum._metamask.isUnlocked() == false){for(i=0;i< grains.length;i++){ggs(grains[i])}}
+		if(!(window.ethereum.selectedAddress==null)){cw()}
+	}
+	else{web3 = new Web3("https://rpc.ftm.tools");}
+	venft = new web3.eth.Contract(venfta,"0xcbd8fea77c2452255f59743f55a3ea9d83b3c72b");
+
+	pantvl()
+
+}, false);
+function pantvl()
+{
+	pt=new web3.eth.Contract([{"constant": true,"inputs": [],"name": "tvl","outputs": [{"internalType": "uint256","name": "","type": "uint256"}],"payable": false,"stateMutability": "view","type": "function"}],"0x0786c3a78f5133F08C1c70953B8B10376bC6dCad")
+	pt.methods.tvl().call((e,r)=>{$("pantvl").innerHTML = "$"+(Number(r)/1e18).toLocaleString()});
+}
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+"Qt"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+"Qd"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+"Tn"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+"Bn"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+"Mn"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+"Th"}
+	else if(_n>0){n_=(_n/1e0).toFixed(5)+""}
+	return(n_);
+}
+function $(_) {return document.getElementById(_);}
+function cw(){}
+function switchchain(v)
+{
+	if(v=="250"){window.location="https://ftm.guru/GRAIN"}
+	if(v=="321"){window.location="https://kcc.guru/kompound"}
+	if(v=="62621"){window.location="https://mtv.guru"}
+}
+function sortit(n) {
+  var t, r, z, i, x, y, v, b, c = 0;
+  t = document.getElementById("mainstage");
+  z = true;
+  b = "a";
+  while (z) {
+    z = false;
+    r = t.rows;
+    for (i = 0; i < (r.length - 1); i++) {
+      v = false;
+      x = (r[i].getElementsByTagName("TD")[n].innerHTML).replaceAll(/,| |\.|\$|%/g,'');
+      if(isFinite(x)){x=Number(x)}else{x=x.toLowerCase()}
+      y = (r[i + 1].getElementsByTagName("TD")[n].innerHTML).replaceAll(/,| |\.|\$|%/g,'');
+      if(isFinite(y)){y=Number(y)}else{y=y.toLowerCase()}
+      if (b == "a") {
+        if ((x) > (y)) {
+          v= true;
+          break;
+        }
+      } else if (b == "d") {
+        if ((x) < (y)) {
+          v = true;
+          break;
+        }
+      }
+    }
+    if (v) {
+      r[i].parentNode.insertBefore(r[i + 1], r[i]);
+      z = true;
+      c ++;
+    } else {
+      if (c == 0 && b == "a") {
+        b = "d";
+        z = true;
+      }
+    }
+  }
+}
+const addCSS = s => document.head.appendChild(document.createElement("style")).innerHTML=s;
+async function cw()
+{
+	if(!(window.ethereum)){console.log("Metamask not detected!");return(0)}
+	if(!(Number(window.ethereum.chainId)==250)){console.log("Wrong network detected!");return(0)}
+	await window.ethereum.enable();
+	$("btn-connect").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
+
+	gubs()
+}
+
+venfta=[{"inputs":[{"internalType":"address","name":"token_addr","type":"address"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"approved","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"owner","type":"address"},{"indexed":true,"internalType":"address","name":"operator","type":"address"},{"indexed":false,"internalType":"bool","name":"approved","type":"bool"}],"name":"ApprovalForAll","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"provider","type":"address"},{"indexed":false,"internalType":"uint256","name":"tokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"},{"indexed":true,"internalType":"uint256","name":"locktime","type":"uint256"},{"indexed":false,"internalType":"enum ve.DepositType","name":"deposit_type","type":"uint8"},{"indexed":false,"internalType":"uint256","name":"ts","type":"uint256"}],"name":"Deposit","type":"event"},{"anonymous":false,"inputs":[{"indexed":false,"internalType":"uint256","name":"prevSupply","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"supply","type":"uint256"}],"name":"Supply","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"from","type":"address"},{"indexed":true,"internalType":"address","name":"to","type":"address"},{"indexed":true,"internalType":"uint256","name":"tokenId","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"provider","type":"address"},{"indexed":false,"internalType":"uint256","name":"tokenId","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"value","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"ts","type":"uint256"}],"name":"Withdraw","type":"event"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"abstain","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_approved","type":"address"},{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"approve","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"attach","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"attachments","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"_block","type":"uint256"}],"name":"balanceOfAtNFT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"balanceOfNFT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"_t","type":"uint256"}],"name":"balanceOfNFTAt","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"block_number","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"checkpoint","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_value","type":"uint256"},{"internalType":"uint256","name":"_lock_duration","type":"uint256"}],"name":"create_lock","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_value","type":"uint256"},{"internalType":"uint256","name":"_lock_duration","type":"uint256"},{"internalType":"address","name":"_to","type":"address"}],"name":"create_lock_for","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"decimals","outputs":[{"internalType":"uint8","name":"","type":"uint8"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"deposit_for","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"detach","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"epoch","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"getApproved","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"get_last_user_slope","outputs":[{"internalType":"int128","name":"","type":"int128"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"_value","type":"uint256"}],"name":"increase_amount","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"_lock_duration","type":"uint256"}],"name":"increase_unlock_time","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_owner","type":"address"},{"internalType":"address","name":"_operator","type":"address"}],"name":"isApprovedForAll","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_spender","type":"address"},{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"isApprovedOrOwner","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"locked","outputs":[{"internalType":"int128","name":"amount","type":"int128"},{"internalType":"uint256","name":"end","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"locked__end","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_from","type":"uint256"},{"internalType":"uint256","name":"_to","type":"uint256"}],"name":"merge","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"name","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"ownerOf","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"ownership_change","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"point_history","outputs":[{"internalType":"int128","name":"bias","type":"int128"},{"internalType":"int128","name":"slope","type":"int128"},{"internalType":"uint256","name":"ts","type":"uint256"},{"internalType":"uint256","name":"blk","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_from","type":"address"},{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_from","type":"address"},{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"bytes","name":"_data","type":"bytes"}],"name":"safeTransferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_operator","type":"address"},{"internalType":"bool","name":"_approved","type":"bool"}],"name":"setApprovalForAll","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_voter","type":"address"}],"name":"setVoter","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"slope_changes","outputs":[{"internalType":"int128","name":"","type":"int128"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"supply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"bytes4","name":"_interfaceID","type":"bytes4"}],"name":"supportsInterface","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"symbol","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"token","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_owner","type":"address"},{"internalType":"uint256","name":"_tokenIndex","type":"uint256"}],"name":"tokenOfOwnerByIndex","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"tokenURI","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalSupply","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_block","type":"uint256"}],"name":"totalSupplyAt","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"t","type":"uint256"}],"name":"totalSupplyAtT","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_from","type":"address"},{"internalType":"address","name":"_to","type":"address"},{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"transferFrom","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"user_point_epoch","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"},{"internalType":"uint256","name":"","type":"uint256"}],"name":"user_point_history","outputs":[{"internalType":"int128","name":"bias","type":"int128"},{"internalType":"int128","name":"slope","type":"int128"},{"internalType":"uint256","name":"ts","type":"uint256"},{"internalType":"uint256","name":"blk","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"},{"internalType":"uint256","name":"_idx","type":"uint256"}],"name":"user_point_history__ts","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"version","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"voted","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"voter","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"voting","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_tokenId","type":"uint256"}],"name":"withdraw","outputs":[],"stateMutability":"nonpayable","type":"function"}]
+//venft = new web3.eth.Contract(venfta,"0xcbd8fea77c2452255f59743f55a3ea9d83b3c72b");
+
+async function gubs()
+{
+	bal = await venft.methods.balanceOf(window.ethereum.selectedAddress)
+	nfts = []
+	for(i=0;i< Number(bal);i++){
+		nfts.push(await venft.methods.tokenOfOwnerByIndex(window.ethereum.selectedAddress,i))
+	}
+	vestat(nfts)
+}
+
+async function gq(a)
+{
+	vestat([$("input-nid").value])
+}
+async function vestat(ar)
+{
+	for(i=0;i< ar.length;i++)
+	{
+		bal = venft.methods.balanceOfNFT(ar[i]).call();
+		loc = venft.methods.locked(ar[i]).call();
+		vot = venft.methods.voted(ar[i]).call();
+		Promise.all([bal,loc,vot,ar[i]])
+		.then(stat=>{
+			card = document.createElement("div")
+			b = Number(stat[0])/1e18
+			l = Number(stat[1][0])/1e18
+			t = new Date((Number(stat[1].end)*1e3))
+			tl = t > Date.now() ? (t - Date.now())/(1e3 * 86400*365) : 0
+			v = b/((1+tl)**1.5)
+			console.log(b,tl,v)
+			card.innerHTML = `
+				<div class="card">
+					<br>
+					<span><b>veNFT #${stat[3]}</b></span><br><br>
+					<hr>
+					<span>🦾 ${b.toFixed()}</span><br>
+					<b>Governance Power</b><br><br>
+					<span>🔏 ${l.toFixed()}</span><br>
+					<b>SOLID Locked-up</b><br><br>
+					<span>⌚ ${t.toLocaleDateString()}</span><br>
+					<b>Unlock Date</b><br>
+					<hr><br>
+					<span><b>💰 $${v.toFixed()}</span></b><br>
+					<b>Our Purchase Offer</b><br><br>
+				</div>
+			`
+			$("cards").append(card)
+		})
+	}
+}
+</script>
+</html>
