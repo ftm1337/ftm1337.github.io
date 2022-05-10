@@ -8,6 +8,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="https://ftm.guru/img/64.png"/>
 <style>
+@font-face{font-family:bold;src: url(https://ftm.guru/font/bold.ttf);}
+@font-face{ font-family:italic;src: url(https://ftm.guru/font/italic.ttf);}
+@font-face{ font-family:light;src: url(https://ftm.guru/font/light.ttf);}
+@font-face{ font-family:light_italic;src: url(https://ftm.guru/font/light_italic.ttf);}
+@font-face{ font-family:regular;src: url(https://ftm.guru/font/regular.ttf);}
+@font-face{ font-family:regular_italic;src: url(https://ftm.guru/font/regular_italic.ttf);}
+*{font-family:regular;}
 *{
 scroll-behavior: smooth !important;
 }
@@ -16,7 +23,6 @@ body {
   background-size: 22px 22px;
   color: white;
   margin:auto;
-  font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif;
 }
 .body{
   margin: 8%
@@ -229,20 +235,45 @@ table thead tr td,table tbody tr td{min-width:max-content;min-width: -moz-max-co
 	-->
 </div>
 <div class="body">
+<h3 align="center">🥳 Its our Birthday! 🎉</h3>
+<div style="position:sticky;top:400px" id="poppers" align="center"></div>
+<script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+<script>
+function cb()
+{
+	party.settings.gravity = 400
+	party.confetti($("poppers"), {
+		// Specify further (optional) configuration here.
+		count: party.variation.range(120, 140),
+		spread: party.variation.range(20),
+		speed: party.variation.range(420,1337),
+		size: party.variation.skew(1,0.2),
+		shapes: ["square","rectangle","circle","roundedSquare","roundedRectangle","star"],
+	});
+}
+window.addEventListener('load',async function()
+{
+	cb()
+	_cb = setInterval(cb,10000)
+}, false);
+</script>
 <h1>Kompound Protocol</h1>
 <!--<span class="">
 	<a class="topchains selchain" target="_blank" href="https://ftm.guru/GRAIN"><img src="https://ftm.guru/icons/ftm.svg"></a>
 	<a class="topchains" target="_blank" href="https://kcc.guru/kompound"><img src="https://ftm.guru/icons/kcc.png"></a>
 	<a class="topchains" target="_blank" href="https://mtv.guru/GRAIN"><img src="https://ftm.guru/icons/mtv.png"></a>
 </span>-->
-<h3>Compounding Service for Yield Farms for
+<h3>A Capital Hyper-Efficient Compounding Service<br>
+No governors. <span class="fore">100% Immutable.</span></h3>
+
+<!-- for Yield Farms for
 <select onchange="switchchain(this.value)">
 <option value="250" selected> Fantom Opera</option>
 <option value="321"> Kucoin C-Chain</option>
 <option value="62621"> MultiVAC (MTV)</option>
-</select>
-
-</h3>
+<option value="62621"> Echelon (MTV)</option>
+</select>-->
+<br>
 <i>Earn 1% of each harvest, just for paying the gas! Earn compound interest even on those rewards!</i><br><br>
 <details><summary><button class="ddb" onclick='window.location="#all"'><span>Get Started</span></button></summary></details>
 <details><summary><button class="ddb" onclick='window.location="#dash"'><span>Dashboard</span></button></summary></details>
@@ -1506,6 +1537,8 @@ bDANI-BOMB
 </body>
 <script src="../web3.min.js"></script>
 <script>
+CHAINID = 250
+RPC_URL = "https://rpc.ftm.tools"
 window.addEventListener('load',async function()
 {
 	if(window.ethereum&&Number(window.ethereum.chainId)==250)
