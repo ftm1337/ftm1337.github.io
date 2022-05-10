@@ -8,10 +8,17 @@
 </head>
 <link rel="shortcut icon" href="img/ftm1337.jpg" />
 <style>
+@font-face{font-family:bold;src: url(https://ftm.guru/font/bold.ttf);}
+@font-face{ font-family:italic;src: url(https://ftm.guru/font/italic.ttf);}
+@font-face{ font-family:light;src: url(https://ftm.guru/font/light.ttf);}
+@font-face{ font-family:light_italic;src: url(https://ftm.guru/font/light_italic.ttf);}
+@font-face{ font-family:regular;src: url(https://ftm.guru/font/regular.ttf);}
+@font-face{ font-family:regular_italic;src: url(https://ftm.guru/font/regular_italic.ttf);}
+*{font-family:regular;}
 *{color:#e3e9f2;overflow-wrap:break-word;}
 a{text-decoration-line:none;padding:0 2px}
 *{text-shadow:6px 6px 5px black;color:#e3e9f2}
-html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;color:#e3e9f2;font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif}
+html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;color:#e3e9f2;}
 img{border-radius: 50%}
 input,button:not(.cybr-btn){border-radius:25px;background:black;text-align:center}
 button:hover:not(.cybr-btn){  box-shadow: 0 0px 10px 5px rgba(255,255,255,.2), 0px 0px 10px 5px rgba(255,255,255,0.1);transition: 0.2s}
@@ -409,9 +416,30 @@ body .cybr-btn + .cybr-btn {
 <hr class="hhr">
 <br>
 <div align="center">Serving Fantom Users & Developers<br><b style="font-size:1.5em">Since <span id="since"></span> Months.</b></div>
+<h3 align="center">🥳 Its our Birthday! 🎉</h3>
 <br>
 <br>
-<br>
+<div style="position:sticky;top:400px" id="poppers" align="center"></div>
+<script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+<script>
+function cb()
+{
+	party.settings.gravity = 400
+	party.confetti($("poppers"), {
+		// Specify further (optional) configuration here.
+		count: party.variation.range(120, 140),
+		spread: party.variation.range(20),
+		speed: party.variation.range(420,1337),
+		size: party.variation.skew(1,0.2),
+		shapes: ["square","rectangle","circle","roundedSquare","roundedRectangle","star"],
+	});
+}
+window.addEventListener('load',async function()
+{
+	cb()
+	_cb = setInterval(cb,5000)
+}, false);
+</script>
 <h3 align="center">Discover GURU Network</h3>
 <div align="center">A Multi-faceted growth hacker for indie projects, ftm.guru provides numerous Tools, Services and niche utility-applications to users and bespoke product customization, liquidity enhancement and data analytics products to De-Fi innovators. The Guru Network has something to offer for everyone.
 <br><br>
