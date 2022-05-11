@@ -21,7 +21,7 @@ pre{overflow-x:auto;max-width:80%}
 hr{box-shadow: rgba(0,255,255,0.2) 0px 0px 10px 10px;background: #090919;border-radius: 15px;border:aqua 2px solid;}
 td{padding: 0 8px;min-width: max-content;text-align: center;}
 th{font-weight:bold}
-td:first-child{text-align: left;}
+td:first-child,th:first-child{text-align: left;}
 #dt{overflow-x: auto}
 table{width:max-content}
 .advert{background: linear-gradient(45deg, rgba(255,0,0,0.25), rgba(0,0,255,0.25));padding:15px}
@@ -105,6 +105,7 @@ tr:hover td,tr:hover td b{background: aqua;color:navy;}
 				<th>RPC Server Address</th>
 				<th>Height</th>
 				<th>Latency</th>
+				<th>Gas</th>
 				<!--<th>Rating</th>-->
 			</tr>
 		</thead>
@@ -259,7 +260,7 @@ window.addEventListener('load',function()
 		rw.setAttribute("id","r"+i)
 		rw.setAttribute("onclick",'copsc(this)')
 		$("rtb").append(rw)
-		$("r"+(i)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>0ffline</td><td>1nfinite</td>`
+		$("r"+(i)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>0ffline</td><td>1nfinite</td><td>-1</td>`
 	}
 	for(i=0;i< rpcs.length;i++){w[i]=new Web3(rpcs[i]);}
 	polls();
@@ -294,7 +295,7 @@ async function polls()
 		try
 		{
 			var N = await w[i].eth.getBlockNumber();n=String(N);
-			$("r"+(i)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>${n.substring(0,n.length-3)+"<b>"+n.substr(-3)+"</b>"}</td><td>${((Date.now()-d)/1e3).toFixed(3)+"s"}</td>`
+			$("r"+(i)).innerHTML=`<td>${rpcs[i].split("https://")[1]}</td><td>${n.substring(0,n.length-3)+"<b>"+n.substr(-3)+"</b>"}</td><td>${((Date.now()-d)/1e3).toFixed(3)+"s"}</td><td>${(await w[i].eth.getGasPrice()/1e9).toFixed()}</td>`
 		sortit(1);sortit(1);
 		}
 		catch(e){//console.log("err: ",e)
