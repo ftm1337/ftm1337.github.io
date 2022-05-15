@@ -1,18 +1,26 @@
+@font-face{font-family:bold;src: url(https://ftm.guru/font/bold.ttf);}
+@font-face{ font-family:italic;src: url(https://ftm.guru/font/italic.ttf);}
+@font-face{ font-family:light;src: url(https://ftm.guru/font/light.ttf);}
+@font-face{ font-family:light_italic;src: url(https://ftm.guru/font/light_italic.ttf);}
+@font-face{ font-family:regular;src: url(https://ftm.guru/font/regular.ttf);}
+@font-face{ font-family:regular_italic;src: url(https://ftm.guru/font/regular_italic.ttf);}
+*{font-family:regular;}
 *{
 scroll-behavior: smooth !important;
 }
 body {
-  background: linear-gradient(90deg, #17082f 21px, transparent 1%) center, linear-gradient(#17082f 21px, transparent 1%) center, #a799cc;
-  background-size: 22px 22px;
+  background: #090909;
+  background-image: url("../img/bg_1.jpg");
   color: white;
+  background-attachment: fixed;
   margin:auto;
-  font-family:helvetica nueve, helvetica, robotica, ubuntu, roboto, sans-serif;
+  background-size: cover;
 }
 .body{
   margin: 8%
 }
 .topbar {
-  background: #6f42c1;
+  background: #001337;
   width: calc(100%-10px);
   display:flex;
   flex-wrap: wrap;
@@ -114,7 +122,7 @@ button:active {
 }
 #ivst,#switch {
   display:none;border:none
-  }
+}
 .panels div:nth-child(1),.panels div:nth-child(2) {
   border:4px dashed #ffc107;
   padding: 0 5% 0;
