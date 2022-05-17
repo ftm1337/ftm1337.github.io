@@ -29,7 +29,7 @@ body {
   z-index: 1;
   border-bottom: 8px ridge #17082f
 }
-.topbar a, details a {
+.topbar a {
   color: white;
   text-decoration: none;
   padding: 10px;
@@ -69,8 +69,7 @@ button:active {
   color:#32fbe2;
   text-decoration: none
 }
-.lowerbar img{width:24px;height:24px}
-.lowerbar .subimg{width:16px;height:16px;position: relative;right:9px;top:4px;margin-right:-11px}
+.lowerbar img{width:24px}
 .cards{
   display: flex;
   flex-wrap: wrap;
@@ -79,21 +78,19 @@ button:active {
   margin:10px 20px 10px 0px;
   min-width: 220px;
   padding: 0px 10px 10px 10px;
-  border-radius: 10px;
-  border: 1px dashed #fff;
-  background:rgba(15,15,255,0.2);
+  border: 2px solid #1f5;
+  border-radius: 5px;
+  background:rgba(16,240,80,0.2)
 }
-.card hr{color: #fff;border:solid 2px}
+.card hr{color: #1f5;border:solid 2px}
 .card sub{font-size: 1em}
 .card sup{font-size: 1.5em}
 .card:hover{
   transform: translate(5px,-5px);
+  box-shadow: -5px 5px 5px rgba(16,240,80,0.75);
   transition: 0.25s;
-  box-shadow: -8px 8px 8px #000;
-  border: 1px double #fff;
-  background:rgba(21,42,255,1);
+  background: rgba(16,240,80,0.1);
 }
-.card:hover hr{color: #fff;border:dashed 2px}
 .card span{font-size: 2em}
 .card a{text-decoration: none;color: inherit}
 .ki img {
@@ -101,16 +98,31 @@ button:active {
   top:8px;
   border-radius: 50%;
   width: 48px;
+  height: 48px;
   box-shadow: 0 0 2px 2px rgba(16,240,80,1);
 }
 .ki img:first-child{left: 8px}
+.ib {
+  position: relative;
+  top:-24px !important;
+  left:8px !important;
+  width: 22px !important;
+  height:22px !important;
+}
+.iib {
+  position: relative;
+  top:-6px !important;
+  left:-12px !important;
+  width: 22px !important;
+  height:22px !important;
+}
 .panels{
   display: grid;
   grid-template-columns: auto;
 }
 #ivst,#switch {
   display:none;border:none
-  }
+}
 .panels div:nth-child(1),.panels div:nth-child(2) {
   border:4px dashed #ffc107;
   padding: 0 5% 0;
@@ -131,11 +143,13 @@ button:active {
 }
 .hr1{
   color: transparent;
+  border: none;
   border-top: 16px dotted #ea39b8;
   max-width: 50%
 }
 .fore{color: gold !important;font-weight:400}
 #cw_m{color: #f23;font-weight: bold;text-shadow: 1px 1px 5px rgba(255,127,127,0.5)}
+.inacg td,.inacg td a{color: grey;-webkit-filter: grayscale(100%);filter: grayscale(100%);background: #17082f !important;}
 
 
 @media(min-width:641px){
