@@ -344,8 +344,8 @@ function basics() {
 async function fbasics()
 {
 	web3.eth.getBlockNumber().then(r=>$("bh").innerHTML = "Block Height "+r.toLocaleString());
-	await web3.eth.getGasPrice((e,r)=>{gpb=Number(r)/1e9;gpa=Math.min(100.1,gpb);gpc=gpb*1.11})
-	$("gt0a").innerHTML="<b>"+(gpa)+"</b> GWei";
+	await web3.eth.getGasPrice((e,r)=>{gpa=Number(r)/1e9;gpb=gpa**1.1;gpc=gpa**1.21})
+	$("gt0a").innerHTML="<b>"+(gpa).toFixed(1)+"</b> GWei";
 	$("gt0b").innerHTML="<b>"+(gpb).toFixed(0)+"</b> Gwei";
 	$("gt0c").innerHTML="<b>"+(gpc).toFixed(0)+"</b> Gwei";
 	$("tbar").innerHTML="FantomScan:"+(gpb)+"GWei - FTM.guru | FTM1337";
