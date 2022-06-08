@@ -237,28 +237,6 @@ table thead tr td,table tbody tr td{min-width:max-content;min-width: -moz-max-co
 	-->
 </div>
 <div class="body">
-<h3 align="center">🥳 Its our Birthday! 🎉</h3>
-<div style="position:sticky;top:400px" id="poppers" align="center"></div>
-<script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
-<script>
-function cb()
-{
-	party.settings.gravity = 400
-	party.confetti($("poppers"), {
-		// Specify further (optional) configuration here.
-		count: party.variation.range(120, 140),
-		spread: party.variation.range(20),
-		speed: party.variation.range(420,1337),
-		size: party.variation.skew(1,0.2),
-		shapes: ["square","rectangle","circle","roundedSquare","roundedRectangle","star"],
-	});
-}
-window.addEventListener('load',async function()
-{
-	cb()
-	_cb = setInterval(cb,10000)
-}, false);
-</script>
 <h1>Kompound Protocol</h1>
 <!--<span class="">
 	<a class="topchains selchain" target="_blank" href="https://ftm.guru/GRAIN"><img src="https://ftm.guru/icons/ftm.svg"></a>
