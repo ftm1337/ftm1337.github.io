@@ -14,8 +14,7 @@
 @font-face{ font-family:light_italic;src: url(https://ftm.guru/font/light_italic.ttf);}
 @font-face{ font-family:regular;src: url(https://ftm.guru/font/regular.ttf);}
 @font-face{ font-family:regular_italic;src: url(https://ftm.guru/font/regular_italic.ttf);}
-*{font-family:regular;}
-*{color:#e3e9f2;overflow-wrap:break-word;}
+*{font-family:regular;scroll-behavior: smooth !important;color:#e3e9f2;overflow-wrap:break-word;}
 a{text-decoration-line:none;padding:0 2px}
 *{text-shadow:6px 6px 5px black;color:#e3e9f2}
 html{background:radial-gradient(circle at bottom, #125, #122, #100);background-attachment: fixed;color:#e3e9f2;}
@@ -382,7 +381,7 @@ body .cybr-btn + .cybr-btn {
     clip-path: var(--clip-four);
   }
 }
-
+#othersites img {height:32px;border-radius:6px}
 .cybr-btn:nth-of-type(1) {
   --primary-hue: 260;
 }
@@ -430,7 +429,18 @@ body .cybr-btn + .cybr-btn {
 
 </div>
 <br><br>
-<div align="center" onclick="alert('IPFS version unavailable right now. Please check back later')">[<u>This page is here for historical reasons.</u>]<br><i>We're switching to IPFS for modern version.</i></div>
+<div align="center" onclick="alert('IPFS version unavailable right now. Please check back later')">[<u>This page is here for historical reasons.</u>]<br><i>We're switching to IPFS for modern version.</i>
+</div>
+<h4 align="center" id="othersites"><a href="#subsidiaries">Looking for other Guru Network sites?</a><br>
+	<a href="https://ftm.guru" target="_blank"><img src="https://ftm.guru/icons/64.png"></a>
+	<a href="https://fmc.guru" target="_blank"><img src="https://ftm.guru/icons/FMC.svg"></a>
+	<a href="https://kcc.guru" target="_blank"><img src="https://ftm.guru/icons/kucino.svg"></a>
+	<a href="https://mtv.guru" target="_blank"><img src="https://ftm.guru/icons/mtvguru.png"></a>
+	<a href="https://ech.guru" target="_blank"><img src="https://ftm.guru/icons/echguru.png"></a>
+</h4>
+<!--
+<h3><a href="https://fmc.guru" target="_blank">FMC.Guru</a> | <a href="https://kcc.guru" target="_blank">KCC.Guru</a> | <a href="https://mtv.guru" target="_blank">MTV.Guru</a> | <a href="https://ech.guru" target="_blank">ECH.Guru</a></h3>
+-->
 <br><br>
 <div class="mainstages" align="center">
 	<div class="mainstage advert">
@@ -1013,7 +1023,7 @@ body .cybr-btn + .cybr-btn {
 		<a href="https://onering.finance/" target="_blank"><img src="https://ftm.guru/icons/ring.svg"></a>
 	</div>
 	<br><br><br><br>
-	<h3>Subsidiaries</h3>
+	<h3 id="subsidiaries">More from Guru Network</h3>
 	<div>
 		<a href="https://fmc.guru" target="_blank"><img src="https://ftm.guru/icons/FMC.svg"></a>
 		<a href="https://kcc.guru" target="_blank"><img src="https://ftm.guru/icons/kucino.svg"></a>
