@@ -469,6 +469,12 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>Solidly</td>
 						<td><span><a href="https://solidly.exchange" target="_blank">💱</a><a href="https://solidly.exchange" target="_blank">🌐</a><a href="https://solidexfinance.com" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>ECH</td>
+						<td id="p1tpl46">0</td>
+						<td>Solidly</td>
+						<td><span><a href="https://solidly.exchange" target="_blank">💱</a><a href="https://solidly.exchange" target="_blank">🌐</a><a href="https://solidexfinance.com" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -1576,6 +1582,12 @@ function allpp()
 	EC.methods.balanceOf("0xf4b3875e63e5975530002b22517637a90166df90").call((e,r)=>
 	{
 		$("p1tpl45").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl45").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xf205d59f33e22df572b2e8e089a4e5b2223de511").call((e,r)=>
+	{
+		$("p1tpl46").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl46").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
