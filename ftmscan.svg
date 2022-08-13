@@ -1,0 +1,18 @@
+<svg width="73" height="73" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>Layer 1</title>
+  <g id="svg_1">
+   <path id="svg_2" fill="#fff"/>
+   <g id="svg_3">
+    <rect id="svg_4" x="0" y="0" fill="#fff" rx="10" height="73" width="73"/>
+    <g id="svg_5">
+     <g id="svg_6">
+      <path id="svg_7" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke="#043572" fill="none" d="m59.05301,46.03699l0,-20.024a5.006,5.006 0 0 0 -2.5,-4.33l-17.524,-10.012a5.006,5.006 0 0 0 -5.006,0l-17.524,10.012a5.006,5.006 0 0 0 -2.5,4.33l0,20.024a5.006,5.006 0 0 0 2.5,4.33l17.524,10.013a5.006,5.006 0 0 0 5.006,0l17.521,-10.013a5.006,5.006 0 0 0 2.503,-4.33z"/>
+      <path id="svg_8" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke="#043572" fill="none" d="m14.67501,23.40999l21.851,12.64l21.849,-12.64"/>
+      <line id="svg_9" x1="36.52601" x2="36.52601" y2="36.02499" stroke-width="4" stroke-linejoin="round" stroke-linecap="round" stroke="#043572" fill="none" y1="61.25499"/>
+     </g>
+    </g>
+   </g>
+  </g>
+ </g>
+</svg>
