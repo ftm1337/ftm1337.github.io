@@ -24,7 +24,7 @@ body{margin:0;padding:0}
 #navbar{height:10vw;background: #000;position:sticky;top:0;z-index:1}
 #navbar *{font-family:light;font-size:6vw;text-decoration: none;}
 #navbar a{position: relative;top:-2.5vw;margin: 4vw}
-
+#navbar span{position: relative;top:-2vw}
 #navbar{height:10vw;background: #000;position:sticky;top:0}
 #navbar *{font-family:regular;font-size:6vw;text-decoration: none;}
 #navbar a{position: relative;top:-2.5vw;margin: 2vw}
@@ -129,19 +129,31 @@ body{margin:0;padding:0}
 #dapps-btn-i:hover{background: #3af}
 
 
-.dapps-p{display: grid;grid-template-columns: auto auto;margin:4vw}
-#dapps-h-2{color: #001337;margin:13.37vw 0 -1vw 5vw;}
-#dapps-h-s{color: #001337;position: relative;top:1vw;margin:13.37vw 0 -1vw 5vw;font-family: light_italic}
-.dapps-pb{border: 1px solid #d0d7de;margin: 2vw;grid-gap: -12vw;padding: 2vw;border-radius: 1vw;font-size:1.5vw;cursor:pointer}
+.dapps-p{display: grid;grid-template-columns: auto;margin:4vw;}
+#dapps-h-2{color: #001337;margin:13.37vw 0 -1vw 5vw;font-size: 6vw;}
+#dapps-h-s{color: #001337;position: relative;top:1vw;margin:13.37vw 0 -1vw 5vw;font-family: light_italic;font-size:4vw;}
+.dapps-pb{border: 1px solid #d0d7de;margin: 4vw 2vw;grid-gap: -12vw;padding: 2vw;border-radius: 1vw;font-size:4.5vw;cursor:pointer}
 .dapps-p-h{font-family: bold;color:#0f6ddb}
 .dapps-p-u{font-family: regular;color:#bbb;font-weight: bold}
-.dapps-p-d{color: #57606a;margin: 1vw auto;font-size: 1.337vw}
-.dapps-p-f{border:1px solid #d0d7de;max-width: max-content;border-radius:100vw;font-size:1vw;padding:0 0.4vw 0 0.2vw}
-.dapps-p-f img{width: 1.5vw;height:1.5vw;position:relative;top:0.1vw}
-.dapps-p-f span{position: relative;top:-0.25vw;color:#57606a;}
-.dapps-p-t span{color: blue;font-family: light_italic;font-weight: bolder;position:relative;top: 1vw;font-size:1.25vw;background:rgba(0,255,255,0.5);border-radius: 5vw;padding: 0 0.5vw 0 0.2vw}
+.dapps-p-d{color: #57606a;margin: 3vw auto;font-size: 4.011vw}
+.dapps-p-f{border:1px solid #d0d7de;max-width: max-content;border-radius:100vw;font-size:3vw;padding:0 1.2vw 0 0.6vw}
+.dapps-p-f img{width: 4.5vw;height:4.5vw;position:relative;top:0.3vw}
+.dapps-p-f span{position: relative;top:-0.75vw;color:#57606a;}
+.dapps-p-t span{color: blue;font-family: light_italic;font-weight: bolder;position:relative;top: 1vw;font-size:3.75vw;background:rgba(0,255,255,0.5);border-radius: 50vw;padding: 0 1.5vw 0 0.6vw}
 
-
+@media(min-width:641px){
+	.dapps-p{display: grid;grid-template-columns: auto auto;margin:4vw}
+	#dapps-h-2{color: #001337;margin:13.37vw 0 -1vw 5vw;font-size:4vw;}
+	#dapps-h-s{color: #001337;position: relative;top:1vw;margin:13.37vw 0 -1vw 5vw;font-family: light_italic;font-size:2vw}
+	.dapps-pb{border: 1px solid #d0d7de;margin: 2vw;grid-gap: -12vw;padding: 2vw;border-radius: 1vw;font-size:1.5vw;cursor:pointer}
+	.dapps-p-h{font-family: bold;color:#0f6ddb}
+	.dapps-p-u{font-family: regular;color:#bbb;font-weight: bold}
+	.dapps-p-d{color: #57606a;margin: 1vw auto;font-size: 1.337vw}
+	.dapps-p-f{border:1px solid #d0d7de;max-width: max-content;border-radius:100vw;font-size:1vw;padding:0 0.4vw 0 0.2vw}
+	.dapps-p-f img{width: 1.5vw;height:1.5vw;position:relative;top:0.1vw}
+	.dapps-p-f span{position: relative;top:-0.25vw;color:#57606a;}
+	.dapps-p-t span{color: blue;font-family: light_italic;font-weight: bolder;position:relative;top: 1vw;font-size:1.25vw;background:rgba(0,255,255,0.5);border-radius: 5vw;padding: 0 0.5vw 0 0.2vw}
+}
 
 
 
