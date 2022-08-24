@@ -161,3 +161,7 @@ body{margin:0;padding:0}
 
 .partners img, .partners svg{height:120px;width:120px;border-radius: 0;background:navy}
 
+
+.footr {color: grey;font-size: 2em;text-align: center}
+.footr a{color: black;text-decoration: none}
+#othersites img {height:32px;border-radius:6px}
