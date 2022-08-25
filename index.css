@@ -26,7 +26,7 @@ body{margin:0;padding:0}
 #navbar a{position: relative;top:-2.5vw;margin: 4vw}
 #navbar span{position: relative;top:-2vw}
 #navbar{height:10vw;background: #000;position:sticky;top:0}
-#navbar *{font-family:regular;font-size:6vw;text-decoration: none;}
+#navbar *{font-family:regular;font-size:5vw;text-decoration: none;}
 #navbar a{position: relative;top:-2.5vw;margin: 2vw}
 @media(min-width:641px) {
 	#navbar{height:3vw;;text-align: right}
@@ -159,9 +159,13 @@ body{margin:0;padding:0}
 
 
 
-.partners img, .partners svg{height:120px;width:120px;border-radius: 0;background:navy}
 
-
-.footr {color: grey;font-size: 2em;text-align: center}
-.footr a{color: black;text-decoration: none}
-#othersites img {height:32px;border-radius:6px}
+.footr {color: rgba(255,255,255,0.75);font-size: 4vw;text-align: center;background:#051843 url("gold-contour.png");margin:0;padding:25vw 10vw 5vw 10vw}
+.footr a{color: white;text-decoration: none}
+.othersites img {height:15vw;border-radius:4vw;margin:1vw}
+#frens img {height:10vw;border-radius:;margin:1vw}
+@media(min-width:641px) {
+	.footr{font-size: 2vw;font-family:light;}
+	.othersites img {height:10vw;border-radius:2vw}
+	.partners img {height:5vw;border-radius:}
+}
