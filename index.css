@@ -162,10 +162,12 @@ body{margin:0;padding:0}
 
 .footr {color: rgba(255,255,255,0.75);font-size: 4vw;text-align: center;background:#051843 url("gold-contour.png");margin:0;padding:25vw 10vw 5vw 10vw}
 .footr a{color: white;text-decoration: none}
+#footrsub{font-family:bold;}
 .othersites img {height:15vw;border-radius:4vw;margin:1vw}
 #frens img {height:10vw;border-radius:;margin:1vw}
 @media(min-width:641px) {
 	.footr{font-size: 2vw;font-family:light;}
 	.othersites img {height:10vw;border-radius:2vw}
-	.partners img {height:5vw;border-radius:}
+	.partners img {height:2vw;border-radius:}
+	#frens img {height:5vw;border-radius:;margin:1vw}
 }

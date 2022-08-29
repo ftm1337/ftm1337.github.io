@@ -886,7 +886,8 @@
 	<br><br><br><br>
 	<div class="footr">
 		We strongly believe in collaborating with like-minded individuals, projects and DAOs.
-		<br><br>Meet our frens, associates, partners & clients!
+		<br><br>
+		<span id="footrsub">Meet our frens, associates, partners & clients!</span>
 		<br><br>
 		<div id="frens">
 			<a href="https://fmc.guru" target="_blank"><img src="https://ftm.guru/icons/FMC.svg"></a>
@@ -933,6 +934,9 @@
 			<a href="https://fantom.foundation" target="_blank"><img src="https://ftm.guru/icons/ftm.svg"></a>
 			<a target="_blank" href="https://panicswap.com/farms"><img src="https://ftm.guru/icons/panic.png"></a>
 			<a href="https://vfat.tools" target="_blank"><img src="https://ftm.guru/icons/vfat.png"></a>
+			<a target="_blank" href="https://twitter.com/TheTulipDAO"><img src="https://ftm.guru/icons/tulipdao.png"></a>
+			<a target="_blank" href="https://radialfinance.org"><img src="https://ftm.guru/icons/rdl.svg"></a>
+			<a target="_blank" href="https://aerariumfi.com"><img src="https://ftm.guru/icons/aera.png"></a>
 			<a target="_blank" href="https://app.chainhop.exchange/#/swap"><img src="https://ftm.guru/icons/chainhop.png"></a>
 			<a target="_blank" href="https://swap.arken.finance/tokens/fantom/0xf43cc235e686d7bc513f53fbffb61f760c3a1882"><img src="https://ftm.guru/icons/arken.png"></a>
 		</div>
@@ -964,7 +968,9 @@
 </body>
 <script>
 function $(_) {return document.getElementById(_);}
+function shufren(){a=Array.from($("frens").children);function sh(arr) {  arr.sort(() => Math.random() - 0.5);} sh(a);$("frens").innerHTML="";for(i=0;i< a.length;i++){$("frens").appendChild(a[i])}}
 window.addEventListener('load',async function(){arf()}, false);
-function arf(){	var xfr = setInterval(function(){a=Array.from($("frens").children);function sh(arr) {  arr.sort(() => Math.random() - 0.5);} sh(a);$("frens").innerHTML="";for(i=0;i< a.length;i++){$("frens").appendChild(a[i])}}, 15000);}
+function arf(){	var xfr = setInterval(function(){shufren();shufren();shufren()}, 15000);}
+shufren();shufren();shufren();
 </script>
 </html>
