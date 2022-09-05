@@ -1,0 +1,302 @@
+<!doctype html><html><meta charset="UTF-8">
+<head>
+<title>Beethoven-X Bribe for Gauge emissions to Echelon Trance by FTM.Guru</title>
+<meta name="description" content="Beethoven-X Bribe for Gauge emissions to Echelon Trance by FTM.Guru for Voting. Powered by the Guru Network.">
+<meta name="keywords" content="Fantom Opera, DEX, Solidly, 0xDAO, OxDAO, Vote, Bribe, Delegate, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<link rel="shortcut icon" href="https://ftm.guru/img/64.png" />
+<style>
+@font-face{font-family:bold;src: url(https://ftm.guru/font/bold.ttf);}
+@font-face{ font-family:italic;src: url(https://ftm.guru/font/italic.ttf);}
+@font-face{ font-family:light;src: url(https://ftm.guru/font/light.ttf);}
+@font-face{ font-family:light_italic;src: url(https://ftm.guru/font/light_italic.ttf);}
+@font-face{ font-family:regular;src: url(https://ftm.guru/font/regular.ttf);}
+@font-face{ font-family:regular_italic;src: url(https://ftm.guru/font/regular_italic.ttf);}
+* {
+  scroll-behavior: smooth !important;
+  font-family:light;
+  transition: 0.25s;
+  word-break: break-all;
+}
+html{
+  color:white;
+  background-color: black;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.hhr{
+  color: transparent;
+  border: none;
+  border-top: 8px dotted bisque;
+  max-width: 50%;
+  margin:5%
+}
+body{
+  background:radial-gradient(ellipse at top, rgba(18, 14, 68, 1) 10%, transparent 80%),radial-gradient(ellipse at bottom, rgba(18, 14, 68, 1) 10%, transparent 80%) !important;
+  margin: -4% auto;
+  padding: 5vw
+}
+#paneld{display:none}
+.icons20 img{height: 40px }
+
+button{box-shadow: 0px 0px 3px 3px rgba(0,255,255,0.5);color:white;background:purple;padding:2px 5px;border-radius: 10px;font-size: 1.2em}
+button:hover{transform: translateY(-5px);}
+
+table{border-collapse: collapse}
+thead td{font-family: bold}
+td{min-width: max-content;font-family:light;padding-right:5px}
+tbody td:nth-of-type(n+2){font-family: regular;text-align: right}
+tr:hover {background: yellow;color: navy}
+* a{color:aqua;text-decoration:none;font-family:bold}
+
+</style>
+
+<body>
+<div align="center">
+
+	<h1>Beethoven-x Gauge Voting</h1>
+
+	<h2>Instructions</h2>
+	To earn the best bribes from FTM.Guru, please vote on Echelon Trance!
+	<i></i>
+
+<hr class="hhr">
+
+
+	Select Round:<br>
+	<select id="select_round" onchange="getPools(this.value)" onselect="this.onchange">
+		<option selected>-?-</option>
+		<option value="18">Round 18</option>
+	</select>
+	<br><br>
+	Select Pool:<br>
+	<select id="select_pool" disabled onchange="getPool(this.value)" onselect="this.onchange">
+		<option selected>-?-</option>
+	</select>
+
+	<br><br>
+	<br><br>
+	<div style="overflow:auto">
+		<table id="voters">
+			<thead>
+				<tr>
+					<td>Address of Voter</td>
+					<td>Votes</td>
+				</tr>
+			</thead>
+			<tbody id="vtab">
+			</tbody>
+		</table>
+	</div>
+
+	<br><br>
+
+	<h2>We are thankful to all of our Voters</h2>
+	<br><br>
+	<h2>Bribe Payouts</h2>
+	<h3>Old Voting bribes</h3>
+	...
+	<br><a href="https://ftm.guru/">...</a>
+
+	<br><br>
+	<h3>Delegation Rewards</h3>
+	...
+	<h4>Round 1</h4>
+	...
+	<br><a href="https://ftmscan.com/tx/0xefc2a96e94976855665c6ef543331aefdefa843994bfee34f7f77309d2b2d245">...</a>
+
+	<hr class="hhr">
+
+
+	<h2>What *is* this??</h2>
+	We bribe all BEETS, fBEETS and staked-fBEETS voters (A user who stakes their fBEETS or BEETS tokens at beets.fi) for voting for us (Guru Network DAO) or our clients in return of rewards airdropped directly to their wallets.
+
+
+	<br><br><br><br><b>Have more questions?</b>
+	<br>Come over to our friendly community!<br>
+	<div class="icons20">
+		<a href="https://discord.gg/QpyfMarNrV" target="_blank"><img src="https://ftm.guru/icons/discord.svg"></a>
+		<a href="https://twitter.com/ftm1337" target="_blank"><img src="https://ftm.guru/icons/twitter.svg"></a>
+		<a href="https://t.me/ftm1337" target="_blank"><img src="https://ftm.guru/icons/telegram.svg"></a>
+	</div>
+	<br><br>
+	<a style="color:white;text-decoration:none;text-shadow:0px 1px 2px #000"href="https://ftm.guru"><h1>Powered by Guru Network<br>( 🦾, 🚀 )</h1></a>
+
+
+
+
+
+
+</div>
+</body>
+
+
+
+
+
+
+<script src="https://ftm.guru/ethers-5.2.umd.min.js"></script>
+
+<script>
+
+
+CHAINID = 250;
+RPC_URL = "https://rpc.ftm.tools"
+EXPLORE = "https://ftmscan.com/address/";
+GURUDAO = "0x167D87A906dA361A10061fe42bbe89451c2EE584"
+
+function $(_) {return document.getElementById(_);}
+let provider= {};
+let signer= {};
+window.addEventListener('load',async function()
+{
+	provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+}, false);
+
+
+
+/*
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Qt."}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Qd."}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Tn."}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Bn."}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Mn."}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Th."}
+	else if(_n>0){n_=(_n/1e0).toFixed(5)+""}
+	return(n_);
+}
+*/
+function fornum(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(3)+"Qt"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(3)+"Qd"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(3)+"T"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(3)+"B"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(3)+"M"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(3)+"K"}
+	else if(_n>1e1){n_=(_n/1e0).toFixed(5)+""}
+	else if(_n>0.0){n_=(_n/1e0).toFixed(8)+""}
+	return(n_);
+}
+function fornum2(n,d)
+{
+	_n=(Number(n)/10**Number(d));
+	n_=_n;
+	if(_n>1e18){n_=(_n/1e18).toFixed(2)+" Quintillion"}
+	else if(_n>1e15){n_=(_n/1e15).toFixed(2)+" Quadrillion"}
+	else if(_n>1e12){n_=(_n/1e12).toFixed(2)+" Trillion"}
+	else if(_n>1e9){n_=(_n/1e9).toFixed(2)+" Billion"}
+	else if(_n>1e6){n_=(_n/1e6).toFixed(2)+" Million"}
+	else if(_n>1e3){n_=(_n/1e3).toFixed(2)+" Thousand"}
+	else if(_n>1){n_=(_n/1e0).toFixed(8)+""}
+	return(n_);
+}
+
+
+
+
+
+
+
+H = {
+	18: "0xa043b7eea5b8714c80f8c7c0caf7b6246e3ee20f1474ce717ee3301d848bed2d",
+}
+
+P = []
+
+async function getPools(n) {
+	q = {
+		"query": `
+			query P {
+				proposal ( id: "${ H[n] }" ) {
+					choices votes scores
+				}
+			}
+		`,
+		"variables":null,
+		"operationName":"P"
+	}
+	f = await fetch(
+		"https://hub.snapshot.org/graphql",
+		{
+			"credentials": "omit",
+			"headers": {"Accept": "*/*","Accept-Language": "en-US,en;q=0.5","content-type": "application/json"},
+			"body": JSON.stringify(q),
+			"method": "POST",
+			"mode": "cors"
+		}
+	);
+	r = await f.json()
+	P = r.data.proposal.choices
+
+	$("select_pool").removeAttribute("disabled");
+	for(i=0;i< P.length;i++) { $("select_pool").innerHTML+=`<option value=${i}>${P[i]}</option>` }
+}
+
+async function getPool(n) {
+
+	n++
+
+	$("vtab").innerHTML=""
+
+	round = $("select_round").value
+	q = {
+		"query": `
+			query V {
+				votes (
+    				first: 30000
+    				orderBy: "vp"
+    				where: {
+    					proposal: "${ H[round] }"
+    				}
+    			) {
+    				choice
+    				voter
+    				vp
+    			}
+			}
+		`,
+		"variables":null,
+		"operationName":"V"
+	}
+	f = await fetch(
+		"https://hub.snapshot.org/graphql",
+		{
+			"credentials": "omit",
+			"headers": {"Accept": "*/*","Accept-Language": "en-US,en;q=0.5","content-type": "application/json"},
+			"body": JSON.stringify(q),
+			"method": "POST",
+			"mode": "cors"
+		}
+	);
+	rr = await f.json()
+	r = rr.data.votes
+	console.log("pool-votes",n,r)
+
+	vv = []
+	for(i=0; i< r.length; i++) { if( !(r[i].choice[n] == undefined)) {vv.push(r[i])} }
+	console.log(vv)
+
+	for(i=0; i< vv.length; i++) {
+		c = vv[i].choice;
+		w = 0;
+		for(j=0; j< (Object.keys(c)).length; j++) { w += c[Object.keys(c)[j]] }
+
+		$("vtab").innerHTML += `
+			<td>${vv[i].voter}</td><td>${(vv[i].vp/w*c[n]).toFixed()}</td>
+		`
+	}
+
+
+
+
+}
+
+</script>
