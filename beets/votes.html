@@ -1,7 +1,7 @@
 <!doctype html><html><meta charset="UTF-8">
 <head>
-<title>Beethoven-X Bribe for Gauge emissions to Echelon Trance by FTM.Guru</title>
-<meta name="description" content="Beethoven-X Bribe for Gauge emissions to Echelon Trance by FTM.Guru for Voting. Powered by the Guru Network.">
+<title>Beethoven-X Voting for Gauge emissions | FTM.Guru</title>
+<meta name="description" content="Earn a Bribe with Beethoven-X Voting for Gauge emissions! Powered by the Guru Network.">
 <meta name="keywords" content="Fantom Opera, DEX, Solidly, 0xDAO, OxDAO, Vote, Bribe, Delegate, FTM, Decentralized Finance, ELITE, 1337, defi, farming, FTM1337">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
@@ -50,6 +50,12 @@ tbody td:nth-of-type(n+2){font-family: regular;text-align: right}
 tr:hover {background: yellow;color: navy}
 * a{color:aqua;text-decoration:none;font-family:bold}
 
+.CDIV{display: grid;grid-template-columns: auto}
+.cnumb{font-size: 2em;font-family:regular}
+.cdiv{margin:20px}
+@media(min-width:641px){
+  .CDIV{grid-template-columns: auto auto}
+}
 </style>
 
 <body>
@@ -63,11 +69,15 @@ tr:hover {background: yellow;color: navy}
 <hr class="hhr">
 
 
+	<br><br>
 	Select Round:<br>
 	<select id="select_round" onchange="getPools(this.value)" onselect="this.onchange">
 		<option selected>-?-</option>
 		<option value="18">Round 18</option>
 	</select>
+	<br><br>
+	<div id="rstat" class="CDIV"></div>
+	<br><br>
 	<br><br>
 	Select Pool:<br>
 	<select id="select_pool" disabled onchange="getPool(this.value)" onselect="this.onchange">
@@ -75,7 +85,10 @@ tr:hover {background: yellow;color: navy}
 	</select>
 
 	<br><br>
+	<div id="pstat" class="CDIV"></div>
 	<br><br>
+	<br><br>
+	<h3>List of Loyal Voters</h3>
 	<div style="overflow:auto">
 		<table id="voters">
 			<thead>
@@ -88,6 +101,7 @@ tr:hover {background: yellow;color: navy}
 			</tbody>
 		</table>
 	</div>
+	<br><br>
 
 	<br><br>
 	<h3>Want to Airdrop voters?</h4>
@@ -106,7 +120,7 @@ tr:hover {background: yellow;color: navy}
 	<br><br>
 	<h3>Delegation Rewards</h3>
 	...
-	<h4>Round 18</h4>
+	<h4>Round ?</h4>
 	...
 	<br><a href="https://ftmscan.com/tx/0xefc2a96e94976855665c6ef543331aefdefa843994bfee34f7f77309d2b2d245">...</a>
 
@@ -115,6 +129,8 @@ tr:hover {background: yellow;color: navy}
 
 	<h2>What *is* this??</h2>
 	We bribe all BEETS, fBEETS and staked-fBEETS voters (A user who stakes their fBEETS or BEETS tokens at beets.fi) for voting for us (Guru Network DAO) or our clients in return of rewards airdropped directly to their wallets.
+	<br>
+	This is basically a voter-tracker for bribooors, to help them disburse bribes swiftly!
 
 
 	<br><br><br><br><b>Have more questions?</b>
@@ -214,6 +230,7 @@ H = {
 }
 
 P = []
+TV = 0;
 
 async function getPools(n) {
 	q = {
@@ -241,7 +258,21 @@ async function getPools(n) {
 	P = r.data.proposal.choices
 
 	$("select_pool").removeAttribute("disabled");
-	for(i=0;i< P.length;i++) { $("select_pool").innerHTML+=`<option value=${i}>${P[i]}</option>` }
+	for(i=0;i< P.length;i++) {
+		$("select_pool").innerHTML+=`<option value=${i}>${P[i]}</option>`
+	TV += r.data.proposal.scores[i]
+	}
+
+	$("rstat").innerHTML = `
+		<div class="cdiv">
+			<div class="cnumb">${r.data.proposal.votes}</div>
+			<div class="cdesc">Voter turnout</div>
+		</div>
+		<div class="cdiv">
+			<div class="cnumb">${fornum(TV,0)}</div>
+			<div class="cdesc">Total Votes Cast</div>
+		</div>
+	`
 }
 
 async function getPool(n) {
@@ -288,6 +319,8 @@ async function getPool(n) {
 	for(i=0; i< r.length; i++) { if( !(r[i].choice[n] == undefined)) {vv.push(r[i])} }
 	console.log(vv)
 
+	ptv = 0;
+
 	for(i=0; i< vv.length; i++) {
 		c = vv[i].choice;
 		w = 0;
@@ -296,9 +329,19 @@ async function getPool(n) {
 		$("vtab").innerHTML += `
 			<td>${vv[i].voter}</td><td>${(vv[i].vp/w*c[n]).toFixed()}</td>
 		`
+		ptv += vv[i].vp/w*c[n];
 	}
 
-
+	$("pstat").innerHTML = `
+		<div class="cdiv">
+			<div class="cnumb">${(ptv/TV*100).toLocaleString()}%</div>
+			<div class="cdesc">Pool Dominance</div>
+		</div>
+		<div class="cdiv">
+			<div class="cnumb">${fornum(ptv,0)}</div>
+			<div class="cdesc">Votes Received</div>
+		</div>
+	`
 
 
 }
