@@ -73,7 +73,6 @@ tr:hover {background: yellow;color: navy}
 	Select Round:<br>
 	<select id="select_round" onchange="getPools(this.value)" onselect="this.onchange">
 		<option selected>-?-</option>
-		<option value="18">Round 18</option>
 	</select>
 	<br><br>
 	<div id="rstat" class="CDIV"></div>
@@ -172,8 +171,8 @@ let signer= {};
 window.addEventListener('load',async function()
 {
 	provider = new ethers.providers.JsonRpcProvider(RPC_URL);
+	prounds()
 }, false);
-
 
 
 /*
@@ -227,6 +226,15 @@ function fornum2(n,d)
 
 H = {
 	18: "0xa043b7eea5b8714c80f8c7c0caf7b6246e3ee20f1474ce717ee3301d848bed2d",
+	19: "0xbf0cd1e84ce029743dad59ac60dcb7ba7e3d2d068b679ccaef80b849fc786967"
+}
+
+function prounds() {
+	for(i=0;i< Object.keys(H).length;i++) {
+		$("select_round").innerHTML+= `
+			<option value="${Object.keys(H)[i]}">Round ${Object.keys(H)[i]}</option>
+		`
+	}
 }
 
 P = []
