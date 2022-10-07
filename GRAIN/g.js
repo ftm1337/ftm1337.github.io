@@ -650,10 +650,10 @@ async function DrefreshFarm()
 						console.log("apc_apy-projected",apy,dur,frq);
 					}
 					if(!(typeof $("c_last") == null )) {
-						ctl = d[4][1]-d[4][2]
+						ctl = Math.floor(Date.now()/1000 - d[4][1])
 						$("c_last").innerHTML =
-							Math.floor(ctl/1440)+"h "
-							+Math.floor((ctl%1440)/60)+"m "
+							Math.floor(ctl/3600)+"h "
+							+Math.floor((ctl%3600)/60)+"m "
 							+Math.floor(ctl%60)+"s"
 					}
 				}
