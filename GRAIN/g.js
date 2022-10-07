@@ -646,7 +646,14 @@ async function DrefreshFarm()
 						frq=86400*365/dur;
 						apy=(1+Number(d[3])/1e18/frq)**frq
 						$("c_apy-projected").innerHTML = "<b>"+fornum(apy*100,0)+" %</b>"
-						console.log("apc_apy-projected",apy,d,f,d)
+						console.log("apc_apy-projected",apy,dur,frq);
+					}
+					if(!(typeof $("c_last") == null )) {
+						ctl = d[4][1]-d[4][2]
+						$("c_last").innerHTML =
+							Math.floor(ctl/1440)+"h "
+							+Math.floor((ctl%1440)/60)+"m "
+							+Math.floor(ctl%60)+"s"
 					}
 				}
 			}
