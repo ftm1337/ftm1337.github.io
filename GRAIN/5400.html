@@ -12,7 +12,7 @@
 body{
   text-shadow: 1px 1px 1px black;
   background: #17082f;
-  background-image:url('https://www.wallpaperflare.com/static/373/1006/540/ship-sea-moon-night-wallpaper.jpg');
+  background-image:url('bg/bg-5400.jpg');
   background-attachment:fixed;
   background-position: bottom right;
   background-size:  100% 100%;
@@ -26,7 +26,13 @@ body{
 	<a href="index.html">🌾Granaries🌾</a>
 	<a href="../index.html">FTM.guru</a>
 	<a href="../index.html#dapps">Services & Tools</a>
-	<a href="https://discord.gg/QpyfMarNrV">Join our Discord!</a>
+
+	<div class="lowerbar">
+	<a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="https://ftm.guru/icons/discord.svg"></a>
+	<a target="_blank" href="https://twitter.com/ftm1337"><img src="https://ftm.guru/icons/twitter.svg"></a>
+	<a target="_blank" href="https://t.me/ftm1337"><img src="https://ftm.guru/icons/telegram.svg"></a>
+	</div>
+	<!--<a href="https://discord.gg/QpyfMarNrV">Join our Discord<a>
 	<!--
 	<a href="">FMC.guru</a>
 	<a href="">Others</a>
@@ -88,9 +94,9 @@ Zero withdrawal fees.
 
 	<div class="card">
 		<br>
-		<span id="c_aa">0.000 %</span>
+		<span id="c_apy-projected">0.000 %</span>
 		<hr>
-		Realized A.P.R.
+		1 Year Projected APY
 	</div>
 	<div class="card">
 		<br>
@@ -115,6 +121,36 @@ Zero withdrawal fees.
 		<span id="c_nr">1.000 x</span>
 		<hr>
 		Net Returns
+	</div>
+	<div class="card">
+		<br>
+		<span id="c_aa">0.000 %</span>
+		<hr>
+		Realized A.P.R.
+	</div>
+	<div class="card" style="display:none">
+		<br>
+		<span id="c_apr-realapr-t">0.000 %</span>
+		<hr>
+		Total Real-Time APR
+	</div>
+	<div class="card" style="display:none">
+		<br>
+		<span id="c_apr-realapr-1">0.000 %</span>
+		<hr>
+		APR from xLQDR perks
+	</div>
+	<div class="card" style="display:none">
+		<br>
+		<span id="c_apr-realapr-2">0.000 %</span>
+		<hr>
+		APR via farming MORPH
+	</div>
+	<div class="card">
+		<br>
+		<span id="c_apr-avgapr-5n">0.000 %</span>
+		<hr>
+		Avg. Base APR over 5 cycles
 	</div>
 	<div class="card">
 		<br>
@@ -171,7 +207,7 @@ Zero withdrawal fees.
 			<br><br>
 			<h4>Withdrawals</h4>
 			Available to Redeem: <br>
-			= 💰 $<span id="wd-usd" style="font-weight:bold">0.------</span> USD<br>
+			= 💰 <span id="wd-usd" style="font-weight:bold">0.------</span> USD ($)<br>
 			= 🌾 <span id="wd-ab" style="font-weight:bold">0.------</span> GRAINs<br>
 			= <img src="https://ftm.guru/icons/lpt.svg" width="16px"> <span id="redemp" style="font-weight:bold">0.------</span> LP Tokens<br><br>
 			<input id="inp-wa" placeholder="KP Amount">
@@ -268,13 +304,14 @@ Upon each deposit, including worker payouts, the Kompounder (Granary) issues spe
 
 </div>
 <script>
-f_1_add = "0xa56aa904aa21199a6141149b8db441877b1f2c9d";
+f_1_add = "0x14c89e6af2eacc0b9ab3d5f2d98db3b87ba50f3d";
 pairadd = "0x85660a3538579fdd27dc77d0f22d0c42b92d8114";
 tearned	= ["0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83","0x0789fF5bA37f72ABC4D561D00648acaDC897b32d"]//[WFTM,MORPH];
 RPC_URL = "https://rpc.ftm.tools"
 CHAINID = 250;
 DECIMAL = 18;
 decEARN = 18;
+INFODEC = ["uint256", "uint256", "uint256", "uint256", "uint256[]", "tuple(uint256,uint256,uint256,uint256)", "uint256", "uint256"]
 </script>
 <script src="../ethers-5.2.umd.min.js" type="application/javascript" defer="true"></script>
 <script src="g.js" type="application/javascript" defer="true" override="true"></script>
