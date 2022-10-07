@@ -578,6 +578,7 @@ async function gubs()
 	catch(e){console.log(e);/*$("cw_m").innerHTML=e*/}
 }
 
+TS=0;VL=0;
 async function DrefreshFarm()
 {
 	try
@@ -604,8 +605,8 @@ async function DrefreshFarm()
 		let io = (await fetch(url, { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json' } })).json();
 
 		await Promise.all([ts,vl,io,n5,ap]).then(d=>{
-			d[0]=Number(d[0]._hex)
-			d[1]=Number(d[1]._hex)
+			d[0]=Number(d[0]._hex);TS=d[0]
+			d[1]=Number(d[1]._hex);VL=d[1]
 			console.log("hrllo");
 			console.log(d);
 			$("c_ts").innerHTML = fornum(Number(d[0]),DECIMAL);
