@@ -44,6 +44,12 @@ body{
 </div>
 <div class="body">
 <br><br><br><br><br><br>
+<div class="lowerbar" style="background:navy !important; color:beige;text-align:center;font-size:2em">
+We're updating the UI a bit to include the HyperZapper. Some numbers & functions might look janky or be a bit wonky till this message is still visible.
+<br><br> Thanks for coming over and staking with us : )
+<br><br>Feel free to drop by our <a target="_blank" href="https://discord.com/invite/QpyfMarNrV"><img src="https://ftm.guru/icons/discord.svg">Discord</a> meanwhile!
+<br>
+</div>
 <h1>
 	<span class="ki"><img src="https://ftm.guru/icons/mlqdr.png"><img src="https://ftm.guru/icons/lqdr.png"></span>
 	GRAIN#5400
@@ -167,6 +173,7 @@ Zero withdrawal fees.
 
 
 </div>
+<i>(These stats are refreshed each 30 seconds)</i>
 
 <br><br><br><br>
 <hr class="hr1">
@@ -192,6 +199,7 @@ Zero withdrawal fees.
 <div class="panels">
 	<div class="">
 		<h3>For Investors</h3>
+		<h3 class="fore">Deposits</h3>
 		<div id="ivst">
 			<h4>Deposits</h4>
 			Available: <span id="dep-ab">0.------</span> LP<br>
@@ -201,17 +209,41 @@ Zero withdrawal fees.
 			<button id="btn-d-all" onclick="enter()">Deposit All</button><br>
 		</div>
 		<div id="appr">
-			<br><br>
-			<h4>Approvals</h4>
-			Please approve token for deposit into the Kompounder (Granary).<br><br>
-			<button onclick="farm_1_f_approve()" id="btn-approve">Approve</button>
+			<h4>Deposit mLQDR/LQDR Morpheus LP Tokens (MPT)</h4>
+			Please approve MPT for deposit into this Kompounder (Granary Vault).<br><br>
+			<button onclick="farm_1_f_approve()" id="btn-approve">Approve MPT</button>
 			<!--<br><br>
 			Allowances have been granted.
 			<button id="btn-revoke">Revoke?</button>--><br>
 		</div>
+		<div id="hz">
+			<br><br>
+			or
+			<h4>HyperZapper : Direct Entry</h4>
+			Jump into the Kompounder with plain FTM, LQDR or WFTM in a single transaction!
+			<br><br>
+			<b>Zap in with FTM</b> <img style="" src="https://ftm.guru/icons/ftm.svg" height="16px">
+			<br>Available: <span id="dep-ab-hz-f">0.------</span> FTM<br>
+			<input id="inp-hz-f" placeholder="FTM Amount">
+			<button id="btn-hz-f" onclick="zap_f()">Zap In with FTM</button>
+			<br><br>
+			<b>Zap in with LQDR</b> <img style="" src="https://ftm.guru/icons/lqdr.png" height="16px">
+			<br>Available: <span id="dep-ab-hz-l">0.------</span> LQDR<br>
+			<input id="inp-hz-f" placeholder="LQDR Amount">
+			<button id="btn-hz-f" onclick="zap_l()">Approve & Zap In</button>
+			<br><br>
+			<b>Zap in with WFTM</b> <img style="" src="https://ftm.guru/icons/ftm.svg" height="16px">
+			<br>Available: <span id="dep-ab-hz-w">0.------</span> WFTM<br>
+			<input id="inp-hz-f" placeholder="WFTM Amount">
+			<button id="btn-hz-f" onclick="zap_w()">Approve & Zap In</button>
+			<br><br>
+			<br><i>All Zaps are executed using our in-house DEX-Aggregation Sub-Protocol for Kompound using our flagship JIT (Just-in-Time) design for Elite-tier Capital Efficiency!</i>
+
+
+		</div>
 		<div id="wdpane">
 			<br><br>
-			<h4>Withdrawals</h4>
+			<h3 class="fore">Withdrawals</h3>
 			Available to Redeem: <br>
 			= 💰 <span id="wd-usd" style="font-weight:bold">0.------</span> USD ($)<br>
 			= 🌾 <span id="wd-ab" style="font-weight:bold">0.------</span> GRAINs<br>
@@ -235,8 +267,8 @@ Zero withdrawal fees.
 		<button class="btn-work" onclick="doHardWork()">Start Working</button>
 		<br><br><br>
 		After finishing work successfully, the Workers become investors.<br><br>
-		Rewards are automatically re-invested to maximize Returns on Returns!<br><br>
-		Please manage your earnings using the <i>Investor Panel</i>.
+		All the Rewards earned by Workers are automatically re-invested to maximize Returns on Returns!<br><br>
+		Please manage your earnings using the <i>Investor Panel</i> to Deposit more or Withdraw your valuables.
 	</div>
 
 
@@ -322,6 +354,64 @@ INFODEC = ["uint256", "uint256", "uint256", "uint256", "uint256[]", "tuple(uint2
 </script>
 <script src="../ethers-5.2.umd.min.js" type="application/javascript" defer="true"></script>
 <script src="g.js" type="application/javascript" defer="true" override="true"></script>
+<script>
+// @override gubs()
 
+async function gubs()
+{
+	try
+	{
+		farm_1_f_chappro();
+
+		theCon = new ethers.Contract(f_1_add, farabi, provider);
+		theLPT = new ethers.Contract(pairadd, farabi, provider);
+		var p = theCon.balanceOf(window.ethereum.selectedAddress)
+		var q = theLPT.balanceOf(window.ethereum.selectedAddress)
+		bal_f = provider.getBalance(window.ethereum.selectedAddress)
+		lqdr_ = new ethers.Contract("0x10b620b2dbAC4Faa7D7FFD71Da486f5D44cd86f9", farabi, provider);
+		wftm_ = new ethers.Contract("0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83", farabi, provider);
+		bal_l = lqdr_.balanceOf(window.ethereum.selectedAddress)
+		bal_w = wftm_.balanceOf(window.ethereum.selectedAddress)
+		/*
+		var info = theCon.info()
+		//ABI for info*() varies per grain
+		//Best to do a https-POST instead of json-RPC
+		*/
+		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
+		let info = (await fetch(RPC_URL, { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json' } })).json();
+		await Promise.all([p,q,info, bal_f, bal_l, bal_w]).then(s=>{
+			aum = Number("0x" + (s[2].result).substr(66,64));
+		//DECIMALDEPENDENT : 1e18 => 1e6 , 1e18 => 1e12
+			$("wd-usd").innerHTML=((Number(s[0])/TS*VL)/(10**DECIMAL)).toFixed(DECIMAL);
+			$("wd-ab").innerHTML=(s[0]/(10**DECIMAL)).toFixed(DECIMAL);
+			$("dep-ab").innerHTML=(s[1]/(10**DECIMAL)).toFixed(DECIMAL);
+			$("redemp").innerHTML=(s[0] * aum / (10**(2*DECIMAL))).toFixed(DECIMAL);
+			$("dep-ab-hz-f").innerHTML=(s[3]/(10**18)).toFixed(18);
+			$("dep-ab-hz-l").innerHTML=(s[4]/(10**18)).toFixed(18);
+			$("dep-ab-hz-w").innerHTML=(s[5]/(10**18)).toFixed(18);
+		})
+	}
+	catch(e){console.log(e);/*$("cw_m").innerHTML=e*/}
+}
+
+HZABI = [{"inputs":[],"stateMutability":"nonpayable","type":"constructor"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"alladdr","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"allb32","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"dao","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"feePerMillion","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newfee","type":"uint256"}],"name":"setFees","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"uint256","name":"grains","type":"uint256"}],"name":"zapFTM","outputs":[{"internalType":"uint256","name":"grainz","type":"uint256"}],"stateMutability":"payable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amount","type":"uint256"},{"internalType":"uint256","name":"grains","type":"uint256"}],"name":"zapLQDR","outputs":[{"internalType":"uint256","name":"grainz","type":"uint256"}],"stateMutability":"nonpayable","type":"function"}]
+HZAPPER = "0xeDD568357b346D34cF9A44b34d169864c5dEB5d2"
+async function zap_f() {
+	HZ = new ethers.Contract(HZAPPER, HZABI, signer);
+	amt = Math.floor(Number($("inp-hz-f").value)*1e18)
+	min = Math.floor(amt/20)
+	tx_r = await HZ.zapFTM(BigInt(amt), BigInt(min), {value:BigInt(amt)})
+	await tx_r.wait()
+	window.reload()
+}
+async function zap_l() {
+	HZ = new ethers.Contract(HZAPPER, HZABI, signer);
+	amt = Math.floor(Number($("inp-hz-f").value)*1e18)
+	min = Math.floor(amt/20)
+	tx_r = await HZ.zapFTM(BigInt(amt), BigInt(min), {value:BigInt(amt)})
+	await tx_r.wait()
+	window.reload()
+}
+</script>
 </body>
 </html>
