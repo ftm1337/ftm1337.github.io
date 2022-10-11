@@ -701,7 +701,8 @@ async function zap_f() {
 	min = Math.floor(amt/20)
 	tx_r = await HZ.zapFTM(BigInt(amt), BigInt(min), {value:BigInt(amt)})
 	await tx_r.wait()
-	window.reload()
+	//window.location.reload()
+	gubs();
 }
 async function zap_l() {
 	HZ = new ethers.Contract(HZAPPER, HZABI, signer);
@@ -719,7 +720,8 @@ async function zap_l() {
 	}
 	tx_r = await HZ.zapLQDR(BigInt(amt), BigInt(min))
 	await tx_r.wait()
-	window.reload()
+	//window.location.reload()
+	gubs();
 }
 async function zap_w() {
 	HZ = new ethers.Contract(HZAPPER, HZABI, signer);
@@ -735,9 +737,10 @@ async function zap_w() {
 		tx_a = await wftm_.approve(HZAPPER,ethers.constants.MaxUint256);
 		await tx_a.wait();
 	}
-	tx_r = await HZ.zapWFTM(BigInt(amt), BigInt(min));
+	tx_r = await HZ.zapFTM(BigInt(amt), BigInt(min));
 	await tx_r.wait();
-	window.reload();
+	//window.location.reload();
+	gubs();
 
 }
 
