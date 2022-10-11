@@ -707,13 +707,13 @@ async function zap_l() {
 	HZ = new ethers.Contract(HZAPPER, HZABI, signer);
 	amt = Math.floor(Number($("inp-hz-l").value)*1e18)
 	min = Math.floor(amt/20)
-	lqdr_ = new ethers.Contract("0x10b620b2dbAC4Faa7D7FFD71Da486f5D44cd86f9", farabi, signer);
+	lqdr_ = new ethers.Contract("0x10b620b2dbAC4Faa7D7FFD71Da486f5D44cd86f9", ab1, signer);
 	pr = await Promise.all([
 		lqdr_.allowance(window.ethereum.selectedAddress,HZAPPER),
 		lqdr_.balanceOf(window.ethereum.selectedAddress)
 	])
 
-	if(pr[0]< pr[1]) {
+	if(Number(pr[0]) < Number(pr[1])) {
 		tx_a = await lqdr_.approve(HZAPPER,ethers.constants.MaxUint256);
 		await tx_a.wait();
 	}
@@ -723,21 +723,21 @@ async function zap_l() {
 }
 async function zap_w() {
 	HZ = new ethers.Contract(HZAPPER, HZABI, signer);
-	amt = Math.floor(Number($("inp-hz-w").value)*1e18)
-	min = Math.floor(amt/20)
-	wftm_ = new ethers.Contract("0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83", farabi, signer);
+	amt = Math.floor(Number($("inp-hz-w").value)*1e18);
+	min = Math.floor(amt/20);
+	wftm_ = new ethers.Contract("0x21be370D5312f44cB42ce377BC9b8a0cEF1A4C83", ab1, signer);
 	pr = await Promise.all([
 		wftm_.allowance(window.ethereum.selectedAddress,HZAPPER),
 		wftm_.balanceOf(window.ethereum.selectedAddress)
-	])
+	]);
 
-	if(pr[0]< pr[1]) {
+	if(Number(pr[0]) < Number(pr[1])) {
 		tx_a = await wftm_.approve(HZAPPER,ethers.constants.MaxUint256);
 		await tx_a.wait();
 	}
-	tx_r = await HZ.zapLQDR(BigInt(amt), BigInt(min))
-	await tx_r.wait()
-	window.reload()
+	tx_r = await HZ.zapWFTM(BigInt(amt), BigInt(min));
+	await tx_r.wait();
+	window.reload();
 
 }
 
