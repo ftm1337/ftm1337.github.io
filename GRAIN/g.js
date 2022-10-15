@@ -603,7 +603,7 @@ async function DrefreshFarm()
 		await Promise.all([ts,vl,io]).then(d=>{
 			d[0]=Number(d[0]._hex)
 			d[1]=Number(d[1]._hex)
-			if(d[2].result == undefined) {comsole.log("error retreiving info!");return}
+			if(d[2].result == undefined) {console.log("error retreiving info!");return}
 			console.log("hrllo");
 			console.log(d);
 			$("c_ts").innerHTML = fornum(Number(d[0]),DECIMAL);
