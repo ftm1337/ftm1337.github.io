@@ -569,7 +569,7 @@ async function gubs()
 		await Promise.all([p,q,info]).then(s=>{
 			aum = Number("0x" + (s[2].result).substr(66,64));
 		//DECIMALDEPENDENT : 1e18 => 1e6 , 1e18 => 1e12
-			if $("wd-usd")!=null $("wd-usd").innerHTML=((Number(s[0])/TS*VL)/(10**DECIMAL)).toFixed(DECIMAL);
+			if ($("wd-usd")!=null) $("wd-usd").innerHTML=((Number(s[0])/TS*VL)/(10**DECIMAL)).toFixed(DECIMAL);
 			$("wd-ab").innerHTML=(s[0]/(10**DECIMAL)).toFixed(DECIMAL);
 			$("dep-ab").innerHTML=(s[1]/(10**DECIMAL)).toFixed(DECIMAL);
 			$("redemp").innerHTML=(s[0] * aum / (10**(2*DECIMAL))).toFixed(DECIMAL);
