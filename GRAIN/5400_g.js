@@ -15,8 +15,8 @@ async function basetrip()
 {
 //if(window.ethereum&&Number(window.ethereum.chainId)==250){web3 = new Web3(web3.currentProvider);if(!(window.ethereum.selectedAddress==null)){cw()}}
 
-	if(!(window.ethereum)){$("cw_m").innerHTML = "Wallet wasn't detected!";console.log("Wallet wasn't detected!");provider = new ethers.providers.JsonRpcProvider(RPC_URL);DrefreshFarm();pantvl();return}
-	else if(!Number(window.ethereum.chainId)==CHAINID){$("cw_m").innerHTML = "Wrong network! Please Switch to "+CHAINID;provider = new ethers.providers.Web3Provider(window.ethereum);DrefreshFarm();pantvl();return}
+	if(!(window.ethereum)){$("cw_m").innerHTML = "Wallet wasn't detected!";console.log("Wallet wasn't detected!");provider = new ethers.providers.JsonRpcProvider(RPC_URL);DrefreshFarm();pantvl();paintcharts();return}
+	else if(!Number(window.ethereum.chainId)==CHAINID){$("cw_m").innerHTML = "Wrong network! Please Switch to "+CHAINID;provider = new ethers.providers.Web3Provider(window.ethereum);DrefreshFarm();pantvl();paintcharts();return}
 	else if(//typeOf window.ethereum == Object &&Number(window.ethereum.chainId)
 		Number(window.ethereum.chainId)==CHAINID)
 	{
@@ -35,6 +35,7 @@ async function basetrip()
 	}
 	DrefreshFarm()
 	pantvl()
+	paintcharts()
 	arf()
 }
 async function pantvl()
@@ -743,6 +744,76 @@ async function zap_w() {
 	gubs();
 
 }
+
+
+PDO =[]; RD=[];
+
+async function paintcharts() {
+	RD = await provider.getLogs({address:f_1_add,topics:["0x0db7a68b5ae8f9feafd9a896acf42b110c0d2e30c340a7f7accf80a9ce5eec9d"],fromBlock:48587407,toBlock:'latest'})
+	pd()
+	paintall()
+}
+
+function pd() {
+	for(j=0;j< RD.length;j++) {
+		PDO[j]=pdp(RD[j])
+	}
+	return PDO
+}
+function pdp(dp) {
+	oi = [];
+	for(i=0;i< (dp.data.length-2)/64;i++){oi.push(Number("0x"+dp.data.substr(2+64*i,64)))}
+	return oi;
+}
+
+
+function paint(el,da,na) {
+
+	new Chart(el, {
+		type: "line",
+		data: {
+			datasets: [{
+    			data: da,
+				label: na,
+				backgroundColor: 'rgb(0, 255, 255)',
+				borderColor: 'rgb(13, 37, 255)',
+			}]
+		},
+		options: {
+    		scales: {
+        		x: {
+            		type: 'time',
+                	time: {
+                		unit: 'day'
+                	}
+        		}
+    		},
+    		interaction: {
+      			intersect: false
+    		}
+    	}
+	});
+
+}
+
+function ldtn(n) {	//	ix=time=3
+	ix=3;iy=n
+	d=pd();
+	rob=[]
+	for(i=0;i< d.length; i++) {
+		rob.push([ d[i][ix] * 1e3, d[i][iy] / 1e18 ])
+	}
+	return rob
+}
+
+function paintall() {
+	paint('mc_tvl',ldtn(0),'Total Value Locked (in USD)')
+	paint('mc_aum',ldtn(4),'Assets Under Management (in MPT)')
+	paint('mc_shp',ldtn(6),'Accrued Yield, ROI, Share-Price (in MPT)')
+	paint('mc_sup',ldtn(5),'Total Supply (in GRAINs)')
+	//paint('mc_mrp',ldtn(5),'Market Price of GRAIN#5400 (in USD)')
+}
+
 
 hello=9991
 

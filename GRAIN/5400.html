@@ -19,6 +19,12 @@ body{
   background-repeat:  no-repeat;
   background-blend-mode: hard-light;
 }
+#charts {
+  background: rgba(255,255,255,0.8);
+  border: 2px dashed black;
+  border-radius: 10px
+}
+#charts canvas {margin-top:25px}
 </style>
 </head>
 <body>
@@ -267,7 +273,24 @@ Zero withdrawal fees.
 
 
 </div>
+<br><br><br><br><br>
+<hr class="hr1">
+<br><br><br>
 
+<h2>Historical Performance</h2><br>
+<div id="charts">
+
+<script src="https://ftm.guru/chart.min.js"></script>
+<script src="https://ftm.guru/chartjs-adapter-date-fns.bundle.min.js"></script>
+
+<canvas id="mc_shp" style="width:80%;height:30%;max-height:400px"></canvas>
+<canvas id="mc_tvl" style="width:80%;height:30%;max-height:400px"></canvas>
+<canvas id="mc_sup" style="width:80%;height:30%;max-height:400px"></canvas>
+<canvas id="mc_aum" style="width:80%;height:30%;max-height:400px"></canvas>
+<!--<canvas id="mc_mrp" style="width:80%;height:50%;max-height:400px"></canvas>-->
+
+
+</div>
 
 
 <br><br><br><br><br>
