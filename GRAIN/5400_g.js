@@ -627,9 +627,16 @@ async function DrefreshFarm()
 					if(!(typeof $("c_apy-projected") == null )) {
 						dur=d[4][1]-d[4][2];
 						frq=86400*365/dur;
-						apy=(1+Number(d[3])/1e18/frq)**frq
+						apy=(1+Number(d[3])/1e18/frq)**frq - 1
 						$("c_apy-projected").innerHTML = "<b>"+fornum(apy*100,0)+" %</b>"
 						console.log("apc_apy-projected",apy,dur,frq);
+					}
+					if(!(typeof $("c_gro-projected") == null )) {
+						dur=d[4][1]-d[4][2];
+						frq=86400*365/dur;
+						apy=(1+Number(d[3])/1e18/frq)**frq
+						$("c_gro-projected").innerHTML = "<b>"+fornum(apy,0)+" x</b>"
+						console.log("apc_gro-projected",apy,dur,frq);
 					}
 					if(!(typeof $("c_last") == null )) {
 						ctl = Math.floor(Date.now()/1000 - d[4][1])
@@ -767,14 +774,14 @@ function pdp(dp) {
 }
 
 
-function paint(el,da,na) {
+function paint(el,da,na,la) {
 
 	new Chart(el, {
 		type: "line",
 		data: {
 			datasets: [{
     			data: da,
-				label: na,
+				label: la,
 				backgroundColor: 'rgb(0, 255, 255)',
 				borderColor: 'rgb(13, 37, 255)',
 			}]
@@ -790,7 +797,20 @@ function paint(el,da,na) {
     		},
     		interaction: {
       			intersect: false
-    		}
+    		},
+    		plugins: {
+				title: {
+    				display: true,
+    				text: na,
+    				padding: {
+        				top: 10,
+        				bottom: 30
+    				}
+    			},
+    			legend :{
+    				display: true,
+    			}
+            }
     	}
 	});
 
@@ -806,12 +826,54 @@ function ldtn(n) {	//	ix=time=3
 	return rob
 }
 
+function chart_price() {
+	t = ldtn(0);
+	s = ldtn(5);
+	a = [];
+	for(i=0;i<r.length;i++) {
+		p = [ t[i][1] / s[i][1] ];
+		a.push([s[i][0], p])
+	}
+	return a;
+}
+
+function chart_apr() {
+	r = ldtn(6);
+	a = [];
+	for(i=0;i<r.length-1;i++) {
+		tgap = r[i+1][0] - r[i][0];
+		pgap = r[i+1][1] - r[i][1];
+		pr = pgap/r[i][1];
+		apr = pr * (365*86400*1e3/tgap) * 100
+		a.push([r[i+1][0], apr])
+	}
+	return a;
+}
+
+function chart_apy() {
+	r = ldtn(6);
+	a = [];
+	for(i=0;i<r.length-1;i++) {
+		tgap = r[i+1][0] - r[i][0];
+		pgap = r[i+1][1] - r[i][1];
+		pr = pgap/r[i][1];
+		apr = pr * (365*86400*1e3/tgap)
+		freq = (365*86400*1e3/tgap);
+		apy = ( (1+apr/freq)**freq - 1) * 100
+		a.push([r[i+1][0], apy])
+	}
+	return a;
+}
+
 function paintall() {
-	paint('mc_tvl',ldtn(0),'Total Value Locked (in USD)')
-	paint('mc_aum',ldtn(4),'Assets Under Management (in MPT)')
-	paint('mc_shp',ldtn(6),'Accrued Yield, ROI, Share-Price (in MPT)')
-	paint('mc_sup',ldtn(5),'Total Supply (in GRAINs)')
+	paint('mc_tvl',ldtn(0),'Market Capitalization', 'Total Value Locked in USD')
+	paint('mc_aum',ldtn(4),'Assets Under Management','in Morpheus-LP Tokens (MPT)')
+	paint('mc_shp',ldtn(6),'Accrued Yield, R.O.I., Relative Growth',' Share-Price in MPT')
+	paint('mc_sup',ldtn(5),'Total Outstanding Supply', 'in GRAINs')
 	//paint('mc_mrp',ldtn(5),'Market Price of GRAIN#5400 (in USD)')
+	paint('mc_apr',chart_apr(),'Annualized Percentage Return','Base APR in %')
+	paint('mc_apy',chart_apy(),'Annualized Percentage Yield','Rolling APY in %')
+	paint('mc_pri',chart_price(),'Open-Market Valuation','Price per GRAIN in USD')
 }
 
 
