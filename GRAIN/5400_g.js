@@ -752,10 +752,10 @@ async function zap_w() {
 
 }
 
-UZAPPER = "0x80DF8EcC2Af6452c7ee230aa6269402197832B73"
+UZAPPER = "0x80DF8EcC2Af6452c7ee230aa6269402197832B73";
 UZABI = [{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"alladdr","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"","type":"uint256"}],"name":"allb32","outputs":[{"internalType":"bytes32","name":"","type":"bytes32"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"dao","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"feePerMillion","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"newfee","type":"uint256"}],"name":"setFees","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"amt_g","type":"uint256"},{"internalType":"uint256","name":"mamt_l","type":"uint256"}],"name":"unZapLQDR","outputs":[{"internalType":"uint256","name":"amt_l","type":"uint256"}],"stateMutability":"nonpayable","type":"function"}]
 
-async fucntion unzap_l() {
+async function unzap_l() {
 	UZ = new ethers.Contract(UZAPPER, UZABI, signer);
 	amt = Math.floor(Number($("inp-uz-g").value)*1e18);
 	min = Math.floor(amt*0.9);

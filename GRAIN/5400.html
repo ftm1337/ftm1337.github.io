@@ -205,7 +205,7 @@ Zero withdrawal fees.
 <div class="panels">
 	<div class="">
 		<h3>For Investors</h3>
-		<h3 class="fore">Deposits</h3>
+		<h3 class="fore"style="font-size:1.5em">Deposits</h3>
 		<div id="ivst">
 			<h4>Deposit mLQDR/LQDR Morpheus LP Tokens (MPT)</h4>
 			Available: <span id="dep-ab">0.------</span> MPT<br>
@@ -249,14 +249,22 @@ Zero withdrawal fees.
 		</div>
 		<div id="wdpane">
 			<br><br>
-			<h3 class="fore">Withdrawals</h3>
+			<h3 class="fore" style="font-size:1.5em">Withdrawals</h3>
 			Available to Redeem: <br>
 			= 💰 <span id="wd-usd" style="font-weight:bold">0.------</span> USD ($)<br>
 			= 🌾 <span id="wd-ab" style="font-weight:bold">0.------</span> GRAINs<br>
 			= <img src="https://ftm.guru/icons/lpt.svg" width="16px"> <span id="redemp" style="font-weight:bold">0.------</span> LP Tokens<br><br>
-			<input id="inp-wa" placeholder="KP Amount">
+			<input id="inp-wa" placeholder="Amount of GRAINs">
 			<button id="btn-w-amt" onclick="withdraw()">Withdraw</button>
 			<button id="btn-w-all" onclick="exit()">Withdraw All</button><br>
+			<br><br>
+			- or -
+			<h4>HyperZapper : Direct Exit</h4>
+			Jump out of the Kompounder to get LQDR in a single transaction!
+			<br><br>
+			<b>Zap out to LQDR</b> <img style="" src="https://ftm.guru/icons/lqdr.png" height="20px"><br>
+			<input id="inp-uz-g" placeholder="Amount of GRAINs">
+			<button id="btn-uz-l" onclick="unzap_l()">Zap out to LQDR</button>
 		</div>
 	</div>
 	<div class="">
