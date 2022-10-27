@@ -691,6 +691,7 @@ async function gubs()
 		//DECIMALDEPENDENT : 1e18 => 1e6 , 1e18 => 1e12
 			$("wd-usd").innerHTML=((Number(s[0])/TS*VL)/(10**DECIMAL)).toFixed(DECIMAL);
 			$("wd-ab").innerHTML=(s[0]/(10**DECIMAL)).toFixed(DECIMAL);
+			$("wd-uz-ab").innerHTML=(s[0]/(10**DECIMAL)).toFixed(DECIMAL);
 			$("dep-ab").innerHTML=(s[1]/(10**DECIMAL)).toFixed(DECIMAL);
 			$("redemp").innerHTML=(s[0] * aum / (10**(2*DECIMAL))).toFixed(DECIMAL);
 			$("dep-ab-hz-f").innerHTML=(s[3]/(10**18)).toFixed(18);
