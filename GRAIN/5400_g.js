@@ -549,7 +549,7 @@ async function gubs()
 		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
 		let info = (await fetch(RPC_URL, { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json' } })).json();
 		await Promise.all([p,q,info]).then(s=>{
-			aum = Number("0x" + (s[2].result).substr(66,64));
+			aum = Number("0x" + (s[2]).substr(66,64));
 		//DECIMALDEPENDENT : 1e18 => 1e6 , 1e18 => 1e12
 			$("wd-usd").innerHTML=((Number(s[0])/TS*VL)/(10**DECIMAL)).toFixed(DECIMAL);
 			$("wd-ab").innerHTML=(s[0]/(10**DECIMAL)).toFixed(DECIMAL);
@@ -598,7 +598,7 @@ async function DrefreshFarm()
 				oi=[];
 				if((typeof INFODEC == "undefined")) {
 					console.log("INFODEC not found!");
-					for(i=0;i< (d[2].result.length-2)/64;i++){oi.push(Number("0x"+d[2].result.substr(2+64*i,64)))}
+					for(i=0;i< (d[2].length-2)/64;i++){oi.push(Number("0x"+d[2].substr(2+64*i,64)))}
 					console.log("oi",oi);
 					$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
 					$("c_nr").innerHTML = fornum(Number(oi[1]),18)+"x"
@@ -611,7 +611,7 @@ async function DrefreshFarm()
 				}
 				else {
 					console.log("INFODEC found!!!!!");
-					oi = ethers.utils.defaultAbiCoder.decode( INFODEC, d[2].result);
+					oi = ethers.utils.defaultAbiCoder.decode( INFODEC, d[2]);
 
 					console.log("oi",oi);
 					$("c_aa").innerHTML = fornum(Number(oi[2]),18)+"%"
@@ -687,7 +687,7 @@ async function gubs()
 		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
 		let info = (await fetch(RPC_URL, { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json' } })).json();
 		await Promise.all([p,q,info, bal_f, bal_l, bal_w]).then(s=>{
-			aum = Number("0x" + (s[2].result).substr(66,64));
+			aum = Number("0x" + (s[2]).substr(66,64));
 		//DECIMALDEPENDENT : 1e18 => 1e6 , 1e18 => 1e12
 			$("wd-usd").innerHTML=((Number(s[0])/TS*VL)/(10**DECIMAL)).toFixed(DECIMAL);
 			$("wd-ab").innerHTML=(s[0]/(10**DECIMAL)).toFixed(DECIMAL);
