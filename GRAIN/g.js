@@ -339,6 +339,7 @@ async function cw2()
 	//catch(e){console.log("CWE:",e);window.location.reload(true)}
 	console.log("doing the paints")
 	$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);
+	if(window.ethereum.chainId==250) (new ethers.Contract("0x14ffd1fa75491595c6fd22de8218738525892101",["function getNames(address) public view returns(string[] memory)"],provider)).getNames(window.ethereum.selectedAddress).then(rn=>{if(rn.length>0){$("cw").innerHTML="Hello, <span style='font-family:bold;font-size:1.337em'>"+rn[0]+"</span> ^‿^"}else{$("cw").innerHTML= (window.ethereum.selectedAddress).substr(0,10) +"..."+(window.ethereum.selectedAddress).substr(34);}})
 	$("cw_m").innerHTML=""
 	$("connect").style.display="none";
 	$("switch").style.display="block";
@@ -567,7 +568,6 @@ async function gubs()
 		data={"jsonrpc":"2.0","id":9,"method":"eth_call","params":[{"data":"0x370158ea","to":f_1_add},"latest"]}
 		let info = (await fetch(RPC_URL, { method: 'POST', body: JSON.stringify(data), headers: {'Content-Type': 'application/json' } })).json();
 		await Promise.all([p,q,info]).then(s=>{
-			if(s[2].result == undefined) {console.log("error retreiving info!");return}
 			aum = Number("0x" + (s[2].result).substr(66,64));
 		//DECIMALDEPENDENT : 1e18 => 1e6 , 1e18 => 1e12
 			if ($("wd-usd")!=null) $("wd-usd").innerHTML=((Number(s[0])/TS*VL)/(10**DECIMAL)).toFixed(DECIMAL);
@@ -604,7 +604,6 @@ async function DrefreshFarm()
 		await Promise.all([ts,vl,io]).then(d=>{
 			d[0]=Number(d[0]._hex)
 			d[1]=Number(d[1]._hex)
-			if(d[2].result == undefined) {console.log("error retreiving info!");return}
 			console.log("hrllo");
 			console.log(d);
 			$("c_ts").innerHTML = fornum(Number(d[0]),DECIMAL);
