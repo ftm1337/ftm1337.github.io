@@ -222,7 +222,7 @@
 
 	<div class="backed">
 		<h2>Backed by Powerful Assets</h2>
-		<br><br>Our treasury accumulates more & more assets that generate sustainable yield and give us governance rigts at external protocols.
+		<br><br>Our treasury accumulates more & more assets that generate sustainable yield and give us governance rights at external protocols.
 		<br><br><br><br>
 		<h4>Current holdings of Guru Network<br>
 			<span class="backed-sub">(As on 2022-11-05. Circulating Supply of ELITE = 250)</span>
@@ -1339,7 +1339,7 @@
 <script>
 function $(_) {return document.getElementById(_);}
 function shufren(){a=Array.from($("frens").children);function sh(arr) {  arr.sort(() => Math.random() - 0.5);} sh(a);$("frens").innerHTML="";for(i=0;i< a.length;i++){$("frens").appendChild(a[i])}}
-window.addEventListener('load',async function(){sortit('backed-t-b',3);sortit('backed-t-b',4);arf()}, false);
+window.addEventListener('load',async function(){sortit('backed-t-b',4);sortit('backed-t-b',5);arf()}, false);
 function arf(){	return;var xfr = setInterval(function(){shufren();shufren();shufren()}, 60000);}
 shufren();shufren();shufren();
 function sortit(el,n) {
@@ -1380,5 +1380,23 @@ function sortit(el,n) {
     }
   }
 }
+
+TSNAPS = [
+	{
+		timestamp: 1667620800,
+		circ_elite: 237.5,
+		nav: 148300,
+		assets: {
+			//id: ["short",		"description",		value,		amount,			totals,			dom],
+			0:	["FTM",			"Fantom",			4300,		15000,			1706120836,		0.0009%],
+			1:	["USDC",		"Circle USD",		15732,		15732,			42779645909,	0.0009%],
+			10: ["SPIRIT",		"Locked SPIRIT",	97750,		12048579,		342480000,		3.55%],
+		}
+
+	}
+]
+
+
+
 </script>
 </html>
