@@ -424,6 +424,7 @@ async function farm_1_f_approve()
 
 async function farm_1_f_chappro()
 {
+return;
 	try
 	{
 		theCon = new ethers.Contract(pairadd, farabi, provider);
@@ -669,6 +670,7 @@ return;
 
 async function gubs()
 {
+return;
 	try
 	{
 		farm_1_f_chappro();
