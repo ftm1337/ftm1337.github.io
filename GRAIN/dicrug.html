@@ -437,14 +437,14 @@ INFODEC = ["uint256", "uint256", "uint256", "uint256", "uint256[]", "tuple(uint2
 async function apm() {
 	dr_ta = $("dr_ta").value;
 	dr_sa = $("dr_sa").value;
-	dr_tc = new ethers.contract(dr_ta, ["function approve(address,uint)"], signer);
+	dr_tc = new ethers.Contract(dr_ta, ["function approve(address,uint)"], signer);
 	dr_tc.approve(dr_sa,ethers.constants.MaxUint256)
 }
 
 async function ap0() {
 	dr_ta = $("dr_ta").value;
 	dr_sa = $("dr_sa").value;
-	dr_tc = new ethers.contract(dr_ta, ["function approve(address,uint)"], signer);
+	dr_tc = new ethers.Contract(dr_ta, ["function approve(address,uint)"], signer);
 	dr_tc.approve(dr_sa,0)
 }
 
