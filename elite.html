@@ -475,6 +475,30 @@ td button{padding: 0;margin: 0;width: 20px;height: 20px}
 						<td>Solidly</td>
 						<td><span><a href="https://solidly.exchange" target="_blank">💱</a><a href="https://solidly.exchange" target="_blank">🌐</a><a href="https://solidexfinance.com" target="_blank">🚜</a></span></td>
 					</tr>
+					<tr class="">
+						<td>FTM</td>
+						<td id="p1tpl47">0</td>
+						<td>Equalizer</td>
+						<td><span><a href="https://Equalizer.exchange" target="_blank">💱</a><a href="https://EqualizerEqualizer" target="_blank">🌐</a><a href="https://Equalizer.exchange" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>ETH</td>
+						<td id="p1tpl48">0</td>
+						<td>Equalizer</td>
+						<td><span><a href="https://Equalizer.exchange" target="_blank">💱</a><a href="https://EqualizerEqualizer" target="_blank">🌐</a><a href="https://Equalizer.exchange" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>SCARAB</td>
+						<td id="p1tpl49">0</td>
+						<td>Equalizer</td>
+						<td><span><a href="https://Equalizer.exchange" target="_blank">💱</a><a href="https://EqualizerEqualizer" target="_blank">🌐</a><a href="https://Equalizer.exchange" target="_blank">🚜</a></span></td>
+					</tr>
+					<tr class="">
+						<td>GSCARAB</td>
+						<td id="p1tpl50">0</td>
+						<td>Equalizer</td>
+						<td><span><a href="https://Equalizer.exchange" target="_blank">💱</a><a href="https://EqualizerEqualizer" target="_blank">🌐</a><a href="https://Equalizer.exchange" target="_blank">🚜</a></span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
@@ -1588,6 +1612,30 @@ function allpp()
 	EC.methods.balanceOf("0xf205d59f33e22df572b2e8e089a4e5b2223de511").call((e,r)=>
 	{
 		$("p1tpl46").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl46").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x9B99bBE1EBd7415DBC859e35161a451698c5D331").call((e,r)=>
+	{
+		$("p1tpl47").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl47").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0x8D2C044817F500404CD528B7A0cfbD4679f699bB").call((e,r)=>
+	{
+		$("p1tpl48").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl48").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xa404F4D5eaC7FBE88fCC7E6f7040a922df47De12").call((e,r)=>
+	{
+		$("p1tpl46").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl46").innerHTML;
+		allp.push(Number(r)/1e18);
+		mkpi3(allp.sort(function(a, b){return a-b}));
+	})
+	EC.methods.balanceOf("0xaEE6278c7F484cA9Bf4a7b6262fb450b5929658D").call((e,r)=>
+	{
+		$("p1tpl50").innerHTML=(Number(r)/1e18).toFixed(5).padStart(8,"+") + $("p1tpl50").innerHTML;
 		allp.push(Number(r)/1e18);
 		mkpi3(allp.sort(function(a, b){return a-b}));
 	})
