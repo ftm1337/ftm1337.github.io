@@ -426,7 +426,10 @@ async function gubs() {
 		$("in-r").max = b;
 	})
 }
-
+function notice(c) {
+	window.location = "#note"
+	$("content1").innerHTML = c
+}
 
 async function confirm() {
 	v = $("in-r").value;
