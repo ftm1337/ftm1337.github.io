@@ -547,21 +547,3 @@ async function gubs()
 }
 
 TS=0;VL=0;
-
-async function gubs()
-{
-	try
-	{
-		farm_1_f_chappro();
-
-		theCon = new ethers.Contract(f_1_add, farabi, provider);
-		theLPT = new ethers.Contract(pairadd, farabi, provider);
-		var p = theCon.balanceOf(window.ethereum.selectedAddress)
-		var q = theLPT.balanceOf(window.ethereum.selectedAddress)
-		await Promise.all([p,q]).then(s=>{
-			$("wd-ab").innerHTML=(s[0]/(10**DECIMAL)).toFixed(DECIMAL);
-			$("dep-ab").innerHTML=(s[1]/(10**DECIMAL)).toFixed(DECIMAL);
-		})
-	}
-	catch(e){console.log(e);/*$("cw_m").innerHTML=e*/}
-}
