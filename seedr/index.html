@@ -159,6 +159,12 @@ button {
   max-height: 30%;
   overflow: auto;
 }
+
+#social a img {
+  height: 16px;
+  margin:4px 4px 4px 0;
+}
+
 </style>
 <body>
 <div class="body" align="center">
@@ -185,20 +191,19 @@ button {
 	<br><br><br>
 	<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC do you wish to allocate?</h3>
 	<div class="slide-container-2">
-     <input type="range" min="1" step="1" max="20000" value="100" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
+     <input type="range" min="1" step="1" max="5000" value="100" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
 	</div>
 	<br>
 	<div id="d-in-n">
-		<input id="in-n" min="1" step="1" max="20000" value="100" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" list="defaultNumbers">
+		<input id="in-n" min="1" step="1" max="5000" value="10" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" list="defaultNumbers">
 		<datalist id="defaultNumbers">
   		<option value="10"></option>
   		<option value="25"></option>
   		<option value="100"></option>
   		<option value="500"></option>
   		<option value="1000"></option>
+  		<option value="2000"></option>
   		<option value="5000"></option>
-  		<option value="10000"></option>
-  		<option value="20000"></option>
 		</datalist>
 		<b><img src="https://ftm.guru/icons/usdc.svg" width="24px" style="position:relative;top:6px">USDC</b>
 	</div>
@@ -219,6 +224,14 @@ button {
 <div style="color:#001337;text-shadow:none;text-decoration:none;font-family:">
 	<a href="https://rave.domains" style="color:#001337;text-shadow:none;text-decoration:none;font-size:1.5em">rave.domains</a>
 	<br>A Decentralized Domain Name Service for the Fantom Blockchain.
+	<div id="social">
+		<a href="https://twitter.com/ravenames"><img src="https://ftm.guru/icons/twitter.svg"></a>
+		<a href="https://medium.com/@ravenames"><img src="https://ftm.guru/icons/discord.svg"></a>
+		<a href="https://twitter.com/ravenames"><img src="https://ftm.guru/icons/medium.svg"></a>
+	</div>
+</div>
+<div align="right">
+<a href="https://ftm.guru" style="color:#001337;text-shadow:none;text-decoration:none;font-weight:bolder">Sales powered by Guru Network</a>
 </div>
 </body>
 <script src="https://ftm.guru/ethers-5.2.umd.min.js">

@@ -422,8 +422,8 @@ async function gubs() {
 	.then(_b=>{
 		b=Number(_b)/10**UDEC;
 		$("usb-mtv").innerHTML=b.toLocaleString();
-		$("in-n").max = b;
-		$("in-r").max = b;
+		$("in-n").max = Math.min(b,5000);
+		$("in-r").max = Math.min(b,5000);
 	})
 }
 function notice(c) {
