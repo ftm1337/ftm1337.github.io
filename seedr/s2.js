@@ -462,7 +462,6 @@ async function confirm() {
 			<h3>Submitting Approval Transction!</h3>
 			<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
 		`);
-		console.log(_tw)
 		notice(`
 			<h3>Approval Completed!</h3>
 			<br><br>
