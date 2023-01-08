@@ -470,6 +470,7 @@ async function confirm() {
 			<h3>Submitting Approval Transction!</h3>
 			<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
 		`);
+		await _tr.wait();
 		notice(`
 			<h3>Approval Completed!</h3>
 			<br><br>
@@ -485,6 +486,7 @@ async function confirm() {
 		Seeding ${v} USDC.. Please wait for transaction to confirm.<br>
 		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
 	`);
+	await _tr.wait();
 	console.log(_tr)
 	notice(`
 		<h3>Deposit Completed!</h3>
