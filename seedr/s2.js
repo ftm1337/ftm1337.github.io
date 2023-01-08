@@ -426,13 +426,15 @@ SDRABI = [{"inputs":[{"internalType":"address","name":"_a","type":"address"},{"i
 TKNABI = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"s","type":"address"},{"name":"a","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"s","type":"address"},{"name":"d","type":"address"},{"name":"a","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"d","type":"address"},{"name":"a","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"o","type":"address"},{"indexed":true,"name":"s","type":"address"},{"indexed":false,"name":"a","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"s","type":"address"},{"indexed":true,"name":"d","type":"address"},{"indexed":false,"name":"a","type":"uint256"}],"name":"Transfer","type":"event"}]
 async function dr() {
 	_S = new ethers.Contract(SEEDR,SDRABI,provider);
-	sr = await Promise.all([
+	spr = await Promise.all([
 		_S.total(),
-		_S.allocated()
-	])
-	$("s_tr") = fornuum(sr[0], 6)
-	$("s_ta") = fornuum(sr[1],18)
-
+		_S.allocated(),
+		_S.participants()
+	]);
+	$("s_tr").innerHTML = fornum(spr[0], 6) + " USDC";
+	$("s_ta").innerHTML = fornum(spr[1],18) + " RAVE";
+	$("s_pt").innerHTML = Number(spr[2]) + " Ravers";
+	$("s_pr").innerHTML = (sr[0]/1e6/1e5*100).toFixed(2) + " %";
 }
 function notice(c) {
 	window.location = "#note"
@@ -447,7 +449,7 @@ async function confirm() {
 	//notice("<h3>This SeedR round has not started.</h3>Patience, grasshopper!<br><br> Go touch some grass 😏")
 	_BASE = new ethers.Contract(BASE,TKNABI,signer);
 	_ASSET = new ethers.Contract(ASSET,TKNABI,signer);
-	al = await(_BASE.allowance(window.ethereum.selectedAddres,SEEDR))
+	al = await(_BASE.allowance(window.ethereum.selectedAddress,SEEDR))
 	v_d = Math.floor(v*10**DEC_A)
 	if(al<v_d) {
 		notice(`
