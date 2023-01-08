@@ -473,10 +473,9 @@ async function confirm() {
 		await _tr.wait();
 		notice(`
 			<h3>Approval Completed!</h3>
-			<br><br>
 			<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
 			<br><br>
-			Please confirm the <b>Deposit</b> at your wallet provider now.
+			Please confirm the <b>${v} USDC Deposit</b> now at your wallet provider.
 		`)
 	}
 	_SEEDR = new ethers.Contract(SEEDR, ["function deposit(uint)"], signer);
@@ -495,6 +494,8 @@ async function confirm() {
 		<br><br>
 		Check back after the completion of the sale to collect your tokens!
 	`)
+	 gubs();
+	 fr();
 
 
 	return
