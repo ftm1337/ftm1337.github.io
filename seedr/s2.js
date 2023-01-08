@@ -423,8 +423,8 @@ async function gubs() {
 	})
 	_S = new ethers.Contract(SEEDR,SDRABI,provider);
 	spr = await Promise.all([
-		_S.contribution(window.ethereum.selectedAddress),
-		_S.allocation(window.ethereum.selectedAddress)
+		_S.allocation(window.ethereum.selectedAddress),
+		_S.contribution(window.ethereum.selectedAddress)
 	]);
 	$("s_ud").innerHTML = (spr[0]/1e6).toLocaleString() + " USDC";
 	$("s_ua").innerHTML = (spr[1]/1e18).toLocaleString() + " RAVE";
@@ -451,7 +451,7 @@ function notice(c) {
 async function confirm() {
 	v = $("in-r").value;
 	if(!isFinite(v)){notice("allocation amount looks ehh... pls check!"); return}
-	if(v< SEEDMIN){notice("allocation amount too low!"); return}
+	//if(v< SEEDMIN){notice("allocation amount too low!"); return}
 	if(v> SEEDMAX){notice("allocation amount too high!"); return}
 	//notice("<h3>This SeedR round has not started.</h3>Patience, grasshopper!<br><br> Go touch some grass 😏")
 	_BASE = new ethers.Contract(BASE,TKNABI,signer);
@@ -500,27 +500,13 @@ async function confirm() {
 
 function vals(i) {
 	if(i==0) {
-		if($("in-r").value < SEEDMIN){notice("allocation amount too low!"); return}
+		//if($("in-r").value < SEEDMIN){notice("allocation amount too low!"); return}
 		if($("in-r").value > SEEDMAX){notice("allocation amount too high!"); return}
 		$("in-n").value = $("in-r").value;
 	}
 	if(i==1) {
-		if($("in-n").value < SEEDMIN){notice("allocation amount too low!"); return}
+		//if($("in-n").value < SEEDMIN){notice("allocation amount too low!"); return}
 		if($("in-n").value > SEEDMAX){notice("allocation amount too high!"); return}
 		$("in-r").value = $("in-n").value;
 	}
-}
-
-function arf(){
-	o = INITIAL; c=0;
-	var xfr = setInterval(
-		function(){
-			if(!isFinite( v = $("in-n").value )) { return }
-			//if($('ain').value == "" ) { $('ain').value=INITIAL }
-			if(o != $('in-n').value){ $('in-r').value = $("in-n").value }
-			o = $('in-n').value
-			c++
-		},
-		500
-	)
 }
