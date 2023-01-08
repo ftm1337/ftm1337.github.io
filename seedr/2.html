@@ -161,9 +161,23 @@ button {
 }
 
 #social a img {
-  height: 16px;
+  height: 24px;
   margin:4px 4px 4px 0;
 }
+
+
+.stats {display: grid;grid-template-columns: auto}
+.stat div:first-child{font-size: 1.5em}
+.stat {
+  margin: 5%;
+  background:linear-gradient(to bottom, rgba(236,192,82,0) , rgba(3,5,94,0.5));
+  padding:5%;
+  border-radius:10px
+}
+@media(min-width:641px) {
+.stats {display: grid;grid-template-columns: auto auto auto}
+
+
 
 </style>
 <body>
@@ -191,7 +205,7 @@ button {
 	<br><br><br>
 	<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC do you wish to allocate?</h3>
 	<div class="slide-container-2">
-     <input type="range" min="1" step="1" max="5000" value="100" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
+     <input type="range" min="1" step="1" max="5000" value="10" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
 	</div>
 	<br>
 	<div id="d-in-n">
@@ -237,8 +251,8 @@ button {
 
 
 </div>
-<br>
-<br>
+<br><br><br><br>
+<br><br><br><br>
 <div style="color:#001337;text-shadow:none;text-decoration:none;font-family:">
 	<a href="https://rave.domains" style="color:#001337;text-shadow:none;text-decoration:none;font-size:1.5em">rave.domains</a>
 	<br>A Decentralized Domain Name Service for the Fantom Blockchain.

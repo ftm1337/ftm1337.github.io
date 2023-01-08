@@ -412,7 +412,7 @@ async function gubs() {
 	USD = new ethers.Contract(USDC,ab1,signer);
 	USD.balanceOf(window.ethereum.selectedAddress)
 	.then(_b=>{
-		b=Number(_b)/10**UDEC;
+		b=Number(_b)/10**DEC_A;
 		$("usb-mtv").innerHTML=b.toLocaleString();
 		$("in-n").max = Math.min(b,SEEDMAX);
 		$("in-r").max = Math.min(b,SEEDMAX);
@@ -429,8 +429,8 @@ async function confirm() {
 	if(v< SEEDMIN){notice("allocation amount too low!"); return}
 	if(v> SEEDMAX){notice("allocation amount too high!"); return}
 	//notice("<h3>This SeedR round has not started.</h3>Patience, grasshopper!<br><br> Go touch some grass 😏")
-	BASE = new ethers.Contract(USDC,ab1,signer);
-	ASSET = new ethers.Contract(USDC,ab1,signer);
+	_BASE = new ethers.Contract(BASE,ab1,signer);
+	_ASSET = new ethers.Contract(ASSET,ab1,signer);
 	al = await(BASE.allowance(window.ethereum.selectedAddres,SEEDR))
 	v_d = Math.floor(v*10**DEC_A)
 	if(al<v_d) {
@@ -439,7 +439,7 @@ async function confirm() {
 			Please approve this transaction in your wallet.
 		`)
 		console.log(_tr)
-		_tr = await BASE.approve(SEEDR,BigInt(v_d));
+		_tr = await _BASE.approve(SEEDR,BigInt(v_d));
 		notice(`
 			<h3>Submitting Approval Transction!</h3>
 			<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
@@ -452,8 +452,8 @@ async function confirm() {
 			<br><br>
 			Please confirm the <b>Deposit</b> at your wallet provider now.
 		`)
-		sdr = new ethers.Contract(SEEDR, ["function deposit(uint)"], signer);
-		_tr = await sdr.deposit(BigInt(v_d));
+		_SEEDR = new ethers.Contract(SEEDR, ["function deposit(uint)"], signer);
+		_tr = await _SEEDR.deposit(BigInt(v_d));
 		notice(`
 			<h3>Submitting Deposit Transction!</h3>
 			Seeding ${v} USDC.. Please wait for transaction to confirm.<br>
