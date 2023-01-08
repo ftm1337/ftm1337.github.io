@@ -6,7 +6,7 @@
 <meta name="keywords" content="Rave Names Presale - ftm.guru/seedr : Fantom blockchain Initial Offering, IDO, ICO, IEO, Seed Round, Presale">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="https://ftm.guru/icons/64.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""><link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 </head>
 <style>
 /*
@@ -161,9 +161,40 @@ button {
 }
 
 #social a img {
-  height: 16px;
+  height: 24px;
   margin:4px 4px 4px 0;
 }
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+
+#content1 a {
+  color: aqua;
+}
+
+#content1 u {
+  text-decoration: dashed underline aqua
+}
+
+
+.stats {display: grid;grid-template-columns: auto}
+.stat div:first-child{font-size: 1.5em}
+.stat {
+  margin: 5%;
+  background:linear-gradient(to bottom, rgba(236,192,82,0) , rgba(3,5,94,0.5));
+  padding:5%;
+  border-radius:10px
+}
+@media(min-width:641px) {
+.stats {display: grid;grid-template-columns: auto auto auto}
+
+
 
 </style>
 <body>
@@ -191,7 +222,7 @@ button {
 	<br><br><br>
 	<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC do you wish to allocate?</h3>
 	<div class="slide-container-2">
-     <input type="range" min="1" step="1" max="5000" value="100" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
+     <input type="range" min="1" step="1" max="5000" value="10" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
 	</div>
 	<br>
 	<div id="d-in-n">
@@ -218,9 +249,47 @@ button {
 			</div>
 		</div>
 	</div>
+	<br><br>
+	<div class="stats">
+		<div class="stat">
+			<div id="s_ud">? USDC</div>
+			<div>Your Deposit</div>
+		</div>
+		<div class="stat">
+			<div id="s_ua">? RAVE</div>
+			<div>Your Allocation</div>
+		</div>
+		<div class="stat">
+			<div id="s_mx">5000 USDC</div>
+			<div>Max. Per Wallet</div>
+		</div>
+		<div class="stat">
+			<div id="s_tr">? USDC</div>
+			<div>Total Raised</div>
+		</div>
+		<div class="stat">
+			<div id="s_ta">? USDC</div>
+			<div>Total Allocated</div>
+		</div>
+		<div class="stat">
+			<div id="s_hc">100,000 USDC</div>
+			<div>Hard Cap</div>
+		</div>
+		<div class="stat">
+			<div id="s_pt">? Ravers</div>
+			<div>Participating</div>
+		</div>
+		<div class="stat">
+			<div id="s_pr">? %</div>
+			<div>Progress</div>
+		</div>
+	</div>
+
+
+
 </div>
-<br>
-<br>
+<br><br><br><br>
+<br><br><br><br>
 <div style="color:#001337;text-shadow:none;text-decoration:none;font-family:">
 	<a href="https://rave.domains" style="color:#001337;text-shadow:none;text-decoration:none;font-size:1.5em">rave.domains</a>
 	<br>A Decentralized Domain Name Service for the Fantom Blockchain.
@@ -236,14 +305,17 @@ button {
 </body>
 <script src="https://ftm.guru/ethers-5.2.umd.min.js">
 </script>
-<script src="s.js?v=2"></script>
+<script src="s2.js?v=2"></script>
 <script>
 CHAINID = 250;
-RPC_URL = "https://rpc.ftm.tools"
+RPC_URL = "https://rpc.ankr.com/fantom"
 EXPLORE = "https://ftmscan.com/address/";
-SEEDMIN = 1;//1e3;
+SEEDMIN = 0;//1e3;
 SEEDMAX = 5000;
-USDC = "0x04068da6c83afcfa0e13ba15a6696662335d5b75"
-UDEC = 6
+ASSET = "0x88888a335b1f65a79ec56a610d865b8b25b6060b"	//RAVE
+BASE = "0x04068da6c83afcfa0e13ba15a6696662335d5b75"		//USDC
+SEEDR = "0xEF416D88D1ae9bE9B659bA9713666B31E884B839"
+DEC_A = 6;
+INITIAL = 10;
 </script>
 </html>
