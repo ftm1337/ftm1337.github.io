@@ -423,8 +423,8 @@ async function gubs() {
 	})
 	_S = new ethers.Contract(SEEDR,SDRABI,provider);
 	spr = await Promise.all([
-		_S.allocation(window.ethereum.selectedAddress),
-		_S.contribution(window.ethereum.selectedAddress)
+		_S.contribution(window.ethereum.selectedAddress),
+		_S.allocation(window.ethereum.selectedAddress)
 	]);
 	$("s_ud").innerHTML = (spr[0]/1e6).toLocaleString() + " USDC";
 	$("s_ua").innerHTML = (spr[1]/1e18).toLocaleString() + " RAVE";
