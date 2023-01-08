@@ -1,14 +1,3 @@
-//PROX SeedR Round 2
-//COLLECT = "0x80D582392BdF9402bcC34D1657dc45eEcaD91e13"
-//Proxima EOW
-COLLECT = "0x167d87a906da361a10061fe42bbe89451c2ee584"
-//Rave Token
-ASSET = "0x8BEdD6227445AE061ed42645fC4D32be897eD2EC"	//RAVE
-BASE = "0xfB380656e3C234D64863daA84b83ec24e6184426"		//USDC
-SEEDR = "0x236B30CAF325ec4417d81352Cf84672cfC416644"
-DEC_A = 6;
-G_LIMIT = 1e5
-
 function $(_) {return document.getElementById(_);}
 let provider= {};
 let signer= {};
