@@ -447,7 +447,7 @@ async function confirm() {
 	//notice("<h3>This SeedR round has not started.</h3>Patience, grasshopper!<br><br> Go touch some grass 😏")
 	_BASE = new ethers.Contract(BASE,TKNABI,signer);
 	_ASSET = new ethers.Contract(ASSET,TKNABI,signer);
-	al = await(BASE.allowance(window.ethereum.selectedAddres,SEEDR))
+	al = await(_BASE.allowance(window.ethereum.selectedAddres,SEEDR))
 	v_d = Math.floor(v*10**DEC_A)
 	if(al<v_d) {
 		notice(`
