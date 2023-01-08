@@ -5,7 +5,7 @@ window.addEventListener('load',async function()
 {
 	console.log("waitin for 3 secs..");
 	$("cw_m").innerHTML = "Connecting.. Please wait."
-	setTimeout(async () => { await basetrip(); /*getao(INITIAL); chkAppr(tokes[1][0]); arf()*/ }, 3000);
+	setTimeout(async () => { await basetrip(); /*getao(INITIAL); chkAppr(tokes[1][0]);*/ arf() }, 3000);
 }, false);
 
 
@@ -426,8 +426,8 @@ async function gubs() {
 		_S.allocation(window.ethereum.selectedAddress),
 		_S.contribution(window.ethereum.selectedAddress)
 	]);
-	$("s_ud").innerHTML = (spr[0]/1e6).toLocaleString() + " USDC";
-	$("s_ua").innerHTML = (spr[1]/1e18).toLocaleString() + " RAVE";
+	$("s_ud").innerHTML = (spr[1]/1e6).toLocaleString() + " USDC";
+	$("s_ua").innerHTML = (spr[0]/1e18).toLocaleString() + " RAVE";
 }
 SDRABI = [{"inputs":[{"internalType":"address","name":"_a","type":"address"},{"internalType":"address","name":"_b","type":"address"},{"internalType":"address","name":"_c","type":"address"},{"internalType":"address","name":"_d","type":"address"},{"internalType":"uint256","name":"_u","type":"uint256"},{"internalType":"uint256","name":"_m","type":"uint256"},{"internalType":"uint256","name":"_t","type":"uint256"}],"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"","type":"address"},{"indexed":false,"internalType":"uint256","name":"","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"","type":"uint256"}],"name":"Claim","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"internalType":"address","name":"","type":"address"},{"indexed":false,"internalType":"uint256","name":"","type":"uint256"},{"indexed":false,"internalType":"uint256","name":"","type":"uint256"}],"name":"Deposit","type":"event"},{"inputs":[],"name":"MAX","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"allocated","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_who","type":"address"}],"name":"allocation","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"asset","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"base","outputs":[{"internalType":"contract IERC20","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"claim","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"claimTime","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"claimed","outputs":[{"internalType":"bool","name":"","type":"bool"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"","type":"address"}],"name":"contribution","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"creator","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"dao","outputs":[{"internalType":"address","name":"","type":"address"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"uint256","name":"_amt","type":"uint256"}],"name":"deposit","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"participants","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[{"internalType":"address","name":"_t","type":"address"}],"name":"rescue","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_t","type":"uint256"}],"name":"setClaimTime","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"address","name":"_d","type":"address"}],"name":"setDao","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[{"internalType":"uint256","name":"_u","type":"uint256"}],"name":"setUnits","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"sweep","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"total","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"totalClaimed","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"units","outputs":[{"internalType":"uint256","name":"","type":"uint256"}],"stateMutability":"view","type":"function"}]
 TKNABI = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"s","type":"address"},{"name":"a","type":"uint256"}],"name":"approve","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"s","type":"address"},{"name":"d","type":"address"},{"name":"a","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"}],"name":"balanceOf","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"d","type":"address"},{"name":"a","type":"uint256"}],"name":"transfer","outputs":[{"name":"","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"","type":"address"},{"name":"","type":"address"}],"name":"allowance","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"anonymous":false,"inputs":[{"indexed":true,"name":"o","type":"address"},{"indexed":true,"name":"s","type":"address"},{"indexed":false,"name":"a","type":"uint256"}],"name":"Approval","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"s","type":"address"},{"indexed":true,"name":"d","type":"address"},{"indexed":false,"name":"a","type":"uint256"}],"name":"Transfer","type":"event"}]
@@ -476,22 +476,23 @@ async function confirm() {
 			<br><br>
 			Please confirm the <b>Deposit</b> at your wallet provider now.
 		`)
-		_SEEDR = new ethers.Contract(SEEDR, ["function deposit(uint)"], signer);
-		_tr = await _SEEDR.deposit(BigInt(v_d));
-		notice(`
-			<h3>Submitting Deposit Transction!</h3>
-			Seeding ${v} USDC.. Please wait for transaction to confirm.<br>
-			<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
-		`);
-		console.log(_tw)
-		notice(`
-			<h3>Deposit Completed!</h3>
-			<br><br>
-			<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
-			<br><br>
-			Check back after the completion of the sale to collect your tokens!
-		`)
 	}
+	_SEEDR = new ethers.Contract(SEEDR, ["function deposit(uint)"], signer);
+	_tr = await _SEEDR.deposit(BigInt(v_d));
+	notice(`
+		<h3>Submitting Deposit Transction!</h3>
+		Seeding ${v} USDC.. Please wait for transaction to confirm.<br>
+		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
+	`);
+	console.log(_tw)
+	notice(`
+		<h3>Deposit Completed!</h3>
+		<br><br>
+		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
+		<br><br>
+		Check back after the completion of the sale to collect your tokens!
+	`)
+
 
 	return
 	//USD = new ethers.Contract(USDC,ab1,signer);
@@ -509,4 +510,18 @@ function vals(i) {
 		if($("in-n").value > SEEDMAX){notice("allocation amount too high!"); return}
 		$("in-r").value = $("in-n").value;
 	}
+}
+
+function arf(){
+	o = INITIAL; c=0;
+	var xfr = setInterval(
+		function(){
+			if(!isFinite( v = $("in-n").value )) { return }
+			//if($('ain').value == "" ) { $('ain').value=INITIAL }
+			if(o != $('in-n').value){ $('in-r').value = $("in-n").value }
+			o = $('in-n').value
+			c++
+		},
+		500
+	)
 }
