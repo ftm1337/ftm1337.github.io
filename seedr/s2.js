@@ -510,3 +510,17 @@ function vals(i) {
 		$("in-r").value = $("in-n").value;
 	}
 }
+
+function arf(){
+	o = INITIAL; c=0;
+	var xfr = setInterval(
+		function(){
+			if(!isFinite( v = $("in-n").value )) { return }
+			//if($('ain').value == "" ) { $('ain').value=INITIAL }
+			if(o != $('in-n').value){ $('in-r').value = $("in-n").value }
+			o = $('in-n').value
+			c++
+		},
+		500
+	)
+}
