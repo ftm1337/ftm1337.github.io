@@ -465,6 +465,7 @@ async function confirm() {
 			Please approve this transaction in your wallet.
 		`)
 		_tr = await _BASE.approve(SEEDR,BigInt(v_d));
+		console.log(_tr)
 		notice(`
 			<h3>Submitting Approval Transction!</h3>
 			<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
@@ -484,7 +485,7 @@ async function confirm() {
 		Seeding ${v} USDC.. Please wait for transaction to confirm.<br>
 		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
 	`);
-	console.log(_tw)
+	console.log(_tr)
 	notice(`
 		<h3>Deposit Completed!</h3>
 		<br><br>
