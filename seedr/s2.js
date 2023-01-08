@@ -434,7 +434,7 @@ async function dr() {
 	$("s_tr").innerHTML = fornum(spr[0], 6) + " USDC";
 	$("s_ta").innerHTML = fornum(spr[1],18) + " RAVE";
 	$("s_pt").innerHTML = Number(spr[2]) + " Ravers";
-	$("s_pr").innerHTML = (sr[0]/1e6/1e5*100).toFixed(2) + " %";
+	$("s_pr").innerHTML = (spr[0]/1e6/1e5*100).toFixed(2) + " %";
 }
 function notice(c) {
 	window.location = "#note"
@@ -453,10 +453,10 @@ async function confirm() {
 	v_d = Math.floor(v*10**DEC_A)
 	if(al<v_d) {
 		notice(`
-			<h2>Approve ${v} USDC=.</h2>
+			<h2>Approve ${v} USDC.</h2>
+			SeedR needs your approval to spend ${v} USDC.<br><br>
 			Please approve this transaction in your wallet.
 		`)
-		console.log(_tr)
 		_tr = await _BASE.approve(SEEDR,BigInt(v_d));
 		notice(`
 			<h3>Submitting Approval Transction!</h3>
