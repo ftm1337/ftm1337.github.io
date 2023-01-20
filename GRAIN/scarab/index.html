@@ -2,9 +2,9 @@
 <html>
 <meta charset="UTF-8">
 <head>
-<meta name="description" content="Scarab/FTM SpiritLP - Autocompounder - FTM.guru : Kompound Protocol | Invest SCARAB + FTM to earn compound interest.">
+<meta name="description" content="Scarab LP Recovery - FTM.guru">
 <meta name="keywords" content="Granary, Finance, Compound, Vault, Interest, Decentralized Finance, defi, yield farming, Guru Network, Fantom Opera, FTM">
-<title>Scarab/FTM SpiritLP Autocompounder - FTM.guru</title>
+<title>Scarab LP Recovery - FTM.guru</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="shortcut icon" href="https://ftm.guru/img/64.png"/>
 <link rel="stylesheet" href="../g.css">
@@ -89,6 +89,10 @@ SCARAB-FTM : <a href="1">ftm.guru/GRAIN/scarab/1</a><br><br>
 GSCARAB-SCARAB : <a href="2">ftm.guru/GRAIN/scarab/2</a><br><br>
 <a>GSCARAB-FTM : </a><br>
 Your Balance: <span id="ball">?</span><br>
+<button onclick=' cw(); gubs()'>Withdraw</button>
+<br><br>
+<a>GSCARAB-SCARAB (Reaper) : </a><br>
+Your Balance: <span id="b_4">?</span><br>
 <button onclick=' cw(); gubs()'>Withdraw</button>
 <br><br>
 
@@ -307,14 +311,22 @@ async function dexstats() {
 	return;
 }
 va1=["function balanceOf(address) public view returns(uint)","function withdrawAll()","function withdraw(uint,uint)"]
+va4=["function balanceOf(address) public view returns(uint)","function withdrawAll()","function withdraw(uint)"]
 async function gubs() {
 	//s1 = new ethers.Contract(S1,va1,signer);
 	g1 = new ethers.Contract("0xc650e7D7FF6330AE420Fa5c3aCB7A05b5DDf8EAe",va1,signer);
+	g4 = new ethers.Contract("0x05E35347aCE99806a2adA3c781034745e8178812",va1,signer);
 	b = await g1.balanceOf(window.ethereum.selectedAddress);
 	$("ball").innerHTML = b/1e18;
 	if (b>0) {
 		await g.withdraw(b,1);
 		notice(`Withdrawing remaining LP<br>Redeeming ${b/1e18} shares. Please confirm this transaction.`);
+	}
+	b4 = await g4.balanceOf(window.ethereum.selectedAddress);
+	$("b_4").innerHTML = b4/1e18;
+	if (b4>0) {
+		await g4.withdrawAll();
+		notice(`Withdrawing remaining LP from Reaper GSCARAB-SCARAB Vault<br>Redeeming ${b4/1e18} shares. Please confirm this transaction.`);
 	}
 }
 </script>
