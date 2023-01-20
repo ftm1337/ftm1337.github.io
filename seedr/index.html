@@ -220,26 +220,31 @@ button {
 		</div>
 	</div>
 	<br><br><br>
-	<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC do you wish to allocate?</h3>
-	<div class="slide-container-2">
-     <input type="range" min="1" step="1" max="5000" value="10" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
+	<div id="participate">
+		<h3>How much <img class="imgmtv" src="https://ftm.guru/icons/usdc.svg" width="20px" style="position:relative;top:4px">USDC do you wish to allocate?</h3>
+		<div class="slide-container-2">
+     	<input type="range" min="1" step="1" max="5000" value="10" class="slider-2" id="in-r" onchange="vals(0)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" >
+		</div>
+		<br>
+		<div id="d-in-n">
+			<input id="in-n" min="1" step="1" max="5000" value="10" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" list="defaultNumbers">
+			<datalist id="defaultNumbers">
+  			<option value="10"></option>
+  			<option value="25"></option>
+  			<option value="100"></option>
+  			<option value="500"></option>
+  			<option value="1000"></option>
+  			<option value="2000"></option>
+  			<option value="5000"></option>
+			</datalist>
+			<b><img src="https://ftm.guru/icons/usdc.svg" width="24px" style="position:relative;top:6px">USDC</b>
+		</div>
+		<br><br>
+		<button onclick="confirm()" id="btn-confirm">🚀 Confirm</button>
 	</div>
-	<br>
-	<div id="d-in-n">
-		<input id="in-n" min="1" step="1" max="5000" value="10" type="number" onchange="vals(1)" oninput="this.onchange" onkeyup="this.onchange();" onkeypress="this.onchange();" onpaste="this.onchange();" list="defaultNumbers">
-		<datalist id="defaultNumbers">
-  		<option value="10"></option>
-  		<option value="25"></option>
-  		<option value="100"></option>
-  		<option value="500"></option>
-  		<option value="1000"></option>
-  		<option value="2000"></option>
-  		<option value="5000"></option>
-		</datalist>
-		<b><img src="https://ftm.guru/icons/usdc.svg" width="24px" style="position:relative;top:6px">USDC</b>
+	<div id="claims">
+		<button onclick="claim()" id="btn-confirm">Claim Your Allocation</button>
 	</div>
-	<br><br>
-	<button onclick="confirm()" id="btn-confirm">🚀 Confirm</button>
 	<br><br><br><br>
 	<div id="note" class="overlay">
 		<div class="popup">
