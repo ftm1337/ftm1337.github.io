@@ -510,7 +510,7 @@ async function claim() {
 		<h3>Claiming Your Allocation!</h3>
 		Please confirm the transaction now at your wallet provider.
 	`);
-	_tr = await _SEEDR.claim(BigInt(v_d));
+	_tr = await _SEEDR.claim();
 	notice(`
 		<h3>Claiming Your Allocation!</h3>
 		Please wait for transaction to confirm.<br>
