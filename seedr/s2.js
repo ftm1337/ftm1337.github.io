@@ -505,19 +505,19 @@ async function confirm() {
 
 
 async function claim() {
-	_SEEDR = new ethers.Contract(SEEDR, ["function deposit(uint)"], signer);
+	_SEEDRC = new ethers.Contract(SEEDR, SDRABI, signer);
 	notice(`
 		<h3>Claiming Your Allocation!</h3>
 		Please confirm the transaction now at your wallet provider.
 	`);
-	_tr = await _SEEDR.claim();
+	_tr = await _SEEDRC.claim();
 	notice(`
 		<h3>Claiming Your Allocation!</h3>
 		Please wait for transaction to confirm.<br>
 		<h4><a target="_blank" href="https://ftmscan.com/tx/${_tr.hash}">View on Explorer</a></h4>
 	`);
 	await _tr.wait();
-	console.log(_tr)
+	console.log(_tr);
 	notice(`
 		<h3>Claim Successful!</h3>
 		<br><br>
