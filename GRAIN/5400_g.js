@@ -518,6 +518,20 @@ async function enter()
 	catch(e){console.log(e);$("cw_m").innerHTML=e}
 }
 
+async function em_withdraw()
+{
+	try
+	{
+		var conAdd = f_1_add;
+		theCon = new ethers.Contract(f_1_add, farabi, signer);
+		var m = await theCon.balanceOf(window.ethereum.selectedAddress)
+		txr = await theCon.emergencyWithdraw(m)//.send({from:window.ethereum.selectedAddress},(e, r) => {console.log(r)}).then((c)=>{console.log(c);gs();});
+		console.log("withdraw all: amount=",m,"txhash:",txr)
+		gubs()
+	}
+	catch(e){console.log(e);$("cw_m").innerHTML=e}
+}
+
 async function exit()
 {
 	try
